@@ -1,6 +1,12 @@
 'use client'
 
 import { ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
+import { clsx, type ClassValue } from 'clsx'
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 interface GlassCardProps {
   children: ReactNode
@@ -18,12 +24,12 @@ export function GlassCard({
   return (
     <Component
       id={id}
-      className={`
-        glass
-        rounded-2xl
-        transition-all duration-300
-        ${className}
-      `}
+      className={cn(
+        'glass',
+        'rounded-2xl',
+        'transition-all duration-300',
+        className
+      )}
     >
       {children}
     </Component>

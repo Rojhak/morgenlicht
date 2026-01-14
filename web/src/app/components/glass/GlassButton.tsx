@@ -2,6 +2,12 @@
 
 import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from 'react'
 import Link from 'next/link'
+import { twMerge } from 'tailwind-merge'
+import { clsx, type ClassValue } from 'clsx'
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   as?: 'button'
@@ -63,7 +69,7 @@ export function GlassButton({
     lg: 'h-14 px-8 text-lg min-w-[56px]'
   }
 
-  const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`
+  const combinedClassName = cn(baseStyles, variants[variant], sizes[size], className)
 
   if (as === 'link') {
     const { href, ...linkProps } = props as LinkProps

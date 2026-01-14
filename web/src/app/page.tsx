@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { Heart, Shield, Users, Clock, Award, ArrowRight, Sparkles, ShoppingCart, Car, Home, Coffee, HeartHandshake, Quote, Sun } from 'lucide-react'
-import { GlassCard, GlassButton } from './components/glass'
-import { CareFinder } from './components/wizard'
+import { Heart, Shield, Users, Clock, Award, ArrowRight, Sparkles, ShoppingCart, Car, Home, Coffee, HeartHandshake, Quote, Sun, Phone } from 'lucide-react'
+import { GlassCard, GlassButton } from '@/app/components/glass'
+import { CareFinder } from '@/app/components/wizard'
 
 export default function HomePage() {
   return (
@@ -437,7 +437,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0D6E64] via-[#0D7D72] to-[#0D6E64]" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMtOS45NDEgMC0xOCA4LjA1OS0xOCAxOHM4LjA1OSAxOCAxOCAxOCAxOC04LjA1OSAxOC0xOC04LjA1OS0xOC0xOC0xOHptMCAzMmMtNy43MzIgMC0xNC02LjI2OC0xNC0xNHM2LjI2OC0xNCAxNC0xNCAxNCA2LjI2OCAxNCAxNC02LjI2OCAxNC0xNCAxNHoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+PC9nPjwvc3ZnPg==')] opacity-30" aria-hidden="true" />
 
-        <div className="relative max-w-4xl mx-auto text-center">
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6">
             <Sun className="w-8 h-8 text-[#FFD54F]" aria-hidden="true" />
           </div>
@@ -445,7 +445,7 @@ export default function HomePage() {
           <h2 id="cta-title" className="text-3xl md:text-4xl font-bold font-display !text-white mb-4">
             Bereit für den nächsten Schritt?
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl !text-white/90 mb-10 max-w-2xl mx-auto">
             Wir beraten Sie kostenlos und unverbindlich. Gemeinsam finden wir die perfekte Unterstützung.
           </p>
 
@@ -455,18 +455,19 @@ export default function HomePage() {
               href="/kontakt"
               variant="primary"
               size="lg"
-              className="bg-white text-[#0D6E64] hover:bg-white/95 shadow-xl font-semibold"
+              className="!bg-white !text-teal-900 hover:!bg-white/95 shadow-xl font-semibold"
             >
               Kostenlos anfragen
-              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+              <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
             </GlassButton>
             <GlassButton
               as="link"
               href="tel:06912345678"
               variant="ghost"
               size="lg"
-              className="border-white/30 text-white hover:bg-white/10 font-semibold"
+              className="border-white/30 !text-white hover:bg-white/10 font-semibold"
             >
+              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
               069 12345678
             </GlassButton>
           </div>

@@ -1,0 +1,285 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Zum Hauptinhalt springen" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - navigation "Hauptnavigation" [ref=e4]:
+      - generic [ref=e6]:
+        - link "Morgenlicht" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img [ref=e8]
+          - generic [ref=e14]: Morgenlicht
+        - button "Menü öffnen" [ref=e15]:
+          - img [ref=e16]
+      - generic [ref=e17]:
+        - link "Startseite" [ref=e18] [cursor=pointer]:
+          - /url: /
+        - link "Leistungen" [ref=e19] [cursor=pointer]:
+          - /url: /leistungen
+        - link "Über uns" [ref=e20] [cursor=pointer]:
+          - /url: /ueber-uns
+        - link "Blog" [ref=e21] [cursor=pointer]:
+          - /url: /blog
+        - link "Kontakt" [ref=e22] [cursor=pointer]:
+          - /url: /kontakt
+        - generic [ref=e23]:
+          - group "Sprache wählen" [ref=e24]:
+            - button "DE" [pressed] [ref=e25]
+            - generic [ref=e26]: "|"
+            - button "TR" [disabled] [ref=e27]
+          - link "Jetzt anfragen" [ref=e28] [cursor=pointer]:
+            - /url: /kontakt
+  - main [ref=e29]:
+    - region "Würdevolle Unterstützung im Alltag" [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - img [ref=e34]
+            - generic [ref=e37]: Pflegekasse anerkannt
+            - generic [ref=e38]: "-"
+            - generic [ref=e39]: §45a SGB XI
+          - heading "Würdevolle Unterstützung im Alltag" [level=1] [ref=e40]:
+            - generic [ref=e41]: Würdevolle
+            - generic [ref=e42]: Unterstützung im Alltag
+          - paragraph [ref=e43]: Liebevolle Alltagsbegleitung für Senioren.
+          - paragraph [ref=e44]: 100% durch Ihre Pflegekasse abgedeckt.
+        - paragraph [ref=e46]: Für wen suchen Sie Unterstützung?
+        - generic [ref=e47]:
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - img [ref=e56]
+              - generic [ref=e58]:
+                - heading "Für mich selbst" [level=2] [ref=e59]
+                - paragraph [ref=e60]: Selbstbestimmt leben
+            - list [ref=e61]:
+              - listitem [ref=e62]:
+                - img [ref=e64]
+                - generic [ref=e67]: Flexible Zeiten nach Ihrem Rhythmus
+              - listitem [ref=e68]:
+                - img [ref=e70]
+                - generic [ref=e75]: Vertraute Begleiter an Ihrer Seite
+              - listitem [ref=e76]:
+                - img [ref=e78]
+                - generic [ref=e80]: Keine Kosten – Pflegekasse zahlt
+            - link "Möglichkeiten entdecken" [ref=e81] [cursor=pointer]:
+              - /url: "#calculator"
+              - text: Möglichkeiten entdecken
+              - img [ref=e82]
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - img [ref=e92]
+              - generic [ref=e94]:
+                - heading "Für meine Eltern" [level=2] [ref=e95]
+                - paragraph [ref=e96]: Entlastung für Sie
+            - list [ref=e97]:
+              - listitem [ref=e98]:
+                - img [ref=e100]
+                - generic [ref=e103]: Zuverlässige Betreuung jederzeit
+              - listitem [ref=e104]:
+                - img [ref=e106]
+                - generic [ref=e111]: Regelmäßige Updates für Sie
+              - listitem [ref=e112]:
+                - img [ref=e114]
+                - generic [ref=e116]: Wir regeln die Abrechnung
+            - link "Entlastung finden" [ref=e117] [cursor=pointer]:
+              - /url: "#calculator"
+              - text: Entlastung finden
+              - img [ref=e118]
+        - link "Budget berechnen" [ref=e121] [cursor=pointer]:
+          - /url: "#calculator"
+          - generic [ref=e122]: Budget berechnen
+    - region "Ihr persönlicher Pflegebudget-Rechner" [ref=e126]:
+      - generic [ref=e128]:
+        - generic [ref=e129]:
+          - img [ref=e131]
+          - heading "Ihr persönlicher Pflegebudget-Rechner" [level=2] [ref=e133]
+          - paragraph [ref=e134]: Finden Sie heraus, wie viele Stunden Unterstützung Ihnen zustehen
+        - generic [ref=e135]:
+          - group "Ihr Pflegegrad" [ref=e136]:
+            - generic [ref=e137]: Ihr Pflegegrad
+            - generic [ref=e138]:
+              - button "Pflegegrad 1" [ref=e139]
+              - button "Pflegegrad 2" [ref=e140]
+              - button "Pflegegrad 3" [ref=e141]
+              - button "Pflegegrad 4" [ref=e142]
+              - button "Pflegegrad 5" [ref=e143]
+          - link "Ich habe noch keinen Pflegegrad" [ref=e144] [cursor=pointer]:
+            - /url: /pflegegrad-guide
+            - img [ref=e145]
+            - text: Ich habe noch keinen Pflegegrad
+          - button "Berechnen" [disabled] [ref=e148]:
+            - text: Berechnen
+            - img [ref=e149]
+    - region "Stimmen unserer Familien" [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - generic [ref=e154]: Familien erzählen
+          - heading "Stimmen unserer Familien" [level=2] [ref=e155]
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - img [ref=e159]
+            - generic [ref=e162]:
+              - blockquote [ref=e163]:
+                - paragraph [ref=e164]: „Meine Mutter blüht richtig auf, seit Frau Weber jede Woche kommt. Die beiden backen zusammen, gehen spazieren – und ich höre endlich wieder ein echtes Lachen am Telefon. Das ist unbezahlbar."
+              - generic [ref=e165]:
+                - generic [ref=e167]: MH
+                - generic [ref=e168]:
+                  - text: Mehmet H.
+                  - paragraph [ref=e169]: Sohn einer Kundin aus Sachsenhausen
+          - generic [ref=e170]:
+            - img [ref=e172]
+            - blockquote [ref=e175]:
+              - paragraph [ref=e176]: „Endlich kann ich beruhigt zur Arbeit gehen. Zu wissen, dass Papa in guten Händen ist, nimmt mir so viel Last von den Schultern."
+              - generic [ref=e177]:
+                - generic [ref=e179]: SK
+                - generic [ref=e180]:
+                  - text: Sandra K.
+                  - paragraph [ref=e181]: Berufstätige Tochter
+          - generic [ref=e182]:
+            - img [ref=e184]
+            - blockquote [ref=e187]:
+              - paragraph [ref=e188]: "„Ich war skeptisch, ob fremde Hilfe das Richtige ist. Aber nach dem ersten Besuch wusste ich: Das ist keine fremde Hilfe – das ist wie Familie.\""
+              - generic [ref=e189]:
+                - generic [ref=e191]: ER
+                - generic [ref=e192]:
+                  - text: Elisabeth R.
+                  - paragraph [ref=e193]: 82 Jahre, Pflegegrad 2
+    - region "Unterstützung, die zu Ihnen passt" [ref=e194]:
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - generic [ref=e197]: Unsere Leistungen
+          - heading "Unterstützung, die zu Ihnen passt" [level=2] [ref=e198]
+          - paragraph [ref=e199]: Von der Einkaufshilfe bis zur liebevollen Alltagsbegleitung – wir sind für Sie da.
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - img [ref=e203]
+            - heading "Einkaufshilfe" [level=3] [ref=e207]
+            - paragraph [ref=e208]: Gemeinsam einkaufen oder wir erledigen es für Sie
+          - generic [ref=e209]:
+            - img [ref=e211]
+            - heading "Begleitdienste" [level=3] [ref=e215]
+            - paragraph [ref=e216]: Zu Arztterminen, Behörden oder auf Ausflüge
+          - generic [ref=e217]:
+            - img [ref=e219]
+            - heading "Haushaltshilfe" [level=3] [ref=e222]
+            - paragraph [ref=e223]: Unterstützung bei alltäglichen Aufgaben
+          - generic [ref=e224]:
+            - img [ref=e226]
+            - heading "Alltagsbegleitung" [level=3] [ref=e228]
+            - paragraph [ref=e229]: Gesellschaft und gemeinsame Aktivitäten
+          - generic [ref=e230]:
+            - img [ref=e232]
+            - heading "Entlastung für Angehörige" [level=3] [ref=e234]
+            - paragraph [ref=e235]: Zeit für sich, während wir uns kümmern
+          - generic [ref=e236]:
+            - img [ref=e238]
+            - heading "Gedächtnistraining" [level=3] [ref=e241]
+            - paragraph [ref=e242]: Spielerische Übungen für geistige Fitness
+        - link "Alle Leistungen ansehen" [ref=e244] [cursor=pointer]:
+          - /url: /leistungen
+          - text: Alle Leistungen ansehen
+          - img [ref=e245]
+    - region "Warum Familien uns vertrauen" [ref=e247]:
+      - generic [ref=e248]:
+        - generic [ref=e249]:
+          - generic [ref=e250]: Vertrauen & Sicherheit
+          - heading "Warum Familien uns vertrauen" [level=2] [ref=e251]
+          - paragraph [ref=e252]: Staatlich anerkannt, persönlich für Sie da
+        - generic [ref=e253]:
+          - generic [ref=e254]:
+            - generic [ref=e256]: §45a
+            - generic [ref=e257]: SGB XI anerkannt
+            - paragraph [ref=e258]: Offiziell zugelassener Anbieter
+          - generic [ref=e259]:
+            - generic [ref=e261]: 100%
+            - generic [ref=e262]: Kostenübernahme
+            - paragraph [ref=e263]: Durch Ihre Pflegekasse
+          - generic [ref=e264]:
+            - generic [ref=e266]: 24h
+            - generic [ref=e267]: Schnelle Antwort
+            - paragraph [ref=e268]: Auf Ihre Anfrage
+        - generic [ref=e270]:
+          - generic [ref=e271]:
+            - img [ref=e273]
+            - generic [ref=e278]: Geschulte Alltagsbegleiter
+          - generic [ref=e279]:
+            - img [ref=e281]
+            - generic [ref=e284]: Flexible Termine
+          - generic [ref=e285]:
+            - img [ref=e287]
+            - generic [ref=e289]: Regionale Betreuung
+    - region "Bereit für den nächsten Schritt?" [ref=e290]:
+      - generic [ref=e293]:
+        - img [ref=e295]
+        - heading "Bereit für den nächsten Schritt?" [level=2] [ref=e301]
+        - paragraph [ref=e302]: Wir beraten Sie kostenlos und unverbindlich. Gemeinsam finden wir die perfekte Unterstützung.
+        - generic [ref=e303]:
+          - link "Kostenlos anfragen" [ref=e304] [cursor=pointer]:
+            - /url: /kontakt
+            - text: Kostenlos anfragen
+            - img [ref=e305]
+          - link "069 12345678" [ref=e307] [cursor=pointer]:
+            - /url: tel:06912345678
+  - contentinfo [ref=e308]:
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - generic [ref=e316]:
+            - img [ref=e318]
+            - generic [ref=e324]: Morgenlicht
+          - paragraph [ref=e325]: Würdevolle Unterstützung im Alltag für Senioren und Entlastung für pflegende Angehörige.
+          - generic [ref=e326]:
+            - img [ref=e327]
+            - generic [ref=e330]: Raum Frankfurt
+        - generic [ref=e331]:
+          - heading "Navigation" [level=3] [ref=e332]
+          - navigation "Footer-Navigation" [ref=e333]:
+            - list [ref=e334]:
+              - listitem [ref=e335]:
+                - link "Leistungen" [ref=e336] [cursor=pointer]:
+                  - /url: /leistungen
+              - listitem [ref=e337]:
+                - link "Über uns" [ref=e338] [cursor=pointer]:
+                  - /url: /ueber-uns
+              - listitem [ref=e339]:
+                - link "Blog" [ref=e340] [cursor=pointer]:
+                  - /url: /blog
+              - listitem [ref=e341]:
+                - link "Kontakt" [ref=e342] [cursor=pointer]:
+                  - /url: /kontakt
+        - generic [ref=e343]:
+          - heading "Informationen" [level=3] [ref=e344]
+          - list [ref=e345]:
+            - listitem [ref=e346]:
+              - link "Pflegegrad-Guide" [ref=e347] [cursor=pointer]:
+                - /url: /pflegegrad-guide
+            - listitem [ref=e348]:
+              - link "Impressum" [ref=e349] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e350]:
+              - link "Datenschutz" [ref=e351] [cursor=pointer]:
+                - /url: /datenschutz
+        - generic [ref=e352]:
+          - heading "Kontakt" [level=3] [ref=e353]
+          - generic [ref=e354]:
+            - link "069 12345678" [ref=e355] [cursor=pointer]:
+              - /url: tel:06912345678
+              - img [ref=e357]
+              - generic [ref=e359]: 069 12345678
+            - generic [ref=e360]:
+              - img [ref=e362]
+              - generic [ref=e365]: "Mo-Fr: 8:00 - 18:00"
+            - generic [ref=e366]:
+              - generic [ref=e367]:
+                - img [ref=e368]
+                - generic [ref=e370]: Anerkannter Anbieter
+              - paragraph [ref=e371]: nach § 45a SGB XI – 100% Kostenübernahme durch die Pflegekasse
+      - generic [ref=e373]:
+        - paragraph [ref=e374]: © 2026 Morgenlicht Alltagshilfe. Mit Liebe gemacht.
+        - generic [ref=e375]:
+          - img [ref=e376]
+          - generic [ref=e378]: Für ein würdevolles Älterwerden
+  - alert [ref=e379]
+```

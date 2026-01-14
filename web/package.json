@@ -6,21 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:ui": "playwright test",
+    "test:ui:headed": "playwright test --headed",
+    "test:ui:debug": "playwright test --debug",
+    "test:ui:report": "playwright show-report"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "resend": "^6.7.0",
+    "tailwind-merge": "^3.4.0",
     "zustand": "^5.0.10"
   },
   "devDependencies": {
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-playwright": "^2.2.2",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "puppeteer": "^24.35.0",
