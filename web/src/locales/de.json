@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "title": "Morgenlicht Alltagshilfe",
+    "description": "Alltagsbegleitung und Entlastung für Senioren und Angehörige"
+  },
+  "nav": {
+    "home": "Startseite",
+    "services": "Leistungen",
+    "about": "Über uns",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "cta": "Jetzt anfragen"
+  },
+  "hero": {
+    "badge": "Pflegekasse anerkannt",
+    "seniorPath": {
+      "title": "Ich suche Hilfe für mich",
+      "subtitle": "Selbstbestimmt und würdevoll im eigenen Zuhause leben",
+      "cta": "Meine Möglichkeiten entdecken"
+    },
+    "relativePath": {
+      "title": "Ich suche Hilfe für meine Eltern",
+      "subtitle": "Entlastung für Sie, Sicherheit für Ihre Liebsten",
+      "cta": "Entlastung finden"
+    }
+  },
+  "wizard": {
+    "title": "Ihr persönlicher Pflegebudget-Rechner",
+    "subtitle": "Finden Sie heraus, wie viele Stunden Unterstützung Ihnen zustehen",
+    "pflegegradLabel": "Ihr Pflegegrad",
+    "selectPflegegrad": "Pflegegrad auswählen",
+    "noPflegegrad": "Ich habe noch keinen Pflegegrad",
+    "result": {
+      "title": "Ihr Ergebnis",
+      "hours": "Stunden",
+      "perMonth": "pro Monat",
+      "covered": "vollständig durch Ihre Pflegekasse abgedeckt",
+      "calculation": "Berechnung basiert auf dem Entlastungsbetrag von {amount} monatlich"
+    },
+    "cta": "Jetzt anfragen",
+    "noResult": {
+      "title": "Wir helfen Ihnen weiter",
+      "text": "Rufen Sie uns direkt an und wir besprechen Ihre Möglichkeiten.",
+      "phone": "069 12345678"
+    }
+  },
+  "services": {
+    "title": "Unsere Leistungen",
+    "subtitle": "Individuelle Unterstützung für Ihren Alltag",
+    "items": {
+      "shopping": {
+        "title": "Einkaufshilfe",
+        "description": "Gemeinsam einkaufen oder wir erledigen es für Sie"
+      },
+      "accompaniment": {
+        "title": "Begleitdienste",
+        "description": "Begleitung zu Arztterminen, Behörden oder Ausflügen"
+      },
+      "household": {
+        "title": "Haushaltshilfe",
+        "description": "Unterstützung bei alltäglichen Aufgaben im Haushalt"
+      },
+      "companion": {
+        "title": "Alltagsbegleitung",
+        "description": "Gesellschaft und Unterstützung im täglichen Leben"
+      },
+      "relief": {
+        "title": "Entlastung für Angehörige",
+        "description": "Zeit für sich, während Ihre Liebsten bestens betreut sind"
+      }
+    }
+  },
+  "trust": {
+    "title": "Vertrauen Sie uns",
+    "certified": "Anerkannter Anbieter nach § 45a SGB XI"
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "subtitle": "Wir melden uns innerhalb von 24 Stunden bei Ihnen",
+    "form": {
+      "name": "Ihr Name",
+      "namePlaceholder": "Vor- und Nachname",
+      "phone": "Telefonnummer",
+      "phonePlaceholder": "Für unseren Rückruf",
+      "submit": "Anfrage senden",
+      "sending": "Wird gesendet...",
+      "success": "Vielen Dank! Wir haben Ihre Anfrage erhalten und melden uns zeitnah.",
+      "error": "Ihre Anfrage konnte nicht gesendet werden. Bitte rufen Sie uns direkt an:"
+    }
+  },
+  "footer": {
+    "tagline": "Würdevolle Unterstützung im Alltag",
+    "serviceArea": "Wir betreuen Familien im Raum Frankfurt",
+    "legal": {
+      "imprint": "Impressum",
+      "privacy": "Datenschutz"
+    }
+  },
+  "education": {
+    "title": "Pflegegrad verstehen",
+    "subtitle": "Schritt für Schritt zu Ihrem Anspruch",
+    "steps": {
+      "what": {
+        "title": "Was ist ein Pflegegrad?",
+        "content": "Der Pflegegrad bestimmt, welche Leistungen Ihnen von der Pflegekasse zustehen."
+      },
+      "how": {
+        "title": "Wie wird er festgestellt?",
+        "content": "Ein Gutachter des MDK besucht Sie zu Hause und bewertet Ihre Selbstständigkeit."
+      },
+      "expect": {
+        "title": "Was Sie erwartet",
+        "content": "Der Besuch dauert etwa eine Stunde. Wir empfehlen, Angehörige dabei zu haben."
+      },
+      "checklist": {
+        "title": "Ihre Checkliste",
+        "content": "Bereiten Sie Arztberichte, Medikamentenlisten und einen Überblick über Ihren Alltag vor."
+      },
+      "help": {
+        "title": "Wie wir helfen",
+        "content": "Wir unterstützen Sie bei der Antragstellung und bereiten Sie auf den MDK-Besuch vor."
+      }
+    },
+    "cta": "Kostenlose Beratung anfragen"
+  },
+  "about": {
+    "title": "Über uns",
+    "mission": "Unsere Mission",
+    "missionText": "Wir glauben daran, dass jeder Mensch das Recht auf ein würdevolles und selbstbestimmtes Leben hat – in jedem Alter."
+  }
+}
