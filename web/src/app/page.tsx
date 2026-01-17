@@ -463,9 +463,9 @@ export default function HomePage() {
             <GlassButton
               as="link"
               href="tel:06912345678"
-              variant="ghost"
+              variant="outline-white"
               size="lg"
-              className="border-white/30 !text-white hover:bg-white/10 font-semibold"
+              className="font-semibold"
             >
               <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
               069 12345678

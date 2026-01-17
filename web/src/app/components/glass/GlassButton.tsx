@@ -21,7 +21,7 @@ type LinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
 
 type GlassButtonProps = (ButtonProps | LinkProps) & {
   children: ReactNode
-  variant?: 'primary' | 'secondary' | 'ghost'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline-white'
   size?: 'sm' | 'md' | 'lg'
 }
 
@@ -59,6 +59,11 @@ export function GlassButton({
       glass hover:bg-white/70
       text-teal-900
       border border-white/40
+    `,
+    'outline-white': `
+      bg-transparent hover:bg-white/10
+      text-white
+      border border-white/50
     `
   }
 

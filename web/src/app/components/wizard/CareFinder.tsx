@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Calculator, Phone, ArrowRight, HelpCircle } from 'lucide-react'
+import { Calculator, Phone, ArrowRight, HelpCircle, Info } from 'lucide-react'
 import { GlassCard, GlassButton } from '../glass'
-import { calculateCoveredHours, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
+import { getMonthlyBudget, calculateCoveredHours, calculateMaxHours, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
 
 const PFLEGEGRADE = [
   { value: 1, label: 'Pflegegrad 1' },
@@ -26,10 +26,13 @@ export function CareFinder() {
     }
   }
 
-  const hours = selectedGrad ? calculateCoveredHours(selectedGrad) : 0
+  const budget = selectedGrad ? getMonthlyBudget(selectedGrad) : { base: 0, max: 0, convertible: 0 }
+  const baseHours = selectedGrad ? calculateCoveredHours(selectedGrad) : 0
+  const maxHours = selectedGrad ? calculateMaxHours(selectedGrad) : 0
+  const hasExtra = budget.convertible > 0
 
   return (
-    <section className="py-16 px-4" aria-labelledby="wizard-title">
+    <section className="py-16 px-4" aria-labelledby="wizard-title" id="calculator">
       <div className="max-w-2xl mx-auto">
         <GlassCard className="p-8">
           <div className="text-center mb-8">
@@ -58,11 +61,10 @@ export function CareFinder() {
                       className={`
                         h-12 px-4 rounded-xl font-medium transition-all duration-200
                         flex items-center justify-center
-                        border shadow-sm
-                        focus:outline-none focus:ring-4 focus:ring-gold-500 focus:ring-offset-2
+                        focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2
                         ${selectedGrad === grad.value
-                          ? 'bg-teal-800 border-teal-800 text-white shadow-md transform scale-[1.02]'
-                          : 'bg-white border-teal-100 text-teal-900 hover:border-teal-300 hover:bg-teal-50 hover:shadow-md'
+                          ? 'bg-[#0D6E64] text-white shadow-md'
+                          : 'bg-white/50 text-[#37474F] hover:bg-white/80 border border-white/40'
                         }
                       `}
                       aria-pressed={selectedGrad === grad.value}
@@ -93,12 +95,15 @@ export function CareFinder() {
                 <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
               </GlassButton>
             </div>
-          ) : hours > 0 ? (
+          ) : baseHours > 0 ? (
             <div className="text-center space-y-6">
+              {/* Main Result */}
               <div className="py-6 px-4 bg-[#E0F2F1] rounded-xl">
-                <p className="text-sm text-[#0D6E64] mb-2">Ihr Ergebnis</p>
-                <p className="text-5xl font-bold text-[#0D6E64] mb-1">
-                  {formatHours(hours)}
+                <p className="text-sm text-[#0D6E64] mb-2">
+                  Pflegegrad {selectedGrad} – Ihr Ergebnis
+                </p>
+                <p className="text-4xl sm:text-5xl font-bold text-[#0D6E64] mb-1 whitespace-nowrap">
+                  {hasExtra ? `${formatHours(baseHours)} – ${formatHours(maxHours)}` : formatHours(baseHours)}
                 </p>
                 <p className="text-lg text-[#37474F]">Stunden pro Monat</p>
                 <p className="text-sm text-[#455A64] mt-2">
@@ -106,8 +111,38 @@ export function CareFinder() {
                 </p>
               </div>
 
+              {/* Budget Breakdown */}
+              <div className="text-left bg-white/50 rounded-xl p-4 space-y-3">
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-[#455A64]">Entlastungsbetrag (§45b)</span>
+                  <span className="font-semibold text-[#37474F]">{formatCurrency(budget.base)}/Monat</span>
+                </div>
+                {hasExtra && (
+                  <>
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-[#455A64]">+ Umwandlungsanspruch (bis zu)</span>
+                      <span className="font-semibold text-[#37474F]">{formatCurrency(budget.convertible)}/Monat</span>
+                    </div>
+                    <div className="border-t border-[#0D6E64]/20 pt-3 flex justify-between items-center text-sm">
+                      <span className="font-medium text-[#37474F]">Maximales Budget</span>
+                      <span className="font-bold text-[#0D6E64]">{formatCurrency(budget.max)}/Monat</span>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {hasExtra && (
+                <div className="flex items-start gap-2 text-xs text-[#455A64] bg-[#FFF8E1] rounded-lg p-3">
+                  <Info className="w-4 h-4 text-[#B8472A] flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <p>
+                    Der Umwandlungsanspruch gilt, wenn Sie keine ambulante Pflegesachleistung in Anspruch nehmen.
+                    Wir beraten Sie gerne zu Ihren individuellen Möglichkeiten.
+                  </p>
+                </div>
+              )}
+
               <p className="text-sm text-[#455A64]">
-                Berechnung basiert auf dem Entlastungsbetrag von {formatCurrency(CARE_RATES.entlastungsbetrag)} monatlich
+                Berechnung basiert auf unserem Stundensatz von {formatCurrency(CARE_RATES.hourlyRate)}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3">
