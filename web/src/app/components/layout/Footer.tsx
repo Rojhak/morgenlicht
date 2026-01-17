@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Sun, Phone, MapPin, Heart, Clock } from 'lucide-react'
 
 const PHONE = '069 12345678'
@@ -20,9 +21,13 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#FFD54F] to-[#FF8A65] rounded-xl flex items-center justify-center shadow-lg shadow-[#FFD54F]/20">
-                <Sun className="w-5 h-5 text-white" aria-hidden="true" />
-              </div>
+              <Image
+                src="/trans_logo.svg"
+                alt="Morgenlicht Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
               <span className="text-xl font-bold text-[#37474F]">Morgenlicht</span>
             </div>
             <p className="text-[#455A64] mb-5 leading-relaxed">

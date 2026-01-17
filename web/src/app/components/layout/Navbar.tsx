@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Sun } from 'lucide-react'
+import Image from 'next/image'
+import { Menu, X } from 'lucide-react'
 import { GlassButton } from '../glass'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
@@ -32,13 +33,21 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo - accessible text color */}
+            {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 text-xl font-bold text-[#0D6E64]
+              className="flex items-center gap-3 text-xl font-bold text-[#0D6E64]
                          focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-2 py-1"
             >
-              <Sun className="w-6 h-6 text-[#FFD54F]" aria-hidden="true" />
+              <Image
+                src="/trans_logo.svg"
+                alt="Morgenlicht Logo"
+                width={48}
+                height={48}
+                className="w-12 h-12"
+                priority
+                unoptimized
+              />
               <span>Morgenlicht</span>
             </Link>
 
