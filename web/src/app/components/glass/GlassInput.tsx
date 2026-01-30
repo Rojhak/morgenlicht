@@ -19,6 +19,7 @@ export const GlassInput = forwardRef<HTMLInputElement, GlassInputProps>(
             className="block text-sm font-medium text-[#37474F] mb-2"
           >
             {label}
+            {props.required && <span className="text-red-500 ml-1" aria-hidden="true">*</span>}
           </label>
         )}
         <input
