@@ -10,6 +10,7 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 const navLinks = [
   { href: '/', label: 'Startseite' },
   { href: '/leistungen', label: 'Leistungen' },
+  { href: '/kosten', label: 'Kosten' },
   { href: '/ueber-uns', label: 'Über uns' },
   { href: '/blog', label: 'Blog' },
   { href: '/kontakt', label: 'Kontakt' },
@@ -36,30 +37,39 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 text-xl font-bold text-[#0D6E64]
+              className="flex items-center gap-3 group
                          focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-2 py-1"
             >
-              <Image
-                src="/trans_logo.svg"
-                alt="Morgenlicht Logo"
-                width={48}
-                height={48}
-                className="w-12 h-12"
-                priority
-                unoptimized
-              />
-              <span>Morgenlicht</span>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#FFD54F]/20 to-[#26A69A]/20 rounded-2xl blur-lg group-hover:blur-md transition-all duration-300" aria-hidden="true" />
+                <Image
+                  src="/trans_logo.svg"
+                  alt="Morgenlicht Logo"
+                  width={64}
+                  height={64}
+                  className="relative w-16 h-16"
+                  priority
+                  unoptimized
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#0D6E64] group-hover:text-[#0D5D54] transition-colors">
+                  Morgenlicht
+                </span>
+                <span className="text-sm uppercase tracking-wide font-semibold text-[#26A69A] leading-tight mt-1">
+                  Alltagshilfe Berlin
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation - accessible text colors */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[#37474F] hover:text-[#0D6E64] transition-colors
-                             underline decoration-transparent hover:decoration-current
-                             focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1"
+                  className="text-[#37474F] hover:text-[#0D6E64] transition-colors text-base font-medium
+                             focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-4 py-2"
                 >
                   {link.label}
                 </Link>
@@ -67,18 +77,18 @@ export function Navbar() {
             </div>
 
             {/* Desktop Right Side */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6">
               <LanguageSwitcher />
               <GlassButton as="link" href="/kontakt" variant="primary" size="sm">
                 Jetzt anfragen
               </GlassButton>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - 48px touch target */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-black/5
-                         focus:outline-none focus:ring-4 focus:ring-[#FFD54F]"
+              className="md:hidden p-3 rounded-lg hover:bg-black/5 active:bg-black/10
+                         focus:outline-none focus:ring-4 focus:ring-[#FFD54F] min-w-[48px] min-h-[48px]"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
               aria-label={mobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
@@ -95,25 +105,27 @@ export function Navbar() {
         {/* Mobile Menu */}
         <div
           id="mobile-menu"
-          className={`md:hidden transition-all duration-200 overflow-hidden
-                     ${mobileMenuOpen ? 'max-h-96' : 'max-h-0'}`}
+          className={`md:hidden transition-all duration-300 overflow-hidden
+                     ${mobileMenuOpen ? 'max-h-[500px]' : 'max-h-0'}`}
         >
-          <div className="px-4 py-4 space-y-2 bg-white/90 backdrop-blur-xl border-t border-white/40">
+          <div className="px-4 py-6 space-y-1 bg-white/95 backdrop-blur-xl border-t border-white/40 shadow-lg">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 px-4 text-[#37474F] hover:text-[#0D6E64]
-                           hover:bg-white/50 rounded-lg transition-colors
+                className="block py-4 px-4 text-lg text-[#37474F] hover:text-[#0D6E64]
+                           hover:bg-[#E0F2F1] rounded-lg transition-colors min-h-[52px] flex items-center
                            focus:outline-none focus:ring-4 focus:ring-[#FFD54F]"
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 border-t border-white/40 flex items-center justify-between">
-              <LanguageSwitcher />
-              <GlassButton as="link" href="/kontakt" variant="primary" size="sm" onClick={() => setMobileMenuOpen(false)}>
+            <div className="pt-6 mt-4 border-t border-white/40 space-y-4">
+              <div className="flex justify-center">
+                <LanguageSwitcher />
+              </div>
+              <GlassButton as="link" href="/kontakt" variant="primary" size="lg" className="w-full justify-center" onClick={() => setMobileMenuOpen(false)}>
                 Jetzt anfragen
               </GlassButton>
             </div>
@@ -123,3 +135,4 @@ export function Navbar() {
     </header>
   )
 }
+

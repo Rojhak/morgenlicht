@@ -1,10 +1,6 @@
-import { Metadata } from 'next'
-import { GlassCard } from '../components/glass'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Datenschutz',
-  description: 'Datenschutzerklärung der Morgenlicht Alltagshilfe.',
-}
+import { GlassCard } from '../components/glass'
 
 export default function DatenschutzPage() {
   return (

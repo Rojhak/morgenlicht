@@ -1,0 +1,303 @@
+'use client'
+
+import { ArrowRight, CheckCircle, Euro, Calculator, FileCheck, HeartHandshake } from 'lucide-react'
+import { GlassCard, GlassButton } from '../components/glass'
+
+const pricingCards = [
+  {
+    id: 'pg1',
+    title: 'Ab Pflegegrad 1',
+    subtitle: 'Der Entlastungsbetrag',
+    amount: '131 €',
+    period: '/Monat',
+    description: 'Jeder Mensch mit einem Pflegegrad hat Anspruch auf monatlichen Entlastungsbetrag.',
+    features: [
+      'Wir rechnen direkt mit der Kasse ab',
+      'In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos',
+      'Ihr Pflegegeld wird dadurch nicht gekürzt',
+      'Ca. 3,5 bis 4 Stunden Unterstützung pro Monat',
+    ],
+    color: 'from-[#E8F5E9]/50 to-[#C8E6C9]/20',
+    iconBg: 'bg-[#E8F5E9]',
+    iconColor: 'text-[#0D6E64]',
+  },
+  {
+    id: 'pg2',
+    title: 'Ab Pflegegrad 2',
+    subtitle: 'Zusätzliche Verhinderungspflege',
+    amount: 'bis zu 10 Std.',
+    period: '/Monat',
+    description: 'Extra-Hilfe ab Pflegegrad 2: Zusätzliche Mittel zur Entlastung Ihrer pflegenden Angehörigen.',
+    features: [
+      '1.612 € pro Jahr zusätzlich verfügbar',
+      'Für Begleitungen oder Hilfe im Haushalt nutzbar',
+      'Sorgsame Planung für Notfälle reserviert',
+      'Auch stundenweise einsetzbar',
+    ],
+    color: 'from-[#E0F2F1]/60 to-[#B2DFDB]/20',
+    iconBg: 'bg-[#E0F2F1]',
+    iconColor: 'text-[#0D6E64]',
+  },
+  {
+    id: 'private',
+    title: 'Privatzahler',
+    subtitle: 'Ohne Pflegegrad',
+    amount: '35,50 €',
+    period: '/Stunde',
+    description: 'Wenn Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen.',
+    features: [
+      '20 % direkt von der Steuer absetzbar',
+      'Kein Pflegegrad erforderlich',
+      'Flexible Buchung',
+      'Finanzamt erstattet einen Teil der Kosten',
+    ],
+    color: 'from-[#FFF8E1]/60 to-[#FFECB3]/20',
+    iconBg: 'bg-[#FFF8E1]',
+    iconColor: 'text-[#B8472A]',
+  },
+]
+
+export default function KostenPage() {
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-28 px-4 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-gradient-to-b from-[#FFD54F]/20 via-[#FFAB91]/10 to-transparent rounded-full blur-3xl animate-float-slow" />
+          <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] bg-gradient-to-tr from-[#26A69A]/15 via-[#4DB6AC]/10 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto text-center">
+          <span className="inline-block px-4 py-1.5 bg-[#E0F2F1] rounded-full text-sm font-medium text-[#0D6E64] mb-6">
+            Transparente Preise
+          </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display text-teal-900 mb-6 tracking-tight">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900">
+              Kosten &
+            </span>
+            <span className="block mt-2 text-teal-800 italic">
+              Pflegekasse
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-teal-700/80 max-w-2xl mx-auto leading-relaxed mb-6">
+            "Transparenz ist uns wichtig. Wir erklären Ihnen alles."
+          </p>
+          <p className="text-lg text-[#455A64] max-w-2xl mx-auto">
+            Gute Hilfe muss nicht teuer sein. Wir zeigen Ihnen, wie Sie Ihr Budget bei der Pflegekasse am besten nutzen.
+          </p>
+        </div>
+      </section>
+
+      {/* Hourly Rate Banner */}
+      <section className="py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <GlassCard className="p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-[#0D6E64]/10 via-transparent to-[#FFD54F]/10">
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Euro className="w-8 h-8 text-[#0D6E64]" />
+                <h2 className="text-2xl md:text-3xl font-bold text-[#37474F]">
+                  Unser Stundensatz: 35,50 €
+                </h2>
+              </div>
+              <p className="text-lg text-[#455A64] max-w-2xl mx-auto">
+                In diesem Preis ist bereits alles enthalten: von der Anfahrt über die Administration bis hin zur direkten Abrechnung mit Ihrer Kasse.
+                <strong className="text-[#37474F]"> Es kommen keine weiteren Gebühren auf Sie zu.</strong>
+              </p>
+            </div>
+          </GlassCard>
+        </div>
+      </section>
+
+      {/* Pricing Cards */}
+      <section className="py-12 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6">
+            {pricingCards.map((plan) => (
+              <GlassCard key={plan.id} className={`p-6 bg-gradient-to-br ${plan.color} relative overflow-hidden`}>
+                <div className="text-center mb-6">
+                  <div className={`w-14 h-14 ${plan.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                    <Calculator className={`w-7 h-7 ${plan.iconColor}`} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#37474F] mb-1">{plan.title}</h3>
+                  <p className="text-sm font-medium text-[#0D6E64] mb-3">{plan.subtitle}</p>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-4xl font-bold text-[#0D6E64]">{plan.amount}</span>
+                    <span className="text-[#455A64]">{plan.period}</span>
+                  </div>
+                </div>
+                <p className="text-sm text-[#455A64] text-center mb-6">{plan.description}</p>
+                <ul className="space-y-3 mb-6">
+                  {plan.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm">
+                      <CheckCircle className="w-4 h-4 text-[#0D6E64] flex-shrink-0 mt-0.5" />
+                      <span className="text-[#37474F]">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Info */}
+      <section className="py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-8">
+            {/* Detail Card 1 */}
+            <GlassCard className="p-8 border-l-4 border-l-[#0D6E64]">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#E0F2F1] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl font-bold text-[#0D6E64]">1</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#37474F] mb-3">
+                    Für jeden mit Pflegegrad (1 bis 5): Der Entlastungsbetrag
+                  </h3>
+                  <p className="text-[#455A64] mb-3">
+                    Jeder Mensch mit einem Pflegegrad hat Anspruch auf 131 € monatlich.
+                  </p>
+                  <div className="bg-[#E8F5E9] rounded-xl p-4">
+                    <p className="text-[#0D6E64] font-medium mb-2">Ihr Vorteil:</p>
+                    <ul className="space-y-1 text-sm text-[#37474F]">
+                      <li>• Wir rechnen diese 131 € direkt mit der Kasse ab</li>
+                      <li>• In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos</li>
+                      <li>• Wichtig: Ihr monatliches Pflegegeld wird dadurch nicht gekürzt</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </GlassCard>
+
+            {/* Detail Card 2 */}
+            <GlassCard className="p-8 border-l-4 border-l-[#FFB300]">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#FFF8E1] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl font-bold text-[#B8472A]">2</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#37474F] mb-3">
+                    Extra-Hilfe ab Pflegegrad 2: Die Verhinderungspflege
+                  </h3>
+                  <p className="text-[#455A64] mb-3">
+                    Ab Pflegegrad 2 stehen Ihnen zusätzliche Mittel zur Verfügung, um Ihre pflegenden Angehörigen zu entlasten.
+                  </p>
+                  <div className="bg-[#FFF8E1] rounded-xl p-4">
+                    <p className="text-[#B8472A] font-medium mb-2">Was ist die Verhinderungspflege?</p>
+                    <p className="text-sm text-[#37474F] mb-3">
+                      Wenn Ihre privaten Pflegepersonen eine Pause brauchen oder selbst Termine haben, springen wir ein.
+                    </p>
+                    <ul className="space-y-1 text-sm text-[#37474F]">
+                      <li>• Vielseitig einsetzbar: Dieses Budget (1.612 € pro Jahr) können Sie auch stundenweise nutzen</li>
+                      <li>• Sorgsame Planung: Wir achten darauf, es verantwortungsbewusst zu nutzen</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </GlassCard>
+
+            {/* Detail Card 3 */}
+            <GlassCard className="p-8 border-l-4 border-l-[#E65100]">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#FBE9E7] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl font-bold text-[#B8472A]">3</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#37474F] mb-3">
+                    Privatzahler & Steuervorteil
+                  </h3>
+                  <p className="text-[#455A64] mb-3">
+                    Falls Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen:
+                  </p>
+                  <div className="bg-[#FBE9E7] rounded-xl p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Euro className="w-5 h-5 text-[#B8472A]" />
+                      <p className="text-[#B8472A] font-medium">Stundensatz: 35,50 €</p>
+                    </div>
+                    <p className="text-sm text-[#37474F]">
+                      Steuer-Tipp: Sie können 20 % unserer Rechnung von der Steuer absetzen. Das Finanzamt erstattet Ihnen somit einen Teil der Kosten zurück.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </GlassCard>
+          </div>
+        </div>
+      </section>
+
+      {/* Example Calculation */}
+      <section className="py-12 px-4 section-warm">
+        <div className="max-w-4xl mx-auto">
+          <GlassCard className="p-8 md:p-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-6 text-center">
+              Ein Rechenbeispiel für Sie
+            </h2>
+            <div className="bg-white/70 rounded-xl p-6 mb-6">
+              <p className="text-lg text-[#37474F] leading-relaxed">
+                Über den Entlastungsbetrag (131 €): <strong>Hiermit können wir Sie etwa 3,5 bis 4 Stunden pro Monat unterstützen</strong> – zum Beispiel für den wöchentlichen Hausputz oder Begleitungen.
+                <span className="block mt-3 text-[#0D6E64] font-semibold">Für Sie entstehen dabei keine Kosten.</span>
+              </p>
+            </div>
+            <p className="text-sm text-[#455A64] text-center">
+              Gut zu wissen: Auch bei vorübergehendem Hilfebedarf (z. B. nach einem Krankenhausaufenthalt oder in besonderen Lebenslagen) gibt es oft Möglichkeiten der Kostenübernahme durch die Krankenkasse.
+            </p>
+          </GlassCard>
+        </div>
+      </section>
+
+      {/* Services Banner */}
+      <section className="py-12 px-4">
+        <div className="max-w-4xl mx-auto">
+          <GlassCard className="p-8 md:p-10 relative overflow-hidden bg-gradient-to-br from-[#0D6E64] to-[#0D7D72]">
+            <div className="relative text-center text-white">
+              <HeartHandshake className="w-12 h-12 mx-auto mb-4 text-[#FFD54F]" />
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                Unser Rundum-Sorglos-Service für Sie
+              </h2>
+              <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
+                <div className="bg-white/10 rounded-xl p-4">
+                  <FileCheck className="w-6 h-6 text-[#FFD54F] mb-2" />
+                  <h3 className="font-semibold mb-1">Wir übernehmen den Papierkram</h3>
+                  <p className="text-sm text-white/80">Wir rechnen direkt mit der Pflegekasse ab. Sie müssen kein Geld vorstrecken.</p>
+                </div>
+                                        <div className="bg-white/10 rounded-xl p-4">
+                  <Calculator className="w-6 h-6 text-[#FFD54F] mb-2" />
+                  <h3 className="font-semibold mb-1">Budget-Beratung</h3>
+                  <p className="text-sm text-white/80">Wir schauen gemeinsam, wie viel Geld Ihnen zusteht und wie wir das Beste herausholen.</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-4">
+                  <CheckCircle className="w-6 h-6 text-[#FFD54F] mb-2" />
+                  <h3 className="font-semibold mb-1">Hilfe beim Antrag</h3>
+                  <p className="text-sm text-white/80">Sie haben noch keinen Pflegegrad? Wir unterstützen Sie beim Antrag.</p>
+                </div>
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <GlassCard className="p-10 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-4">
+              Fragen zur Kostenübernahme?
+            </h2>
+            <p className="text-lg text-[#455A64] mb-8 max-w-lg mx-auto">
+              Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <GlassButton as="link" href="/kontakt" variant="primary" size="lg" className="btn-shadow-orange">
+                Jetzt anfragen
+                <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
+              </GlassButton>
+              <GlassButton as="link" href="tel:06912345678" variant="ghost" size="lg">
+                069 12345678
+              </GlassButton>
+            </div>
+          </GlassCard>
+        </div>
+      </section>
+    </>
+  )
+}

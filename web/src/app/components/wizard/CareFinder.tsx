@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Calculator, Phone, ArrowRight, ArrowLeft, HelpCircle, Check, Clock } from 'lucide-react'
+import { Calculator, Phone, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
 import { GlassCard, GlassButton } from '../glass'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
 
@@ -22,6 +22,7 @@ export function CareFinder() {
   const [step, setStep] = useState<Step>('select')
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
+  const [showDetails, setShowDetails] = useState(false)
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -31,7 +32,6 @@ export function CareFinder() {
     if (selectedGrad === null) return
 
     if (selectedGrad === 1) {
-      // PG1 has no Sachleistungen, skip to result
       setUsesSachleistungen(false)
       setStep('result')
     } else {
@@ -48,6 +48,7 @@ export function CareFinder() {
     setStep('select')
     setSelectedGrad(null)
     setUsesSachleistungen(null)
+    setShowDetails(false)
   }
 
   const budget = selectedGrad
@@ -60,98 +61,74 @@ export function CareFinder() {
 
   const hasExtra = budget.convertible > 0 && !usesSachleistungen
 
-  // Progress indicator
-  const getProgress = () => {
-    if (step === 'select') return 1
-    if (step === 'sachleistung') return 2
-    return 3
-  }
-
   return (
-    <section className="py-16 px-4" aria-labelledby="wizard-title" id="calculator">
-      <div className="max-w-2xl mx-auto">
-        <GlassCard className="p-6 sm:p-8">
-          {/* Header */}
-          <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center w-14 h-14 bg-[#26A69A]/10 rounded-full mb-4">
-              <Calculator className="w-7 h-7 text-[#0D6E64]" aria-hidden="true" />
-            </div>
-            <h2 id="wizard-title" className="text-2xl font-bold text-[#37474F] mb-2">
-              Ihr Pflegebudget-Rechner
-            </h2>
-            <p className="text-[#455A64]">
-              Berechnen Sie Ihre monatlichen Stunden in nur 2 Schritten
-            </p>
+    <section className="py-20 px-4" aria-labelledby="calculator-title">
+      <div className="max-w-3xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#FFD54F] to-[#FFA726] rounded-2xl shadow-lg mb-5">
+            <Calculator className="w-8 h-8 text-white" aria-hidden="true" />
           </div>
+          <h2 id="calculator-title" className="text-3xl md:text-4xl font-bold text-[#37474F] mb-3">
+            Ihr Pflegebudget-Rechner
+          </h2>
+          <p className="text-lg text-[#546E7A] max-w-xl mx-auto">
+            In nur 2 Schritten Ihr persönliches Budget berechnen
+          </p>
+        </div>
 
-          {/* Progress Steps */}
-          <div className="flex items-center justify-center gap-2 mb-8" aria-hidden="true">
-            {[1, 2, 3].map((num) => (
-              <div key={num} className="flex items-center">
-                <div
-                  className={`
-                    w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors
-                    ${getProgress() >= num
-                      ? 'bg-[#0D6E64] text-white'
-                      : 'bg-gray-200 text-gray-500'
-                    }
-                  `}
-                >
-                  {getProgress() > num ? <Check className="w-4 h-4" /> : num}
-                </div>
-                {num < 3 && (
-                  <div className={`w-8 sm:w-12 h-1 mx-1 rounded ${getProgress() > num ? 'bg-[#0D6E64]' : 'bg-gray-200'}`} />
-                )}
-              </div>
-            ))}
+        <GlassCard className="p-8 md:p-10 shadow-xl border-0">
+          {/* Progress Indicator */}
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#26A69A]' : 'w-8 bg-[#26A69A]'}`} />
+            <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#26A69A]' : 'w-6 bg-gray-200'}`} />
           </div>
 
           {/* Step 1: Select Pflegegrad */}
           {step === 'select' && (
-            <div className="space-y-6">
+            <div className="space-y-8">
               <fieldset>
-                <legend className="block text-base font-semibold text-[#37474F] mb-4 text-center">
+                <legend className="block text-xl font-semibold text-[#37474F] mb-8 text-center">
                   Welchen Pflegegrad haben Sie?
                 </legend>
-                <div className="grid grid-cols-5 gap-2 sm:gap-3">
+                <div className="grid grid-cols-5 gap-3 sm:gap-4">
                   {PFLEGEGRADE.map((grad) => (
                     <button
                       key={grad.value}
                       onClick={() => handleGradSelect(grad.value)}
                       className={`
-                        aspect-square rounded-xl font-bold text-xl sm:text-2xl transition-all duration-200
+                        aspect-square rounded-2xl font-bold text-2xl sm:text-3xl transition-all duration-300
                         flex flex-col items-center justify-center
                         focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2
                         ${selectedGrad === grad.value
-                          ? 'bg-[#0D6E64] text-white shadow-lg scale-105'
-                          : 'bg-white/60 text-[#37474F] hover:bg-white/80 border-2 border-transparent hover:border-[#0D6E64]/30'
+                          ? 'bg-gradient-to-br from-[#0D6E64] to-[#26A69A] text-white shadow-xl scale-105'
+                          : 'bg-white text-[#37474F] hover:bg-white/90 border-2 border-gray-200 hover:border-[#26A69A]'
                         }
                       `}
                       aria-pressed={selectedGrad === grad.value}
-                      title={grad.description}
                     >
                       {grad.label}
                     </button>
                   ))}
                 </div>
-                <div className="mt-3 text-center text-sm text-[#455A64]">
+                <div className="mt-4 text-center text-base text-[#546E7A] font-medium">
                   {selectedGrad && PFLEGEGRADE.find(g => g.value === selectedGrad)?.description}
                 </div>
               </fieldset>
 
               <Link
                 href="/pflegegrad-guide"
-                className="flex items-center justify-center gap-2 text-sm text-[#0D6E64] hover:underline
-                           focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded py-2"
+                className="flex items-center justify-center gap-2 text-[#0D6E64] hover:underline
+                           focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded py-2 font-medium"
               >
-                <HelpCircle className="w-4 h-4" aria-hidden="true" />
+                <HelpCircle className="w-5 h-5" aria-hidden="true" />
                 Ich kenne meinen Pflegegrad nicht
               </Link>
 
               <GlassButton
                 variant="primary"
                 size="lg"
-                className="w-full"
+                className="w-full shadow-lg"
                 onClick={handleNext}
                 disabled={selectedGrad === null}
               >
@@ -161,127 +138,118 @@ export function CareFinder() {
             </div>
           )}
 
-          {/* Step 2: Sachleistung Question */}
+          {/* Step 2: Sachleistung Question - Plain Language */}
           {step === 'sachleistung' && (
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div className="text-center">
-                <p className="text-base font-semibold text-[#37474F] mb-2">
-                  Nutzen Sie bereits ambulante Pflegesachleistungen?
+                <p className="text-xl font-semibold text-[#37474F] mb-3">
+                  Nutzen Sie bereits einen Pflegedienst?
                 </p>
-                <p className="text-sm text-[#455A64]">
-                  Z.B. Hilfe beim Waschen, Anziehen oder medizinische Pflege durch einen Pflegedienst
+                <p className="text-[#546E7A]">
+                  Zum Beispiel Hilfe beim Waschen oder medizinische Pflege
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5">
                 <button
                   onClick={() => handleSachleistungAnswer(false)}
-                  className="p-6 rounded-xl bg-[#E8F5E9] hover:bg-[#C8E6C9] border-2 border-transparent
-                             hover:border-[#0D6E64] transition-all duration-200
+                  className="p-8 rounded-2xl bg-gradient-to-br from-[#E8F5E9] to-[#C8E6C9] hover:from-[#C8E6C9] hover:to-[#A5D6A7] border-2 border-[#0D6E64]/20 hover:border-[#0D6E64]
+                             transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1
                              focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
                 >
-                  <div className="text-2xl font-bold text-[#0D6E64] mb-2">Nein</div>
-                  <div className="text-sm text-[#455A64]">Mehr Budget verfügbar</div>
+                  <div className="text-4xl font-bold text-[#0D6E64] mb-3">Nein</div>
+                  <div className="text-[#546E7A] font-medium">Mehr Budget verfügbar</div>
                 </button>
                 <button
                   onClick={() => handleSachleistungAnswer(true)}
-                  className="p-6 rounded-xl bg-white/60 hover:bg-white/80 border-2 border-transparent
-                             hover:border-[#455A64] transition-all duration-200
+                  className="p-8 rounded-2xl bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-[#546E7A]
+                             transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1
                              focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
                 >
-                  <div className="text-2xl font-bold text-[#37474F] mb-2">Ja</div>
-                  <div className="text-sm text-[#455A64]">Nur Entlastungsbetrag</div>
+                  <div className="text-4xl font-bold text-[#37474F] mb-3">Ja</div>
+                  <div className="text-[#546E7A] font-medium">Nur Entlastungsbetrag</div>
                 </button>
               </div>
 
               <button
                 onClick={() => setStep('select')}
-                className="flex items-center justify-center gap-2 w-full text-sm text-[#455A64] hover:text-[#37474F]
-                           focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded py-2"
+                className="flex items-center justify-center gap-2 w-full text-[#546E7A] hover:text-[#37474F]
+                           focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded py-2 font-medium"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5 rotate-180" aria-hidden="true" />
                 Zurück
               </button>
             </div>
           )}
 
-          {/* Step 3: Result */}
+          {/* Step 3: Result - Premium Display */}
           {step === 'result' && hours > 0 && (
-            <div className="space-y-6">
-              {/* Main Result - Prominent Hours Display */}
-              <div className="relative py-8 px-6 bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB] rounded-2xl text-center">
-                <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-white/80 rounded-full text-xs font-medium text-[#0D6E64]">
-                    <Check className="w-3 h-3" /> Pflegegrad {selectedGrad}
-                  </span>
+            <div className="space-y-8">
+              {/* Main Result - Premium Hours Display */}
+              <div className="text-center py-12 px-8 bg-gradient-to-br from-[#0D6E64] to-[#26A69A] rounded-3xl shadow-xl relative overflow-hidden">
+                {/* Decorative pattern */}
+                <div className="absolute inset-0 opacity-10" aria-hidden="true">
+                  <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full blur-3xl" />
+                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-white rounded-full blur-3xl" />
                 </div>
 
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <Clock className="w-8 h-8 text-[#0D6E64]" aria-hidden="true" />
+                <div className="relative z-10">
+                  <Clock className="w-12 h-12 text-[#FFD54F] mx-auto mb-4" aria-hidden="true" />
+                  <p className="text-6xl sm:text-7xl md:text-8xl font-bold text-white mb-2">
+                    {formatHours(hours)}
+                  </p>
+                  <p className="text-xl md:text-2xl text-white/90 font-medium">
+                    Stunden pro Monat
+                  </p>
+                  <p className="text-white/70 mt-3">
+                    vollständig von Ihrer Pflegekasse übernommen
+                  </p>
                 </div>
-
-                <p className="text-6xl sm:text-7xl font-bold text-[#0D6E64] mb-2">
-                  {formatHours(hours)}
-                </p>
-                <p className="text-xl text-[#37474F] font-medium">
-                  Stunden pro Monat
-                </p>
-                <p className="text-sm text-[#455A64] mt-2">
-                  vollständig von Ihrer Pflegekasse übernommen
-                </p>
               </div>
 
-              {/* Budget Details */}
-              <div className="bg-white/50 rounded-xl p-5 space-y-4">
-                <h3 className="font-semibold text-[#37474F] text-sm uppercase tracking-wide">
-                  Ihr monatliches Budget
-                </h3>
+              {/* Optional Details Toggle */}
+              <details className="bg-white/50 rounded-2xl">
+                <summary
+                  onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
+                  className="flex items-center justify-between w-full p-5 cursor-pointer hover:bg-white/70 rounded-2xl transition-colors select-none"
+                >
+                  <span className="font-semibold text-[#37474F] text-lg">Details anzeigen</span>
+                  <span className={`text-[#546E7A] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
+                </summary>
 
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="text-[#37474F] font-medium">Entlastungsbetrag</span>
-                      <span className="text-xs text-[#455A64] block">§45b SGB XI</span>
+                {showDetails && (
+                  <div className="p-5 pt-2 space-y-4">
+                    <div className="flex justify-between items-center pb-4 border-b border-[#0D6E64]/10">
+                      <span className="text-[#37474F] font-medium text-base">Entlastungsbetrag</span>
+                      <span className="font-bold text-[#37474F] text-lg">{formatCurrency(budget.base)}</span>
                     </div>
-                    <span className="font-bold text-[#37474F]">{formatCurrency(budget.base)}</span>
-                  </div>
 
-                  {hasExtra && (
-                    <>
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <span className="text-[#37474F] font-medium">+ Umwandlungsanspruch</span>
-                          <span className="text-xs text-[#455A64] block">40% von {formatCurrency(budget.sachleistung)}</span>
+                    {hasExtra && (
+                      <>
+                        <div className="flex justify-between items-center pb-4 border-b border-[#0D6E64]/10">
+                          <div>
+                            <div className="text-[#37474F] font-medium text-base">Zusätzliches Budget</div>
+                            <div className="text-sm text-[#546E7A]">40% von {formatCurrency(budget.sachleistung)}</div>
+                          </div>
+                          <span className="font-bold text-[#37474F] text-lg">{formatCurrency(budget.convertible)}</span>
                         </div>
-                        <span className="font-bold text-[#37474F]">{formatCurrency(budget.convertible)}</span>
-                      </div>
 
-                      <div className="border-t border-[#0D6E64]/20 pt-3 flex justify-between items-center">
-                        <span className="font-semibold text-[#37474F]">Gesamt</span>
-                        <span className="font-bold text-xl text-[#0D6E64]">{formatCurrency(budget.max)}/Monat</span>
-                      </div>
-                    </>
-                  )}
-
-                  {!hasExtra && selectedGrad && selectedGrad > 1 && (
-                    <p className="text-xs text-[#455A64] bg-[#FFF8E1] rounded-lg p-3">
-                      💡 <strong>Tipp:</strong> Ohne ambulante Pflegesachleistungen könnten Sie bis zu {formatCurrency(getMonthlyBudget(selectedGrad, false).max)}/Monat erhalten.
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Hourly Rate Info */}
-              <p className="text-center text-sm text-[#455A64]">
-                Berechnet mit unserem Stundensatz von {formatCurrency(CARE_RATES.hourlyRate)}
-              </p>
+                        <div className="flex justify-between items-center pt-2">
+                          <span className="font-semibold text-[#0D6E64] text-lg">Gesamt</span>
+                          <span className="font-bold text-2xl text-[#0D6E64]">{formatCurrency(budget.max)}/Monat</span>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                )}
+              </details>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <GlassButton
                   variant="primary"
                   size="lg"
-                  className="flex-1"
+                  className="flex-1 shadow-lg"
                   as="link"
                   href="/kontakt"
                 >
@@ -289,7 +257,7 @@ export function CareFinder() {
                   <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
                 </GlassButton>
                 <GlassButton
-                  variant="ghost"
+                  variant="outline"
                   size="lg"
                   onClick={handleReset}
                 >
@@ -307,7 +275,7 @@ export function CareFinder() {
                   Wir helfen Ihnen gerne weiter
                 </p>
                 <p className="text-[#455A64] mb-4">
-                  Rufen Sie uns an – wir besprechen Ihre persönlichen Möglichkeiten.
+                  Rufen Sie uns an – wir besprechen Ihre Möglichkeiten.
                 </p>
                 <a
                   href={`tel:${PHONE.replace(/\s/g, '')}`}
@@ -324,7 +292,7 @@ export function CareFinder() {
                 size="lg"
                 onClick={handleReset}
               >
-                <ArrowLeft className="w-5 h-5 mr-2" aria-hidden="true" />
+                <ArrowRight className="w-5 h-5 mr-2 rotate-180" aria-hidden="true" />
                 Zurück
               </GlassButton>
             </div>

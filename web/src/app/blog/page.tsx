@@ -1,12 +1,8 @@
-import { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
 import { Calendar, Tag, ArrowRight } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
-
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Tipps und Informationen rund um Pflege, Entlastung und Alltagshilfe.',
-}
 
 // Sample blog posts - in production, these would come from MDX files
 const blogPosts = [
