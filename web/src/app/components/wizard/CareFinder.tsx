@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Calculator, Phone, ArrowRight, ArrowLeft, HelpCircle, Check, Clock } from 'lucide-react'
 import { GlassCard, GlassButton } from '../glass'
@@ -22,6 +22,11 @@ export function CareFinder() {
   const [step, setStep] = useState<Step>('select')
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
+  const stepRef = useRef<any>(null)
+
+  useEffect(() => {
+    stepRef.current?.focus()
+  }, [step])
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -68,7 +73,7 @@ export function CareFinder() {
   }
 
   return (
-    <section className="py-16 px-4" aria-labelledby="wizard-title" id="calculator">
+    <section className="py-16 px-4" aria-labelledby="wizard-title">
       <div className="max-w-2xl mx-auto">
         <GlassCard className="p-6 sm:p-8">
           {/* Header */}
@@ -110,7 +115,11 @@ export function CareFinder() {
           {step === 'select' && (
             <div className="space-y-6">
               <fieldset>
-                <legend className="block text-base font-semibold text-[#37474F] mb-4 text-center">
+                <legend
+                  ref={stepRef}
+                  tabIndex={-1}
+                  className="block text-base font-semibold text-[#37474F] mb-4 text-center outline-none"
+                >
                   Welchen Pflegegrad haben Sie?
                 </legend>
                 <div className="grid grid-cols-5 gap-2 sm:gap-3">
@@ -165,9 +174,13 @@ export function CareFinder() {
           {step === 'sachleistung' && (
             <div className="space-y-6">
               <div className="text-center">
-                <p className="text-base font-semibold text-[#37474F] mb-2">
+                <h3
+                  ref={stepRef}
+                  tabIndex={-1}
+                  className="text-base font-semibold text-[#37474F] mb-2 outline-none"
+                >
                   Nutzen Sie bereits ambulante Pflegesachleistungen?
-                </p>
+                </h3>
                 <p className="text-sm text-[#455A64]">
                   Z.B. Hilfe beim Waschen, Anziehen oder medizinische Pflege durch einen Pflegedienst
                 </p>
@@ -208,6 +221,7 @@ export function CareFinder() {
           {/* Step 3: Result */}
           {step === 'result' && hours > 0 && (
             <div className="space-y-6">
+              <h3 className="sr-only outline-none" ref={stepRef} tabIndex={-1}>Berechnungsergebnis</h3>
               {/* Main Result - Prominent Hours Display */}
               <div className="relative py-8 px-6 bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB] rounded-2xl text-center">
                 <div className="absolute top-4 right-4">
