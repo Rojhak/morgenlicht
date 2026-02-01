@@ -4,6 +4,7 @@ import { ArrowRight, HelpCircle, Clock, Users, FileCheck, Phone } from 'lucide-r
 import { GlassCard, GlassButton } from '../components/glass'
 import { Accordion, AccordionItem } from '../components/ui'
 
+
 const faqCategories = [
   {
     id: 'allgemein',

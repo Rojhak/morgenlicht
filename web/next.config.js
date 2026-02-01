@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Static export for Strato Webhosting
-  output: 'export',
-
-  // Disable server features for static export
+  reactStrictMode: true,
   images: {
-    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
   },
-
-  // Trailing slash for better compatibility
-  trailingSlash: true,
 };
 
 module.exports = nextConfig;

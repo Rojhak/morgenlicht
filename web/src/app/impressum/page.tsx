@@ -2,6 +2,7 @@
 
 import { GlassCard } from '../components/glass'
 
+
 export default function ImpressumPage() {
   return (
     <div className="py-12 px-4">

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Heart, Users, Award, ArrowRight, Sparkles, MapPin, Handshake, Quote } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
 
+
 const values = [
   {
     icon: Heart,

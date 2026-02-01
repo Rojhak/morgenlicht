@@ -3,6 +3,7 @@
 import { ArrowRight, CheckCircle, Euro, Calculator, FileCheck, HeartHandshake } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
 
+
 const pricingCards = [
   {
     id: 'pg1',

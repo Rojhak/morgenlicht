@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Calendar, Tag, ArrowRight } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
 
+
 // Sample blog posts - in production, these would come from MDX files
 const blogPosts = [
   {

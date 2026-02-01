@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
 
+
 const services = [
   {
     id: 'haushalt',
