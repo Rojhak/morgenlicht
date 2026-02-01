@@ -208,16 +208,22 @@ export function CareFinder() {
               </div>
 
               {/* Optional Details Toggle */}
-              <details className="bg-white/50 rounded-2xl">
-                <summary
-                  onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-                  className="flex items-center justify-between w-full p-5 cursor-pointer hover:bg-white/70 rounded-2xl transition-colors select-none"
+              <div className="bg-white/50 rounded-2xl">
+                <button
+                  type="button"
+                  onClick={() => setShowDetails(!showDetails)}
+                  className="flex items-center justify-between w-full p-5 cursor-pointer hover:bg-white/70 rounded-2xl transition-colors select-none focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+                  aria-expanded={showDetails}
+                  aria-controls="budget-details"
                 >
                   <span className="font-semibold text-[#37474F] text-lg">Details anzeigen</span>
-                  <span className={`text-[#546E7A] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
-                </summary>
+                  <span className={`text-[#546E7A] transition-transform duration-300 ${showDetails ? 'rotate-180' : ''}`}>▼</span>
+                </button>
 
-                {showDetails && (
+                <div
+                  id="budget-details"
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${showDetails ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                >
                   <div className="p-5 pt-2 space-y-4">
                     <div className="flex justify-between items-center pb-4 border-b border-[#0D6E64]/10">
                       <span className="text-[#37474F] font-medium text-base">Entlastungsbetrag</span>
@@ -241,8 +247,8 @@ export function CareFinder() {
                       </>
                     )}
                   </div>
-                )}
-              </details>
+                </div>
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
