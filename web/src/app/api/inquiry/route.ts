@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { escapeHtml } from '@/lib/security'
 
 const EMAIL_TO = process.env.EMAIL_TO || 'anfragen@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
@@ -48,16 +49,16 @@ export async function POST(request: NextRequest) {
         <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Name:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.name}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(data.name)}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Telefon:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.phone}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(data.phone)}</td>
           </tr>
           ${data.pflegegrad ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Pflegegrad:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.pflegegrad}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(data.pflegegrad)}</td>
           </tr>
           ` : ''}
           <tr>
