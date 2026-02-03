@@ -38,27 +38,19 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 group
+              className="flex items-center group
                          focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-2 py-1"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FFD54F]/20 to-[#26A69A]/20 rounded-2xl blur-lg group-hover:blur-md transition-all duration-300" aria-hidden="true" />
                 <Image
                   src="/morgen.png"
-                  alt="Morgenlicht Logo"
-                  width={64}
-                  height={64}
-                  className="relative w-16 h-16"
+                  alt="Morgenlicht Alltagshilfe Berlin Logo"
+                  width={200}
+                  height={80}
+                  className="relative w-48 h-20"
                   priority
                 />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#0D6E64] group-hover:text-[#0D5D54] transition-colors">
-                  Morgenlicht
-                </span>
-                <span className="text-sm uppercase tracking-wide font-semibold text-[#26A69A] leading-tight mt-1">
-                  Alltagshilfe Berlin
-                </span>
               </div>
             </Link>
 

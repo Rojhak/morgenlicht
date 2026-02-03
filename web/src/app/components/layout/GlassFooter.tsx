@@ -98,23 +98,15 @@ export function GlassFooter() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Brand Section */}
             <div className="flex flex-col">
-              <Link href="/" className="inline-flex items-center gap-3 group mb-4">
+              <Link href="/" className="inline-flex items-center group mb-4">
                 <Image
                   src="/morgen.png"
-                  alt="Morgenlicht Logo"
-                  width={56}
-                  height={56}
-                  className="w-14 h-14"
+                  alt="Morgenlicht Alltagshilfe Berlin Logo"
+                  width={200}
+                  height={80}
+                  className="w-56 h-24"
                   priority
                 />
-                <div className="flex flex-col">
-                  <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#0D6E64]">
-                    Morgenlicht
-                  </span>
-                  <span className="text-sm uppercase tracking-wide font-semibold text-[#26A69A] leading-tight mt-1">
-                    Alltagshilfe Berlin
-                  </span>
-                </div>
               </Link>
               <p className="text-[#37474F] text-sm leading-relaxed max-w-sm mb-4">
                 Interculturale Alltagsbegleitung und Entlastung für Senioren und ihre Angehörigen in Berlin.
