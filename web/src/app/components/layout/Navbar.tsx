@@ -43,21 +43,19 @@ export function Navbar() {
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FFD54F]/20 to-[#26A69A]/20 rounded-2xl blur-lg group-hover:blur-md transition-all duration-300" aria-hidden="true" />
-                <Image
+                <img
                   src="/logo.svg"
                   alt="Morgenlicht Logo"
-                  width={64}
-                  height={64}
                   className="relative w-16 h-16"
-                  priority
-                  unoptimized
+                  width="64"
+                  height="64"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#C25E00] group-hover:text-[#E65100] transition-colors">
+                <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#0D6E64] group-hover:text-[#26A69A] transition-colors">
                   Morgenlicht
                 </span>
-                <span className="text-sm uppercase tracking-wide font-semibold text-[#FF8A65] leading-tight mt-1">
+                <span className="text-sm uppercase tracking-wide font-semibold text-[#26A69A] leading-tight mt-1">
                   Alltagshilfe
                 </span>
               </div>
