@@ -54,10 +54,10 @@ export function Navbar() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#0D6E64] group-hover:text-[#0D5D54] transition-colors">
+                <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#C25E00] group-hover:text-[#E65100] transition-colors">
                   Morgenlicht
                 </span>
-                <span className="text-sm uppercase tracking-wide font-semibold text-[#26A69A] leading-tight mt-1">
+                <span className="text-sm uppercase tracking-wide font-semibold text-[#FF8A65] leading-tight mt-1">
                   Alltagshilfe
                 </span>
               </div>
