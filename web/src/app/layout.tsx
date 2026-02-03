@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { Navbar } from './components/layout'
-import { Footer } from './components/layout'
+import { GlassFooter } from './components/layout'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,7 +44,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-grow pt-16">
           {children}
         </main>
-        <Footer />
+        <GlassFooter />
       </body>
     </html>
   )
