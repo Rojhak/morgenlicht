@@ -44,13 +44,12 @@ export function Navbar() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#FFD54F]/20 to-[#26A69A]/20 rounded-2xl blur-lg group-hover:blur-md transition-all duration-300" aria-hidden="true" />
                 <Image
-                  src="/trans_logo.svg"
+                  src="/morgen.png"
                   alt="Morgenlicht Logo"
                   width={64}
                   height={64}
                   className="relative w-16 h-16"
                   priority
-                  unoptimized
                 />
               </div>
               <div className="flex flex-col">

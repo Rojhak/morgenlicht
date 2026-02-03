@@ -100,11 +100,12 @@ export function GlassFooter() {
             <div className="flex flex-col">
               <Link href="/" className="inline-flex items-center gap-3 group mb-4">
                 <Image
-                  src="/trans_logo.svg"
+                  src="/morgen.png"
                   alt="Morgenlicht Logo"
                   width={56}
                   height={56}
                   className="w-14 h-14"
+                  priority
                 />
                 <div className="flex flex-col">
                   <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#0D6E64]">
