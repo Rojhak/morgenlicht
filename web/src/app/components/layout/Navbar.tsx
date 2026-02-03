@@ -38,15 +38,15 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-3 group
+              className="flex items-center gap-2 group
                          focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-2 py-1"
             >
               <img
                 src="/trans_logo.svg"
                 alt="Morgenlicht Logo"
-                className="w-20 h-20 flex-shrink-0"
-                width="80"
-                height="80"
+                className="w-24 h-24 flex-shrink-0"
+                width="96"
+                height="96"
               />
               <div className="flex flex-col justify-center">
                 <span className="text-xl font-bold font-sans uppercase tracking-normal text-[#37474F] leading-none mb-0.5">

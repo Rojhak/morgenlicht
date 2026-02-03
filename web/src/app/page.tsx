@@ -255,13 +255,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA - Clean & Strong */}
-      <section className="py-24 px-4 bg-gradient-to-br from-[#0D6E64] to-[#26A69A]">
+      {/* Final CTA - Clean & Strong - High Contrast for Accessibility */}
+      <section className="py-24 px-4 bg-[#E0F2F1]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#37474F] mb-6">
             Bereit für den nächsten Schritt?
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-[#546E7A] mb-10 max-w-2xl mx-auto font-medium">
             Wir beraten Sie kostenlos und unverbindlich. Rufen Sie an oder schreiben Sie uns.
           </p>
 
@@ -271,21 +271,21 @@ export default function HomePage() {
               href="/kontakt"
               variant="primary"
               size="lg"
-              className="!bg-white !text-[#0D6E64] hover:!bg-gray-50 shadow-xl font-bold px-10"
+              className="shadow-xl font-bold px-10"
             >
               Jetzt anfragen
               <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
             </GlassButton>
             <a
               href="tel:06912345678"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 transition-all"
+              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white/50 hover:bg-white text-[#0D6E64] border-2 border-[#0D6E64]/20 hover:border-[#0D6E64] transition-all"
             >
               <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
               069 12345678
             </a>
           </div>
 
-          <p className="text-white/70 text-sm mt-8">
+          <p className="text-[#546E7A] text-sm mt-8 font-medium">
             Mo–Fr: 8:00 – 18:00 Uhr • Kostenlos aus dem deutschen Festnetz
           </p>
         </div>
