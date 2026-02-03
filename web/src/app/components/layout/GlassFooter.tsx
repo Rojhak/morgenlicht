@@ -102,9 +102,9 @@ export function GlassFooter() {
                 <Image
                   src="/morgen.png"
                   alt="Morgenlicht Alltagshilfe Berlin Logo"
-                  width={200}
-                  height={80}
-                  className="w-56 h-24"
+                  width={224}
+                  height={78}
+                  className="w-56 h-auto"
                   priority
                 />
               </Link>

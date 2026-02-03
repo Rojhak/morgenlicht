@@ -47,8 +47,8 @@ export function Navbar() {
                   src="/morgen.png"
                   alt="Morgenlicht Alltagshilfe Berlin Logo"
                   width={200}
-                  height={80}
-                  className="relative w-48 h-20"
+                  height={70}
+                  className="relative w-48 h-auto"
                   priority
                 />
               </div>
