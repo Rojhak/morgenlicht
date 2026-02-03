@@ -4,159 +4,96 @@ import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
 
-
 const services = [
   {
     id: 'haushalt',
     emoji: '🏠',
-    title: '1. Haushalt',
+    title: '1. Haushalt & Wohlbefinden',
     subtitle: 'Ein sauberes Zuhause zum Wohlfühlen',
-    description: 'Wir kümmern uns um Ihre Wohnung, damit Sie sich wohlfühlen.',
+    description: 'Ein sauberes Zuhause zum Wohlfühlen',
     color: 'from-[#FFE0B2] to-[#FFD54F]',
     bgLight: 'bg-[#FFF8E1]',
     iconColor: 'text-[#B8472A]',
     items: [
-      { title: 'Wohnungsreinigung', desc: 'Staubsaugen, Wischen und Staubwischen aller Wohnräume.' },
-      { title: 'Küche & Bad', desc: 'Gründliche Reinigung der Arbeitsflächen und Sanitäranlagen.' },
-      { title: 'Wäsche & Betten', desc: 'Waschen, Bügeln und frisches Beziehen der Betten.' },
-      { title: 'Fenster & Gardinen', desc: 'Fenster putzen sowie Waschen und Aufhängen der Gardinen.' },
-      { title: 'Müll & Ordnung', desc: 'Müllentsorgung, allgemeine Ordnung und kleine Reparaturen.' },
-    ],
-  },
-  {
-    id: 'koerperpflege',
-    emoji: '🛁',
-    title: '2. Körperpflege',
-    subtitle: 'Hilfe bei der täglichen Hygiene',
-    description: 'Wir unterstützen Sie bei der Körperpflege mit Respekt und Würde.',
-    color: 'from-[#B3E5FC] to-[#64B5F6]',
-    bgLight: 'bg-[#E3F2FD]',
-    iconColor: 'text-[#1976D2]',
-    items: [
-      { title: 'Hilfe beim Waschen', desc: 'Unterstützung beim Duschen oder Baden.' },
-      { title: 'Kleiderwechsel', desc: 'Hilfe beim An- und Auskleiden.' },
-      { title: 'Haarpflege', desc: 'Haarewaschen, Kämmen und einfache Frisurpflege.' },
-      { title: 'Nagelpflege', desc: 'Fingernagel schneiden und pflegen.' },
-      { title: 'Rasurhilfe', desc: 'Unterstützung bei der täglichen Rasur.' },
-    ],
-  },
-  {
-    id: 'begleitung',
-    emoji: '🏥',
-    title: '3. Begleitung',
-    subtitle: 'Sichere Begleitung zu allen Terminen',
-    description: 'Wir begleiten Sie sicher zu Ärzten, Behörden und unterwegs.',
-    color: 'from-[#C8E6C9] to-[#81C784]',
-    bgLight: 'bg-[#E8F5E9]',
-    iconColor: 'text-[#0D6E64]',
-    items: [
-      { title: 'Arztbesuche', desc: 'Begleitung zu Arzt, Physiotherapie und Behandlungen.' },
-      { title: 'Behördengänge', desc: 'Begleitung zu Bürgeramt, Krankenkasse und Ämtern.' },
-      { title: 'Dienstleistungen', desc: 'Begleitung zu Friseur, Fußpflege und Bank.' },
-      { title: 'Öffentliche Verkehrsmittel', desc: 'Hilfe bei Bus, Bahn und Taxifahrten.' },
-      { title: 'Familienbesuche', desc: 'Begleitung zu Besuchen bei Familie und Freunden.' },
-    ],
-  },
-  {
-    id: 'gesellschaft',
-    emoji: '💬',
-    title: '4. Gesellschaft',
-    subtitle: 'Gespräche und gemeinsame Zeit',
-    description: 'Wir sind da für Zweisprache, Gesellschaft und Aktivierung.',
-    color: 'from-[#F8BBD0] to-[#F48FB1]',
-    bgLight: 'bg-[#FCE4EC]',
-    iconColor: 'text-[#C2185B]',
-    items: [
-      { title: 'Gesprächsführung', desc: 'Zuhören, Plaudern und emotionale Unterstützung.' },
-      { title: 'Vorlesen', desc: 'Gemeinsames Lesen von Büchern und Zeitungen.' },
-      { title: 'Spiele', desc: 'Gesellschaftsspiele, Quiz und gemeinsame Unterhaltung.' },
-      { title: 'Gedächtnistraining', desc: 'Gemeinsames Rätseln, Erinnern und Üben.' },
-      { title: 'Abendgesellschaft', desc: 'Gesellschaft am Abend für Sicherheit und Geborgenheit.' },
+      { title: 'Wohnungsreinigung', desc: 'Staubsaugen und Wischen aller Wohnräume sowie Staubwischen auf allen Oberflächen.' },
+      { title: 'Küche & Bad', desc: 'Gründliche Reinigung der Arbeitsflächen und Sanitäranlagen für optimale Hygiene.' },
+      { title: 'Mahlzeiten', desc: 'Zubereitung einfacher Mahlzeiten, Geschirrspülen sowie ein regelmäßiger Kühlschrank-Check.' },
+      { title: 'Wäsche & Betten', desc: 'Waschen, Bügeln und Zusammenlegen der Wäsche sowie das frische Beziehen der Betten.' },
+      { title: 'Fenster & Gardinen', desc: 'Fenster putzen sowie das Waschen und Aufhängen der Gardinen.' },
+      { title: 'Rund ums Haus', desc: 'Allgemeine Ordnung, Müllentsorgung, Pflanzenpflege sowie Aufräumen von Balkon oder Terrasse und kleine Reparaturen im Haushalt.' },
     ],
   },
   {
     id: 'einkauf',
     emoji: '🛒',
-    title: '5. Einkauf',
-    subtitle: 'Wir erledigen Ihre Einkäufe',
-    description: 'Vom Wocheneinkauf bis zu Besorgungen – wir übernehmen es für Sie.',
+    title: '2. Einkauf & Erledigungen',
+    subtitle: 'Wir nehmen Ihnen die schweren Wege ab',
+    description: 'Wir nehmen Ihnen die schweren Wege ab.',
     color: 'from-[#FFCC80] to-[#FFA726]',
     bgLight: 'bg-[#FFE0B2]',
     iconColor: 'text-[#E65100]',
     items: [
-      { title: 'Wocheneinkauf', desc: 'Planung, Einkauf und Einräumen der Lebensmittel.' },
-      { title: 'Drogerie', desc: 'Kauf von Drogeriewaren und Haushaltsartikeln.' },
-      { title: 'Apotheken', desc: 'Abholen von Rezepten und Medikamenten.' },
-      { title: 'Schweres Tragen', desc: 'Hilfe beim Tragen schwerer Einkaufstaschen.' },
-      { title: 'Einkaufsbegleitung', desc: 'Gemeinsamer Einkauf auf dem Wochenmarkt oder Supermarkt.' },
+      { title: 'Wocheneinkauf', desc: 'Planung, Einkauf der Lebensmittel und Einräumen der Vorräte.' },
+      { title: 'Botengänge', desc: 'Erledigungen bei der Post, Behörde, Bank oder bei anderen Dienstleistern in Ihrem Kiez.' },
+      { title: 'Apotheken', desc: 'Abholen von Rezepten und Besorgung Ihrer Medikamente.' },
+      { title: 'Besorgungen', desc: 'Kauf von Drogeriewaren und Haushaltsartikeln.' },
+      { title: 'Begleitung beim Einkauf', desc: 'Wenn Sie möchten, begleiten wir Sie gerne zum Supermarkt oder zum Wochenmarkt und unterstützen Sie beim Tragen.' },
     ],
   },
   {
-    id: 'mahlzeiten',
-    emoji: '🍲',
-    title: '6. Mahlzeiten',
-    subtitle: 'Gut essen für mehr Lebensfreude',
-    description: 'Wir kochen gemeinsam oder bereiten warme Mahlzeiten für Sie zu.',
-    color: 'from-[#FFAB91] to-[#FF8A65]',
-    bgLight: 'bg-[#FBE9E7]',
-    iconColor: 'text-[#D84315]',
+    id: 'begleitung',
+    emoji: '🚶',
+    title: '3. Begleitung & Mobilität',
+    subtitle: 'Sicherheit und Unterstützung außer Haus',
+    description: 'Sicherheit und Unterstützung außer Haus.',
+    color: 'from-[#C8E6C9] to-[#81C784]',
+    bgLight: 'bg-[#E8F5E9]',
+    iconColor: 'text-[#0D6E64]',
     items: [
-      { title: 'Zusammen kochen', desc: 'Gemeinsames Kochen nach Ihren Wünschen und Rezepten.' },
-      { title: 'Mahlzeiten vorbereiten', desc: 'Kochen von warmen Mahlzeiten für Sie.' },
-      { title: 'Essenseinladungen', desc: 'Einladung zum gemeinsamen Essen und Gesellschaft.' },
-      { title: 'Kühlschrank-Check', desc: 'Regelmäßige Kontrolle und Beseitigung von verdorbenen Lebensmitteln.' },
-      { title: 'Getränke', desc: 'Für ausreichende Flüssigkeitsaufnahme während des Tages.' },
+      { title: 'Begleitung zum Arzt', desc: 'Wir begleiten Sie zu Ihren Terminen beim Arzt, zur Physiotherapie oder zu anderen medizinischen Behandlungen.' },
+      { title: 'Begleitung zu Dienstleistern', desc: 'Wir begleiten Sie zur Bank, zum Friseur, zur Fußpflege oder zu anderen Dienstleistern.' },
+      { title: 'Behördengänge', desc: 'Ob Bürgeramt oder Krankenkasse – wir begleiten Sie zu Ihren Terminen und unterstützen Sie vor Ort.' },
+      { title: 'Termin-Vorbereitung', desc: 'Gemeinsames Heraussuchen wichtiger Unterlagen und Vorbereiten der passenden Kleidung.' },
+      { title: 'Soziale Kontakte & Freizeit', desc: 'Begleitung zu Freizeitangeboten, kulturellen Räumen oder privaten Besuchen bei Familie und Freunden zur Aufrechterhaltung Ihrer sozialen Kontakte.' },
+      { title: 'Mobilitäts-Hilfe', desc: 'Unterstützung bei der Orientierung im Straßenverkehr sowie sichere Begleitung bei der Nutzung von Bus, Bahn oder Taxis.' },
     ],
   },
   {
-    id: 'boten',
-    emoji: '📦',
-    title: '7. Botengänge',
-    subtitle: 'Erledigungen übernehmen',
-    description: 'Post, Bank, Behörden – wir erledigen Ihre Botengänge.',
-    color: 'from-[#CE93D8] to-[#AB47BC]',
-    bgLight: 'bg-[#F3E5F5]',
-    iconColor: 'text-[#7B1FA2]',
+    id: 'alltag',
+    emoji: '📑',
+    title: '4. Alltag & Überblick & Struktur',
+    subtitle: 'Kein Stress mehr mit der Alltags-Organisation',
+    description: 'Kein Stress mehr mit der Alltags-Organisation – wir behalten für Sie den Überblick.',
+    color: 'from-[#B3E5FC] to-[#64B5F6]',
+    bgLight: 'bg-[#E3F2FD]',
+    iconColor: 'text-[#1976D2]',
     items: [
-      { title: 'Post & Pakete', desc: 'Abholen und Einordnen der Post und Pakete.' },
-      { title: 'Bankgeschäfte', desc: 'Begleitung und Erledigung von Bankgeschäften.' },
-      { title: 'Schuhe-Reparatur', desc: 'Abholen und Abgeben von Schuhen zur Reparatur.' },
-      { title: 'Kleiner-Reparaturen', desc: 'Abholen und Abgeben von Gegenständen zur Reparatur.' },
-      { title: 'Wäscherei', desc: 'Bringen und Abholen von Wäsche zur Wäscherei.' },
+      { title: 'Post- & Dokumente', desc: 'Gemeinsames Öffnen, Sichten und Sortieren der täglichen Post sowie die strukturierte Organisation wichtiger Dokumente.' },
+      { title: 'Schriftverkehr & Korrespondenz', desc: 'Unterstützung beim Verfassen einfacher Briefe oder E-Mails sowie Hilfe beim Führen eines Haushaltsbuchs.' },
+      { title: 'Antragshilfe', desc: 'Unterstützung beim Ausfüllen von Formularen und Anträgen für Pflegekassen, Versicherungen oder Behörden.' },
+      { title: 'Fristen- & Termin-Management', desc: 'Überwachung wichtiger Termine und Fristen sowie die Planung von Arzt-, Handwerker- oder Beratungsterminen.' },
+      { title: 'Digitale Teilhabe', desc: 'Hilfe bei der Nutzung von Smartphone, Tablet oder PC – vom Einrichten von Messengern bis hin zu Videoanrufen mit der Familie.' },
+      { title: 'Telefon- & Organisations-Hilfe', desc: 'Unterstützung bei wichtigen Telefonaten sowie die Organisation von Feierlichkeiten, Reisen oder Krankenhausaufenthalten.' },
+      { title: 'Tagesstruktur & Orientierung', desc: 'Wir helfen Ihnen, den Tag gut zu planen, erinnern Sie an Wichtiges und geben Ihnen Sicherheit im Alltag.' },
+      { title: 'Vorbereitung', desc: 'Unterstützung und Vorbereitung für Besuche des Pflegedienstes oder des Medizinischen Dienstes.' },
+      { title: 'Wohnungs-Check bei Abwesenheit', desc: 'Wir schauen nach Ihrer Wohnung während Ihrer Abwesenheit (z. B. Blumen gießen, Post leeren).' },
     ],
   },
   {
-    id: 'nacht',
-    emoji: '🌙',
-    title: '8. Nachtwache',
-    subtitle: 'Sicherheit in der Nacht',
-    description: 'Wir sind auch nachts für Sie da – für Sicherheit und Geborgenheit.',
-    color: 'from-[#9FA8DA] to-[#7986CB]',
-    bgLight: 'bg-[#E8EAF6]',
-    iconColor: 'text-[#3949AB]',
+    id: 'soziale',
+    emoji: '🤝',
+    title: '5. Soziale Teilhabe & Freizeit',
+    subtitle: 'Gesellschaft & Aktivierung',
+    description: 'Gesellschaft & Aktivierung.',
+    color: 'from-[#F8BBD0] to-[#F48FB1]',
+    bgLight: 'bg-[#FCE4EC]',
+    iconColor: 'text-[#C2185B]',
     items: [
-      { title: 'Nachtwache', desc: 'Sicherheits Checks in der Nacht und Hilfe bei Bedarf.' },
-      { title: 'Nachtbetreuung', desc: 'Begleitung und Unterstützung während der Nachtstunden.' },
-      { title: 'Nächtliche Mobilität', desc: 'Hilfe beim Aufstehen und Toilettengang in der Nacht.' },
-      { title: 'Schlaf-Routine', desc: 'Unterstützung beim Zubettgehen und Aufstehen.' },
-      { title: 'Beruhigung', desc: 'Anwesenheit für ein sicheres und ruhiges Schlafumfeld.' },
-    ],
-  },
-  {
-    id: 'freizeit',
-    emoji: '♟️',
-    title: '9. Freizeit & Aktivierung',
-    subtitle: 'Gemeinsame Zeit für mehr Lebensfreude',
-    description: 'Wir unternehmen gemeinsam Dinge und bringen Freude in Ihren Alltag.',
-    color: 'from-[#80CBC4] to-[#26A69A]',
-    bgLight: 'bg-[#B2DFDB]',
-    iconColor: 'text-[#00695C]',
-    items: [
-      { title: 'Spaziergänge', desc: 'Gemütliche Spaziergänge im Park oder im Kiez.' },
-      { title: 'Ausflüge', desc: 'Tageausflüge zu Sehenswürdigkeiten oder in die Natur.' },
-      { title: 'Kultur', desc: 'Besuche von Theater, Kino, Museen oder Konzerten.' },
-      { title: 'Senioren-Treffs', desc: 'Begleitung zu Senioren-Treffs und Café-Kränzchen.' },
-      { title: 'Feiertage', desc: 'Besondere Gestaltung von Feiertagen und Geburtstagen.' },
+      { title: 'Gesellschaft', desc: 'Gemeinsames Zeitungslesen, Vorlesen von Büchern oder unterhaltsame Gesellschaftsspiele.' },
+      { title: 'Raus an die Luft', desc: 'Gemütliche Spaziergänge oder kleine Wanderungen in Ihrem Kiez für Mobilität und Wohlbefinden.' },
+      { title: 'Kultur & Genuss', desc: 'Begleitung zu kulturellen Veranstaltungen (Theater, Konzerte), Ausflüge.' },
+      { title: 'Soziale Kontakte', desc: 'Begleitung zu Senioren-Treffs, Nachbarschafts-Cafés oder zu Besuchen bei Freunden und Familie.' },
+      { title: 'Freizeit-Vermittlung', desc: 'Wir helfen Ihnen dabei, passende Angebote in Ihrem Kiez zu finden und begleiten Sie auf Wunsch dorthin.' },
     ],
   },
 ]
@@ -174,7 +111,7 @@ export default function LeistungenPage() {
 
         <div className="relative max-w-4xl mx-auto py-16 text-center">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display text-[#0D6E64] mb-6 leading-tight">
-            Unsere 9 Leistungen
+            Unsere 5 Leistungen
           </h1>
           <p className="text-xl md:text-2xl text-[#546E7A] leading-relaxed max-w-2xl mx-auto">
             Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#0D6E64]">100% kostenfrei</span> über Ihre Pflegekasse.
@@ -182,12 +119,12 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* Quick Overview - 9 Cards */}
+      {/* Quick Overview - 5 Cards */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-lg text-[#546E7A]">
-              Übersicht aller 9 Leistungsbereiche – klicken Sie für Details
+              Übersicht aller 5 Leistungsbereiche – klicken Sie für Details
             </p>
           </div>
 

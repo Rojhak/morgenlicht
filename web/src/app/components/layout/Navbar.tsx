@@ -10,8 +10,9 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 const navLinks = [
   { href: '/', label: 'Startseite' },
   { href: '/leistungen', label: 'Leistungen' },
-  { href: '/kosten', label: 'Kosten' },
+  { href: '/kosten', label: 'Kosten & Pflegekasse' },
   { href: '/ueber-uns', label: 'Über uns' },
+  { href: '/fragen', label: 'Fragen' },
   { href: '/blog', label: 'Blog' },
   { href: '/kontakt', label: 'Kontakt' },
 ]
