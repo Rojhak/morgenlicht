@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Calculator, Phone, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
 import { GlassCard, GlassButton } from '../glass'
@@ -23,6 +23,19 @@ export function CareFinder() {
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
   const [showDetails, setShowDetails] = useState(false)
+
+  // Use a generic ref to handle different element types (legend, h3, div)
+  const headingRef = useRef<HTMLElement | null>(null)
+
+  // Callback ref to handle focus management across different element types without "as any"
+  const setHeadingRef = (element: HTMLElement | null) => {
+    headingRef.current = element
+  }
+
+  useEffect(() => {
+    // Focus the heading when step changes to improve accessibility
+    headingRef.current?.focus()
+  }, [step])
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -60,6 +73,7 @@ export function CareFinder() {
     : 0
 
   const hasExtra = budget.convertible > 0 && !usesSachleistungen
+  const progressValue = step === 'select' ? 33 : step === 'sachleistung' ? 66 : 100
 
   return (
     <section className="py-20 px-4" aria-labelledby="calculator-title">
@@ -79,7 +93,14 @@ export function CareFinder() {
 
         <GlassCard className="p-8 md:p-10 shadow-xl border-0">
           {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-2 mb-8">
+          <div
+            className="flex items-center justify-center gap-2 mb-8"
+            role="progressbar"
+            aria-valuenow={progressValue}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label="Fortschritt der Berechnung"
+          >
             <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#26A69A]' : 'w-8 bg-[#26A69A]'}`} />
             <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#26A69A]' : 'w-6 bg-gray-200'}`} />
           </div>
@@ -88,7 +109,11 @@ export function CareFinder() {
           {step === 'select' && (
             <div className="space-y-8">
               <fieldset>
-                <legend className="block text-xl font-semibold text-[#37474F] mb-8 text-center">
+                <legend
+                  ref={step === 'select' ? setHeadingRef : undefined}
+                  tabIndex={-1}
+                  className="block text-xl font-semibold text-[#37474F] mb-8 text-center outline-none"
+                >
                   Welchen Pflegegrad haben Sie?
                 </legend>
                 <div className="grid grid-cols-5 gap-3 sm:gap-4">
@@ -142,9 +167,13 @@ export function CareFinder() {
           {step === 'sachleistung' && (
             <div className="space-y-8">
               <div className="text-center">
-                <p className="text-xl font-semibold text-[#37474F] mb-3">
+                <h3
+                  ref={step === 'sachleistung' ? setHeadingRef : undefined}
+                  tabIndex={-1}
+                  className="text-xl font-semibold text-[#37474F] mb-3 outline-none"
+                >
                   Nutzen Sie bereits einen Pflegedienst?
-                </p>
+                </h3>
                 <p className="text-[#546E7A]">
                   Zum Beispiel Hilfe beim Waschen oder medizinische Pflege
                 </p>
@@ -186,7 +215,12 @@ export function CareFinder() {
           {step === 'result' && hours > 0 && (
             <div className="space-y-8">
               {/* Main Result - Premium Hours Display */}
-              <div className="text-center py-12 px-8 bg-gradient-to-br from-[#0D6E64] to-[#26A69A] rounded-3xl shadow-xl relative overflow-hidden">
+              <div
+                ref={step === 'result' ? setHeadingRef : undefined}
+                tabIndex={-1}
+                aria-label="Ihr Ergebnis"
+                className="text-center py-12 px-8 bg-gradient-to-br from-[#0D6E64] to-[#26A69A] rounded-3xl shadow-xl relative overflow-hidden outline-none"
+              >
                 {/* Decorative pattern */}
                 <div className="absolute inset-0 opacity-10" aria-hidden="true">
                   <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full blur-3xl" />
@@ -270,7 +304,11 @@ export function CareFinder() {
           {/* Fallback for PG1 with no hours */}
           {step === 'result' && hours === 0 && (
             <div className="text-center space-y-6">
-              <div className="py-6 px-4 bg-[#FFF3E0] rounded-xl">
+              <div
+                ref={step === 'result' ? setHeadingRef : undefined}
+                tabIndex={-1}
+                className="py-6 px-4 bg-[#FFF3E0] rounded-xl outline-none"
+              >
                 <p className="text-lg font-semibold text-[#37474F] mb-2">
                   Wir helfen Ihnen gerne weiter
                 </p>
