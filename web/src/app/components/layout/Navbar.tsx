@@ -42,18 +42,18 @@ export function Navbar() {
                          focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-2 py-1"
             >
               <img
-                src="/logo.svg"
+                src="/trans_logo.svg"
                 alt="Morgenlicht Logo"
-                className="w-16 h-16 flex-shrink-0"
-                width="64"
-                height="64"
+                className="w-20 h-20 flex-shrink-0"
+                width="80"
+                height="80"
               />
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold font-display leading-none tracking-tight text-[#0D6E64] group-hover:text-[#26A69A] transition-colors">
-                  Morgenlicht
+              <div className="flex flex-col justify-center">
+                <span className="text-xl font-bold font-sans uppercase tracking-normal text-[#37474F] leading-none mb-0.5">
+                  MORGENLICHT
                 </span>
-                <span className="text-sm uppercase tracking-wide font-semibold text-[#26A69A] leading-tight mt-1">
-                  Alltagshilfe
+                <span className="text-sm font-normal text-[#37474F] leading-none">
+                  Alltagshilfe Berlin
                 </span>
               </div>
             </Link>
