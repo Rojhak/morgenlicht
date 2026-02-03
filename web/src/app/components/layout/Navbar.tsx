@@ -38,7 +38,7 @@ export function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 group
+              className="flex items-center gap-0 group
                          focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-2 py-1"
             >
               <img
@@ -48,7 +48,7 @@ export function Navbar() {
                 width="96"
                 height="96"
               />
-              <div className="flex flex-col justify-center">
+              <div className="flex flex-col justify-center -ml-3">
                 <span className="text-xl font-bold font-sans uppercase tracking-normal text-[#37474F] leading-none mb-0.5">
                   MORGENLICHT
                 </span>
