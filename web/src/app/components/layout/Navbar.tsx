@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, ArrowRight } from 'lucide-react'
-import { LanguageSwitcher } from './LanguageSwitcher'
+
 
 const navLinks = [
   { href: '/', label: 'Startseite' },
@@ -12,7 +12,7 @@ const navLinks = [
   { href: '/ueber-uns', label: 'Über uns' },
   { href: '/fragen', label: 'Fragen' },
   { href: '/blog', label: 'Blog' },
-  { href: '/kontakt', label: 'Kontakt' },
+
 ]
 
 export function Navbar() {
@@ -70,10 +70,10 @@ export function Navbar() {
 
             {/* Right Actions */}
             <div className="hidden lg:flex items-center gap-6">
-              <LanguageSwitcher />
+
               <Link
                 href="/kontakt"
-                className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all 
+                className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all
                            font-bold text-base px-6 py-3 rounded-xl shadow-sm hover:shadow-md
                            flex items-center gap-2 focus:outline-none focus:ring-4 focus:ring-[#FBBF24]"
               >
