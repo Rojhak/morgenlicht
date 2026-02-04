@@ -48,11 +48,11 @@ export function Navbar() {
                 width="96"
                 height="96"
               />
-              <div className="flex flex-col justify-center -ml-3">
-                <span className="text-xl font-bold font-sans uppercase tracking-normal text-[#37474F] leading-none mb-0.5">
+              <div className="flex flex-col justify-center -ml-3 items-center">
+                <span className="text-xl font-bold font-[family-name:var(--font-montserrat)] uppercase tracking-normal text-[#333333] leading-none mb-0.5">
                   MORGENLICHT
                 </span>
-                <span className="text-sm font-normal text-[#37474F] leading-none">
+                <span className="text-sm font-normal font-[family-name:var(--font-montserrat)] text-[#333333] leading-none">
                   Alltagshilfe Berlin
                 </span>
               </div>

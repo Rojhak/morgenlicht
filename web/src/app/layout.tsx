@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Crimson_Pro, Work_Sans, Space_Grotesk } from 'next/font/google'
+import { Crimson_Pro, Work_Sans, Space_Grotesk, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Navbar } from './components/layout'
 import { GlassFooter } from './components/layout'
@@ -31,6 +31,14 @@ const spaceGrotesk = Space_Grotesk({
   weight: ['500', '700'],
 })
 
+// Montserrat - Geometric sans-serif for Logo
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+  weight: ['400', '700'],
+})
+
 export const metadata: Metadata = {
   title: {
     default: 'Morgenlicht Alltagshilfe',
@@ -53,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de" className={`${crimsonPro.variable} ${workSans.variable} ${spaceGrotesk.variable}`}>
+    <html lang="de" className={`${crimsonPro.variable} ${workSans.variable} ${spaceGrotesk.variable} ${montserrat.variable}`}>
       <body className="flex flex-col min-h-screen antialiased font-work-sans">
         <Navbar />
         <main id="main-content" className="flex-grow pt-16">
