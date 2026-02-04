@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Calculator, Phone, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
+import { Calculator, Phone, ArrowRight, HelpCircle, Check, Clock, ChevronDown } from 'lucide-react'
 import { GlassCard, GlassButton } from '../glass'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
 
@@ -79,9 +79,16 @@ export function CareFinder() {
 
         <GlassCard className="p-8 md:p-10 shadow-xl border-0">
           {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#26A69A]' : 'w-8 bg-[#26A69A]'}`} />
-            <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#26A69A]' : 'w-6 bg-gray-200'}`} />
+          <div
+            className="flex items-center justify-center gap-2 mb-8"
+            role="progressbar"
+            aria-label="Fortschritt"
+            aria-valuenow={step === 'select' ? 1 : step === 'result' ? 2 : 1}
+            aria-valuemin={1}
+            aria-valuemax={2}
+          >
+            <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#26A69A]' : 'w-8 bg-[#26A69A]'}`} aria-hidden="true" />
+            <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#26A69A]' : 'w-6 bg-gray-200'}`} aria-hidden="true" />
           </div>
 
           {/* Step 1: Select Pflegegrad */}
@@ -208,17 +215,19 @@ export function CareFinder() {
               </div>
 
               {/* Optional Details Toggle */}
-              <details className="bg-white/50 rounded-2xl">
-                <summary
-                  onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-                  className="flex items-center justify-between w-full p-5 cursor-pointer hover:bg-white/70 rounded-2xl transition-colors select-none"
+              <div className="bg-white/50 rounded-2xl">
+                <button
+                  onClick={() => setShowDetails(!showDetails)}
+                  className="flex items-center justify-between w-full p-5 cursor-pointer hover:bg-white/70 rounded-2xl transition-colors select-none focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+                  aria-expanded={showDetails}
+                  aria-controls="details-content"
                 >
                   <span className="font-semibold text-[#37474F] text-lg">Details anzeigen</span>
-                  <span className={`text-[#546E7A] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
-                </summary>
+                  <ChevronDown className={`w-6 h-6 text-[#546E7A] transition-transform duration-200 ${showDetails ? 'rotate-180' : ''}`} />
+                </button>
 
                 {showDetails && (
-                  <div className="p-5 pt-2 space-y-4">
+                  <div id="details-content" className="p-5 pt-2 space-y-4">
                     <div className="flex justify-between items-center pb-4 border-b border-[#0D6E64]/10">
                       <span className="text-[#37474F] font-medium text-base">Entlastungsbetrag</span>
                       <span className="font-bold text-[#37474F] text-lg">{formatCurrency(budget.base)}</span>
@@ -242,7 +251,7 @@ export function CareFinder() {
                     )}
                   </div>
                 )}
-              </details>
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
