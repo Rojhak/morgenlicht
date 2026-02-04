@@ -45,3 +45,4 @@ next-env.d.ts
 
 # skills folder (not needed for deployment)
 /skills
+.env*.local

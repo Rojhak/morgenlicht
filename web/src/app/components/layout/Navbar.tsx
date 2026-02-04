@@ -39,20 +39,20 @@ export function Navbar() {
             <Link
               href="/"
               className="flex items-center gap-0 group
-                         focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-2 py-1"
+                         focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded-lg px-2 py-1"
             >
               <img
                 src="/trans_logo.svg"
                 alt="Morgenlicht Logo"
-                className="w-24 h-24 flex-shrink-0"
-                width="96"
-                height="96"
+                className="w-10 h-10 flex-shrink-0"
+                width="40"
+                height="40"
               />
-              <div className="flex flex-col justify-center -ml-3 items-center">
-                <span className="text-xl font-bold font-[family-name:var(--font-montserrat)] uppercase tracking-normal text-[#333333] leading-none mb-0.5">
+              <div className="flex flex-col justify-center -ml-2 items-center">
+                <span className="text-xl md:text-2xl font-bold font-heading uppercase tracking-wide text-[#134E4A] leading-none mb-0.5" style={{ letterSpacing: '0.05em' }}>
                   MORGENLICHT
                 </span>
-                <span className="text-sm font-normal font-[family-name:var(--font-montserrat)] text-[#333333] leading-none">
+                <span className="text-xs md:text-sm font-medium font-heading text-[#134E4A] leading-none uppercase" style={{ letterSpacing: '0.15em' }}>
                   Alltagshilfe Berlin
                 </span>
               </div>
@@ -64,8 +64,8 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[#37474F] hover:text-[#0D6E64] transition-colors text-base font-medium
-                             focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded-lg px-4 py-2"
+                  className="text-[#1F2937] hover:text-[#134E4A] transition-colors text-base font-medium
+                             focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded-lg px-4 py-2"
                 >
                   {link.label}
                 </Link>

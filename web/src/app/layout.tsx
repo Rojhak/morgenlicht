@@ -1,42 +1,23 @@
 import type { Metadata } from 'next'
-import { Crimson_Pro, Work_Sans, Space_Grotesk, Montserrat } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Navbar } from './components/layout'
 import { GlassFooter } from './components/layout'
 
-// Crimson Pro - Sharp, editorial display font with character
-// NOT overused like Playfair Display, more distinctive
-const crimsonPro = Crimson_Pro({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-crimson',
-  weight: ['400', '600', '700'],
-})
-
-// Work Sans - Warm humanist sans, NOT Inter/Roboto
-// Excellent German support, quirky personality
-const workSans = Work_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-work-sans',
-  weight: ['400', '500', '600'],
-})
-
-// Space Grotesk - Geometric but personality-filled
-// Great for labels, tags, emphasis
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
-  weight: ['500', '700'],
-})
-
-// Montserrat - Geometric sans-serif for Logo
+// Montserrat - Modern, geometrische Schrift für Überschriften und Logo
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-montserrat',
-  weight: ['400', '700'],
+  variable: '--font-heading',
+  weight: ['400', '500', '600', '700'],
+})
+
+// Inter - Maximale Lesbarkeit für Fließtext
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-body',
+  weight: ['400', '500', '600'],
 })
 
 export const metadata: Metadata = {
@@ -61,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de" className={`${crimsonPro.variable} ${workSans.variable} ${spaceGrotesk.variable} ${montserrat.variable}`}>
-      <body className="flex flex-col min-h-screen antialiased font-work-sans">
+    <html lang="de" className={`${montserrat.variable} ${inter.variable}`}>
+      <body className="flex flex-col min-h-screen antialiased font-body">
         <Navbar />
         <main id="main-content" className="flex-grow pt-16">
           {children}

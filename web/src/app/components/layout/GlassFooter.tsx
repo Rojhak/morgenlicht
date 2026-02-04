@@ -26,14 +26,14 @@ function NewsletterSignup() {
 
   return (
     <div className="flex flex-col">
-      <h4 className="font-display font-semibold text-[#0D6E64] mb-3">
+      <h4 className="font-heading font-semibold text-white mb-3">
         Newsletter
       </h4>
-      <p className="text-sm text-[#37474F] mb-4">
+      <p className="text-sm text-white/80 mb-4">
         Bleiben Sie informiert über unsere Pflegeleistungen
       </p>
       {subscribed ? (
-        <div className="glass rounded-lg px-4 py-3 text-center text-[#0D6E64] text-sm font-medium">
+        <div className="bg-white/10 rounded-lg px-4 py-3 text-center text-white text-sm font-medium">
           Vielen Dank für Ihre Anmeldung!
         </div>
       ) : (
@@ -44,12 +44,12 @@ function NewsletterSignup() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Ihre E-Mail"
             required
-            className="flex-1 px-4 py-2.5 rounded-lg border border-[#26A69A]/30 bg-white/50 backdrop-blur-sm text-[#37474F] placeholder:text-[#78909C] focus:outline-none focus:ring-2 focus:ring-[#26A69A] focus:border-transparent transition-all"
+            className="flex-1 px-4 py-2.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#FBBF24] focus:border-transparent transition-all"
             aria-label="E-Mail-Adresse für Newsletter"
           />
           <button
             type="submit"
-            className="px-6 py-2.5 rounded-lg bg-[#FF8A65] text-white font-medium hover:bg-[#FF7043] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 shadow-lg"
+            className="px-6 py-2.5 rounded-lg bg-[#FBBF24] text-white font-medium hover:bg-[#F59E0B] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FBBF24] focus:ring-offset-2 focus:ring-offset-[#134E4A] shadow-lg"
             aria-label="Newsletter anmelden"
           >
             Anmelden
@@ -68,7 +68,7 @@ function BackToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="flex items-center gap-2 text-[#37474F] hover:text-[#26A69A] transition-colors text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1"
+      className="flex items-center gap-2 text-white/80 hover:text-[#FBBF24] transition-colors text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1"
       aria-label="Zum Seitenanfang"
     >
       <ArrowUp className="w-4 h-4" aria-hidden="true" />
@@ -83,13 +83,9 @@ export function GlassFooter() {
   return (
     <footer
       role="contentinfo"
-      className="relative mt-auto"
+      className="relative mt-auto bg-[#134E4A] text-white"
       style={{
-        background: 'linear-gradient(135deg, rgba(38, 166, 154, 0.12) 0%, rgba(13, 110, 100, 0.08) 100%)',
-        backdropFilter: 'blur(16px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-        borderTop: '1px solid rgba(255, 255, 255, 0.25)',
-        boxShadow: '0 -8px 32px rgba(13, 110, 100, 0.08)',
+        background: 'linear-gradient(135deg, #134E4A 0%, #0F3D3A 100%)',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,11 +104,11 @@ export function GlassFooter() {
                   priority
                 />
               </Link>
-              <p className="text-[#37474F] text-sm leading-relaxed max-w-sm mb-4">
+              <p className="text-white/80 text-sm leading-relaxed max-w-sm mb-4">
                 Interculturale Alltagsbegleitung und Entlastung für Senioren und ihre Angehörigen in Berlin.
               </p>
-              <div className="flex items-center gap-2 text-sm text-[#0D6E64] font-medium">
-                <Heart className="w-4 h-4 text-[#FF8A65]" aria-hidden="true" />
+              <div className="flex items-center gap-2 text-sm text-white font-medium">
+                <Heart className="w-4 h-4 text-[#FBBF24]" aria-hidden="true" />
                 <span>Anerkannt nach § 45a SGB XI</span>
               </div>
             </div>
@@ -127,7 +123,7 @@ export function GlassFooter() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Column 1: Über uns */}
             <div>
-              <h4 className="font-display font-semibold text-[#0D6E64] mb-4 text-sm uppercase tracking-wide">
+              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                 Über uns
               </h4>
               <nav aria-label="Footer-Navigation: Über uns">
@@ -135,7 +131,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/ueber-uns"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Über uns
                     </Link>
@@ -143,7 +139,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/blog"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Blog & Ratgeber
                     </Link>
@@ -151,7 +147,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/kontakt"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Karriere
                     </Link>
@@ -159,7 +155,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/kontakt"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Kontakt
                     </Link>
@@ -170,7 +166,7 @@ export function GlassFooter() {
 
             {/* Column 2: Leistungen */}
             <div>
-              <h4 className="font-display font-semibold text-[#0D6E64] mb-4 text-sm uppercase tracking-wide">
+              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                 Leistungen
               </h4>
               <nav aria-label="Footer-Navigation: Leistungen">
@@ -178,7 +174,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/leistungen"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Unsere Leistungen
                     </Link>
@@ -186,7 +182,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/pflegegrad-guide"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Pflegegrad Guide
                     </Link>
@@ -194,7 +190,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/kosten"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Kosten & Förderung
                     </Link>
@@ -202,7 +198,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/fragen"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Häufige Fragen
                     </Link>
@@ -213,39 +209,39 @@ export function GlassFooter() {
 
             {/* Column 3: Kontakt */}
             <div>
-              <h4 className="font-display font-semibold text-[#0D6E64] mb-4 text-sm uppercase tracking-wide">
+              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                 Kontakt
               </h4>
               <ul className="space-y-4">
                 <li>
                   <a
                     href={`tel:${PHONE.replace(/\s/g, '')}`}
-                    className="flex items-center gap-3 text-[#37474F] hover:text-[#26A69A] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2 group"
+                    className="flex items-center gap-3 text-white/80 hover:text-[#FBBF24] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2 group"
                   >
-                    <Phone className="w-4 h-4 text-[#26A69A] flex-shrink-0" aria-hidden="true" />
+                    <Phone className="w-4 h-4 text-[#FBBF24] flex-shrink-0" aria-hidden="true" />
                     <div className="flex flex-col">
-                      <span className="font-medium text-base group-hover:underline">{PHONE}</span>
-                      <span className="text-xs text-[#78909C]">Telefon</span>
+                      <span className="font-medium text-[32px] leading-none group-hover:underline text-[#FBBF24]">{PHONE}</span>
+                      <span className="text-xs text-white/60">Telefon</span>
                     </div>
                   </a>
                 </li>
                 <li>
                   <a
                     href={`mailto:${EMAIL}`}
-                    className="flex items-center gap-3 text-[#37474F] hover:text-[#26A69A] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2 group"
+                    className="flex items-center gap-3 text-white/80 hover:text-[#FBBF24] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2 group"
                   >
-                    <Mail className="w-4 h-4 text-[#26A69A] flex-shrink-0" aria-hidden="true" />
+                    <Mail className="w-4 h-4 text-[#FBBF24] flex-shrink-0" aria-hidden="true" />
                     <div className="flex flex-col">
                       <span className="font-medium text-sm group-hover:underline">{EMAIL}</span>
-                      <span className="text-xs text-[#78909C]">E-Mail</span>
+                      <span className="text-xs text-white/60">E-Mail</span>
                     </div>
                   </a>
                 </li>
-                <li className="flex items-start gap-3 text-[#37474F]">
-                  <MapPin className="w-4 h-4 text-[#26A69A] flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <li className="flex items-start gap-3 text-white/80">
+                  <MapPin className="w-4 h-4 text-[#FBBF24] flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <div className="flex flex-col">
                     <span className="text-sm">Raum {SERVICE_AREA}</span>
-                    <div className="flex items-center gap-1.5 text-xs text-[#78909C] mt-0.5">
+                    <div className="flex items-center gap-1.5 text-xs text-white/60 mt-0.5">
                       <Clock className="w-3 h-3" aria-hidden="true" />
                       <span>Mo-Fr: 8:00 - 18:00</span>
                     </div>
@@ -256,7 +252,7 @@ export function GlassFooter() {
 
             {/* Column 4: Rechtliches */}
             <div>
-              <h4 className="font-display font-semibold text-[#0D6E64] mb-4 text-sm uppercase tracking-wide">
+              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
                 Rechtliches
               </h4>
               <nav aria-label="Footer-Navigation: Rechtliches">
@@ -264,7 +260,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/impressum"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Impressum
                     </Link>
@@ -272,7 +268,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/datenschutz"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Datenschutz
                     </Link>
@@ -283,7 +279,7 @@ export function GlassFooter() {
                         // TODO: Open cookie consent banner
                         console.log('Open cookie settings')
                       }}
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm text-left focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2 w-full"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm text-left focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2 w-full"
                     >
                       Cookie-Einstellungen
                     </button>
@@ -291,7 +287,7 @@ export function GlassFooter() {
                   <li>
                     <Link
                       href="/datenschutz#barrierefreiheit"
-                      className="text-[#37474F] hover:text-[#26A69A] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1 -ml-2"
+                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
                     >
                       Barrierefreiheit
                     </Link>
@@ -303,9 +299,9 @@ export function GlassFooter() {
         </div>
 
         {/* Bottom Section */}
-        <div className="py-6 border-t border-[#0D6E64]/10">
+        <div className="py-6 border-t border-white/10">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-[#78909C] text-sm text-center sm:text-left">
+            <p className="text-white/60 text-sm text-center sm:text-left">
               © {currentYear} Morgenlicht Alltagshilfe • Berlin • Für alle Kulturen
             </p>
             <BackToTop />

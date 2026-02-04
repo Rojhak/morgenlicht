@@ -34,9 +34,7 @@ export default function UeberUnsPage() {
   return (
     <>
       {/* Hero Section - Premium */}
-      <section className="relative min-h-[70vh] flex items-center px-4 overflow-hidden">
-        {/* Sophisticated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F0] to-[#E8F5E9]" />
+      <section className="relative min-h-[70vh] flex items-center px-4 overflow-hidden bg-[#FAF9F6]">
 
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -51,15 +49,15 @@ export default function UeberUnsPage() {
               <div className="w-8 h-8 bg-gradient-to-br from-[#26A69A] to-[#00897B] rounded-full flex items-center justify-center">
                 <Heart className="w-4 h-4 text-white" />
               </div>
-              <span className="text-sm font-semibold text-[#37474F]">Das Herz hinter Morgenlicht</span>
+              <span className="text-sm font-semibold text-[#134E4A]">Das Herz hinter Morgenlicht</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-display text-[#0D6E64] mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-[#134E4A] mb-6 leading-tight">
               Über uns
             </h1>
 
-            <p className="text-2xl sm:text-3xl text-[#546E7A] leading-relaxed mb-6 max-w-3xl mx-auto">
-              Unterstützung auf Augenhöhe – <span className="font-semibold text-[#0D6E64]">mit Herz, Hand und Verstand.</span>
+            <p className="text-2xl sm:text-3xl text-[#1F2937] leading-relaxed mb-6 max-w-3xl mx-auto">
+              Unterstützung auf Augenhöhe – <span className="font-semibold text-[#134E4A]">mit Herz, Hand und Verstand.</span>
             </p>
           </div>
         </div>
@@ -96,8 +94,8 @@ export default function UeberUnsPage() {
                       <Award className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-xs text-[#546E7A]">Zertifiziert</div>
-                      <div className="font-bold text-[#0D6E64]">§ 45a SGB XI</div>
+                      <div className="text-xs text-[#1F2937]">Zertifiziert</div>
+                      <div className="font-bold text-[#134E4A]">§ 45a SGB XI</div>
                     </div>
                   </div>
                 </div>
@@ -111,21 +109,21 @@ export default function UeberUnsPage() {
                 <span className="text-sm font-medium text-[#B8472A]">Gründerin & Geschäftsführerin</span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-[#37474F] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-4">
                 Asiye Duman
               </h2>
 
-              <p className="text-lg text-[#0D6E64] font-medium mb-8">
+              <p className="text-lg text-[#134E4A] font-medium mb-8">
                 Morgenlicht Alltagshilfe Berlin
               </p>
 
-              <div className="space-y-6 text-[#546E7A] leading-relaxed">
+              <div className="space-y-6 text-[#1F2937] leading-relaxed">
                 <p className="text-lg">
                   Hinter der Gründung von Morgenlicht steht meine <strong>langjährige Erfahrung im sozialen Bereich</strong>. Über viele Jahre hinweg habe ich Menschen in unterschiedlichsten Lebenslagen beraten und unterstützt.
                 </p>
 
                 <p>
-                  Dabei habe ich eines gelernt: <strong className="text-[#0D6E64]">Der Mensch muss immer im Mittelpunkt stehen.</strong>
+                  Dabei habe ich eines gelernt: <strong className="text-[#134E4A]">Der Mensch muss immer im Mittelpunkt stehen.</strong>
                 </p>
 
                 <p>
@@ -133,19 +131,19 @@ export default function UeberUnsPage() {
                 </p>
 
                 <p>
-                  Oft möchten die Angehörigen helfen, stoßen aber selbst an ihre Grenzen. Genau hier setzen wir an. Mein Ziel war es, eine Unterstützung zu schaffen, die nicht nur eine "Dienstleistung" ist, sondern eine <strong className="text-[#0D6E64]">würdevolle Begleitung auf Augenhöhe</strong>.
+                  Oft möchten die Angehörigen helfen, stoßen aber selbst an ihre Grenzen. Genau hier setzen wir an. Mein Ziel war es, eine Unterstützung zu schaffen, die nicht nur eine "Dienstleistung" ist, sondern eine <strong className="text-[#134E4A]">würdevolle Begleitung auf Augenhöhe</strong>.
                 </p>
               </div>
 
               {/* Stats */}
               <div className="flex gap-8 mt-10 pt-10 border-t border-gray-200">
                 <div>
-                  <div className="text-3xl font-bold text-[#0D6E64]">500+</div>
-                  <div className="text-sm text-[#546E7A]">Zufriedene Kunden</div>
+                  <div className="text-3xl font-bold text-[#134E4A]">500+</div>
+                  <div className="text-sm text-[#1F2937]">Zufriedene Kunden</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[#0D6E64]">5★</div>
-                  <div className="text-sm text-[#546E7A]">Durchschnittsbewertung</div>
+                  <div className="text-3xl font-bold text-[#134E4A]">5★</div>
+                  <div className="text-sm text-[#1F2937]">Durchschnittsbewertung</div>
                 </div>
               </div>
             </div>
@@ -154,13 +152,13 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Values Section - Premium Cards */}
-      <section className="py-20 px-4 bg-[#FAFAFA]">
+      <section className="py-20 px-4 bg-[#FAF9F6]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#37474F] mb-5">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#134E4A] mb-5">
               Was uns wichtig ist
             </h2>
-            <p className="text-xl text-[#546E7A] max-w-2xl mx-auto">
+            <p className="text-xl text-[#1F2937] max-w-2xl mx-auto">
               Erfahrung und viel Herz – das ist unser Versprechen an Sie
             </p>
           </div>
@@ -174,8 +172,8 @@ export default function UeberUnsPage() {
                     <div className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#37474F] mb-4">{value.title}</h3>
-                    <p className="text-[#546E7A] leading-relaxed text-lg">{value.description}</p>
+                    <h3 className="text-2xl font-bold text-[#134E4A] mb-4">{value.title}</h3>
+                    <p className="text-[#1F2937] leading-relaxed text-lg">{value.description}</p>
                   </div>
                 </div>
               )
@@ -183,7 +181,7 @@ export default function UeberUnsPage() {
           </div>
 
           {/* Highlight Card */}
-          <GlassCard className="p-10 bg-gradient-to-br from-[#0D6E64] to-[#26A69A] border-0 shadow-xl">
+          <GlassCard className="p-10 bg-[#134E4A] border-0 shadow-xl">
             <div className="relative z-10 text-center">
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Handshake className="w-8 h-8 text-white" />
@@ -213,15 +211,15 @@ export default function UeberUnsPage() {
                 <MapPin className="w-10 h-10 text-[#0D6E64]" />
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-bold text-[#0D6E64] mb-6">
+              <h3 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
                 Ein Herz für Berlin
               </h3>
 
-              <p className="text-xl text-[#37474F] max-w-2xl mx-auto leading-relaxed mb-6">
-                Wir lieben die Vielfalt unserer Stadt. Unser Ziel ist es, dass gerade die Menschen, die Berlin zu dem gemacht haben, was es heute ist, <strong className="text-[#0D6E64]">hier gut versorgt und glücklich alt werden können</strong>.
+              <p className="text-xl text-[#1F2937] max-w-2xl mx-auto leading-relaxed mb-6">
+                Wir lieben die Vielfalt unserer Stadt. Unser Ziel ist es, dass gerade die Menschen, die Berlin zu dem gemacht haben, was es heute ist, <strong className="text-[#134E4A]">hier gut versorgt und glücklich alt werden können</strong>.
               </p>
 
-              <p className="text-lg text-[#546E7A]">
+              <p className="text-lg text-[#1F2937]">
                 Egal ob es um den Haushalt, Begleitung zum Arzt oder gemeinsames Einkaufen geht – wir sind für Sie da.
               </p>
             </div>
@@ -230,7 +228,7 @@ export default function UeberUnsPage() {
       </section>
 
       {/* Personal Quote Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#FAFAFA] to-white">
+      <section className="py-20 px-4 bg-[#FAF9F6]">
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="absolute -top-8 -left-8 text-9xl text-[#FFD54F]/20 font-serif" aria-hidden="true">
@@ -239,11 +237,11 @@ export default function UeberUnsPage() {
             <GlassCard className="p-10 md:p-16 text-center relative">
               <Quote className="w-12 h-12 text-[#FFD54F] mx-auto mb-6" />
               <blockquote className="mb-8">
-                <p className="text-2xl md:text-3xl text-[#37474F] font-medium leading-relaxed italic">
+                <p className="text-2xl md:text-3xl text-[#134E4A] font-medium leading-relaxed italic">
                   "Jeder Mensch verdient Unterstützung, die Würde und Respekt zeigt – genau das wollen wir jeden Tag bei Morgenlicht leben."
                 </p>
               </blockquote>
-              <cite className="text-[#0D6E64] font-semibold not-italic">
+              <cite className="text-[#134E4A] font-semibold not-italic">
                 — Asiye Duman
               </cite>
             </GlassCard>
@@ -258,18 +256,18 @@ export default function UeberUnsPage() {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#B8472A] to-[#FFD54F] rounded-2xl shadow-lg mb-6">
               <Award className="w-10 h-10 text-white" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#134E4A] mb-4">
               Anerkannter Anbieter nach § 45a SGB XI
             </h3>
-            <p className="text-lg text-[#546E7A] max-w-lg mx-auto leading-relaxed">
-              Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <strong className="text-[#0D6E64]">100% für Sie kostenlos</strong>.
+            <p className="text-lg text-[#1F2937] max-w-lg mx-auto leading-relaxed">
+              Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <strong className="text-[#134E4A]">100% für Sie kostenlos</strong>.
             </p>
           </div>
         </div>
       </section>
 
       {/* CTA Section - Premium */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#0D6E64] to-[#26A69A]">
+      <section className="py-20 px-4 bg-[#134E4A]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Lernen Sie uns kennen
@@ -284,7 +282,7 @@ export default function UeberUnsPage() {
               href="/kontakt"
               variant="primary"
               size="lg"
-              className="!bg-white !text-[#0D6E64] hover:!bg-gray-50 shadow-xl font-bold px-10"
+              className="!bg-white !text-[#134E4A] hover:!bg-gray-50 shadow-xl font-bold px-10"
             >
               Jetzt anfragen
               <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />

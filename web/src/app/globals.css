@@ -1,72 +1,61 @@
 @import "tailwindcss";
 
 /* ========================================
-   MORGENLICHT DESIGN SYSTEM 2.0
-   "Berlin Herz & Warmth" Aesthetic
+   MORGENLICHT DESIGN SYSTEM 3.0
+   Design-Masterplan Implementation
+   "Berlin Herz & Warmth" - Waldgrün + Goldgelb
    ======================================== */
 
 :root {
   /* ========================================
-     TYPOGRAPHY - Distinctive & Memorable
+     COLORS - Design Masterplan
      ======================================== */
-  --font-crimson: 'Crimson Pro', serif;
-  /* Sharp, editorial display - NOT Playfair/Inter */
-  --font-work-sans: 'Work Sans', sans-serif;
-  /* Warm humanist sans - NOT Inter/Roboto/Open Sans */
-  --font-space-grotesk: 'Space Grotesk', sans-serif;
-  /* Geometric accent - for labels, tags, emphasis */
+
+  /* Backgrounds - Warm, premium tones */
+  --bg-cream: #FAF9F6;
+  /* Haupt-Hintergrund: Warmes Creme/Off-White */
+  --bg-soft-mint: #F0FDF4;
+  /* Sektions-Trennung 1: Soft Mint für Kompetenz */
+  --bg-pale-sun: #FFFBEB;
+  /* Sektions-Trennung 2: Pale Sun für Fokus */
+  --bg-white: #FFFFFF;
+  /* Reinweiß für Karten und Kontrast */
+
+  /* Primary Brand Color - Waldgrün */
+  --waldgrun: #134E4A;
+  /* Primärfarbe: Tiefes Waldgrün für Seriosität */
+  --waldgrun-light: #14B8A6;
+  /* Helleres Grün für Akzente */
+
+  /* Accent Brand Color - Goldgelb */
+  --goldgelb: #FBBF24;
+  /* Akzentfarbe: Goldgelb aus dem Logo */
+  --goldgelb-light: #FDE68A;
+  /* Helleres Gold für Hintergründe */
+
+  /* Typography Colors - Maximale Lesbarkeit */
+  --text-heading: #134E4A;
+  /* Überschriften in Waldgrün */
+  --text-body: #1F2937;
+  /* Haupttext: Sehr dunkles Anthrazit */
+  --text-muted: #4B5563;
+  /* Gedämpfter Text für weniger wichtige Inhalte */
 
   /* ========================================
-     COLORS - Sophisticated & Deep
+     TYPOGRAPHY - Montserrat + Inter
      ======================================== */
-  /* Backgrounds - Warm, premium cream tones */
-  --bg-cream: #FFFAF0;
-  /* Floral White - Warm, welcoming base */
-  --bg-cream-dark: #F7EFE5;
-  /* Slightly darker for section distinction */
-  --bg-white-glass: rgba(255, 255, 255, 0.85);
-
-  /* Primary Brand - Deepened Teal */
-  --teal-deep: #0D6E64;
-  /* Most authoritative - primary headings */
-  --teal-dark: #004D40;
-  /* Deep, sophisticated teal */
-  --teal-primary: #00695C;
-  /* Standard brand teal */
-  --teal-light: #4DB6AC;
-  /* Lighter accents */
-
-  /* Warmth - Terra Cotta Evolution */
-  --terra-cotta: #C25E00;
-  /* Deep terra cotta - more sophisticated than coral */
-  --coral-accent: #E65100;
-  /* Warm, energetic accent for CTAs */
-  --coral-soft: #FFCCBC;
-  /* Soft background accent */
-
-  /* Gold - Ochre/Mustard Evolution */
-  --ochre: #C48618;
-  /* Deep ochre for premium feel */
-  --gold-warm: #FFB300;
-  /* Warm gold for focus/highlights */
-  --gold-light: #FFECB3;
-  /* Light gold backgrounds */
-
-  /* Typography Colors - Enhanced Contrast */
-  --text-heading: #0D3D36;
-  /* Very dark teal - softer than pure black */
-  --text-body: #37474F;
-  /* Blue-grey for high readability */
-  --text-muted: #546E7A;
-  /* Subtle text */
+  --font-heading: 'Montserrat', sans-serif;
+  /* Überschriften: Modern, geometrisch */
+  --font-body: 'Inter', sans-serif;
+  /* Fließtext: Maximale Lesbarkeit */
 
   /* ========================================
-     SHADOWS - Layered Elevation
+     SHADOWS - Premium Elevation
      ======================================== */
-  --shadow-soft: 0 4px 6px -1px rgba(13, 110, 100, 0.06), 0 2px 4px -1px rgba(13, 110, 100, 0.04);
-  --shadow-card: 0 10px 15px -3px rgba(13, 110, 100, 0.10), 0 4px 6px -2px rgba(13, 110, 100, 0.05);
-  --shadow-float: 0 20px 25px -5px rgba(13, 110, 100, 0.12), 0 10px 10px -5px rgba(13, 110, 100, 0.06);
-  --shadow-premium: 0 25px 50px -12px rgba(13, 110, 100, 0.15);
+  --shadow-soft: 0 2px 8px rgba(19, 78, 74, 0.06);
+  --shadow-card: 0 4px 16px rgba(19, 78, 74, 0.08);
+  --shadow-hover: 0 12px 32px rgba(19, 78, 74, 0.12);
+  --shadow-premium: 0 20px 50px rgba(19, 78, 74, 0.15);
 }
 
 /* ========================================
@@ -75,33 +64,27 @@
 @theme inline {
   /* Color mapping for Tailwind classes */
   --color-cream: var(--bg-cream);
-  --color-cream-dark: var(--bg-cream-dark);
+  --color-soft-mint: var(--bg-soft-mint);
+  --color-pale-sun: var(--bg-pale-sun);
 
-  --color-teal-900: var(--teal-deep);
-  --color-teal-800: var(--teal-dark);
-  --color-teal-700: var(--teal-primary);
-  --color-teal-400: var(--teal-light);
+  --color-waldgrun: var(--waldgrun);
+  --color-waldgrun-light: var(--waldgrun-light);
 
-  --color-coral-700: var(--terra-cotta);
-  --color-coral-600: var(--coral-accent);
-  --color-coral-100: var(--coral-soft);
-
-  --color-gold-700: var(--ochre);
-  --color-gold-500: var(--gold-warm);
-  --color-gold-100: var(--gold-light);
+  --color-gold: var(--goldgelb);
+  --color-gold-light: var(--goldgelb-light);
 
   --color-text-heading: var(--text-heading);
   --color-text-body: var(--text-body);
+  --color-text-muted: var(--text-muted);
 
-  /* Typography - Distinctive fonts */
-  --font-display: var(--font-crimson);
-  --font-body: var(--font-work-sans);
-  --font-accent: var(--font-space-grotesk);
+  /* Typography */
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 
   /* Shadows */
   --shadow-soft: var(--shadow-soft);
   --shadow-card: var(--shadow-card);
-  --shadow-float: var(--shadow-float);
+  --shadow-hover: var(--shadow-hover);
   --shadow-premium: var(--shadow-premium);
 }
 
@@ -128,19 +111,10 @@ html {
 }
 
 body {
-  /* Layered, sophisticated background with texture */
-  background:
-    /* Subtle paper texture overlay */
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E"),
-    /* Radial warm glow - gold */
-    radial-gradient(ellipse at top left, rgba(255, 179, 0, 0.06) 0%, transparent 50%),
-    /* Radial cool glow - teal */
-    radial-gradient(ellipse at bottom right, rgba(13, 110, 100, 0.04) 0%, transparent 50%),
-    /* Main gradient - cream tones */
-    linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-cream-dark) 100%);
-  background-attachment: fixed;
+  /* Haupt-Hintergrund: Warmes Creme */
+  background: var(--bg-cream);
   color: var(--text-body);
-  font-family: var(--font-work-sans);
+  font-family: var(--font-body);
   line-height: 1.7;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -148,61 +122,115 @@ body {
 }
 
 /* ========================================
-   TYPOGRAPHY - Distinctive & Editorial
+   TYPOGRAPHY - Design Masterplan
    ======================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-crimson);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text-heading);
-  /* Slightly more emphatic for editorial feel */
+
+/* H1 - Hauptüberschriften (42-48px, Bold) */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 48px;
   font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--waldgrun);
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+}
+
+/* H2 - Sektions-Titel (32-36px, Semi-Bold) */
+h2 {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--waldgrun);
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 26px;
+  }
+}
+
+/* H3 - Untertitel/Karten-Titel (22-24px, Semi-Bold) */
+h3 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--waldgrun);
+}
+
+@media (max-width: 768px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+/* H4, H5, H6 */
+h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--waldgrun);
+}
+
+/* Fließtext - Inter (18px, Regular) */
 p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-body);
   letter-spacing: 0.005em;
 }
 
-/* Accent font for labels, tags */
-.font-accent {
-  font-family: var(--font-space-grotesk);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  font-size: 0.875em;
-  font-weight: 700;
+@media (max-width: 768px) {
+  p {
+    font-size: 17px;
+  }
 }
 
-/* Display font for headings */
-.font-display {
-  font-family: var(--font-crimson);
+/* Einleitung - Leicht größer (20px) */
+.text-intro {
+  font-size: 20px;
+  line-height: 1.6;
 }
 
-/* Body font */
-.font-body {
-  font-family: var(--font-work-sans);
+/* Kleingedrucktes (14px) */
+.text-small {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
 }
 
 /* ========================================
    ACCESSIBILITY
    ======================================== */
-/* Accessible link styles - must have underline, not just color */
+
+/* Accessible link styles */
 a {
   text-decoration-skip-ink: auto;
+  color: var(--waldgrun);
+  transition: color 0.2s ease;
 }
 
-/* Focus ring utility - high visibility */
+a:hover {
+  color: var(--waldgrun-light);
+}
+
+/* Focus ring utility */
 .focus-ring {
-  @apply focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2;
+  @apply focus:outline-none focus:ring-4 focus:ring-[#FBBF24] focus:ring-offset-2;
 }
 
-/* Ensure all interactive elements have visible focus */
 :focus-visible {
-  outline: 3px solid #FFD54F;
+  outline: 3px solid var(--goldgelb);
   outline-offset: 2px;
 }
 
@@ -212,11 +240,11 @@ a {
   top: -100%;
   left: 0;
   padding: 1rem;
-  background: var(--teal-deep);
+  background: var(--waldgrun);
   color: white;
   z-index: 100;
   font-weight: 600;
-  font-family: var(--font-work-sans);
+  font-family: var(--font-body);
 }
 
 .skip-link:focus {
@@ -225,94 +253,87 @@ a {
 
 /* Selection color */
 ::selection {
-  background: rgba(255, 179, 0, 0.25);
+  background: rgba(251, 191, 36, 0.3);
   color: var(--text-body);
 }
 
 /* ========================================
-   GLASS MORPHISM 2.0 - Premium Variations
+   GLASS MORPHISM 3.0 - Design Masterplan
    ======================================== */
 
 /* Primary Glass - Warm, premium */
 .glass {
   background: linear-gradient(135deg,
-    rgba(255, 250, 240, 0.88) 0%,
-    rgba(255, 245, 230, 0.80) 100%);
-  backdrop-filter: blur(24px) saturate(150%);
-  -webkit-backdrop-filter: blur(24px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow:
-    0 8px 32px rgba(13, 110, 100, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    rgba(255, 255, 255, 0.90) 0%,
+    rgba(250, 249, 246, 0.85) 100%);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-card);
 }
 
-/* Dark Glass - Premium sections */
-.glass-dark {
-  background: linear-gradient(135deg,
-    rgba(13, 110, 100, 0.92) 0%,
-    rgba(0, 77, 64, 0.88) 100%);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 12px 48px rgba(13, 110, 100, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+/* Glass Card - For content cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(19, 78, 74, 0.08);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
 }
 
-/* Colored Glass - Teal tint for brand moments */
-.glass-teal {
-  background: linear-gradient(135deg,
-    rgba(38, 166, 154, 0.18) 0%,
-    rgba(224, 242, 241, 0.28) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(38, 166, 154, 0.25);
-  box-shadow:
-    0 8px 24px rgba(38, 166, 154, 0.10),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+.glass-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
-/* Colored Glass - Warm gold tint */
-.glass-gold {
-  background: linear-gradient(135deg,
-    rgba(255, 179, 0, 0.15) 0%,
-    rgba(255, 236, 179, 0.25) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 179, 0, 0.30);
-  box-shadow:
-    0 8px 24px rgba(255, 179, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+/* Glass Button - Waldgrün primary */
+.glass-btn-primary {
+  background: var(--waldgrun);
+  color: white;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(19, 78, 74, 0.3);
 }
 
-/* ========================================
-   TEXTURES - Premium Feel
-   ======================================== */
-
-/* Subtle paper texture overlay */
-.background-texture {
-  position: relative;
+.glass-btn-primary:hover {
+  background: #0F3D3A;
+  box-shadow: 0 6px 20px rgba(19, 78, 74, 0.4);
+  transform: translateY(-1px);
 }
 
-.background-texture::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.025;
-  pointer-events: none;
-  z-index: 0;
+/* Glass Button - Outline secondary */
+.glass-btn-outline {
+  background: transparent;
+  color: var(--waldgrun);
+  border: 2px solid var(--waldgrun);
+  border-radius: 12px;
+  padding: 10px 22px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-btn-outline:hover {
+  background: rgba(19, 78, 74, 0.05);
+  border-color: var(--waldgrun-light);
+  color: var(--waldgrun-light);
 }
 
 /* ========================================
-   ANIMATIONS - Staggered Reveals & Motion
+   ANIMATIONS - Smooth & Delightful
    ======================================== */
 
 /* Page Load - Staggered reveal */
 @keyframes revealUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -320,60 +341,35 @@ a {
   }
 }
 
-@keyframes revealFade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .reveal-stagger-1 {
-  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  animation: revealUp 0.7s ease-out 0.1s both;
 }
 
 .reveal-stagger-2 {
-  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  animation: revealUp 0.7s ease-out 0.2s both;
 }
 
 .reveal-stagger-3 {
-  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  animation: revealUp 0.7s ease-out 0.3s both;
 }
 
 .reveal-stagger-4 {
-  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  animation: revealUp 0.7s ease-out 0.4s both;
 }
 
-/* Fade in for backgrounds */
-.reveal-fade {
-  animation: revealFade 1s ease-out 0.2s both;
-}
-
-/* Hover - Elastic scale */
+/* Card hover effect */
 .card-hover {
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
-  transform: scale(1.02) translateY(-4px);
-  box-shadow: var(--shadow-premium);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
-/* Floating animation for decorative elements */
+/* Floating animation */
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(2deg);
-  }
-}
-
-@keyframes float-slow {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
@@ -382,130 +378,76 @@ a {
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
-}
-
-/* Skeleton animation */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.skeleton {
-  animation: pulse 2s ease-in-out infinite;
-  background: linear-gradient(90deg, #E0E0E0 25%, #EEEEEE 50%, #E0E0E0 75%);
-  background-size: 200% 100%;
-  border-radius: 4px;
-}
-
-/* Shimmer effect */
-@keyframes shimmer {
-  0% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.5;
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
 /* ========================================
-   UTILITY CLASSES
+   UTILITY CLASSES - Design Masterplan
    ======================================== */
 
-/* Card hover lift */
+/* Section backgrounds */
+.bg-section-cream {
+  background: var(--bg-cream);
+}
+
+.bg-section-mint {
+  background: var(--bg-soft-mint);
+}
+
+.bg-section-sun {
+  background: var(--bg-pale-sun);
+}
+
+.bg-section-white {
+  background: var(--bg-white);
+}
+
+/* Text colors */
+.text-waldgrun {
+  color: var(--waldgrun);
+}
+
+.text-gold {
+  color: var(--goldgelb);
+}
+
+.text-anthrazit {
+  color: var(--text-body);
+}
+
+/* Card lift */
 .card-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-lift:hover {
   transform: translateY(-4px);
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.08),
-    0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-/* Section gradients */
-.section-warm {
-  background: linear-gradient(180deg,
-      rgba(255, 248, 225, 0.5) 0%,
-      rgba(255, 255, 255, 0.3) 100%);
-}
-
-.section-teal {
-  background: linear-gradient(180deg,
-      rgba(224, 242, 241, 0.5) 0%,
-      rgba(255, 255, 255, 0.3) 100%);
-}
-
-/* Button shadows */
-.btn-shadow-orange {
-  box-shadow: 0 4px 14px rgba(255, 138, 101, 0.35);
-}
-
-.btn-shadow-orange:hover {
-  box-shadow: 0 6px 20px rgba(255, 138, 101, 0.45);
-}
-
-.btn-shadow-teal {
-  box-shadow: 0 4px 14px rgba(38, 166, 154, 0.35);
-}
-
-.btn-shadow-teal:hover {
-  box-shadow: 0 6px 20px rgba(38, 166, 154, 0.45);
+  box-shadow: var(--shadow-hover);
 }
 
 /* Soft divider */
-.divider-soft {
+.divider {
   height: 1px;
   background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(38, 166, 154, 0.2) 20%,
-      rgba(38, 166, 154, 0.2) 80%,
-      transparent 100%);
-}
-
-/* Accessible link base style */
-.link-accessible {
-  color: var(--teal-deep);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  transition: color 0.2s ease;
-}
-
-.link-accessible:hover {
-  color: var(--terra-cotta);
-  text-decoration-thickness: 2px;
-}
-
-/* Text accent */
-.text-accent {
-  color: var(--teal-deep);
+    transparent 0%,
+    rgba(19, 78, 74, 0.15) 50%,
+    transparent 100%);
 }
 
 /* ========================================
    FOOTER SPECIFIC
    ======================================== */
-.glass-footer-gradient {
-  background: linear-gradient(135deg, rgba(38, 166, 154, 0.12) 0%, rgba(13, 110, 100, 0.08) 100%);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 -8px 32px rgba(13, 110, 100, 0.08);
+.footer-gradient {
+  background: linear-gradient(135deg, var(--waldgrun) 0%, #0F3D3A 100%);
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-gradient a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease;
+}
+
+.footer-gradient a:hover {
+  color: var(--goldgelb);
 }

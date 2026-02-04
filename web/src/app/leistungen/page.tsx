@@ -1,13 +1,13 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, Phone } from 'lucide-react'
+import { ArrowRight, Phone, Home, ShoppingBag, Footprints, FileText, Handshake } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
 
 const services = [
   {
     id: 'haushalt',
-    emoji: '🏠',
+    icon: Home,
     title: '1. Haushalt & Wohlbefinden',
     subtitle: 'Ein sauberes Zuhause zum Wohlfühlen',
     description: 'Ein sauberes Zuhause zum Wohlfühlen',
@@ -25,7 +25,7 @@ const services = [
   },
   {
     id: 'einkauf',
-    emoji: '🛒',
+    icon: ShoppingBag,
     title: '2. Einkauf & Erledigungen',
     subtitle: 'Wir nehmen Ihnen die schweren Wege ab',
     description: 'Wir nehmen Ihnen die schweren Wege ab.',
@@ -42,7 +42,7 @@ const services = [
   },
   {
     id: 'begleitung',
-    emoji: '🚶',
+    icon: Footprints,
     title: '3. Begleitung & Mobilität',
     subtitle: 'Sicherheit und Unterstützung außer Haus',
     description: 'Sicherheit und Unterstützung außer Haus.',
@@ -60,7 +60,7 @@ const services = [
   },
   {
     id: 'alltag',
-    emoji: '📑',
+    icon: FileText,
     title: '4. Alltag & Überblick & Struktur',
     subtitle: 'Kein Stress mehr mit der Alltags-Organisation',
     description: 'Kein Stress mehr mit der Alltags-Organisation – wir behalten für Sie den Überblick.',
@@ -81,7 +81,7 @@ const services = [
   },
   {
     id: 'soziale',
-    emoji: '🤝',
+    icon: Handshake,
     title: '5. Soziale Teilhabe & Freizeit',
     subtitle: 'Gesellschaft & Aktivierung',
     description: 'Gesellschaft & Aktivierung.',
@@ -102,19 +102,18 @@ export default function LeistungenPage() {
   return (
     <>
       {/* Hero Section - Premium */}
-      <section className="relative min-h-[60vh] flex items-center px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F0] to-[#E8F5E9]" />
+      <section className="relative min-h-[60vh] flex items-center px-4 overflow-hidden bg-[#FAF9F6]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FFD54F]/8 to-transparent rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#26A69A]/8 to-transparent rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-4xl mx-auto py-16 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display text-[#0D6E64] mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight">
             Unsere 5 Leistungen
           </h1>
-          <p className="text-xl md:text-2xl text-[#546E7A] leading-relaxed max-w-2xl mx-auto">
-            Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#0D6E64]">100% kostenfrei</span> über Ihre Pflegekasse.
+          <p className="text-xl md:text-2xl text-[#1F2937] leading-relaxed max-w-2xl mx-auto">
+            Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> über Ihre Pflegekasse.
           </p>
         </div>
       </section>
@@ -123,7 +122,7 @@ export default function LeistungenPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-lg text-[#546E7A]">
+            <p className="text-lg text-[#1F2937]">
               Übersicht aller 5 Leistungsbereiche – klicken Sie für Details
             </p>
           </div>
@@ -136,11 +135,11 @@ export default function LeistungenPage() {
                 className="group block"
               >
                 <div className={`h-full rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 ${service.bgLight}`}>
-                  <div className={`w-14 h-14 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center text-3xl shadow-md group-hover:scale-110 transition-transform duration-300 mb-4`}>
-                    {service.emoji}
+                  <div className={`w-14 h-14 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 mb-4`}>
+                    <service.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="font-bold text-[#37474F] mb-2 text-lg">{service.title}</h3>
-                  <p className="text-sm text-[#546E7A] line-clamp-2">{service.subtitle}</p>
+                  <h3 className="font-bold text-[#134E4A] mb-2 text-lg">{service.title}</h3>
+                  <p className="text-sm text-[#1F2937] line-clamp-2">{service.subtitle}</p>
                 </div>
               </a>
             ))}
@@ -149,21 +148,21 @@ export default function LeistungenPage() {
       </section>
 
       {/* Detailed Services */}
-      <section className="py-16 px-4 bg-[#FAFAFA]">
+      <section className="py-16 px-4 bg-[#FAF9F6]">
         <div className="max-w-5xl mx-auto">
           <div className="space-y-16">
             {services.map((service) => (
               <GlassCard key={service.id} id={service.id} className={`p-8 md:p-12 border-0 shadow-xl ${service.bgLight}`}>
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-3xl flex items-center justify-center text-4xl shadow-xl flex-shrink-0`}>
-                    {service.emoji}
+                  <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-3xl flex items-center justify-center shadow-xl flex-shrink-0`}>
+                    <service.icon className="w-10 h-10 text-white" />
                   </div>
                   <div className="text-center md:text-left">
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-2">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[#134E4A] mb-2">
                       {service.title}
                     </h2>
-                    <p className="text-lg text-[#0D6E64] font-medium mb-2">{service.subtitle}</p>
-                    <p className="text-[#546E7A]">{service.description}</p>
+                    <p className="text-lg text-[#134E4A] font-medium mb-2">{service.subtitle}</p>
+                    <p className="text-[#1F2937]">{service.description}</p>
                   </div>
                 </div>
 
@@ -177,8 +176,8 @@ export default function LeistungenPage() {
                         <div className={`w-2 h-2 rounded-full ${service.iconColor.replace('text', 'bg')}`} />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-[#37474F] mb-1">{item.title}</h3>
-                        <p className="text-sm text-[#546E7A]">{item.desc}</p>
+                        <h3 className="font-semibold text-[#134E4A] mb-1">{item.title}</h3>
+                        <p className="text-sm text-[#1F2937]">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -190,7 +189,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* CTA - Premium */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#0D6E64] to-[#26A69A]">
+      <section className="py-20 px-4 bg-[#134E4A]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Fragen zu unseren Leistungen?
@@ -205,7 +204,7 @@ export default function LeistungenPage() {
               href="/kontakt"
               variant="primary"
               size="lg"
-              className="!bg-white !text-[#0D6E64] hover:!bg-gray-50 shadow-xl font-bold px-10"
+              className="!bg-white !text-[#134E4A] hover:!bg-gray-50 shadow-xl font-bold px-10"
             >
               Jetzt anfragen
               <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
