@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { sanitizeInput } from '@/lib/security'
 
 const EMAIL_TO = process.env.EMAIL_TO || 'anfragen@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
@@ -22,6 +23,11 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Sanitize input to prevent HTML injection in emails
+    const safeName = sanitizeInput(data.name, 100)
+    const safePhone = sanitizeInput(data.phone, 50)
+    const safePflegegrad = data.pflegegrad ? sanitizeInput(data.pflegegrad, 50) : undefined
+
     const apiKey = process.env.RESEND_API_KEY
     if (!apiKey) {
       console.error('RESEND_API_KEY is not configured')
@@ -42,22 +48,22 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
-      subject: `Neue Anfrage von ${data.name}`,
+      subject: `Neue Anfrage von ${safeName}`,
       html: `
         <h2>Neue Anfrage über die Website</h2>
         <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Name:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.name}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safeName}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Telefon:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.phone}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safePhone}</td>
           </tr>
-          ${data.pflegegrad ? `
+          ${safePflegegrad ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Pflegegrad:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.pflegegrad}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safePflegegrad}</td>
           </tr>
           ` : ''}
           <tr>
