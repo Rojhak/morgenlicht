@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Phone, Mail, MapPin, CheckCircle, AlertCircle, Clock, Heart } from 'lucide-react'
-import { GlassCard, GlassButton, GlassInput } from '../components/glass'
+import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
 import { Modal } from '../components/ui'
 
 const PHONE = '069 12345678'
@@ -95,142 +94,144 @@ export default function KontaktPage() {
   }
 
   return (
-    <div className="py-16 px-4 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#26A69A]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-80 h-80 bg-[#FFD54F]/15 rounded-full blur-3xl" />
-      </div>
-
+    <div className="py-16 px-4 relative overflow-hidden bg-[#FAF9F6]">
       <div className="relative max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 bg-[#FFF8E1] rounded-full text-sm font-medium text-[#B8472A] mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold text-[#134E4A] mb-4 border border-[#FBBF24]">
             Wir sind für Sie da
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#37474F] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-4">
             Kontakt aufnehmen
           </h1>
-          <p className="text-lg text-[#455A64]">
+          <p className="text-lg text-[#1F2937] font-body">
             Wir melden uns innerhalb von 24 Stunden bei Ihnen
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <GlassCard className="p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFD54F]/10 rounded-full blur-2xl" aria-hidden="true" />
-            <div className="relative">
-              <h2 className="text-xl font-semibold text-[#37474F] mb-6">
-                Anfrage senden
-              </h2>
+          <div className="bg-white rounded-[16px] p-8 shadow-sm border border-gray-100">
+            <h2 className="text-xl font-bold text-[#134E4A] mb-6 font-heading">
+              Anfrage senden
+            </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <GlassInput
-                  label="Ihr Name"
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label htmlFor="name" className="block text-sm font-medium text-[#374151]">
+                  Ihr Name
+                </label>
+                <input
+                  id="name"
                   name="name"
+                  type="text"
                   placeholder="Vor- und Nachname"
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
                   onBlur={() => handleBlur('name')}
-                  error={errors.name}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#134E4A] focus:ring-1 focus:ring-[#134E4A]'
+                    } bg-white transition-colors outline-none`}
                   required
                 />
+                {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
+              </div>
 
-                <GlassInput
-                  label="Telefonnummer"
+              <div className="space-y-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-[#374151]">
+                  Telefonnummer
+                </label>
+                <input
+                  id="phone"
                   name="phone"
                   type="tel"
                   placeholder="Für unseren Rückruf"
                   value={formData.phone}
                   onChange={(e) => handleChange('phone', e.target.value)}
                   onBlur={() => handleBlur('phone')}
-                  error={errors.phone}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#134E4A] focus:ring-1 focus:ring-[#134E4A]'
+                    } bg-white transition-colors outline-none`}
                   required
                 />
+                {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone}</p>}
+              </div>
 
-                <GlassButton
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  className="w-full btn-shadow-orange"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
-                </GlassButton>
-              </form>
-            </div>
-          </GlassCard>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-[#134E4A] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-sm"
+              >
+                {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
+              </button>
+            </form>
+          </div>
 
           {/* Contact Info */}
           <div className="space-y-5">
-            <GlassCard className="p-6 card-lift">
+            <div className="bg-white rounded-[16px] p-6 shadow-sm border border-gray-100 hover:border-[#134E4A] transition-colors">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#0D6E64]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-[#0D6E64]" aria-hidden="true" />
+                <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-[#134E4A]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#37474F] mb-1">Telefon</h3>
+                  <h3 className="font-bold text-[#1F2937] mb-1 font-heading">Telefon</h3>
                   <a
                     href={`tel:${PHONE.replace(/\s/g, '')}`}
-                    className="text-xl font-medium text-[#0D6E64] hover:underline
-                               focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded"
+                    className="text-xl font-medium text-[#134E4A] hover:underline"
                   >
                     {PHONE}
                   </a>
-                  <p className="text-sm text-[#455A64] mt-1">
+                  <p className="text-sm text-[#4B5563] mt-1">
                     Mo-Fr 9:00 - 17:00 Uhr
                   </p>
                 </div>
               </div>
-            </GlassCard>
+            </div>
 
-            <GlassCard className="p-6 card-lift">
+            <div className="bg-white rounded-[16px] p-6 shadow-sm border border-gray-100 hover:border-[#134E4A] transition-colors">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#B8472A]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-[#B8472A]" aria-hidden="true" />
+                <div className="w-12 h-12 bg-[#FFFBEB] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-[#FBBF24]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#37474F] mb-1">E-Mail</h3>
+                  <h3 className="font-bold text-[#1F2937] mb-1 font-heading">E-Mail</h3>
                   <a
                     href="mailto:info@morgenlicht-alltagshilfe.de"
-                    className="text-[#0D6E64] hover:underline
-                               focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded"
+                    className="text-[#134E4A] hover:underline"
                   >
                     info@morgenlicht-alltagshilfe.de
                   </a>
                 </div>
               </div>
-            </GlassCard>
+            </div>
 
-            <GlassCard className="p-6 card-lift">
+            <div className="bg-white rounded-[16px] p-6 shadow-sm border border-gray-100 hover:border-[#134E4A] transition-colors">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#FFD54F]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-[#B8472A]" aria-hidden="true" />
+                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-[#1F2937]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#37474F] mb-1">Servicegebiet</h3>
-                  <p className="text-[#455A64]">
-                    Wir betreuen Familien im Raum Frankfurt und Umgebung
+                  <h3 className="font-bold text-[#1F2937] mb-1 font-heading">Servicegebiet</h3>
+                  <p className="text-[#4B5563]">
+                    Wir betreuen Familien in ganz Berlin
                   </p>
                 </div>
               </div>
-            </GlassCard>
+            </div>
 
             {/* Trust Badge */}
-            <GlassCard className="p-6 bg-gradient-to-br from-[#E0F2F1] to-[#E8F5E9]">
+            <div className="bg-[#F0FDF4] rounded-[16px] p-6 border border-[#134E4A]/10">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-white/60 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Heart className="w-5 h-5 text-[#B8472A]" aria-hidden="true" />
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="w-5 h-5 text-[#134E4A]" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#37474F] mb-1">Anerkannter Anbieter</h3>
-                  <p className="text-sm text-[#455A64]">
+                  <h3 className="font-bold text-[#134E4A] mb-1 font-heading">Anerkannter Anbieter</h3>
+                  <p className="text-sm text-[#1F2937]">
                     nach § 45a SGB XI – Ihre Anfrage ist unverbindlich und kostenlos.
                   </p>
                 </div>
               </div>
-            </GlassCard>
+            </div>
           </div>
         </div>
       </div>
@@ -243,37 +244,43 @@ export default function KontaktPage() {
       >
         {submitStatus === 'success' ? (
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#E0F2F1] to-[#E8F5E9] rounded-full mb-4">
-              <CheckCircle className="w-8 h-8 text-[#0D6E64]" aria-hidden="true" />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#F0FDF4] rounded-full mb-4">
+              <CheckCircle className="w-8 h-8 text-[#134E4A]" aria-hidden="true" />
             </div>
-            <p className="text-[#37474F] mb-4">
+            <p className="text-[#1F2937] mb-4">
               Wir haben Ihre Anfrage erhalten und melden uns zeitnah bei Ihnen.
             </p>
-            <GlassButton variant="primary" onClick={() => setShowModal(false)}>
+            <button
+              onClick={() => setShowModal(false)}
+              className="px-6 py-2 bg-[#134E4A] text-white rounded-xl font-bold hover:bg-[#0F3F3C] transition-colors"
+            >
               Schließen
-            </GlassButton>
+            </button>
           </div>
         ) : (
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-red-50 rounded-full mb-4">
               <AlertCircle className="w-8 h-8 text-red-600" aria-hidden="true" />
             </div>
-            <p className="text-[#37474F] mb-2">
+            <p className="text-[#1F2937] mb-2">
               Ihre Anfrage konnte nicht gesendet werden.
             </p>
-            <p className="text-[#455A64] mb-4">
+            <p className="text-[#4B5563] mb-4">
               Bitte rufen Sie uns direkt an:
             </p>
             <a
               href={`tel:${PHONE.replace(/\s/g, '')}`}
-              className="text-xl font-bold text-[#B8472A] hover:underline"
+              className="text-xl font-bold text-[#134E4A] hover:underline"
             >
               {PHONE}
             </a>
             <div className="mt-6">
-              <GlassButton variant="ghost" onClick={() => setShowModal(false)}>
+              <button
+                onClick={() => setShowModal(false)}
+                className="text-[#4B5563] hover:text-[#1F2937] font-medium"
+              >
                 Schließen
-              </GlassButton>
+              </button>
             </div>
           </div>
         )}

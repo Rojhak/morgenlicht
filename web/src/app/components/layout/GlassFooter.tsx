@@ -3,62 +3,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Heart, ArrowUp, Clock } from 'lucide-react'
-import { useState } from 'react'
 
 const PHONE = '069 12345678'
 const EMAIL = 'info@morgenlicht-alltagshilfe.de'
 const SERVICE_AREA = 'Berlin'
-
-function NewsletterSignup() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // TODO: Integrate with newsletter backend
-    console.log('Newsletter signup:', email)
-    setSubscribed(true)
-    setTimeout(() => {
-      setSubscribed(false)
-      setEmail('')
-    }, 3000)
-  }
-
-  return (
-    <div className="flex flex-col">
-      <h4 className="font-heading font-semibold text-white mb-3">
-        Newsletter
-      </h4>
-      <p className="text-sm text-white/80 mb-4">
-        Bleiben Sie informiert über unsere Pflegeleistungen
-      </p>
-      {subscribed ? (
-        <div className="bg-white/10 rounded-lg px-4 py-3 text-center text-white text-sm font-medium">
-          Vielen Dank für Ihre Anmeldung!
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Ihre E-Mail"
-            required
-            className="flex-1 px-4 py-2.5 rounded-lg border border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#FBBF24] focus:border-transparent transition-all"
-            aria-label="E-Mail-Adresse für Newsletter"
-          />
-          <button
-            type="submit"
-            className="px-6 py-2.5 rounded-lg bg-[#FBBF24] text-white font-medium hover:bg-[#F59E0B] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FBBF24] focus:ring-offset-2 focus:ring-offset-[#134E4A] shadow-lg"
-            aria-label="Newsletter anmelden"
-          >
-            Anmelden
-          </button>
-        </form>
-      )}
-    </div>
-  )
-}
 
 function BackToTop() {
   const scrollToTop = () => {
@@ -83,229 +31,88 @@ export function GlassFooter() {
   return (
     <footer
       role="contentinfo"
-      className="relative mt-auto bg-[#134E4A] text-white"
-      style={{
-        background: 'linear-gradient(135deg, #134E4A 0%, #0F3D3A 100%)',
-      }}
+      className="relative mt-auto bg-[#134E4A] text-white pt-16 pb-8"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Section: Brand + Newsletter */}
-        <div className="py-12 border-b border-[#0D6E64]/10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            {/* Brand Section */}
-            <div className="flex flex-col">
-              <Link href="/" className="inline-flex items-center group mb-4">
-                <Image
-                  src="/morgen.png"
-                  alt="Morgenlicht Alltagshilfe Berlin Logo"
-                  width={224}
-                  height={78}
-                  className="w-56 h-auto"
-                  priority
-                />
-              </Link>
-              <p className="text-white/80 text-sm leading-relaxed max-w-sm mb-4">
-                Interculturale Alltagsbegleitung und Entlastung für Senioren und ihre Angehörigen in Berlin.
-              </p>
-              <div className="flex items-center gap-2 text-sm text-white font-medium">
-                <Heart className="w-4 h-4 text-[#FBBF24]" aria-hidden="true" />
-                <span>Anerkannt nach § 45a SGB XI</span>
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="flex flex-col items-start">
+            <Link href="/" className="inline-flex items-center gap-4 mb-6 group focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded-lg p-1">
+              <img
+                src="/trans_logo.svg"
+                alt="Morgenlicht Logo"
+                className="w-12 h-12 flex-shrink-0 bg-white/10 rounded-full p-1"
+                width="48"
+                height="48"
+              />
+              <div className="flex flex-col justify-center">
+                <span className="text-2xl font-bold font-heading uppercase tracking-wide text-white leading-none mb-0.5">
+                  MORGENLICHT
+                </span>
+                <span className="text-sm font-medium font-body text-white/80 leading-none tracking-widest uppercase">
+                  Alltagshilfe Berlin
+                </span>
               </div>
-            </div>
-
-            {/* Newsletter Section */}
-            <NewsletterSignup />
-          </div>
-        </div>
-
-        {/* Main Grid: 4 Columns */}
-        <div className="py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {/* Column 1: Über uns */}
-            <div>
-              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
-                Über uns
-              </h4>
-              <nav aria-label="Footer-Navigation: Über uns">
-                <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/ueber-uns"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Über uns
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/blog"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Blog & Ratgeber
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/kontakt"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Karriere
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/kontakt"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Kontakt
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-
-            {/* Column 2: Leistungen */}
-            <div>
-              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
-                Leistungen
-              </h4>
-              <nav aria-label="Footer-Navigation: Leistungen">
-                <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/leistungen"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Unsere Leistungen
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/pflegegrad-guide"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Pflegegrad Guide
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/kosten"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Kosten & Förderung
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/fragen"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Häufige Fragen
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-
-            {/* Column 3: Kontakt */}
-            <div>
-              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
-                Kontakt
-              </h4>
-              <ul className="space-y-4">
-                <li>
-                  <a
-                    href={`tel:${PHONE.replace(/\s/g, '')}`}
-                    className="flex items-center gap-3 text-white/80 hover:text-[#FBBF24] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2 group"
-                  >
-                    <Phone className="w-4 h-4 text-[#FBBF24] flex-shrink-0" aria-hidden="true" />
-                    <div className="flex flex-col">
-                      <span className="font-medium text-[32px] leading-none group-hover:underline text-[#FBBF24]">{PHONE}</span>
-                      <span className="text-xs text-white/60">Telefon</span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="flex items-center gap-3 text-white/80 hover:text-[#FBBF24] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2 group"
-                  >
-                    <Mail className="w-4 h-4 text-[#FBBF24] flex-shrink-0" aria-hidden="true" />
-                    <div className="flex flex-col">
-                      <span className="font-medium text-sm group-hover:underline">{EMAIL}</span>
-                      <span className="text-xs text-white/60">E-Mail</span>
-                    </div>
-                  </a>
-                </li>
-                <li className="flex items-start gap-3 text-white/80">
-                  <MapPin className="w-4 h-4 text-[#FBBF24] flex-shrink-0 mt-0.5" aria-hidden="true" />
-                  <div className="flex flex-col">
-                    <span className="text-sm">Raum {SERVICE_AREA}</span>
-                    <div className="flex items-center gap-1.5 text-xs text-white/60 mt-0.5">
-                      <Clock className="w-3 h-3" aria-hidden="true" />
-                      <span>Mo-Fr: 8:00 - 18:00</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 4: Rechtliches */}
-            <div>
-              <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wide">
-                Rechtliches
-              </h4>
-              <nav aria-label="Footer-Navigation: Rechtliches">
-                <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="/impressum"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Impressum
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/datenschutz"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Datenschutz
-                    </Link>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => {
-                        // TODO: Open cookie consent banner
-                        console.log('Open cookie settings')
-                      }}
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm text-left focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2 w-full"
-                    >
-                      Cookie-Einstellungen
-                    </button>
-                  </li>
-                  <li>
-                    <Link
-                      href="/datenschutz#barrierefreiheit"
-                      className="text-white/80 hover:text-[#FBBF24] transition-colors underline-offset-2 hover:underline text-sm focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded px-2 py-1 -ml-2"
-                    >
-                      Barrierefreiheit
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="py-6 border-t border-white/10">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-white/60 text-sm text-center sm:text-left">
-              © {currentYear} Morgenlicht Alltagshilfe • Berlin • Für alle Kulturen
+            </Link>
+            <p className="text-white/90 text-sm leading-relaxed mb-6 max-w-xs font-body">
+              Interkulturelle Alltagsbegleitung und Entlastung für Senioren und ihre Angehörigen in Berlin.
+              <br /><br />
+              <span className="font-semibold text-[#FBBF24]">Anerkannt nach § 45a SGB XI</span>
             </p>
-            <BackToTop />
           </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="font-heading font-bold text-white mb-6 text-lg">
+              Unternehmen
+            </h4>
+            <ul className="space-y-3 font-body text-sm">
+              <li><Link href="/ueber-uns" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Über uns</Link></li>
+              <li><Link href="/leistungen" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Leistungen</Link></li>
+              <li><Link href="/kosten" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Kosten & Pflegekasse</Link></li>
+              <li><Link href="/blog" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Blog & Ratgeber</Link></li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="font-heading font-bold text-white mb-6 text-lg">
+              Rechtliches
+            </h4>
+            <ul className="space-y-3 font-body text-sm">
+              <li><Link href="/impressum" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Impressum</Link></li>
+              <li><Link href="/datenschutz" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Datenschutz</Link></li>
+              <li><Link href="/datenschutz#barrierefreiheit" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Barrierefreiheit</Link></li>
+              <li><button className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1 text-left">Cookie-Einstellungen</button></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-heading font-bold text-white mb-6 text-lg">
+              Kontakt
+            </h4>
+            <ul className="space-y-4 font-body text-sm text-white/90">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-[#FBBF24] shrink-0" />
+                <span>Berlin & Umgebung</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-[#FBBF24] shrink-0" />
+                <a href="tel:06912345678" className="hover:text-[#FBBF24] font-semibold">069 12345678</a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-[#FBBF24] shrink-0" />
+                <a href="mailto:info@morgenlicht.de" className="hover:text-[#FBBF24]">info@morgenlicht.de</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/60 font-body">
+          <p>© {currentYear} Morgenlicht Alltagshilfe</p>
+          <BackToTop />
         </div>
       </div>
     </footer>
