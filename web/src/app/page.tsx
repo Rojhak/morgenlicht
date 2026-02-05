@@ -16,7 +16,7 @@ export default function HomePage() {
                 <span className="text-sm font-semibold text-[#1F2937]">Anerkannt nach § 45a SGB XI</span>
               </div>
 
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-[#134E4A] mb-6 leading-tight">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl font-bold text-[#134E4A] mb-6 leading-tight">
                 Würdevolle Unterstützung<br />
                 <span className="text-[#134E4A]">im Alltag</span>
               </h1>
@@ -29,14 +29,14 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="#calculator"
-                  className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-bold text-lg px-8 py-4 rounded-xl shadow-sm flex items-center justify-center gap-2"
+                  className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-sm flex items-center justify-center gap-2"
                 >
                   <Shield className="w-5 h-5" />
                   Budget prüfen
                 </Link>
                 <Link
                   href="/kontakt"
-                  className="bg-white text-[#134E4A] border border-[#134E4A] hover:bg-gray-50 transition-all font-bold text-lg px-8 py-4 rounded-xl shadow-sm flex items-center justify-center"
+                  className="bg-white text-[#134E4A] border border-[#134E4A] hover:bg-gray-50 transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-sm flex items-center justify-center"
                 >
                   Kontakt aufnehmen
                 </Link>
@@ -90,8 +90,8 @@ export default function HomePage() {
       {/* Sektion 2: Budget Rechner - Pale Sun Background */}
       <div id="calculator" className="bg-[#FFFBEB] py-24 px-6 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
-          {/* Note: CareFinder component internally needs to be checked if it conforms. 
-              Ideally we wrap it or strict styles within it. 
+          {/* Note: CareFinder component internally needs to be checked if it conforms.
+              Ideally we wrap it or strict styles within it.
               The wrapper here ensures the section background is correct. */}
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-4">
