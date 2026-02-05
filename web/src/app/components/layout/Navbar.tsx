@@ -29,7 +29,7 @@ import { Menu, X, ArrowRight } from 'lucide-react'
               <img src="/trans_logo.svg" alt="Morgenlicht" className="w-full h-full object-contain" />
             </div>
 
-            <div className="flex flex-col justify-center items-start">
+            <div className="flex flex-col justify-center items-center">
               <span className="text-[#1F2937] text-2xl font-bold font-heading leading-none block text-center w-full">MORGENLICHT</span>
               <span className="text-[#1F2937] text-xs font-medium font-heading tracking-[0.15em] mt-1.5 leading-none uppercase text-center block w-full">Alltagshilfe Berlin</span>
             </div>
