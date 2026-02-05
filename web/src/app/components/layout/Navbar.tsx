@@ -87,7 +87,7 @@ export function Navbar() {
               className="lg:hidden p-2 text-[#1F2937] hover:text-[#134E4A] hover:bg-gray-50 rounded-lg
                          focus:outline-none focus:ring-4 focus:ring-[#FBBF24]"
               aria-expanded={mobileMenuOpen}
-              aria-label="Menü öffnen"
+              aria-label={mobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
             >
               {mobileMenuOpen ? (
                 <X className="w-8 h-8" />

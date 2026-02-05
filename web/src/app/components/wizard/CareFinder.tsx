@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { Calculator, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
+import { Calculator, ArrowRight, HelpCircle, Check, Clock, ChevronDown } from 'lucide-react'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
 
 const PFLEGEGRADE = [
@@ -18,6 +18,7 @@ const PHONE = '069 12345678'
 type Step = 'select' | 'sachleistung' | 'result'
 
 export function CareFinder() {
+  const containerRef = useRef<HTMLDivElement>(null)
   const [step, setStep] = useState<Step>('select')
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
@@ -60,8 +61,17 @@ export function CareFinder() {
 
   const hasExtra = budget.convertible > 0 && !usesSachleistungen
 
+  useEffect(() => {
+    // Focus container on step change for accessibility
+    containerRef.current?.focus()
+  }, [step])
+
   return (
-    <div className="w-full">
+    <div
+      className="w-full focus:outline-none"
+      ref={containerRef}
+      tabIndex={-1}
+    >
       {/* Progress Indicator */}
       <div className="flex items-center justify-center gap-2 mb-8">
         <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
@@ -184,36 +194,37 @@ export function CareFinder() {
           </div>
 
           {/* Details Toggle */}
-          <details className="bg-gray-50 rounded-xl border border-gray-200">
+          <details
+            className="bg-gray-50 rounded-xl border border-gray-200 group"
+            open={showDetails}
+            onToggle={(e) => setShowDetails(e.currentTarget.open)}
+          >
             <summary
-              onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none"
+              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none list-none marker:hidden [&::-webkit-details-marker]:hidden"
             >
               <span className="font-semibold text-[#1F2937]">Details zum Budget</span>
-              <span className={`text-[#4B5563] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
+              <ChevronDown className="w-5 h-5 text-[#4B5563] transition-transform group-open:rotate-180" />
             </summary>
 
-            {showDetails && (
-              <div className="p-4 pt-2 space-y-3 border-t border-gray-200">
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-[#4B5563]">Entlastungsbetrag</span>
-                  <span className="font-bold text-[#1F2937]">{formatCurrency(budget.base)}</span>
-                </div>
-
-                {hasExtra && (
-                  <>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-[#4B5563]">Umwandlung (40%)</span>
-                      <span className="font-bold text-[#1F2937]">{formatCurrency(budget.convertible)}</span>
-                    </div>
-                    <div className="flex justify-between items-center pt-2 border-t border-gray-200">
-                      <span className="font-bold text-[#134E4A]">Gesamtbudget</span>
-                      <span className="font-bold text-[#134E4A]">{formatCurrency(budget.max)}</span>
-                    </div>
-                  </>
-                )}
+            <div className="p-4 pt-2 space-y-3 border-t border-gray-200">
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-[#4B5563]">Entlastungsbetrag</span>
+                <span className="font-bold text-[#1F2937]">{formatCurrency(budget.base)}</span>
               </div>
-            )}
+
+              {hasExtra && (
+                <>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-[#4B5563]">Umwandlung (40%)</span>
+                    <span className="font-bold text-[#1F2937]">{formatCurrency(budget.convertible)}</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-200">
+                    <span className="font-bold text-[#134E4A]">Gesamtbudget</span>
+                    <span className="font-bold text-[#134E4A]">{formatCurrency(budget.max)}</span>
+                  </div>
+                </>
+              )}
+            </div>
           </details>
 
           {/* CTA Buttons */}
