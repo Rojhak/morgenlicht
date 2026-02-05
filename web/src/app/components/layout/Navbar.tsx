@@ -30,8 +30,10 @@ import { Menu, X, ArrowRight } from 'lucide-react'
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              <span className="text-[#1F2937] text-2xl font-bold font-heading leading-none block text-center w-full">MORGENLICHT</span>
-              <span className="text-[#1F2937] text-xs font-medium font-heading tracking-[0.15em] mt-1.5 leading-none uppercase text-center block w-full">Alltagshilfe Berlin</span>
+              {/* MORGENLICHT: Montserrat Bold (700) */}
+              <span className="text-[#1F2937] text-2xl font-bold font-heading leading-none">MORGENLICHT</span>
+              {/* Slogan: Montserrat Medium (500), tracking-widest */}
+              <span className="text-[#1F2937] text-xs font-medium font-heading tracking-[0.15em] mt-1.5 leading-none uppercase">Alltagshilfe Berlin</span>
             </div>
           </Link>
 
