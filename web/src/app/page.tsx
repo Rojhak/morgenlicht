@@ -5,83 +5,90 @@ import { CareFinder } from '@/app/components/wizard'
 export default function HomePage() {
   return (
     <>
-      {/* Sektion 1: Hero - Creme Background */}
+      {/* Sektion 1: Hero - Warm Off-White Background - UPDATED */}
       <section className="relative flex items-center bg-[#FAF9F6] py-24 px-6 overflow-hidden">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
-                <Star className="w-4 h-4 text-[#FBBF24] fill-current" />
-                <span className="text-sm font-semibold text-[#1F2937]">Anerkannt nach § 45a SGB XI</span>
+            <div className="text-center lg:text-left z-10 space-y-8">
+              {/* Kicker & Headline Group */}
+              <div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6">
+                  <Star className="w-4 h-4 text-[#FBBF24] fill-current" />
+                  <span className="text-sm font-semibold text-[#1F2937]">Anerkannt nach § 45a SGB XI</span>
+                </div>
+
+                <h1 className="font-heading font-bold text-[#1F2937] text-4xl sm:text-5xl lg:text-[48px] leading-relaxed mb-8">
+                  Herzlich & Würdevoll: <br className="hidden lg:block"/>
+                  Ihre Alltagshilfe in <span className="text-[#134E4A] font-bold">Berlin</span>
+                </h1>
+
+                <p className="font-body font-medium text-[#4B5563] text-lg sm:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  Selbstbestimmt leben im eigenen Zuhause. Wir entlasten Sie in der Hauswirtschaft und im Alltag – herzlich, zuverlässig und unkompliziert.
+                </p>
               </div>
 
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-5xl font-bold text-[#134E4A] mb-6 leading-tight">
-                Würdevolle Unterstützung<br />
-                <span className="text-[#134E4A]">im Alltag</span>
-              </h1>
+              {/* 0€ Benefit Box (Redesign) */}
+              <div className="bg-[#F0FDF4] border-l-4 border-[#134E4A] rounded-r-xl rounded-l-sm shadow-sm p-6 max-w-xl mx-auto lg:mx-0">
+                 <h3 className="font-heading font-bold text-[#1F2937] text-xl mb-2">
+                   100% Kostenübernahme ab Pflegegrad 1
+                 </h3>
+                 <p className="font-body text-[#4B5563] text-base leading-relaxed">
+                   Nutzen Sie Ihren Entlastungsbetrag für Haushaltshilfe. Sie zahlen 0 € dazu – wir übernehmen die direkte Abrechnung mit Ihrer Pflegekasse.
+                 </p>
+              </div>
 
-              <p className="text-[#1F2937] text-lg sm:text-xl leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0 font-body">
-                Liebevolle Alltagsbegleitung für Senioren in Berlin —
-                <span className="font-bold text-[#134E4A]"> 100% kostenfrei</span> über Ihre Pflegekasse.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link
-                  href="#calculator"
-                  className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-sm flex items-center justify-center gap-2"
-                >
-                  <Shield className="w-5 h-5" />
-                  Budget prüfen
-                </Link>
+              {/* Action Block */}
+              <div className="mt-8 flex flex-col xl:flex-row items-center gap-6 justify-center lg:justify-start">
                 <Link
                   href="/kontakt"
-                  className="bg-white text-[#134E4A] border border-[#134E4A] hover:bg-gray-50 transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-sm flex items-center justify-center"
+                  className="bg-[#FBBF24] text-[#000000] hover:bg-yellow-400 transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center flex-shrink-0"
                 >
-                  Kontakt aufnehmen
+                  Jetzt kostenfrei beraten lassen
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
+                <div className="text-[#1F2937] font-bold text-lg flex flex-col items-center lg:items-start gap-1">
+                   <div className="flex flex-col md:flex-row items-center gap-2">
+                     <span className="flex items-center gap-2">📞 030 / 123 456 78</span>
+                   </div>
+                   <span className="font-normal text-[#4B5563] text-sm hidden lg:inline">– Oder rufen Sie uns direkt an</span>
+                   <span className="font-normal text-[#4B5563] text-sm lg:hidden">Oder rufen Sie uns direkt an</span>
+                </div>
               </div>
 
-              <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-6 text-sm font-medium text-[#4B5563]">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#134E4A]" />
-                  <span>Keine versteckten Kosten</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#134E4A]" />
-                  <span>Feste Ansprechpartner</span>
-                </div>
+              {/* Trust Icons (Grid 2x2) */}
+              <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto lg:mx-0 pt-2 text-[#4B5563]">
+                 {[
+                   "Zertifiziert nach § 45a",
+                   "Feste Bezugsperson",
+                   "Keine Bürokratie",
+                   "Alle Pflegekassen"
+                 ].map((text, i) => (
+                   <div key={i} className="flex items-center gap-2.5 justify-center lg:justify-start">
+                     <div className="w-5 h-5 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0">
+                       <CheckCircle className="w-3.5 h-3.5 text-white" />
+                     </div>
+                     <span className="text-sm font-medium">{text}</span>
+                   </div>
+                 ))}
               </div>
             </div>
 
             {/* Right Image/Card */}
-            <div className="hidden lg:flex justify-center">
-              <div className="relative">
-                <div className="w-[400px] h-[500px] bg-white rounded-3xl shadow-lg border border-gray-100 flex flex-col items-center justify-center p-8 relative z-10">
-                  <div className="w-24 h-24 bg-[#FFFBEB] rounded-full flex items-center justify-center mb-6">
-                    <HandHeart className="w-12 h-12 text-[#134E4A]" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#134E4A] mb-2 text-center">Fürsorge & Vertrauen</h3>
-                  <p className="text-center text-[#4B5563] mb-8">
-                    Wir sind für Sie da, wenn Sie uns brauchen.
-                  </p>
+            <div className="relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
+               {/* Main Image */}
+               <div className="relative w-full max-w-[500px] aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
+                  <img
+                    src="/images/seniors_hero.png"
+                    alt="Glückliche Senioren in Berlin"
+                    className="w-full h-full object-cover rounded-3xl shadow-2xl"
+                  />
 
-                  <div className="w-full h-px bg-gray-100 mb-8" />
 
-                  <div className="flex justify-between w-full px-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-[#134E4A]">500+</div>
-                      <div className="text-sm text-[#6B7280]">Glückliche Kunden</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-[#134E4A]">4.9</div>
-                      <div className="text-sm text-[#6B7280]">Sterne Bewertung</div>
-                    </div>
-                  </div>
-                </div>
-                {/* Decorative blob behind */}
-                <div className="absolute top-10 -right-10 w-full h-full bg-[#F0FDF4] rounded-3xl -z-0" />
-              </div>
+               </div>
+
+               {/* Decorative Element */}
+               <div className="absolute -z-10 top-10 right-10 w-full h-full bg-[#F0FDF4] rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
             </div>
           </div>
         </div>
