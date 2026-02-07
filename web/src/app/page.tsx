@@ -13,17 +13,23 @@ export default function HomePage() {
             <div className="text-center lg:text-left z-10 space-y-8">
               {/* Kicker & Headline Group */}
               <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-6">
-                  <Star className="w-4 h-4 text-[#FBBF24] fill-current" />
-                  <span className="text-sm font-semibold text-[#1F2937]">Anerkannt nach § 45a SGB XI</span>
+                <div className="flex flex-col lg:items-start items-center gap-3 mb-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100">
+                    <Star className="w-4 h-4 text-[#FBBF24] fill-current" />
+                    <span className="text-sm font-semibold text-[#1F2937]">Anerkannt nach § 45a SGB XI</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FEFCE8] rounded-full shadow-sm border border-yellow-100">
+                    <span className="text-base">📍</span>
+                    <span className="text-sm font-semibold text-[#854D0E]">Alltagshilfe für Senioren & Pflegebedürftige in Berlin</span>
+                  </div>
                 </div>
 
-                <h1 className="font-heading font-bold text-[#1F2937] text-4xl sm:text-5xl lg:text-[48px] leading-relaxed mb-8">
-                  Herzlich & Würdevoll: <br className="hidden lg:block"/>
-                  Ihre Alltagshilfe in <span className="text-[#134E4A] font-bold">Berlin</span>
+                <h1 className="font-heading font-bold text-[#1F2937] text-4xl sm:text-5xl lg:text-[48px] leading-tight mb-8">
+                  <span className="text-[#134E4A]">Herzlich & Würdevoll:</span> <br className="hidden lg:block"/>
+                  Ihre Alltagshilfe in Berlin
                 </h1>
 
-                <p className="font-body font-medium text-[#4B5563] text-lg sm:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <p className="font-body font-medium text-[#4B5563] text-lg sm:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
                   Selbstbestimmt leben im eigenen Zuhause. Wir entlasten Sie in der Hauswirtschaft und im Alltag – herzlich, zuverlässig und unkompliziert.
                 </p>
               </div>
@@ -74,21 +80,59 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Image/Card */}
-            <div className="relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
-               {/* Main Image */}
-               <div className="relative w-full max-w-[500px] aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
-                  <img
-                    src="/images/seniors_hero.png"
-                    alt="Glückliche Senioren in Berlin"
-                    className="w-full h-full object-cover rounded-3xl shadow-2xl"
-                  />
+            {/* Right Image/Card (Multi-Image Layout) */}
+            <div className="relative mt-8 lg:mt-0 lg:h-full flex flex-col justify-center items-center lg:items-end">
+               <div className="relative w-full max-w-[600px] h-[500px] lg:h-[600px]">
 
+                  {/* Decorative Background Blob */}
+                  <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#F0FDF4] rounded-full blur-3xl opacity-60 mix-blend-multiply"></div>
+
+                  {/* Image 1: Top Left (Helping Hand) */}
+                  <div className="absolute top-0 left-4 w-48 h-64 md:w-56 md:h-72 shadow-xl rounded-2xl overflow-hidden transform -rotate-3 z-10 border-4 border-white">
+                    <img
+                      src="/images/hero_helping_hand.png"
+                      alt="Helfende Hände Alltagshilfe"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Image 2: Top Right (Active Senior) - Larger */}
+                  <div className="absolute top-8 right-0 w-56 h-72 md:w-64 md:h-80 shadow-2xl rounded-2xl overflow-hidden transform rotate-2 z-20 border-4 border-white">
+                     <img
+                       src="/images/hero_active_senior.png"
+                       alt="Aktive Senioren Berlin"
+                       className="w-full h-full object-cover"
+                     />
+                  </div>
+
+                  {/* Image 3: Bottom Center (Daily Moments) - Placeholder if needed */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 h-56 md:w-52 md:h-64 shadow-xl rounded-2xl overflow-hidden transform -rotate-1 z-30 border-4 border-white">
+                     <img
+                       src="/images/hero_daily_moments.png"
+                       alt="Gemeinsame Momente"
+                       className="w-full h-full object-cover"
+                     />
+                  </div>
+
+                  {/* Asiye Trust Badge (Overlapping Bottom Image) */}
+                  {/* Asiye Trust Badge (Overlapping Bottom Image) */}
+                  <Link
+                    href="/ueber-uns"
+                    className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-xl py-2 px-4 shadow-xl flex items-center gap-3 z-40 border border-gray-100 hover:scale-105 transition-transform duration-300 cursor-pointer whitespace-nowrap"
+                  >
+                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-gray-100 shadow-sm">
+                      <img
+                        src="/images/asiye-duman.jpeg"
+                        alt="Asiye Duman"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <p className="text-sm text-[#1F2937] font-medium">
+                      <span className="text-[#6B7280]">Ihre persönliche Ansprechpartnerin:</span> <span className="font-semibold"> Asiye Duman</span>
+                    </p>
+                  </Link>
 
                </div>
-
-               {/* Decorative Element */}
-               <div className="absolute -z-10 top-10 right-10 w-full h-full bg-[#F0FDF4] rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
             </div>
           </div>
         </div>
