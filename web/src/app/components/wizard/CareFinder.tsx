@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import { Calculator, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
+import { ArrowRight, HelpCircle, Clock, ChevronDown } from 'lucide-react'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
 
 const PFLEGEGRADE = [
@@ -21,7 +21,14 @@ export function CareFinder() {
   const [step, setStep] = useState<Step>('select')
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
-  const [showDetails, setShowDetails] = useState(false)
+
+  // Ref for focus management
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const stepRef = useRef<any>(null)
+
+  useEffect(() => {
+    stepRef.current?.focus()
+  }, [step])
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -47,7 +54,6 @@ export function CareFinder() {
     setStep('select')
     setSelectedGrad(null)
     setUsesSachleistungen(null)
-    setShowDetails(false)
   }
 
   const budget = selectedGrad
@@ -63,7 +69,7 @@ export function CareFinder() {
   return (
     <div className="w-full">
       {/* Progress Indicator */}
-      <div className="flex items-center justify-center gap-2 mb-8">
+      <div className="flex items-center justify-center gap-2 mb-8" aria-hidden="true">
         <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
         <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`} />
       </div>
@@ -72,7 +78,11 @@ export function CareFinder() {
       {step === 'select' && (
         <div className="space-y-8">
           <fieldset>
-            <legend className="block text-xl font-bold text-[#1F2937] mb-8 text-center font-heading">
+            <legend
+              ref={stepRef}
+              tabIndex={-1}
+              className="block text-xl font-bold text-[#1F2937] mb-8 text-center font-heading focus:outline-none scroll-mt-32"
+            >
               Welchen Pflegegrad haben Sie?
             </legend>
             <div className="grid grid-cols-5 gap-3 sm:gap-4">
@@ -127,9 +137,13 @@ export function CareFinder() {
       {step === 'sachleistung' && (
         <div className="space-y-8">
           <div className="text-center">
-            <p className="text-xl font-bold text-[#1F2937] mb-3 font-heading">
+            <h2
+              ref={stepRef}
+              tabIndex={-1}
+              className="text-xl font-bold text-[#1F2937] mb-3 font-heading focus:outline-none scroll-mt-32"
+            >
               Nutzen Sie bereits einen Pflegedienst?
-            </p>
+            </h2>
             <p className="text-[#4B5563]">
               Zum Beispiel Hilfe beim Waschen oder medizinische Pflege
             </p>
@@ -170,7 +184,11 @@ export function CareFinder() {
       {step === 'result' && hours > 0 && (
         <div className="space-y-8">
           {/* Main Result */}
-          <div className="text-center py-10 px-6 bg-[#134E4A] rounded-2xl shadow-lg">
+          <div
+            ref={stepRef}
+            tabIndex={-1}
+            className="text-center py-10 px-6 bg-[#134E4A] rounded-2xl shadow-lg focus:outline-none scroll-mt-32"
+          >
             <Clock className="w-10 h-10 text-[#FBBF24] mx-auto mb-4" aria-hidden="true" />
             <p className="text-6xl font-bold text-white mb-2 font-heading">
               {formatHours(hours)}
@@ -184,36 +202,33 @@ export function CareFinder() {
           </div>
 
           {/* Details Toggle */}
-          <details className="bg-gray-50 rounded-xl border border-gray-200">
+          <details className="group bg-gray-50 rounded-xl border border-gray-200">
             <summary
-              onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none"
+              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A]"
             >
               <span className="font-semibold text-[#1F2937]">Details zum Budget</span>
-              <span className={`text-[#4B5563] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
+              <ChevronDown className="w-5 h-5 text-[#4B5563] transition-transform group-open:rotate-180" />
             </summary>
 
-            {showDetails && (
-              <div className="p-4 pt-2 space-y-3 border-t border-gray-200">
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-[#4B5563]">Entlastungsbetrag</span>
-                  <span className="font-bold text-[#1F2937]">{formatCurrency(budget.base)}</span>
-                </div>
-
-                {hasExtra && (
-                  <>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-[#4B5563]">Umwandlung (40%)</span>
-                      <span className="font-bold text-[#1F2937]">{formatCurrency(budget.convertible)}</span>
-                    </div>
-                    <div className="flex justify-between items-center pt-2 border-t border-gray-200">
-                      <span className="font-bold text-[#134E4A]">Gesamtbudget</span>
-                      <span className="font-bold text-[#134E4A]">{formatCurrency(budget.max)}</span>
-                    </div>
-                  </>
-                )}
+            <div className="p-4 pt-2 space-y-3 border-t border-gray-200">
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-[#4B5563]">Entlastungsbetrag</span>
+                <span className="font-bold text-[#1F2937]">{formatCurrency(budget.base)}</span>
               </div>
-            )}
+
+              {hasExtra && (
+                <>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-[#4B5563]">Umwandlung (40%)</span>
+                    <span className="font-bold text-[#1F2937]">{formatCurrency(budget.convertible)}</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-200">
+                    <span className="font-bold text-[#134E4A]">Gesamtbudget</span>
+                    <span className="font-bold text-[#134E4A]">{formatCurrency(budget.max)}</span>
+                  </div>
+                </>
+              )}
+            </div>
           </details>
 
           {/* CTA Buttons */}
@@ -238,7 +253,11 @@ export function CareFinder() {
       {/* Fallback for PG1 */}
       {step === 'result' && hours === 0 && (
         <div className="text-center space-y-6">
-          <div className="py-6 px-4 bg-[#FFFBEB] rounded-xl border border-[#FBBF24]">
+          <div
+            ref={stepRef}
+            tabIndex={-1}
+            className="py-6 px-4 bg-[#FFFBEB] rounded-xl border border-[#FBBF24] focus:outline-none scroll-mt-32"
+          >
             <p className="text-lg font-bold text-[#1F2937] mb-2">
               Pflegegrad 1
             </p>
