@@ -3,6 +3,7 @@ import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home,
 import { CareFinder } from '@/app/components/wizard'
 
 export default function HomePage() {
+  // Force Vercel Rebuild - Timestamp: 2026-02-07
   return (
     <>
       {/* Sektion 1: Hero - Warm Off-White Background - UPDATED */}
