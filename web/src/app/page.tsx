@@ -43,7 +43,7 @@ export default function HomePage() {
                      100% Kostenübernahme ab Pflegegrad 1
                    </span>
                    <span className="font-body text-[#4B5563] text-sm ml-2">
-                     – Sie zahlen 0 €, wir rechnen direkt mit Ihrer Pflegekasse ab.
+                     – Nutzen Sie Ihren Entlastungsbetrag für Haushaltshilfe. Sie zahlen 0 € dazu – wir rechnen direkt mit Ihrer Pflegekasse ab.
                    </span>
                  </div>
               </div>
