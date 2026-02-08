@@ -120,6 +120,7 @@ export default function KontaktPage() {
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-sm font-medium text-[#374151]">
                   Ihr Name
+                  <span className="text-red-500 ml-1" aria-hidden="true" title="Pflichtfeld">*</span>
                 </label>
                 <input
                   id="name"
@@ -132,13 +133,20 @@ export default function KontaktPage() {
                   className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#134E4A] focus:ring-1 focus:ring-[#134E4A]'
                     } bg-white transition-colors outline-none`}
                   required
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
-                {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
+                {errors.name && (
+                  <p id="name-error" className="text-sm text-red-500 mt-1" role="alert">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="phone" className="block text-sm font-medium text-[#374151]">
                   Telefonnummer
+                  <span className="text-red-500 ml-1" aria-hidden="true" title="Pflichtfeld">*</span>
                 </label>
                 <input
                   id="phone"
@@ -151,8 +159,14 @@ export default function KontaktPage() {
                   className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#134E4A] focus:ring-1 focus:ring-[#134E4A]'
                     } bg-white transition-colors outline-none`}
                   required
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? "phone-error" : undefined}
                 />
-                {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone}</p>}
+                {errors.phone && (
+                  <p id="phone-error" className="text-sm text-red-500 mt-1" role="alert">
+                    {errors.phone}
+                  </p>
+                )}
               </div>
 
               <button
