@@ -3,10 +3,8 @@ import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home,
 import { CareFinder } from '@/app/components/wizard'
 
 export default function HomePage() {
-  // Force Vercel Rebuild - Timestamp: 2026-02-07
   return (
     <>
-      {/* Sektion 1: Hero - Warm Off-White Background - UPDATED */}
       <section className="relative flex items-center bg-[#FAF9F6] py-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -14,14 +12,14 @@ export default function HomePage() {
             <div className="text-center lg:text-left z-10 space-y-8">
               {/* Kicker & Headline Group */}
               <div>
-                <div className="flex flex-col lg:items-start items-center gap-3 mb-6">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-3 mb-6">
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100">
-                    <Star className="w-4 h-4 text-[#FBBF24] fill-current" />
+                    <CheckCircle className="w-4 h-4 text-[#15803d] fill-current" />
                     <span className="text-sm font-semibold text-[#1F2937]">Anerkannt nach § 45a SGB XI</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FEFCE8] rounded-full shadow-sm border border-yellow-100">
-                    <span className="text-base">📍</span>
-                    <span className="text-sm font-semibold text-[#854D0E]">Alltagshilfe für Senioren & Pflegebedürftige in Berlin</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100">
+                    <MapPin className="w-4 h-4 text-[#FBBF24] fill-current" />
+                    <span className="text-sm font-semibold text-[#1F2937]">Alltagshilfe für Senioren und Pflegebedürftige</span>
                   </div>
                 </div>
 
