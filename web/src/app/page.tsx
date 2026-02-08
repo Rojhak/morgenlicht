@@ -62,7 +62,10 @@ export default function HomePage() {
                    <div className="w-10 h-10 rounded-full bg-[#FBBF24] flex items-center justify-center flex-shrink-0">
                      <Phone className="w-5 h-5 text-white" />
                    </div>
-                   <span className="font-bold text-lg">030 / 123 456 78</span>
+                   <div className="flex flex-col">
+                     <span className="font-bold text-lg">030 / 123 456 78</span>
+                     <span className="font-normal text-[#4B5563] text-sm">– Oder rufen Sie uns direkt an</span>
+                   </div>
                 </a>
               </div>
 
