@@ -33,34 +33,37 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* Action Block - Button + Phone in row */}
-              <div className="mt-8 flex flex-col sm:flex-row items-center gap-8 justify-center lg:justify-start">
+              {/* Action Block - Vertical Layout */}
+              <div className="mt-10 flex flex-col items-center lg:items-start">
+                {/* Primary Button */}
                 <Link
                   href="/kontakt"
-                  className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center flex-shrink-0"
+                  className="bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center"
                 >
-                  Jetzt kostenfrei beraten lassen
+                  Kostenfreie Beratung anfordern
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
-                <a href="tel:017612345678" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                   <Phone className="w-5 h-5 text-[#FBBF24]" />
-                   <span><span className="text-[#6B7280]">oder </span><span className="font-bold text-[#1F2937]">0176 123 456 78</span></span>
-                </a>
-              </div>
 
-              {/* 0€ Benefit Box - Foundation element */}
-              <div className="mt-6 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-2 max-w-xl mx-auto lg:mx-0 flex items-center">
-                 <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
-                   <CheckCircle className="w-5 h-5 text-white" />
-                 </div>
-                 <div className="flex flex-col">
-                   <span className="font-heading font-bold text-[#1F2937] text-base">
-                     100% Kostenübernahme ab Pflegegrad 1
-                   </span>
-                   <span className="font-body text-[#4B5563] text-sm">
-                     Direkte Abrechnung mit der Pflegekasse. Für Sie 0€ Kosten.
-                   </span>
-                 </div>
+                {/* Phone Number */}
+                <a href="tel:017661530231" className="mt-4 flex items-center gap-2 hover:opacity-80 transition-opacity">
+                   <Phone className="w-4 h-4 text-[#FBBF24]" />
+                   <span><span className="text-[#6B7280]">Oder rufen Sie uns direkt an: </span><span className="font-bold text-[#144E41]">0176 61530231</span></span>
+                </a>
+
+                {/* 0€ Benefit Box - Foundation element */}
+                <div className="mt-8 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-3 max-w-xl flex items-center">
+                   <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
+                     <CheckCircle className="w-5 h-5 text-white" />
+                   </div>
+                   <div className="flex flex-col">
+                     <span className="font-heading font-bold text-[#134E4A] text-base">
+                       100% Kostenübernahme ab Pflegegrad 1
+                     </span>
+                     <span className="font-body text-[#4B5563] text-sm">
+                       Direkte Abrechnung mit der Pflegekasse. Für Sie 0€ Kosten.
+                     </span>
+                   </div>
+                </div>
               </div>
 
               {/* Trust Icons (Grid 2x2) */}
