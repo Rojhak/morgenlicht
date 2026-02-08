@@ -33,7 +33,22 @@ export default function HomePage() {
                 </p>
               </div>
 
-              {/* 0€ Benefit Box (Redesign) */}
+              {/* Action Block - Button + Phone in row */}
+              <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                <Link
+                  href="/kontakt"
+                  className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center flex-shrink-0"
+                >
+                  Jetzt kostenfrei beraten lassen
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+                <a href="tel:017612345678" className="flex items-center gap-2 text-[#1F2937] hover:text-[#134E4A] transition-colors">
+                   <Phone className="w-5 h-5 text-[#FBBF24]" />
+                   <span className="font-medium">Oder direkt anrufen: 0176 123 456 78</span>
+                </a>
+              </div>
+
+              {/* 0€ Benefit Box - Foundation element */}
               <div className="mt-6 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-2 max-w-xl mx-auto lg:mx-0 flex items-center">
                  <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
                    <CheckCircle className="w-5 h-5 text-white" />
@@ -46,27 +61,6 @@ export default function HomePage() {
                      Direkte Abrechnung mit der Pflegekasse. Für Sie 0€ Kosten.
                    </span>
                  </div>
-              </div>
-
-
-              {/* Action Block */}
-              <div className="mt-8 flex flex-col xl:flex-row items-center gap-6 justify-center lg:justify-start">
-                <Link
-                  href="/kontakt"
-                  className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center flex-shrink-0"
-                >
-                  Jetzt kostenfrei beraten lassen
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-                <a href="tel:03012345678" className="flex items-center gap-3 text-[#1F2937] hover:text-[#134E4A] transition-colors">
-                   <div className="w-10 h-10 rounded-full bg-[#FBBF24] flex items-center justify-center flex-shrink-0">
-                     <Phone className="w-5 h-5 text-white" />
-                   </div>
-                   <div className="flex flex-col">
-                     <span className="font-bold text-lg">030 / 123 456 78</span>
-                     <span className="font-normal text-[#4B5563] text-sm">– Oder rufen Sie uns direkt an</span>
-                   </div>
-                </a>
               </div>
 
               {/* Trust Icons (Grid 2x2) */}
