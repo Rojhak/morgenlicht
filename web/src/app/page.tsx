@@ -45,8 +45,8 @@ export default function HomePage() {
                 </Link>
 
                 {/* Phone Number */}
-                <a href="tel:017661530231" className="mt-4 flex items-center gap-2 hover:opacity-80 transition-opacity">
-                   <Phone className="w-4 h-4 text-[#FBBF24]" />
+                <a href="tel:017661530231" className="mt-5 flex items-center gap-2 hover:opacity-80 transition-opacity">
+                   <Phone className="w-5 h-5 text-[#FBBF24]" />
                    <span><span className="text-[#6B7280]">Oder rufen Sie uns direkt an: </span><span className="font-bold text-[#144E41]">0176 61530231</span></span>
                 </a>
 
