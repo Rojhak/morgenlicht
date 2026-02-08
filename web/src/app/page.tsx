@@ -34,14 +34,20 @@ export default function HomePage() {
               </div>
 
               {/* 0€ Benefit Box (Redesign) */}
-              <div className="bg-[#F0FDF4] border-l-4 border-[#134E4A] rounded-r-xl rounded-l-sm shadow-sm p-6 max-w-xl mx-auto lg:mx-0">
-                 <h3 className="font-heading font-bold text-[#1F2937] text-xl mb-2">
-                   100% Kostenübernahme ab Pflegegrad 1
-                 </h3>
-                 <p className="font-body text-[#4B5563] text-base leading-relaxed">
-                   Nutzen Sie Ihren Entlastungsbetrag für Haushaltshilfe. Sie zahlen 0 € dazu – wir übernehmen die direkte Abrechnung mit Ihrer Pflegekasse.
-                 </p>
+              <div className="mt-6 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-3 max-w-xl mx-auto lg:mx-0 flex items-center gap-4">
+                 <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0">
+                   <CheckCircle className="w-5 h-5 text-white" />
+                 </div>
+                 <div>
+                   <span className="font-heading font-bold text-[#1F2937] text-base">
+                     100% Kostenübernahme ab Pflegegrad 1
+                   </span>
+                   <span className="font-body text-[#4B5563] text-sm ml-2">
+                     – Sie zahlen 0 €, wir rechnen direkt mit Ihrer Pflegekasse ab.
+                   </span>
+                 </div>
               </div>
+
 
               {/* Action Block */}
               <div className="mt-8 flex flex-col xl:flex-row items-center gap-6 justify-center lg:justify-start">
