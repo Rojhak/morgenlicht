@@ -34,16 +34,16 @@ export default function HomePage() {
               </div>
 
               {/* 0€ Benefit Box (Redesign) */}
-              <div className="mt-6 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-3 max-w-xl mx-auto lg:mx-0 flex items-center gap-4">
-                 <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0">
+              <div className="mt-6 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-3 max-w-xl mx-auto lg:mx-0 flex items-center">
+                 <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
                    <CheckCircle className="w-5 h-5 text-white" />
                  </div>
-                 <div>
+                 <div className="flex flex-col">
                    <span className="font-heading font-bold text-[#1F2937] text-base">
                      100% Kostenübernahme ab Pflegegrad 1
                    </span>
-                   <span className="font-body text-[#4B5563] text-sm ml-2">
-                     – Nutzen Sie Ihren Entlastungsbetrag für Haushaltshilfe. Sie zahlen 0 € dazu – wir rechnen direkt mit Ihrer Pflegekasse ab.
+                   <span className="font-body text-[#4B5563] text-sm">
+                     Direkte Abrechnung mit der Pflegekasse. Für Sie 0€ Kosten.
                    </span>
                  </div>
               </div>
