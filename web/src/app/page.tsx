@@ -12,7 +12,7 @@ export default function HomePage() {
             <div className="text-center lg:text-left z-10 space-y-8">
               {/* Kicker & Headline Group */}
               <div>
-                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-8">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-10">
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm border border-gray-100 h-[28px]">
                     <Check className="w-4 h-4 text-[#144E41] stroke-[1.5]" />
                     <span className="font-inter text-[13px] font-medium text-slate-800 tracking-wide whitespace-nowrap">Anerkannt nach § 45a SGB XI</span>
@@ -23,8 +23,8 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <h1 className="font-heading font-bold text-[#1F2937] text-4xl sm:text-5xl lg:text-[48px] leading-tight mb-8">
-                  <span className="text-[#134E4A]">Herzlich & Würdevoll:</span> <br className="hidden lg:block"/>
+                <h1 className="font-body font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-tight mb-8">
+                  Herzlich & Würdevoll: <br className="hidden lg:block"/>
                   Ihre Alltagshilfe in Berlin
                 </h1>
 
@@ -34,7 +34,7 @@ export default function HomePage() {
               </div>
 
               {/* 0€ Benefit Box (Redesign) */}
-              <div className="mt-6 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-3 max-w-xl mx-auto lg:mx-0 flex items-center">
+              <div className="mt-6 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-2 max-w-xl mx-auto lg:mx-0 flex items-center">
                  <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
                    <CheckCircle className="w-5 h-5 text-white" />
                  </div>
@@ -53,18 +53,17 @@ export default function HomePage() {
               <div className="mt-8 flex flex-col xl:flex-row items-center gap-6 justify-center lg:justify-start">
                 <Link
                   href="/kontakt"
-                  className="bg-[#FBBF24] text-[#000000] hover:bg-yellow-400 transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center flex-shrink-0"
+                  className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center flex-shrink-0"
                 >
                   Jetzt kostenfrei beraten lassen
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
-                <div className="text-[#1F2937] font-bold text-lg flex flex-col items-center lg:items-start gap-1">
-                   <div className="flex flex-col md:flex-row items-center gap-2">
-                     <span className="flex items-center gap-2">📞 030 / 123 456 78</span>
+                <a href="tel:03012345678" className="flex items-center gap-3 text-[#1F2937] hover:text-[#134E4A] transition-colors">
+                   <div className="w-10 h-10 rounded-full bg-[#FBBF24] flex items-center justify-center flex-shrink-0">
+                     <Phone className="w-5 h-5 text-white" />
                    </div>
-                   <span className="font-normal text-[#4B5563] text-sm hidden lg:inline">– Oder rufen Sie uns direkt an</span>
-                   <span className="font-normal text-[#4B5563] text-sm lg:hidden">Oder rufen Sie uns direkt an</span>
-                </div>
+                   <span className="font-bold text-lg">030 / 123 456 78</span>
+                </a>
               </div>
 
               {/* Trust Icons (Grid 2x2) */}
