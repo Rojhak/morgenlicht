@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home, ShoppingBag, Stethoscope, FileText, Handshake, Star, CheckCircle, Sparkles, MapPin } from 'lucide-react'
+import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home, ShoppingBag, Stethoscope, FileText, Handshake, Star, CheckCircle, Check, Sparkles, MapPin } from 'lucide-react'
 import { CareFinder } from '@/app/components/wizard'
 
 export default function HomePage() {
@@ -12,14 +12,14 @@ export default function HomePage() {
             <div className="text-center lg:text-left z-10 space-y-8">
               {/* Kicker & Headline Group */}
               <div>
-                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-3 mb-6">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100">
-                    <CheckCircle className="w-4 h-4 text-[#15803d] fill-current" />
-                    <span className="text-sm font-semibold text-[#1F2937]">Anerkannt nach § 45a SGB XI</span>
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-8">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm border border-gray-100 h-[28px]">
+                    <Check className="w-4 h-4 text-[#144E41] stroke-[1.5]" />
+                    <span className="font-inter text-[13px] font-medium text-slate-800 tracking-wide whitespace-nowrap">Anerkannt nach § 45a SGB XI</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100">
-                    <MapPin className="w-4 h-4 text-[#FBBF24] fill-current" />
-                    <span className="text-sm font-semibold text-[#1F2937]">Alltagshilfe für Senioren und Pflegebedürftige</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm border border-gray-100 h-[28px]">
+                    <Heart className="w-4 h-4 text-[#FBBF24] stroke-[1.5]" />
+                    <span className="font-inter text-[13px] font-medium text-slate-800 tracking-wide whitespace-nowrap">Alltagshilfe für Senioren & Pflegebedürftige</span>
                   </div>
                 </div>
 
@@ -80,58 +80,68 @@ export default function HomePage() {
             </div>
 
             {/* Right Image/Card (Multi-Image Layout) */}
-            <div className="relative mt-8 lg:mt-0 lg:h-full flex flex-col justify-center items-center lg:items-end">
-               <div className="relative w-full max-w-[600px] h-[500px] lg:h-[600px]">
+            {/* Right Image/Card (Collage Layout) */}
+            <div className="relative mt-8 lg:mt-0 lg:h-full flex items-center justify-center lg:justify-end">
+               <div className="flex gap-4 items-start">
 
-                  {/* Decorative Background Blob */}
-                  <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#F0FDF4] rounded-full blur-3xl opacity-60 mix-blend-multiply"></div>
+                  {/* Left Column (Img 1 & 3) */}
+                  <div className="flex flex-col gap-4">
+                     {/* Image 1: Top Left */}
+                     <div className="w-48 h-64 md:w-56 md:h-72 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
+                       <img
+                         src="/images/hero_helping_hand.png"
+                         alt="Helfende Hände Alltagshilfe"
+                         className="w-full h-full object-cover"
+                       />
+                     </div>
 
-                  {/* Image 1: Top Left (Helping Hand) */}
-                  <div className="absolute top-0 left-4 w-48 h-64 md:w-56 md:h-72 shadow-xl rounded-2xl overflow-hidden transform -rotate-3 z-10 border-4 border-white">
-                    <img
-                      src="/images/hero_helping_hand.png"
-                      alt="Helfende Hände Alltagshilfe"
-                      className="w-full h-full object-cover"
-                    />
+                     {/* Image 3: Bottom Left (+ Asiye Badge) */}
+                     <div className="relative w-48 h-56 md:w-52 md:h-64">
+                        <div className="w-full h-full rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
+                          <img
+                            src="/images/hero_daily_moments.png"
+                            alt="Gemeinsame Momente"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        {/* Asiye Badge (Overlapping Bottom Left) */}
+                        <Link
+                          href="/ueber-uns"
+                          className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-full py-2 pl-2 pr-6 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-4 border border-gray-100/50 z-50 group min-w-[240px]"
+                        >
+                          <img
+                            src="/images/asiye-duman.jpeg"
+                            alt="Asiye Duman"
+                            className="w-10 h-10 rounded-full object-cover border border-gray-100 shadow-sm ml-1"
+                          />
+                          <div className="flex flex-col text-left">
+                             <span className="font-inter text-xs font-medium text-slate-800 tracking-wide leading-tight">
+                               Ihre persönliche Ansprechpartnerin
+                             </span>
+                             <span className="font-inter text-[13px] font-bold text-[#144E41] tracking-wide leading-tight group-hover:text-[#134E4A] transition-colors">
+                               Asiye Duman
+                             </span>
+                          </div>
+                        </Link>
+                     </div>
                   </div>
 
-                  {/* Image 2: Top Right (Active Senior) - Larger */}
-                  <div className="absolute top-8 right-0 w-56 h-72 md:w-64 md:h-80 shadow-2xl rounded-2xl overflow-hidden transform rotate-2 z-20 border-4 border-white">
-                     <img
-                       src="/images/hero_active_senior.png"
-                       alt="Aktive Senioren Berlin"
-                       className="w-full h-full object-cover"
-                     />
+                  {/* Right Column (Img 2) */}
+                  <div className="flex flex-col gap-4 pt-16">
+                     {/* Image 2: Top Right (Offset) */}
+                     <div className="w-56 h-72 md:w-64 md:h-80 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
+                        <img
+                          src="/images/hero_active_senior.png"
+                          alt="Aktive Senioren Berlin"
+                          className="w-full h-full object-cover"
+                        />
+                     </div>
                   </div>
-
-                  {/* Image 3: Bottom Center (Daily Moments) - Placeholder if needed */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 h-56 md:w-52 md:h-64 shadow-xl rounded-2xl overflow-hidden transform -rotate-1 z-30 border-4 border-white">
-                     <img
-                       src="/images/hero_daily_moments.png"
-                       alt="Gemeinsame Momente"
-                       className="w-full h-full object-cover"
-                     />
-                  </div>
-
-                  {/* Asiye Trust Badge (Overlapping Bottom Image) */}
-                  {/* Asiye Trust Badge (Overlapping Bottom Image) */}
-                  <Link
-                    href="/ueber-uns"
-                    className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-xl py-2 px-4 shadow-xl flex items-center gap-3 z-40 border border-gray-100 hover:scale-105 transition-transform duration-300 cursor-pointer whitespace-nowrap"
-                  >
-                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-gray-100 shadow-sm">
-                      <img
-                        src="/images/asiye-duman.jpeg"
-                        alt="Asiye Duman"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <p className="text-sm text-[#1F2937] font-medium">
-                      <span className="text-[#6B7280]">Ihre persönliche Ansprechpartnerin:</span> <span className="font-semibold"> Asiye Duman</span>
-                    </p>
-                  </Link>
 
                </div>
+
+               {/* Background Blob (Behind Grid) */}
+               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[#F0FDF4] rounded-full blur-3xl opacity-60 mix-blend-multiply pointer-events-none"></div>
             </div>
           </div>
         </div>
