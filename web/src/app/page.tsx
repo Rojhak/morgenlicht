@@ -66,21 +66,21 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Trust Icons (Grid 2x2) */}
-              <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto lg:mx-0 pt-2 text-[#4B5563]">
-                 {[
-                   "Zertifiziert nach § 45a",
-                   "Feste Bezugsperson",
-                   "Keine Bürokratie",
-                   "Alle Pflegekassen"
-                 ].map((text, i) => (
-                   <div key={i} className="flex items-center gap-2.5 justify-center lg:justify-start">
-                     <div className="w-5 h-5 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0">
-                       <CheckCircle className="w-3.5 h-3.5 text-white" />
+              {/* Trust Bar - Pill Badges */}
+              <div className="mt-8 py-8">
+                 <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+                   {[
+                     "Staatlich anerkannt",
+                     "Pflegekasse Partner",
+                     "Feste Bezugsperson",
+                     "Keine Bürokratie"
+                   ].map((text, i) => (
+                     <div key={i} className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-100 shadow-sm">
+                       <CheckCircle className="w-4 h-4 text-[#134E4A]" />
+                       <span className="font-body font-medium text-[13px] text-[#134E4A]">{text}</span>
                      </div>
-                     <span className="text-sm font-medium">{text}</span>
-                   </div>
-                 ))}
+                   ))}
+                 </div>
               </div>
             </div>
 
