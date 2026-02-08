@@ -34,7 +34,7 @@ export default function HomePage() {
               </div>
 
               {/* Action Block - Button + Phone in row */}
-              <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+              <div className="mt-8 flex flex-col sm:flex-row items-center gap-8 justify-center lg:justify-start">
                 <Link
                   href="/kontakt"
                   className="bg-[#134E4A] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center flex-shrink-0"
@@ -42,9 +42,9 @@ export default function HomePage() {
                   Jetzt kostenfrei beraten lassen
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
-                <a href="tel:017612345678" className="flex items-center gap-2 text-[#1F2937] hover:text-[#134E4A] transition-colors">
+                <a href="tel:017612345678" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                    <Phone className="w-5 h-5 text-[#FBBF24]" />
-                   <span className="font-medium">Oder direkt anrufen: 0176 123 456 78</span>
+                   <span><span className="text-[#6B7280]">oder </span><span className="font-bold text-[#1F2937]">0176 123 456 78</span></span>
                 </a>
               </div>
 
