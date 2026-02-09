@@ -40,7 +40,7 @@ export default function HomePage() {
                   href="/kontakt"
                   className="bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center"
                 >
-                  Kostenfreie Beratung anfordern
+                  Jetzt kostenfrei beraten lassen
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
 
