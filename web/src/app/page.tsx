@@ -23,7 +23,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <h1 className="font-body font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-tight mb-8">
+                <h1 className="font-body font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8">
                   Herzlich & Würdevoll: <br className="hidden lg:block"/>
                   Ihre Alltagshilfe in Berlin
                 </h1>
@@ -51,7 +51,7 @@ export default function HomePage() {
                 </a>
 
                 {/* 0€ Benefit Box - Foundation element */}
-                <div className="mt-8 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-5 py-3 max-w-xl flex items-center">
+                <div className="mt-8 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-6 py-3 max-w-xl flex items-center">
                    <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
                      <CheckCircle className="w-5 h-5 text-white" />
                    </div>
@@ -71,9 +71,9 @@ export default function HomePage() {
                  <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                    {[
                      "Staatlich anerkannt",
-                     "Pflegekasse Partner",
+                     "Alle Pflegekassen",
                      "Feste Bezugsperson",
-                     "Keine Bürokratie"
+                     "Wir übernehmen alle Formalitäten"
                    ].map((text, i) => (
                      <div key={i} className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-100 shadow-sm">
                        <CheckCircle className="w-4 h-4 text-[#134E4A]" />
