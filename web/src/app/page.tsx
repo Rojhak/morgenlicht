@@ -167,18 +167,18 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[#144E41]/85 z-10"></div>
 
         {/* Content Container */}
-        <div className="relative z-20 container mx-auto px-6 text-center text-[#F9FAFB] flex flex-col items-center justify-center">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl leading-tight mb-6 text-[#FFFBEB]">
+        <div className="relative z-20 container mx-auto px-6 text-center text-gray-50 flex flex-col items-center justify-center">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl leading-tight mb-6 text-amber-50">
             Sie sind nicht allein – wir sind an Ihrer Seite.
           </h2>
 
-          <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-[#F3F4F6]/95 mb-12">
+          <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-gray-100/95 mb-12">
             Den Alltag allein zu meistern, kostet Kraft. Wir wissen, wie schwer es sein kann, Hilfe anzunehmen.
             Morgenlicht ist die Hand, die hilft, und das offene Ohr, das zuhört.
             Damit wieder Raum für das Wesentliche bleibt.
           </p>
 
-          <p className="font-body text-sm text-[#E5E7EB]/80 tracking-wide uppercase font-medium">
+          <p className="font-body text-sm text-gray-300/80 tracking-wide uppercase font-medium">
             Professioneller als Nachbarschaftshilfe, herzlicher als anonyme Plattformen.
           </p>
         </div>
