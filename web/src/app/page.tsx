@@ -184,29 +184,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sektion 2: Budget Rechner - Pale Sun Background */}
-      <div id="calculator" className="bg-[#FFFBEB] py-24 px-6 scroll-mt-24">
-        <div className="max-w-6xl mx-auto">
-          {/* Note: CareFinder component internally needs to be checked if it conforms.
-              Ideally we wrap it or strict styles within it.
-              The wrapper here ensures the section background is correct. */}
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-4">
-              Ihr Persönlicher Budget-Rechner
-            </h2>
-            <p className="text-[#1F2937] text-lg max-w-2xl mx-auto">
-              Prüfen Sie in weniger als 2 Minuten Ihren Anspruch auf kostenfreie Unterstützung.
-            </p>
-          </div>
-
-          {/* Card Container for Calculator - White with Gold Border */}
-          <div className="bg-white rounded-[16px] border-2 border-[#FBBF24] shadow-md p-6 md:p-10 max-w-4xl mx-auto">
-            <CareFinder />
-          </div>
-        </div>
-      </div>
-
-      {/* Sektion 3: Leistungen - Creme Background */}
+      {/* Sektion 2: Leistungen - Creme Background */}
       <section className="bg-[#FAF9F6] py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -247,6 +225,28 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Sektion 3: Budget Rechner - Pale Sun Background */}
+      <div id="calculator" className="bg-[#FFFBEB] py-24 px-6 scroll-mt-24">
+        <div className="max-w-6xl mx-auto">
+          {/* Note: CareFinder component internally needs to be checked if it conforms.
+              Ideally we wrap it or strict styles within it.
+              The wrapper here ensures the section background is correct. */}
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-4">
+              Ihr Persönlicher Budget-Rechner
+            </h2>
+            <p className="text-[#1F2937] text-lg max-w-2xl mx-auto">
+              Prüfen Sie in weniger als 2 Minuten Ihren Anspruch auf kostenfreie Unterstützung.
+            </p>
+          </div>
+
+          {/* Card Container for Calculator - White with Gold Border */}
+          <div className="bg-white rounded-[16px] border-2 border-[#FBBF24] shadow-md p-6 md:p-10 max-w-4xl mx-auto">
+            <CareFinder />
+          </div>
+        </div>
+      </div>
 
       {/* Sektion 4: Warum uns wählen - Soft Mint Background */}
       <section className="bg-[#F0FDF4] py-24 px-6">
