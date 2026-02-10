@@ -152,6 +152,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Empathy Section - Full Width Image Background */}
+      <section className="relative w-full py-32 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/hero_helping_hand.png"
+            alt="Helfende Hände"
+            className="w-full h-full object-cover opacity-90"
+          />
+        </div>
+
+        {/* Dark Green Overlay */}
+        <div className="absolute inset-0 bg-[#144E41]/85 z-10"></div>
+
+        {/* Content Container */}
+        <div className="relative z-20 container mx-auto px-6 text-center text-white flex flex-col items-center justify-center">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl leading-tight mb-6">
+            Sie sind nicht allein – wir sind an Ihrer Seite.
+          </h2>
+
+          <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-white/95 mb-12">
+            Den Alltag allein zu meistern, kostet Kraft. Wir wissen, wie schwer es sein kann, Hilfe anzunehmen.
+            Morgenlicht ist die Hand, die hilft, und das offene Ohr, das zuhört.
+            Damit wieder Raum für das Wesentliche bleibt.
+          </p>
+
+          <p className="font-body text-sm text-white/70 tracking-wide uppercase font-medium">
+            Professioneller als Nachbarschaftshilfe, herzlicher als anonyme Plattformen.
+          </p>
+        </div>
+      </section>
+
       {/* Sektion 2: Budget Rechner - Pale Sun Background */}
       <div id="calculator" className="bg-[#FFFBEB] py-24 px-6 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
