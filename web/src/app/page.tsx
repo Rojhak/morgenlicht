@@ -152,8 +152,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Empathy Section - Full Width Image Background */}
-      <section className="relative w-full py-32 overflow-hidden">
+      {/* Empathy Section - Compact & Modern */}
+      <section className="relative w-full py-16 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -163,22 +163,22 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Dark Green Overlay */}
-        <div className="absolute inset-0 bg-[#144E41]/85 z-10"></div>
+        {/* Dark Green Overlay - Stronger for text focus */}
+        <div className="absolute inset-0 bg-[#144E41]/90 z-10"></div>
 
         {/* Content Container */}
-        <div className="relative z-20 container mx-auto px-6 text-center flex flex-col items-center justify-center">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl leading-tight mb-6" style={{ color: '#FFFBEB' }}>
+        <div className="relative z-20 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+          <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight mb-4" style={{ color: '#FFFBEB' }}>
             Sie sind nicht allein – wir sind an Ihrer Seite.
           </h2>
 
-          <p className="font-body text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-12" style={{ color: '#F3F4F6', opacity: 0.95 }}>
-            Den Alltag allein zu meistern, kostet Kraft. Wir wissen, wie schwer es sein kann, Hilfe anzunehmen.
-            Morgenlicht ist die Hand, die hilft, und das offene Ohr, das zuhört.
-            Damit wieder Raum für das Wesentliche bleibt.
+          <p className="font-body text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-4" style={{ color: '#F3F4F6', opacity: 0.9 }}>
+            Wir wissen, wie schwer es sein kann, Hilfe anzunehmen.
+            Morgenlicht ist die Hand, die hilft, und das offene Ohr, das zuhört –
+            damit wieder Raum für die schönen Momente bleibt.
           </p>
 
-          <p className="font-body text-sm tracking-wide uppercase font-medium" style={{ color: '#E5E7EB', opacity: 0.8 }}>
+          <p className="font-body text-sm italic mt-8" style={{ color: '#E5E7EB', opacity: 0.7 }}>
             Professioneller als Nachbarschaftshilfe, herzlicher als anonyme Plattformen.
           </p>
         </div>
