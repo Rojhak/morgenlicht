@@ -86,8 +86,8 @@ export default function HomePage() {
 
             {/* Right Image/Card (Multi-Image Layout) */}
             {/* Right Image/Card (Collage Layout) */}
-            <div className="relative mt-8 lg:mt-0 lg:h-full flex items-center justify-center lg:justify-end">
-               <div className="flex gap-4 items-start">
+             <div className="relative mt-8 lg:mt-0 lg:h-full flex items-center justify-center lg:justify-end px-4 lg:px-0">
+                <div className="flex gap-3 md:gap-4 items-start">
 
                   {/* Left Column (Img 1 & 3) */}
                   <div className="flex flex-col gap-4">
