@@ -1,0 +1,4 @@
+## 2025-01-28 - Runtime Type Safety & HTML Injection in API Routes
+**Vulnerability:** The contact form API route (`api/inquiry`) blindly cast `await request.json()` to a TypeScript interface and interpolated user input directly into an HTML email body. This allowed for HTML injection (XSS in email clients) and potential crashes if required fields were missing or of the wrong type.
+**Learning:** TypeScript interfaces do not exist at runtime. `request.json()` returns `any`, so explicit runtime validation is necessary before accessing properties. Email clients often render HTML, making them vulnerable to injection if input isn't sanitized.
+**Prevention:** Always validate API request bodies using a runtime validation library (like Zod) or manual checks. Always sanitize user input before interpolating it into HTML strings, even for emails.
