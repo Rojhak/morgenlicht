@@ -92,7 +92,7 @@ export default function HomePage() {
                   {/* Left Column (Img 1 & 3) */}
                   <div className="flex flex-col gap-4">
                      {/* Image 1: Top Left */}
-                     <div className="w-48 h-64 md:w-56 md:h-72 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
+                     <div className="w-36 h-48 md:w-56 md:h-72 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
                        <img
                          src="/images/hero_helping_hand.png"
                          alt="Helfende Hände Alltagshilfe"
@@ -101,7 +101,7 @@ export default function HomePage() {
                      </div>
 
                      {/* Image 3: Bottom Left (+ Asiye Badge) */}
-                     <div className="relative w-48 h-56 md:w-52 md:h-64">
+                     <div className="relative w-36 h-48 md:w-52 md:h-64">
                         <div className="w-full h-full rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
                           <img
                             src="/images/hero_daily_moments.png"
@@ -110,10 +110,10 @@ export default function HomePage() {
                           />
                         </div>
                         {/* Asiye Badge (Overlapping Bottom Left) */}
-                        <Link
-                          href="/ueber-uns"
-                          className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-full py-2 pl-2 pr-6 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-4 border border-gray-100/50 z-50 group min-w-[240px]"
-                        >
+                         <Link
+                           href="/ueber-uns"
+                           className="absolute -bottom-6 -left-2 md:bottom-4 md:left-4 bg-white/95 backdrop-blur-sm rounded-full py-2 pl-2 pr-4 md:pr-6 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 md:gap-4 border border-gray-100/50 z-50 group min-w-[200px] md:min-w-[240px]"
+                         >
                           <img
                             src="/images/asiye-duman.jpeg"
                             alt="Asiye Duman"
@@ -134,7 +134,7 @@ export default function HomePage() {
                   {/* Right Column (Img 2) */}
                   <div className="flex flex-col gap-4 pt-16">
                      {/* Image 2: Top Right (Offset) */}
-                     <div className="w-56 h-72 md:w-64 md:h-80 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
+                     <div className="w-40 h-60 md:w-64 md:h-80 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
                         <img
                           src="/images/hero_active_senior.png"
                           alt="Aktive Senioren Berlin"
