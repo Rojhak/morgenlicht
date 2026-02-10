@@ -47,7 +47,7 @@ export default function HomePage() {
                 {/* Phone Number */}
                 <a href="tel:03012345678" className="mt-5 flex items-center gap-2 hover:opacity-80 transition-opacity">
                    <Phone className="w-5 h-5 text-[#FBBF24]" />
-                   <span><span className="text-[#6B7280]">Oder rufen Sie uns direkt an: </span><span className="font-bold text-[#144E41]">030 / 123 456 78</span></span>
+                   <span><span className="text-[#6B7280]">Oder rufen Sie uns direkt an: </span><span className="font-bold text-[#144E41] whitespace-nowrap">030 / 123 456 78</span></span>
                 </a>
 
                 {/* 0€ Benefit Box - Foundation element */}
