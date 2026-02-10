@@ -23,7 +23,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <h1 className="font-body font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8">
+                <h1 className="font-heading font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8">
                   Herzlich & Würdevoll: <br className="hidden lg:block"/>
                   Ihre Alltagshilfe in Berlin
                 </h1>
