@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { sanitizeHeader, sanitizeInput, validateInquiry } from '@/lib/security'
 
 const EMAIL_TO = process.env.EMAIL_TO || 'anfragen@morgenlicht-alltagshilfe.de'
-const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
+const EMAIL_FROM =
+  process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
 
 interface InquiryData {
   name: string
@@ -12,15 +14,15 @@ interface InquiryData {
 
 export async function POST(request: NextRequest) {
   try {
-    const data: InquiryData = await request.json()
+    const data = await request.json()
 
-    // Validate required fields
-    if (!data.name || !data.phone) {
-      return NextResponse.json(
-        { error: 'Name und Telefonnummer sind erforderlich' },
-        { status: 400 }
-      )
+    // Validate input
+    const validation = validateInquiry(data)
+    if (!validation.isValid) {
+      return NextResponse.json({ error: validation.error }, { status: 400 })
     }
+
+    const validData = data as InquiryData
 
     const apiKey = process.env.RESEND_API_KEY
     if (!apiKey) {
@@ -38,28 +40,42 @@ export async function POST(request: NextRequest) {
       timeStyle: 'short',
     })
 
+    // Sanitize for different contexts
+    // Subject: Strip newlines to prevent header injection
+    const subjectName = sanitizeHeader(validData.name)
+    // HTML Body: Escape HTML characters to prevent injection
+    const safeName = sanitizeInput(validData.name)
+    const safePhone = sanitizeInput(validData.phone)
+    const safePflegegrad = validData.pflegegrad
+      ? sanitizeInput(validData.pflegegrad)
+      : ''
+
     // Send notification email to staff
     await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
-      subject: `Neue Anfrage von ${data.name}`,
+      subject: `Neue Anfrage von ${subjectName}`,
       html: `
         <h2>Neue Anfrage über die Website</h2>
         <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Name:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.name}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safeName}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Telefon:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.phone}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safePhone}</td>
           </tr>
-          ${data.pflegegrad ? `
+          ${
+            safePflegegrad
+              ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Pflegegrad:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.pflegegrad}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safePflegegrad}</td>
           </tr>
-          ` : ''}
+          `
+              : ''
+          }
           <tr>
             <td style="padding: 8px; font-weight: bold;">Zeitstempel:</td>
             <td style="padding: 8px;">${timestamp}</td>
