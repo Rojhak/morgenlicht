@@ -168,17 +168,17 @@ export default function HomePage() {
 
         {/* Content Container */}
         <div className="relative z-20 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center">
-          <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight mb-4" style={{ color: '#FFFBEB' }}>
+          <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight mb-4 max-w-2xl mx-auto" style={{ color: '#FFFBEB' }}>
             Sie sind nicht allein – wir sind an Ihrer Seite.
           </h2>
 
-          <p className="font-body text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-4" style={{ color: '#F3F4F6', opacity: 0.9 }}>
+          <p className="font-body text-base md:text-lg leading-relaxed max-w-xl mx-auto mt-4" style={{ color: '#F3F4F6', opacity: 0.9 }}>
             Wir wissen, wie schwer es sein kann, Hilfe anzunehmen.
             Morgenlicht ist die Hand, die hilft, und das offene Ohr, das zuhört –
             damit wieder Raum für die schönen Momente bleibt.
           </p>
 
-          <p className="font-body text-sm italic mt-8" style={{ color: '#E5E7EB', opacity: 0.7 }}>
+          <p className="font-body text-sm italic mt-8 max-w-lg mx-auto" style={{ color: '#E5E7EB', opacity: 0.7 }}>
             Professioneller als Nachbarschaftshilfe, herzlicher als anonyme Plattformen.
           </p>
         </div>
