@@ -243,6 +243,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
+      <section className="bg-[#FFFBEB] py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-[24px] p-10 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
+              WICHTIG ZU WISSEN
+            </span>
+            <h2 className="font-heading text-3xl font-bold text-[#134E4A] mb-4">
+              Ihr Recht auf Unterstützung: 125 € monatlich geschenkt.
+            </h2>
+            <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
+              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von 125 € pro Monat zu. Dieses Budget verfällt, wenn es nicht genutzt wird. Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
+            </p>
+            <Link
+              href="#calculator"
+              className="inline-flex items-center justify-center bg-[#134E4A] text-white px-8 py-4 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] transition-all shadow-sm group"
+            >
+              Jetzt Anspruch prüfen lassen
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Sektion 3: Budget Rechner - Pale Sun Background */}
       <div id="calculator" className="bg-[#FFFBEB] py-24 px-6 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
