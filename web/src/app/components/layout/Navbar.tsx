@@ -10,7 +10,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
   const navLinks = [
     { href: '/', label: 'Startseite' },
     { href: '/leistungen', label: 'Leistungen' },
-    { href: '/pflegekasse', label: 'Kosten & Pflegekasse' },
+    { href: '/kosten', label: 'Kosten & Pflegekasse' },
     { href: '/ueber-uns', label: 'Über uns' },
     { href: '/fragen', label: 'Fragen' },
     { href: '/blog', label: 'Blog' },
