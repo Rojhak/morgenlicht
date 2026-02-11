@@ -246,48 +246,33 @@ export default function HomePage() {
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
       <section className="bg-[#FFFBEB] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-10 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <div className="bg-white rounded-[24px] p-8 md:p-12 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
               WICHTIG ZU WISSEN
             </span>
-            <h2 className="font-heading text-3xl font-bold text-[#134E4A] mb-4">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
               Ihr Recht auf Unterstützung: 131 € monatlich geschenkt.
             </h2>
             <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
-              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von 131 € pro Monat zu. Dieses Budget verfällt, wenn es nicht genutzt wird. Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
+              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von 131 € pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
             </p>
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center justify-center bg-[#134E4A] text-white px-8 py-4 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] transition-all shadow-sm group"
-            >
-              Jetzt Anspruch prüfen lassen
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="flex flex-col items-center gap-3">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center bg-[#134E4A] text-white px-8 py-4 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm group"
+              >
+                Jetzt Anspruch prüfen lassen
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <span className="text-xs font-body text-gray-500 opacity-60 font-medium mt-2">
+                Unverbindlich & Kostenfrei
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Sektion 3: Budget Rechner - Pale Sun Background */}
-      <div id="calculator" className="bg-[#FFFBEB] py-24 px-6 scroll-mt-24">
-        <div className="max-w-6xl mx-auto">
-          {/* Note: CareFinder component internally needs to be checked if it conforms.
-              Ideally we wrap it or strict styles within it.
-              The wrapper here ensures the section background is correct. */}
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-4">
-              Ihr Persönlicher Budget-Rechner
-            </h2>
-            <p className="text-[#1F2937] text-lg max-w-2xl mx-auto">
-              Prüfen Sie in weniger als 2 Minuten Ihren Anspruch auf kostenfreie Unterstützung.
-            </p>
-          </div>
 
-          {/* Card Container for Calculator - White with Gold Border */}
-          <div className="bg-white rounded-[16px] border-2 border-[#FBBF24] shadow-md p-6 md:p-10 max-w-4xl mx-auto">
-            <CareFinder />
-          </div>
-        </div>
-      </div>
 
 
 
