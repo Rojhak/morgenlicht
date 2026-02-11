@@ -222,7 +222,7 @@ export default function HomePage() {
                 icon: Users
               },
             ].map((service, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
+              <div key={i} className="bg-white rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
                 <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#134E4A] transition-colors">
                   <service.icon className="w-7 h-7 text-[#134E4A] group-hover:text-white transition-colors" />
                 </div>
