@@ -185,7 +185,8 @@ export default function HomePage() {
       </section>
 
       {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
-      <section className="bg-[#FAF9F6] py-24 px-6">
+      {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
+      <section className="bg-[#F9FBFB] py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -221,7 +222,7 @@ export default function HomePage() {
                 icon: Users
               },
             ].map((service, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-8 shadow-sm border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
+              <div key={i} className="bg-white rounded-[24px] p-8 shadow-sm border border-gray-100 hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
                 <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#134E4A] transition-colors">
                   <service.icon className="w-7 h-7 text-[#134E4A] group-hover:text-white transition-colors" />
                 </div>
@@ -264,47 +265,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Sektion 4: Warum uns wählen - Soft Mint Background */}
-      <section className="bg-[#F0FDF4] py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
-              Warum Morgenlicht?
-            </h2>
-            <p className="text-[#1F2937] text-lg max-w-2xl mx-auto">
-              Wir setzen auf Qualität, Herzlichkeit und absolute Verlässlichkeit.
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Kostenfreie Abrechnung',
-                desc: 'Wir rechnen direkt mit der Pflegekasse ab. Sie müssen nicht in Vorleistung gehen.',
-                icon: Shield
-              },
-              {
-                title: 'Feste Bezugspersonen',
-                desc: 'Kein ständiger Wechsel. Sie bekommen eine vertraute Alltagsbegleitung.',
-                icon: Users
-              },
-              {
-                title: 'Berliner Herz',
-                desc: 'Wir kennen die Stadt und die Menschen. Vielfalt ist unsere Stärke.',
-                icon: Heart
-              }
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:border-[#134E4A] transition-all">
-                <div className="w-12 h-12 bg-[#FFFBEB] rounded-full flex items-center justify-center mb-6">
-                  <item.icon className="w-6 h-6 text-[#FBBF24]" />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-3">{item.title}</h3>
-                <p className="text-[#4B5563] leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Sektion 5: Kontakt Abschluss - Creme/White */}
       <section className="bg-[#FAF9F6] py-24 px-6">
