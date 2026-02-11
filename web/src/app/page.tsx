@@ -251,10 +251,10 @@ export default function HomePage() {
               WICHTIG ZU WISSEN
             </span>
             <h2 className="font-heading text-3xl font-bold text-[#134E4A] mb-4">
-              Ihr Recht auf Unterstützung: 125 € monatlich geschenkt.
+              Ihr Recht auf Unterstützung: 131 € monatlich geschenkt.
             </h2>
             <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
-              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von 125 € pro Monat zu. Dieses Budget verfällt, wenn es nicht genutzt wird. Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
+              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von 131 € pro Monat zu. Dieses Budget verfällt, wenn es nicht genutzt wird. Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
             </p>
             <Link
               href="#calculator"
