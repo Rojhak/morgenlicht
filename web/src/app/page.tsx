@@ -184,33 +184,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sektion 2: Leistungen - Creme Background */}
+      {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
       <section className="bg-[#FAF9F6] py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
-              Unsere Leistungen
+              Ganzheitliche Unterstützung für Ihr Zuhause
             </h2>
-            <p className="text-[#1F2937] text-lg max-w-2xl mx-auto font-body">
-              Maßgeschneiderte Unterstützung für Ihren Alltag in Berlin.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {[
-              { title: 'Haushalt & Reinigung', desc: 'Saugen, Wischen, Fensterputzen und Wäschepflege.', icon: Home },
-              { title: 'Einkaufsservice', desc: 'Wir übernehmen Wocheneinkäufe und Besorgungen.', icon: ShoppingBag },
-              { title: 'Begleitung außer Haus', desc: 'Zu Ärzten, Behörden, Friseur oder Cafés.', icon: MapPin }, // Using MapPin as substitute if Stethoscope not ideal? Or keep icons
-              { title: 'Betreuung & Gesellschaft', desc: 'Gespräche, Vorlesen, Spiele und Spaziergänge.', icon: Heart },
-              { title: 'Organisatorisches', desc: 'Hilfe bei Anträgen, Post und Telefonaten.', icon: FileText },
-              { title: 'Pflegegrad Beratung', desc: 'Unterstützung bei Einstufung und Widersprüchen.', icon: Award },
+              {
+                title: 'Haushalt & Wohlbefinden',
+                desc: 'Unterstützung beim Reinigen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
+                icon: Sparkles
+              },
+              {
+                title: 'Einkauf & Erledigungen',
+                desc: 'Wir übernehmen den Wocheneinkauf, Besorgungen in der Apotheke oder den Gang zur Post.',
+                icon: ShoppingBag
+              },
+              {
+                title: 'Begleitung & Mobilität',
+                desc: 'Sicherer Begleitung zu Ärzten, Behörden, zum Friseur oder zu Ihren Terminen im Kiez.',
+                icon: MapPin
+              },
+              {
+                title: 'Alltag & Struktur',
+                desc: 'Hilfe bei der Organisation von Post, Terminen und Telefonaten – wir behalten für Sie den Überblick.',
+                icon: FileText
+              },
+              {
+                title: 'Soziale Teilhabe & Freizeit',
+                desc: 'Gemeinsame Spaziergänge, gemeinsames Einkaufen oder Begleitung zu kulturellen Veranstaltungen.',
+                icon: Users
+              },
             ].map((service, i) => (
-              <div key={i} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:border-[#134E4A] hover:shadow-md transition-all group">
-                <div className="w-14 h-14 bg-[#F0FDF4] rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#134E4A] transition-colors">
+              <div key={i} className="bg-white rounded-[24px] p-8 shadow-sm border border-transparent hover:border-[#134E4A]/10 hover:shadow-md transition-all group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
+                <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#134E4A] transition-colors">
                   <service.icon className="w-7 h-7 text-[#134E4A] group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-3">{service.title}</h3>
-                <p className="text-[#4B5563] leading-relaxed">{service.desc}</p>
+                <p className="font-body text-gray-600 leading-relaxed text-left">{service.desc}</p>
               </div>
             ))}
           </div>
