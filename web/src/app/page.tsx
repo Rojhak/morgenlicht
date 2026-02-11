@@ -257,7 +257,7 @@ export default function HomePage() {
               Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von 131 € pro Monat zu. Dieses Budget verfällt, wenn es nicht genutzt wird. Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
             </p>
             <Link
-              href="#calculator"
+              href="/kontakt"
               className="inline-flex items-center justify-center bg-[#134E4A] text-white px-8 py-4 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] transition-all shadow-sm group"
             >
               Jetzt Anspruch prüfen lassen
