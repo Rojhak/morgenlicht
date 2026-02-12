@@ -1,26 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { validateInquiry } from '../../../lib/security'
 
 const EMAIL_TO = process.env.EMAIL_TO || 'anfragen@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
 
-interface InquiryData {
-  name: string
-  phone: string
-  pflegegrad?: string
-}
-
 export async function POST(request: NextRequest) {
   try {
-    const data: InquiryData = await request.json()
+    const rawData = await request.json()
+    const validation = validateInquiry(rawData)
 
-    // Validate required fields
-    if (!data.name || !data.phone) {
+    if (!validation.isValid || !validation.sanitizedData) {
       return NextResponse.json(
-        { error: 'Name und Telefonnummer sind erforderlich' },
+        { error: validation.error || 'Ungültige Daten' },
         { status: 400 }
       )
     }
+
+    const data = validation.sanitizedData
 
     const apiKey = process.env.RESEND_API_KEY
     if (!apiKey) {
