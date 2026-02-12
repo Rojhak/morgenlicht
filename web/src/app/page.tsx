@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home, ShoppingBag, Stethoscope, FileText, Handshake, Star, CheckCircle, Check, Sparkles, MapPin } from 'lucide-react'
 import { CareFinder } from '@/app/components/wizard'
+import { FAQSection } from '@/app/components/sections/FAQSection'
 
 export default function HomePage() {
   return (
@@ -244,7 +245,7 @@ export default function HomePage() {
       </section>
 
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
-      <section className="bg-[#FFFBEB] py-20 px-6">
+      <section className="bg-[#FFFBEB] py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-sm">
             <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
@@ -271,6 +272,35 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+
+      {/* Sektion 4: In 3 Schritten zur Hilfe - White Background */}
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
+              In 3 Schritten zur Hilfe
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            {[
+              { step: '1', title: 'Erstkontakt', desc: 'Anruf oder Mail' },
+              { step: '2', title: 'Hausbesuch', desc: 'Persönliches Kennenlernen' },
+              { step: '3', title: 'Start', desc: 'Ihre feste Hilfe beginnt' },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center p-6">
+                <span className="text-6xl font-heading font-bold text-[#FBBF24]/80 mb-4">{item.step}</span>
+                <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-2">{item.title}</h3>
+                <p className="font-body text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sektion 5: Häufige Fragen */}
+      <FAQSection />
 
 
 
