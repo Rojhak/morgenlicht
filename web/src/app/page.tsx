@@ -246,7 +246,7 @@ export default function HomePage() {
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
       <section className="bg-[#FFFBEB] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-8 md:p-12 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-sm">
             <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
               WICHTIG ZU WISSEN
             </span>
@@ -254,12 +254,12 @@ export default function HomePage() {
               Ihr Recht auf Unterstützung: 131 € monatlich geschenkt.
             </h2>
             <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
-              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von 131 € pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
+              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von <span className="font-bold text-[#134E4A]">131 €</span> pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
             </p>
             <div className="flex flex-col items-center gap-3">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center justify-center bg-[#134E4A] text-white px-8 py-4 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm group"
+                className="inline-flex items-center justify-center bg-[#144E41] text-white px-8 py-4 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm group"
               >
                 Jetzt Anspruch prüfen lassen
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
