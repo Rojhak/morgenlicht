@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, ArrowLeft, CheckCircle, FileText, Users, Calendar, ClipboardList, HeartHandshake } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
@@ -91,6 +91,16 @@ Selbst wenn Sie noch keinen Pflegegrad haben, können wir gemeinsam herausfinden
 
 export default function PflegegradGuide() {
   const [currentStep, setCurrentStep] = useState(0)
+  const stepHeadingRef = useRef<HTMLHeadingElement>(null)
+
+  useEffect(() => {
+    // Focus the heading when step changes to assist screen reader users
+    // and keyboard navigation. Using setTimeout ensures the DOM is ready.
+    const timer = setTimeout(() => {
+      stepHeadingRef.current?.focus()
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [currentStep])
 
   const step = steps[currentStep]
   const IconComponent = step.icon
@@ -110,8 +120,8 @@ export default function PflegegradGuide() {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex justify-between text-sm text-[#455A64] mb-2">
+        <div className="mb-8" role="progressbar" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100} aria-label="Fortschritt">
+          <div className="flex justify-between text-sm text-[#455A64] mb-2" aria-hidden="true">
             <span>Schritt {currentStep + 1} von {steps.length}</span>
             <span>{Math.round(progress)}%</span>
           </div>
@@ -129,7 +139,13 @@ export default function PflegegradGuide() {
             <div className="inline-flex items-center justify-center w-12 h-12 bg-[#26A69A]/10 rounded-full">
               <IconComponent className="w-6 h-6 text-[#0D6E64]" aria-hidden="true" />
             </div>
-            <h2 className="text-2xl font-bold text-[#37474F]">{step.title}</h2>
+            <h2
+              ref={stepHeadingRef}
+              tabIndex={-1}
+              className="text-2xl font-bold text-[#37474F] outline-none focus:ring-2 focus:ring-[#FFD54F] focus:ring-offset-2 rounded scroll-mt-32"
+            >
+              {step.title}
+            </h2>
           </div>
 
           <div className="prose prose-lg text-[#37474F] mb-8 whitespace-pre-line">
