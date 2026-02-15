@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Calculator, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
@@ -22,6 +22,17 @@ export function CareFinder() {
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
   const [showDetails, setShowDetails] = useState(false)
+
+  const stepContainerRef = useRef<HTMLDivElement>(null)
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    stepContainerRef.current?.focus()
+  }, [step])
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -70,7 +81,11 @@ export function CareFinder() {
 
       {/* Step 1: Select Pflegegrad */}
       {step === 'select' && (
-        <div className="space-y-8">
+        <div
+          ref={stepContainerRef}
+          tabIndex={-1}
+          className="space-y-8 focus:outline-none scroll-mt-32"
+        >
           <fieldset>
             <legend className="block text-xl font-bold text-[#1F2937] mb-8 text-center font-heading">
               Welchen Pflegegrad haben Sie?
@@ -125,11 +140,15 @@ export function CareFinder() {
 
       {/* Step 2: Sachleistung Question */}
       {step === 'sachleistung' && (
-        <div className="space-y-8">
+        <div
+          ref={stepContainerRef}
+          tabIndex={-1}
+          className="space-y-8 focus:outline-none scroll-mt-32"
+        >
           <div className="text-center">
-            <p className="text-xl font-bold text-[#1F2937] mb-3 font-heading">
+            <h2 className="text-xl font-bold text-[#1F2937] mb-3 font-heading">
               Nutzen Sie bereits einen Pflegedienst?
-            </p>
+            </h2>
             <p className="text-[#4B5563]">
               Zum Beispiel Hilfe beim Waschen oder medizinische Pflege
             </p>
@@ -168,7 +187,11 @@ export function CareFinder() {
 
       {/* Step 3: Result */}
       {step === 'result' && hours > 0 && (
-        <div className="space-y-8">
+        <div
+          ref={stepContainerRef}
+          tabIndex={-1}
+          className="space-y-8 focus:outline-none scroll-mt-32"
+        >
           {/* Main Result */}
           <div className="text-center py-10 px-6 bg-[#134E4A] rounded-2xl shadow-lg">
             <Clock className="w-10 h-10 text-[#FBBF24] mx-auto mb-4" aria-hidden="true" />
@@ -237,7 +260,11 @@ export function CareFinder() {
 
       {/* Fallback for PG1 */}
       {step === 'result' && hours === 0 && (
-        <div className="text-center space-y-6">
+        <div
+          ref={stepContainerRef}
+          tabIndex={-1}
+          className="text-center space-y-6 focus:outline-none scroll-mt-32"
+        >
           <div className="py-6 px-4 bg-[#FFFBEB] rounded-xl border border-[#FBBF24]">
             <p className="text-lg font-bold text-[#1F2937] mb-2">
               Pflegegrad 1
