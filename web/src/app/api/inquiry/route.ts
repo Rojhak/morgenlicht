@@ -1,23 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { sanitizeInput, validateInquiry, InquiryData } from '@/lib/security'
 
 const EMAIL_TO = process.env.EMAIL_TO || 'anfragen@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
 
-interface InquiryData {
-  name: string
-  phone: string
-  pflegegrad?: string
-}
-
 export async function POST(request: NextRequest) {
   try {
-    const data: InquiryData = await request.json()
+    const data: Partial<InquiryData> = await request.json()
 
-    // Validate required fields
-    if (!data.name || !data.phone) {
+    // Validate input
+    const validationError = validateInquiry(data)
+    if (validationError) {
       return NextResponse.json(
-        { error: 'Name und Telefonnummer sind erforderlich' },
+        { error: validationError },
         { status: 400 }
       )
     }
@@ -38,26 +34,32 @@ export async function POST(request: NextRequest) {
       timeStyle: 'short',
     })
 
+    // Sanitize input
+    // We know name and phone exist because validateInquiry passed
+    const sanitizedName = sanitizeInput(data.name!)
+    const sanitizedPhone = sanitizeInput(data.phone!)
+    const sanitizedPflegegrad = data.pflegegrad ? sanitizeInput(data.pflegegrad) : ''
+
     // Send notification email to staff
     await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
-      subject: `Neue Anfrage von ${data.name}`,
+      subject: `Neue Anfrage von ${sanitizedName}`,
       html: `
         <h2>Neue Anfrage über die Website</h2>
         <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Name:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.name}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${sanitizedName}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Telefon:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.phone}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${sanitizedPhone}</td>
           </tr>
-          ${data.pflegegrad ? `
+          ${sanitizedPflegegrad ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Pflegegrad:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.pflegegrad}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${sanitizedPflegegrad}</td>
           </tr>
           ` : ''}
           <tr>
