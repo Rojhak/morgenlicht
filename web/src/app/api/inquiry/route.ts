@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { sanitizeInput, validateInquiry } from '@/lib/security'
 
 const EMAIL_TO = process.env.EMAIL_TO || 'anfragen@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
@@ -14,10 +15,11 @@ export async function POST(request: NextRequest) {
   try {
     const data: InquiryData = await request.json()
 
-    // Validate required fields
-    if (!data.name || !data.phone) {
+    // Validate input
+    const validationError = validateInquiry(data)
+    if (validationError) {
       return NextResponse.json(
-        { error: 'Name und Telefonnummer sind erforderlich' },
+        { error: validationError },
         { status: 400 }
       )
     }
@@ -30,6 +32,11 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       )
     }
+
+    // Sanitize input before using in HTML
+    const safeName = sanitizeInput(data.name)
+    const safePhone = sanitizeInput(data.phone)
+    const safePflegegrad = data.pflegegrad ? sanitizeInput(data.pflegegrad) : ''
 
     const resend = new Resend(apiKey)
 
@@ -48,16 +55,16 @@ export async function POST(request: NextRequest) {
         <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Name:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.name}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safeName}</td>
           </tr>
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Telefon:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.phone}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safePhone}</td>
           </tr>
-          ${data.pflegegrad ? `
+          ${safePflegegrad ? `
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Pflegegrad:</td>
-            <td style="padding: 8px; border-bottom: 1px solid #eee;">${data.pflegegrad}</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${safePflegegrad}</td>
           </tr>
           ` : ''}
           <tr>
