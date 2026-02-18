@@ -27,7 +27,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="bg-white py-16 px-6">
+    <section className="bg-white py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-12 text-center">
           Häufige Fragen

@@ -99,7 +99,7 @@ export function GlassFooter() {
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#FBBF24] shrink-0" />
-                <a href="tel:06912345678" className="hover:text-[#FBBF24] font-semibold">069 12345678</a>
+                <a href="tel:03023593028" className="hover:text-[#FBBF24] font-semibold">030 23593028 / 015156057365030</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#FBBF24] shrink-0" />

@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
 import { Modal } from '../components/ui'
 
-const PHONE = '069 12345678'
+const PHONE = '030 23593028 / 015156057365030'
+const PHONE_HREF = '03023593028'
 
 interface FormData {
   name: string
@@ -189,7 +190,7 @@ export default function KontaktPage() {
                 <div>
                   <h3 className="font-bold text-[#1F2937] mb-1 font-heading">Telefon</h3>
                   <a
-                    href={`tel:${PHONE.replace(/\s/g, '')}`}
+                    href={`tel:${PHONE_HREF}`}
                     className="text-xl font-medium text-[#134E4A] hover:underline"
                   >
                     {PHONE}

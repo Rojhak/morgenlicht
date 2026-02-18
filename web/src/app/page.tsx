@@ -46,9 +46,9 @@ export default function HomePage() {
                 </Link>
 
                 {/* Phone Number */}
-                <a href="tel:03012345678" className="mt-5 flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <a href="tel:03023593028" className="mt-5 flex items-center gap-2 hover:opacity-80 transition-opacity">
                    <Phone className="w-5 h-5 text-[#FBBF24]" />
-                   <span><span className="text-[#6B7280]">Oder rufen Sie uns direkt an: </span><span className="font-bold text-[#144E41] whitespace-nowrap">030 / 123 456 78</span></span>
+                   <span><span className="text-[#6B7280]">Oder rufen Sie uns direkt an: </span><span className="font-bold text-[#144E41] whitespace-nowrap">030 23593028 / 015156057365030</span></span>
                 </a>
 
                 {/* 0€ Benefit Box - Foundation element */}
@@ -245,7 +245,7 @@ export default function HomePage() {
       </section>
 
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
-      <section className="bg-[#FFFBEB] py-16 px-6">
+      <section className="bg-[#FFFBEB] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-sm">
             <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
@@ -275,7 +275,7 @@ export default function HomePage() {
 
 
       {/* Sektion 4: In 3 Schritten zur Entlastung - White Background */}
-      <section className="bg-white py-16 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -331,12 +331,12 @@ export default function HomePage() {
           </p>
 
           <div className="inline-block bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            <a href="tel:06912345678" className="flex items-center justify-center gap-4 group">
+            <a href="tel:03023593028" className="flex items-center justify-center gap-4 group">
               <div className="w-12 h-12 bg-[#134E4A] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Phone className="w-6 h-6 text-white" />
               </div>
-              <span className="font-heading font-bold text-3xl sm:text-4xl text-[#134E4A] group-hover:text-[#0F3F3C] transition-colors">
-                069 12345678
+              <span className="font-heading font-bold text-2xl sm:text-3xl text-[#134E4A] group-hover:text-[#0F3F3C] transition-colors break-words text-center px-4">
+                030 23593028 / 015156057365030
               </span>
             </a>
             <p className="mt-4 text-sm text-[#6B7280]">
