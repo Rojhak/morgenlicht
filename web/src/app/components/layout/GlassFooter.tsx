@@ -29,7 +29,7 @@ export function GlassFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-  return (
+
     <footer
       role="contentinfo"
       className="relative mt-auto bg-[#F9FBFB] text-[#1F2937] pt-16 pb-8 border-t border-gray-100"
