@@ -275,7 +275,7 @@ export default function HomePage() {
 
 
       {/* Sektion 4: In 3 Schritten zur Entlastung - White Background */}
-      <section className="bg-[#F9FBFB] py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
