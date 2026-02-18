@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { Plus, Minus } from 'lucide-react'
 
 const faqs = [
   {
@@ -27,20 +27,22 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-100 rounded-2xl overflow-hidden transition-all duration-300 hover:border-[#134E4A]/20"
+              className="bg-white border border-gray-100 rounded-[12px] overflow-hidden transition-all duration-300 hover:border-[#FBBF24]/50 hover:shadow-sm"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-6 bg-white text-left group"
               >
-                <span className="font-heading font-semibold text-lg text-[#134E4A]">
+                <span className="font-heading font-semibold text-lg text-[#134E4A] pr-4">
                   {faq.question}
                 </span>
-                {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-[#134E4A]" />
-                ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-[#134E4A] transition-colors" />
-                )}
+                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? 'bg-[#FBBF24] text-white' : 'bg-gray-50 text-gray-400 group-hover:text-[#134E4A]'}`}>
+                   {openIndex === index ? (
+                    <Minus className="w-4 h-4" />
+                  ) : (
+                    <Plus className="w-4 h-4" />
+                  )}
+                </div>
               </button>
 
               <div

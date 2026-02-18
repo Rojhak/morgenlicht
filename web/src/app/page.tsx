@@ -224,8 +224,8 @@ export default function HomePage() {
               },
             ].map((service, i) => (
               <div key={i} className="bg-white rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
-                <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#134E4A] transition-colors">
-                  <service.icon className="w-7 h-7 text-[#134E4A] group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#144E41] transition-colors">
+                  <service.icon className="w-7 h-7 text-[#144E41] group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-[#134E4A] mb-3">{service.title}</h3>
                 <p className="font-body text-gray-600 font-normal leading-relaxed text-left">{service.desc}</p>
@@ -255,7 +255,7 @@ export default function HomePage() {
               Ihr Recht auf Unterstützung: 131 € monatlich geschenkt.
             </h2>
             <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
-              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von <span className="font-bold text-[#134E4A]">131 €</span> pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
+              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von <span className="font-bold text-[#144E41]">131 €</span> pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
             </p>
             <div className="flex flex-col items-center gap-3">
               <Link
@@ -274,25 +274,39 @@ export default function HomePage() {
       </section>
 
 
-      {/* Sektion 4: In 3 Schritten zur Hilfe - White Background */}
+      {/* Sektion 4: In 3 Schritten zur Entlastung - White Background */}
       <section className="bg-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
-              In 3 Schritten zur Hilfe
+              In 3 Schritten zur Entlastung
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {[
-              { step: '1', title: 'Erstkontakt', desc: 'Anruf oder Mail' },
-              { step: '2', title: 'Hausbesuch', desc: 'Persönliches Kennenlernen' },
-              { step: '3', title: 'Start', desc: 'Ihre feste Hilfe beginnt' },
+              {
+                icon: Phone,
+                title: 'Erstkontakt',
+                desc: 'Ein kurzes Telefonat oder eine Nachricht genügt. Wir besprechen unverbindlich Ihre Situation.'
+              },
+              {
+                icon: Users,
+                title: 'Kennenlernen',
+                desc: 'Ob persönlich vor Ort oder flexibel per Telefon – wir nehmen uns Zeit für Ihre Fragen und Wünsche.'
+              },
+              {
+                icon: Sparkles,
+                title: 'Sorglos starten',
+                desc: 'Wir regeln alles mit der Kasse. Ihre feste Hilfe startet und entlastet Sie direkt im Alltag.'
+              },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center p-6">
-                <span className="text-6xl font-heading font-bold text-[#FBBF24]/80 mb-4">{item.step}</span>
-                <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-2">{item.title}</h3>
-                <p className="font-body text-gray-600">{item.desc}</p>
+              <div key={i} className="flex flex-col items-center bg-white p-8 rounded-[24px] border border-gray-100 shadow-sm hover:shadow-md transition-shadow h-full">
+                <div className="w-16 h-16 rounded-full bg-[#F0FDF4] flex items-center justify-center mb-6 shadow-sm border border-[#144E41]/10">
+                  <item.icon className="w-8 h-8 text-[#144E41]" />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-3">{item.title}</h3>
+                <p className="font-body text-gray-600 leading-relaxed max-w-xs">{item.desc}</p>
               </div>
             ))}
           </div>
