@@ -47,7 +47,7 @@ export function FAQSection() {
                 <span className="font-heading font-semibold text-lg text-[#144E41] pr-4">
                   {faq.question}
                 </span>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${openIndex === index ? 'bg-[#144E41] text-white' : 'bg-gray-50 text-gray-400 group-hover:text-[#144E41]'}`}>
+                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-[#144E41] text-white rotate-180' : 'bg-gray-50 text-gray-400 group-hover:text-[#144E41]'}`}>
                    {openIndex === index ? (
                     <Minus className="w-4 h-4" />
                   ) : (
@@ -57,12 +57,14 @@ export function FAQSection() {
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+                className={`grid transition-all duration-300 ease-in-out ${
+                  openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                 }`}
               >
-                <div className="p-6 pt-0 text-gray-600 font-body leading-relaxed">
-                  {faq.answer}
+                <div className="overflow-hidden">
+                  <div className="p-6 pt-0 text-gray-600 font-body leading-relaxed border-t border-gray-50">
+                    {faq.answer}
+                  </div>
                 </div>
               </div>
             </div>
