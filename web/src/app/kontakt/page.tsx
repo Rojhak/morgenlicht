@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
 import { Modal } from '../components/ui'
 
-const PHONE = '030 23593028 / 015156057365030'
+const PHONE = '030 235 930 28 / 0151 560 573 65'
 const PHONE_HREF = '03023593028'
 
 interface FormData {
