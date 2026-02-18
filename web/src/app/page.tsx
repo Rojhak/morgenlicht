@@ -236,7 +236,7 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Link
               href="/leistungen"
-              className="inline-flex items-center font-bold text-[#134E4A] hover:text-[#0F3F3C] hover:underline"
+              className="inline-flex items-center justify-center bg-[#144E41] text-white px-8 py-3 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm"
             >
               Alle Leistungen ansehen <ArrowRight className="w-4 h-4 ml-2" />
             </Link>

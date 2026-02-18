@@ -77,7 +77,7 @@ export function FAQSection() {
           <div className="flex justify-center mt-6">
             <Link
               href="/kontakt"
-              className="inline-flex items-center bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-3 rounded-xl shadow-md hover:shadow-lg"
+              className="inline-flex items-center bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-3 rounded-[12px] shadow-md hover:shadow-lg"
             >
               Jetzt Kontakt aufnehmen
               <ArrowRight className="w-5 h-5 ml-2" />
