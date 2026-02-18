@@ -103,7 +103,7 @@ export function GlassFooter() {
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#FBBF24] shrink-0" />
-                <a href="mailto:info@morgenlicht.de" className="hover:text-[#FBBF24]">info@morgenlicht.de</a>
+                <a href={`mailto:${EMAIL}`} className="hover:text-[#FBBF24]">{EMAIL}</a>
               </li>
             </ul>
           </div>
