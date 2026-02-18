@@ -339,12 +339,11 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-[#134E4A] rounded-full flex items-center justify-center mb-6">
                 <Phone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-heading font-bold text-2xl text-[#134E4A] mb-3">Zentrale</h3>
               <a href="tel:03023593028" className="font-heading font-bold text-3xl text-[#134E4A] hover:text-[#0F3F3C] transition-colors mb-3">
                 030 235 930 28
               </a>
               <p className="text-[#6B7280] text-lg">
-                Mo–Fr: 8:00 – 18:00 Uhr
+                Mo–Fr: 09:00 – 16:00 Uhr
               </p>
             </div>
           </div>

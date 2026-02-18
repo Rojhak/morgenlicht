@@ -193,7 +193,7 @@ export default function KontaktPage() {
                 030 235 930 28
               </a>
               <p className="text-sm text-[#6B7280]">
-                Mo–Fr: 8:00 – 18:00 Uhr
+                Mo–Fr: 09:00 – 16:00 Uhr
               </p>
             </div>
 
