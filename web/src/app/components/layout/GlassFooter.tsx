@@ -30,7 +30,7 @@ export function GlassFooter() {
 
   return (
 
-  return (
+
     <footer
       role="contentinfo"
       className="relative mt-auto bg-[#144E4A] text-white pt-16 pb-8"
