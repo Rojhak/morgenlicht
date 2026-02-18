@@ -27,7 +27,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="bg-white py-20 px-6">
+    <section className="bg-[#F9FBFB] py-20 px-6">
       <div className="max-w-3xl mx-auto">
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-12 text-center">
           Häufige Fragen
@@ -70,7 +70,7 @@ export function FAQSection() {
         </div>
 
         {/* Final CTA Box */}
-        <div className="bg-[#FAF9F6] rounded-[24px] p-8 md:p-10 text-center border border-gray-100">
+        <div className="bg-white rounded-[24px] p-8 md:p-10 text-center border border-gray-100 shadow-sm">
           <h3 className="font-heading text-xl md:text-2xl font-bold text-[#134E4A] mb-4">
             Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
           </h3>
