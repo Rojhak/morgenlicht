@@ -286,24 +286,24 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8 text-center">
             {[
               {
-                icon: Phone,
+                step: '01',
                 title: 'Erstkontakt',
                 desc: 'Ein kurzes Telefonat oder eine Nachricht genügt. Wir besprechen unverbindlich Ihre Situation.'
               },
               {
-                icon: Users,
+                step: '02',
                 title: 'Kennenlernen',
                 desc: 'Ob persönlich vor Ort oder flexibel per Telefon – wir nehmen uns Zeit für Ihre Fragen und Wünsche.'
               },
               {
-                icon: Sparkles,
+                step: '03',
                 title: 'Sorglos starten',
                 desc: 'Wir regeln alles mit der Kasse. Ihre feste Hilfe startet und entlastet Sie direkt im Alltag.'
               },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center bg-white p-8 rounded-[24px] border border-gray-100 shadow-sm hover:shadow-md transition-shadow h-full">
-                <div className="w-16 h-16 rounded-full bg-[#F0FDF4] flex items-center justify-center mb-6 shadow-sm border border-[#144E41]/10">
-                  <item.icon className="w-8 h-8 text-[#144E41]" />
+                <div className="mb-6">
+                  <span className="font-heading font-bold text-6xl text-[#144E41] opacity-90">{item.step}</span>
                 </div>
                 <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-3">{item.title}</h3>
                 <p className="font-body text-gray-600 leading-relaxed max-w-xs">{item.desc}</p>
