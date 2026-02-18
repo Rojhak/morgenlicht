@@ -27,67 +27,75 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="bg-[#F9FBFB] py-20 px-6">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-12 text-center">
-          Häufige Fragen
-        </h2>
+    <>
+      <section className="bg-[#F9FBFB] py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-12 text-center">
+            Häufige Fragen
+          </h2>
 
-        {/* FAQ List */}
-        <div className="space-y-4 mb-16">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white border border-gray-100 rounded-[12px] overflow-hidden transition-all duration-300 hover:border-[#134E4A]/30 hover:shadow-sm"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 bg-white text-left group"
-              >
-                <span className="font-heading font-semibold text-lg text-[#144E41] pr-4">
-                  {faq.question}
-                </span>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-[#144E41] text-white rotate-180' : 'bg-gray-50 text-gray-400 group-hover:text-[#144E41]'}`}>
-                   {openIndex === index ? (
-                    <Minus className="w-4 h-4" />
-                  ) : (
-                    <Plus className="w-4 h-4" />
-                  )}
-                </div>
-              </button>
-
+          {/* FAQ List */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
               <div
-                className={`grid transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                }`}
+                key={index}
+                className="bg-white border border-gray-100 rounded-[12px] overflow-hidden transition-all duration-300 hover:border-[#134E4A]/30 hover:shadow-sm"
               >
-                <div className="overflow-hidden">
-                  <div className="p-6 pt-0 text-gray-600 font-body leading-relaxed border-t border-gray-50">
-                    {faq.answer}
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 bg-white text-left group"
+                >
+                  <span className="font-heading font-semibold text-lg text-[#144E41] pr-4">
+                    {faq.question}
+                  </span>
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-[#144E41] text-white rotate-180' : 'bg-gray-50 text-gray-400 group-hover:text-[#144E41]'}`}>
+                     {openIndex === index ? (
+                      <Minus className="w-4 h-4" />
+                    ) : (
+                      <Plus className="w-4 h-4" />
+                    )}
+                  </div>
+                </button>
+
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="p-6 pt-0 text-gray-600 font-body leading-relaxed border-t border-gray-50">
+                      {faq.answer}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Final CTA Box */}
-        <div className="bg-white rounded-[24px] p-8 md:p-10 text-center border border-gray-100 shadow-sm">
-          <h3 className="font-heading text-xl md:text-2xl font-bold text-[#134E4A] mb-4">
-            Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
-          </h3>
-          <div className="flex justify-center mt-6">
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-3 rounded-[12px] shadow-md hover:shadow-lg"
-            >
-              Jetzt Kontakt aufnehmen
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
+            ))}
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* Final CTA Section - Yellow Background */}
+      <section className="bg-[#FFFBEB] py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-sm border border-gray-100">
+            <h3 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
+              Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
+            </h3>
+            <p className="font-body text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Wir nehmen uns Zeit für Ihre Situation und beraten Sie kostenlos zu Ihren Ansprüchen.
+            </p>
+            <div className="flex justify-center">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold font-body text-lg px-8 py-4 rounded-[12px] shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              >
+                Jetzt Kontakt aufnehmen
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
