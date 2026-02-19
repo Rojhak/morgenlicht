@@ -2,6 +2,7 @@
 
 import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from 'react'
 import Link from 'next/link'
+import { Loader2 } from 'lucide-react'
 import { twMerge } from 'tailwind-merge'
 import { clsx, type ClassValue } from 'clsx'
 
@@ -23,6 +24,7 @@ type GlassButtonProps = (ButtonProps | LinkProps) & {
   children: ReactNode
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline-white' | 'outline'
   size?: 'sm' | 'md' | 'lg'
+  isLoading?: boolean
 }
 
 export function GlassButton({
@@ -31,6 +33,7 @@ export function GlassButton({
   size = 'md',
   className = '',
   as = 'button',
+  isLoading = false,
   ...props
 }: GlassButtonProps) {
   const baseStyles = `
@@ -97,8 +100,11 @@ export function GlassButton({
   return (
     <button
       className={combinedClassName}
+      disabled={isLoading || (props as ButtonProps).disabled}
+      aria-busy={isLoading}
       {...(props as ButtonProps)}
     >
+      {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />}
       {children}
     </button>
   )
