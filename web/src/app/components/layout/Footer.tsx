@@ -55,7 +55,7 @@ export function Footer() {
 
           {/* Column 2: Unternehmen */}
           <div>
-            <h3 className="font-heading font-semibold text-xl mb-6 text-[#FBBF24]">Unternehmen</h3>
+            <h3 className="font-heading font-bold text-lg mb-6 text-white">Unternehmen</h3>
             <ul className="space-y-3">
               {[
                 { label: 'Über uns', href: '/ueber-uns' },
@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-[#FBBF24] hover:pl-1 transition-all duration-200 block"
+                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-sm"
                   >
                     {link.label}
                   </Link>
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Column 3: Rechtliches */}
           <div>
-            <h3 className="font-heading font-semibold text-xl mb-6 text-[#FBBF24]">Rechtliches</h3>
+            <h3 className="font-heading font-bold text-lg mb-6 text-white">Rechtliches</h3>
             <ul className="space-y-3">
               {[
                 { label: 'Impressum', href: '/impressum' },
@@ -88,7 +88,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-[#FBBF24] hover:pl-1 transition-all duration-200 block"
+                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-sm"
                   >
                     {link.label}
                   </Link>
@@ -99,7 +99,7 @@ export function Footer() {
 
           {/* Column 4: Kontakt */}
           <div>
-            <h3 className="font-heading font-semibold text-xl mb-6 text-[#FBBF24]">Kontakt</h3>
+            <h3 className="font-heading font-bold text-lg mb-6 text-white">Kontakt</h3>
             <div className="space-y-5">
 
               {/* Address (Now First) */}
