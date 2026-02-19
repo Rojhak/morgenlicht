@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, ArrowUp, MapPin, Shield, Printer } from 'lucide-react'
 
-// Standard Familiar WhatsApp Icon (Phone in Bubble)
+// Optimized Standard WhatsApp Icon (Phone in Bubble)
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 24 24"
@@ -132,7 +132,7 @@ export function Footer() {
               {/* Address */}
               <div className="flex items-center gap-4">
                 <div className="w-6 flex justify-center shrink-0">
-                  <MapPin className="w-4 h-4 text-white" />
+                  <MapPin className="w-5 h-5 text-white" /> {/* Use w-5 h-5 */}
                 </div>
                 <span className="font-medium text-sm text-white/90">Berlin</span>
               </div>
@@ -143,7 +143,7 @@ export function Footer() {
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                 <div className="w-6 flex justify-center shrink-0">
-                  <Phone className="w-4 h-4 text-white" />
+                  <Phone className="w-5 h-5 text-white" /> {/* Use w-5 h-5 */}
                 </div>
                 <span className="font-medium text-sm text-white/90">030 235 930 28</span>
               </a>
@@ -151,12 +151,12 @@ export function Footer() {
                {/* Fax (Printer Icon) - Placed under Phone */}
                <div className="flex items-center gap-4 text-white/90">
                 <div className="w-6 flex justify-center shrink-0">
-                  <Printer className="w-4 h-4 text-white" />
+                  <Printer className="w-5 h-5 text-white" /> {/* Use w-5 h-5 */}
                 </div>
                 <span className="font-medium text-sm">030 530 59 389</span>
               </div>
 
-              {/* WhatsApp (Simple Standard Icon) */}
+              {/* WhatsApp (Standard Icon) */}
               <a
                 href="https://wa.me/4915156057365"
                 target="_blank"
@@ -164,9 +164,8 @@ export function Footer() {
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                  <div className="w-6 flex justify-center shrink-0">
-                  {/* Using a simpler filled-style path if SVG above is still weird,
-                      BUT let's try ensuring the SVG is rendered correctly filled. */}
-                  <WhatsAppIcon className="w-4 h-4 text-white" />
+                  {/* w-5 h-5 for better visibility */}
+                  <WhatsAppIcon className="w-5 h-5 text-white" />
                 </div>
                 <span className="font-medium text-sm text-white/90">0151 560 573 65</span>
               </a>
@@ -177,7 +176,7 @@ export function Footer() {
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                 <div className="w-6 flex justify-center shrink-0">
-                  <Mail className="w-4 h-4 text-white" />
+                  <Mail className="w-5 h-5 text-white" />
                 </div>
                 <span className="font-medium text-sm text-white/90">info@morgenlicht-alltagshilfe.de</span>
               </a>
