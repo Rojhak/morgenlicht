@@ -337,14 +337,15 @@ export default function HomePage() {
 
           <div className="flex justify-center">
             {/* Landline Center Tile */}
-            <div className="bg-white rounded-[12px] p-10 shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center hover:border-[#134E4A]/30 transition-colors max-w-lg w-full">
-              <div className="w-16 h-16 bg-[#134E4A] rounded-full flex items-center justify-center mb-6">
-                <Phone className="w-8 h-8 text-white" />
+            <div className="bg-white rounded-[24px] p-12 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 max-w-2xl w-full flex flex-col items-center justify-center text-center">
+              <div className="w-20 h-20 bg-[#F0FDF4] rounded-full flex items-center justify-center mb-8">
+                <Phone className="w-10 h-10 text-[#144E4A]" />
               </div>
-              <a href="tel:03023593028" className="font-heading font-bold text-3xl text-[#134E4A] hover:text-[#0F3F3C] transition-colors mb-3">
+              <h3 className="font-heading text-2xl font-bold text-[#134E4A] mb-4">Rufen Sie uns an</h3>
+              <a href="tel:03023593028" className="font-heading font-bold text-4xl md:text-5xl text-[#144E4A] hover:text-[#0F3F3C] transition-colors mb-4 block">
                 030 235 930 28
               </a>
-              <p className="text-[#6B7280] text-lg">
+              <p className="text-[#6B7280] text-xl">
                 Mo–Fr: 09:00 – 16:00 Uhr
               </p>
             </div>
