@@ -156,7 +156,7 @@ export function Footer() {
                 <span className="ml-4 font-medium text-sm">030 530 59 389</span>
               </div>
 
-              {/* WhatsApp (Official Icon from Contact Page - Green SVG - Same Size as Phone) */}
+              {/* WhatsApp (Official Icon - White) */}
               <a
                 href="https://wa.me/4915156057365"
                 target="_blank"
@@ -164,8 +164,8 @@ export function Footer() {
                 className="flex items-center group hover:opacity-80 transition-opacity"
               >
                  <div className="w-6 flex justify-center shrink-0">
-                  {/* w-5 h-5 to match Phone icon exactly */}
-                   <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
+                  {/* w-5 h-5, text-white */}
+                   <WhatsAppIcon className="w-5 h-5 text-white" />
                 </div>
                 <span className="ml-4 font-medium text-sm text-white/90">0151 560 573 65</span>
               </a>
