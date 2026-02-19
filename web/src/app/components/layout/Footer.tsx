@@ -118,13 +118,13 @@ export function Footer() {
             </p>
             <div className="space-y-6">
 
-              {/* Address (Now First) */}
-              <div className="flex items-start gap-3 text-white/80">
-                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#FBBF24]">
-                  <MapPin className="w-4 h-4" />
+              {/* Address */}
+              <div className="flex items-start gap-4">
+                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#FBBF24] uppercase tracking-wide">Standort</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">Standort:</span>
                    <span className="font-medium text-sm text-white block">Berlin</span>
                 </div>
               </div>
@@ -132,43 +132,46 @@ export function Footer() {
               {/* Phone */}
               <a
                 href="tel:03023593028"
-                className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
+                className="flex items-start gap-4 group hover:opacity-90 transition-opacity"
               >
-                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#FBBF24]">
-                  <Phone className="w-4 h-4" />
+                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#FBBF24] uppercase tracking-wide">Telefon</span>
-                   <span className="font-semibold tracking-wide text-sm text-white block">030 235 930 28</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">Telefon:</span>
+                   <span className="font-medium text-sm text-white block">030 235 930 28</span>
                 </div>
               </a>
 
               {/* WhatsApp */}
-              <a
-                href="https://wa.me/4915156057365"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
-              >
-                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#25D366]">
-                  <Phone className="w-4 h-4" />
+              <div className="flex items-start gap-4">
+                 <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#25D366] uppercase tracking-wide">WhatsApp</span>
-                   <span className="font-semibold tracking-wide text-sm text-white block">Nachricht senden</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">WhatsApp:</span>
+                   <span className="font-medium text-sm text-white block mb-1">0151 560 573 65</span>
+                   <a
+                    href="https://wa.me/4915156057365"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-white/80 underline hover:text-white transition-colors"
+                   >
+                     Jetzt Nachricht senden
+                   </a>
                 </div>
-              </a>
+              </div>
 
                {/* Email */}
                <a
                 href="mailto:info@morgenlicht-alltagshilfe.de"
-                className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
+                className="flex items-start gap-4 group hover:opacity-90 transition-opacity"
               >
-                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#FBBF24]">
-                  <Mail className="w-4 h-4" />
+                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#FBBF24] uppercase tracking-wide">E-Mail</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">E-Mail:</span>
                    <span className="font-medium text-sm text-white block">info@morgenlicht-alltagshilfe.de</span>
                 </div>
               </a>
