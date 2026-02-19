@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, ArrowUp, MapPin, Shield, Printer } from 'lucide-react'
 
-// Optimized Standard WhatsApp Icon (Phone in Bubble)
+// Standard WhatsApp Icon (Phone in Bubble) - White Fill
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 24 24"
@@ -156,7 +156,7 @@ export function Footer() {
                 <span className="font-medium text-sm">030 530 59 389</span>
               </div>
 
-              {/* WhatsApp (Green Icon - #25D366) */}
+              {/* WhatsApp (Green Circle with White Icon) */}
               <a
                 href="https://wa.me/4915156057365"
                 target="_blank"
@@ -164,7 +164,10 @@ export function Footer() {
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                  <div className="w-6 flex justify-center shrink-0">
-                  <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
+                  <div className="w-5 h-5 bg-[#25D366] rounded-full flex items-center justify-center shadow-sm">
+                    {/* Icon smaller inside circle */}
+                    <WhatsAppIcon className="w-3.5 h-3.5 text-white fill-white" />
+                  </div>
                 </div>
                 <span className="font-medium text-sm text-white/90">0151 560 573 65</span>
               </a>
