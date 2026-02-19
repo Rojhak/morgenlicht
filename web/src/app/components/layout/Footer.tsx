@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-base font-medium"
+                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-sm font-medium"
                   >
                     {link.label}
                   </Link>
@@ -88,7 +88,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-base font-medium"
+                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-sm font-medium"
                   >
                     {link.label}
                   </Link>
@@ -104,12 +104,12 @@ export function Footer() {
 
               {/* Address (Now First) */}
               <div className="flex items-start gap-3 text-white/80">
-                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
-                  <MapPin className="w-5 h-5" />
+                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#FBBF24]">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#FBBF24]">Standort</span>
-                   <span className="font-medium text-base text-white">Berlin</span>
+                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#FBBF24] uppercase tracking-wide">Standort</span>
+                   <span className="font-medium text-sm text-white block">Berlin</span>
                 </div>
               </div>
 
@@ -118,12 +118,12 @@ export function Footer() {
                 href="tel:03023593028"
                 className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
               >
-                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
-                  <Phone className="w-5 h-5" />
+                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#FBBF24]">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#FBBF24]">Telefon</span>
-                   <span className="font-semibold tracking-wide text-base text-white">030 235 930 28</span>
+                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#FBBF24] uppercase tracking-wide">Telefon</span>
+                   <span className="font-semibold tracking-wide text-sm text-white block">030 235 930 28</span>
                 </div>
               </a>
 
@@ -134,12 +134,12 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
               >
-                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#25D366]">
-                  <Phone className="w-5 h-5" />
+                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#25D366]">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#25D366]">WhatsApp</span>
-                   <span className="font-semibold tracking-wide text-base text-white">Nachricht senden</span>
+                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#25D366] uppercase tracking-wide">WhatsApp</span>
+                   <span className="font-semibold tracking-wide text-sm text-white block">Nachricht senden</span>
                 </div>
               </a>
 
@@ -148,12 +148,12 @@ export function Footer() {
                 href="mailto:info@morgenlicht-alltagshilfe.de"
                 className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
               >
-                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
-                  <Mail className="w-5 h-5" />
+                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0 text-[#FBBF24]">
+                  <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#FBBF24]">E-Mail</span>
-                   <span className="font-medium text-base text-white">info@morgenlicht-alltagshilfe.de</span>
+                   <span className="block text-xs opacity-60 mb-0.5 font-medium text-[#FBBF24] uppercase tracking-wide">E-Mail</span>
+                   <span className="font-medium text-sm text-white block">info@morgenlicht-alltagshilfe.de</span>
                 </div>
               </a>
 
@@ -164,18 +164,18 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/60 text-sm font-light">
+          <p className="text-white/60 text-xs font-light tracking-wide">
             © {currentYear} Morgenlicht Alltagshilfe. Alle Rechte vorbehalten.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-white/60 hover:text-[#FBBF24] transition-colors text-sm font-medium"
+            className="group flex items-center gap-2 text-white/60 hover:text-[#FBBF24] transition-colors text-xs font-medium uppercase tracking-wider"
             aria-label="Nach oben scrollen"
           >
             Nach oben
-            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#FBBF24] group-hover:bg-[#FBBF24] group-hover:text-[#144E4A] transition-all">
-              <ArrowUp className="w-4 h-4" />
+            <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#FBBF24] group-hover:bg-[#FBBF24] group-hover:text-[#144E4A] transition-all">
+              <ArrowUp className="w-3 h-3" />
             </div>
           </button>
         </div>
