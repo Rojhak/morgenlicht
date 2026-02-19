@@ -20,8 +20,8 @@ export function Footer() {
 
           {/* Column 1: Brand */}
           <div className="flex flex-col items-start">
-            <Link href="/" className="inline-block mb-4">
-               {/* Logo in White - Optimized for Dark Background */}
+            <Link href="/" className="inline-block mb-6">
+               {/* Logo in Original Colors - Optimized Spacing */}
               <Image
                 src="/trans_logo.svg"
                 alt="Morgenlicht Logo"
@@ -32,10 +32,10 @@ export function Footer() {
             </Link>
 
             <div className="flex flex-col mb-4">
-               <span className="font-heading font-bold text-xl tracking-wide text-white leading-tight">
+               <span className="font-heading font-bold text-xl tracking-wide text-white leading-tight uppercase">
                  MORGENLICHT
                </span>
-               <span className="font-body text-sm font-medium text-white/80 uppercase tracking-wider">
+               <span className="font-body text-sm font-medium text-white tracking-widest uppercase mt-1">
                  Alltagshilfe Berlin
                </span>
             </div>
@@ -44,9 +44,10 @@ export function Footer() {
               Herzlich & Würdevoll:<br />Ihre interkulturelle Alltagshilfe in Berlin.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-0 py-1 rounded-full">
-              <Shield className="w-4 h-4 text-white/80" />
-              <span className="text-xs font-semibold tracking-wide text-white/80">
+            {/* Seal - Badge Style */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
+              <Shield className="w-4 h-4 text-[#FBBF24]" />
+              <span className="text-xs font-semibold tracking-wide text-white/90">
                 Anerkannt nach § 45a SGB XI
               </span>
             </div>
@@ -101,6 +102,17 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-xl mb-6 text-[#FBBF24]">Kontakt</h3>
             <div className="space-y-5">
 
+              {/* Address (Now First) */}
+              <div className="flex items-start gap-3 text-white/80">
+                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                   <span className="block text-sm opacity-60 mb-0.5">Standort</span>
+                   <span className="font-medium">Berlin</span>
+                </div>
+              </div>
+
               {/* Phone */}
               <a
                 href="tel:03023593028"
@@ -144,17 +156,6 @@ export function Footer() {
                    <span className="font-medium">info@morgenlicht-alltagshilfe.de</span>
                 </div>
               </a>
-
-              {/* Address */}
-              <div className="flex items-start gap-3 text-white/80">
-                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                   <span className="block text-sm opacity-60 mb-0.5">Standort</span>
-                   <span className="font-medium">Berlin</span>
-                </div>
-              </div>
 
             </div>
           </div>
