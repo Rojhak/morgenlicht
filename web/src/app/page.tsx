@@ -320,27 +320,33 @@ export default function HomePage() {
       <FAQSection />
 
       {/* Sektion 6: Kontakt Abschluss - Off-White Background for Clean Cut */}
-      <section className="bg-[#FAF9F6] py-10 px-6">
+      <section className="bg-[#FAF9F6] py-8 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A]">
+          <div className="text-center mb-6">
+            <h2 className="font-heading text-xl md:text-2xl font-bold text-[#134E4A] mb-2">
               Wir sind für Sie da
             </h2>
           </div>
 
           <div className="flex justify-center">
-            {/* Landline Center Tile */}
-            <div className="bg-white rounded-[24px] p-8 md:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 max-w-md w-full flex flex-col items-center justify-center text-center">
-              <div className="w-16 h-16 bg-[#F0FDF4] rounded-full flex items-center justify-center mb-6">
-                <Phone className="w-8 h-8 text-[#144E4A]" />
+            {/* Landline Center Tile - Compact Side-by-Side */}
+            <div className="bg-white rounded-[24px] p-6 md:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 max-w-md w-full flex items-center justify-center gap-6">
+              <div className="w-14 h-14 bg-[#F0FDF4] rounded-full flex items-center justify-center flex-shrink-0">
+                <Phone className="w-6 h-6 text-[#144E4A]" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-2">Rufen Sie uns an</h3>
-              <a href="tel:03023593028" className="font-heading font-bold text-4xl md:text-5xl text-[#144E4A] hover:text-[#0F3F3C] transition-colors mb-2 block">
-                030 235 930 28
-              </a>
-              <p className="text-[#6B7280] text-lg">
-                Mo–Fr: 09:00 – 16:00 Uhr
-              </p>
+
+              <div className="text-left">
+                <h3 className="font-heading text-lg font-bold text-[#134E4A] mb-0">Rufen Sie uns an</h3>
+                <a
+                  href="tel:03023593028"
+                  className="font-heading font-bold text-2xl md:text-3xl text-[#144E4A] hover:text-[#0F3F3C] transition-colors block whitespace-nowrap no-underline"
+                >
+                  030 235 930 28
+                </a>
+                <p className="text-[#6B7280] text-sm mt-1">
+                  Mo–Fr: 09:00 – 16:00 Uhr
+                </p>
+              </div>
             </div>
           </div>
         </div>
