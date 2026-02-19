@@ -132,7 +132,7 @@ export function Footer() {
               {/* Address */}
               <div className="flex items-center gap-4">
                 <div className="w-6 flex justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-white" /> {/* Use w-5 h-5 */}
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <span className="font-medium text-sm text-white/90">Berlin</span>
               </div>
@@ -143,7 +143,7 @@ export function Footer() {
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                 <div className="w-6 flex justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-white" /> {/* Use w-5 h-5 */}
+                  <Phone className="w-5 h-5 text-white" />
                 </div>
                 <span className="font-medium text-sm text-white/90">030 235 930 28</span>
               </a>
@@ -151,12 +151,12 @@ export function Footer() {
                {/* Fax (Printer Icon) - Placed under Phone */}
                <div className="flex items-center gap-4 text-white/90">
                 <div className="w-6 flex justify-center shrink-0">
-                  <Printer className="w-5 h-5 text-white" /> {/* Use w-5 h-5 */}
+                  <Printer className="w-5 h-5 text-white" />
                 </div>
                 <span className="font-medium text-sm">030 530 59 389</span>
               </div>
 
-              {/* WhatsApp (Standard Icon) */}
+              {/* WhatsApp (Green Icon - #25D366) */}
               <a
                 href="https://wa.me/4915156057365"
                 target="_blank"
@@ -164,8 +164,7 @@ export function Footer() {
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                  <div className="w-6 flex justify-center shrink-0">
-                  {/* w-5 h-5 for better visibility */}
-                  <WhatsAppIcon className="w-5 h-5 text-white" />
+                  <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
                 </div>
                 <span className="font-medium text-sm text-white/90">0151 560 573 65</span>
               </a>
