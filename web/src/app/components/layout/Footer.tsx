@@ -27,7 +27,7 @@ export function Footer() {
                 alt="Morgenlicht Logo"
                 width={0}
                 height={0}
-                className="h-12 w-auto brightness-0 invert opacity-95 hover:opacity-100 transition-opacity"
+                className="h-14 w-auto opacity-100 hover:opacity-95 transition-opacity"
               />
             </Link>
 
