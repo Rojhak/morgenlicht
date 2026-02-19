@@ -57,7 +57,7 @@ export function Footer() {
           <div>
             {/* Force Visibility: Changed to p tag, added !important class and inline style */}
             <p
-              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] uppercase tracking-wider relative z-20"
+              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] relative z-20"
               style={{ color: '#FBBF24' }}
             >
               Unternehmen
@@ -84,7 +84,7 @@ export function Footer() {
           {/* Column 3: Rechtliches */}
           <div>
              <p
-              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] uppercase tracking-wider relative z-20"
+              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] relative z-20"
               style={{ color: '#FBBF24' }}
             >
               Rechtliches
@@ -111,7 +111,7 @@ export function Footer() {
           {/* Column 4: Kontakt */}
           <div>
              <p
-              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] uppercase tracking-wider relative z-20"
+              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] relative z-20"
               style={{ color: '#FBBF24' }}
             >
               Kontakt
