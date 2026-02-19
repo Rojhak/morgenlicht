@@ -12,7 +12,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-[#144E4A] text-white py-20">
+    <footer className="bg-[#144E4A] text-white py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Main Grid: 4 Columns */}
@@ -55,7 +55,13 @@ export function Footer() {
 
           {/* Column 2: Unternehmen */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-[#FBBF24] uppercase tracking-wider">Unternehmen</h3>
+            {/* Force Visibility: Changed to p tag, added !important class and inline style */}
+            <p
+              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] uppercase tracking-wider relative z-20"
+              style={{ color: '#FBBF24' }}
+            >
+              Unternehmen
+            </p>
             <ul className="space-y-4">
               {[
                 { label: 'Über uns', href: '/ueber-uns' },
@@ -77,7 +83,12 @@ export function Footer() {
 
           {/* Column 3: Rechtliches */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-[#FBBF24] uppercase tracking-wider">Rechtliches</h3>
+             <p
+              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] uppercase tracking-wider relative z-20"
+              style={{ color: '#FBBF24' }}
+            >
+              Rechtliches
+            </p>
             <ul className="space-y-4">
               {[
                 { label: 'Impressum', href: '/impressum' },
@@ -99,7 +110,12 @@ export function Footer() {
 
           {/* Column 4: Kontakt */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-[#FBBF24] uppercase tracking-wider">Kontakt</h3>
+             <p
+              className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] uppercase tracking-wider relative z-20"
+              style={{ color: '#FBBF24' }}
+            >
+              Kontakt
+            </p>
             <div className="space-y-6">
 
               {/* Address (Now First) */}
