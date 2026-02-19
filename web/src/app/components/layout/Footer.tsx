@@ -31,23 +31,23 @@ export function Footer() {
               />
             </Link>
 
-            <div className="flex flex-col mb-4">
+            <div className="flex flex-col mb-6">
                <span className="font-heading font-bold text-xl tracking-wide text-white leading-tight uppercase">
                  MORGENLICHT
                </span>
-               <span className="font-body text-sm font-medium text-white tracking-widest uppercase mt-1">
+               <span className="font-body text-sm font-bold text-white tracking-widest uppercase mt-1">
                  Alltagshilfe Berlin
                </span>
             </div>
 
-            <p className="font-body text-sm leading-relaxed text-white/80 max-w-xs mb-6">
+            <p className="font-body text-sm leading-relaxed text-white/70 max-w-xs mb-8">
               Herzlich & Würdevoll:<br />Ihre interkulturelle Alltagshilfe in Berlin.
             </p>
 
             {/* Seal - Badge Style */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/30">
               <Shield className="w-4 h-4 text-[#FBBF24]" />
-              <span className="text-xs font-semibold tracking-wide text-white/90">
+              <span className="text-sm font-medium tracking-wide text-white/90">
                 Anerkannt nach § 45a SGB XI
               </span>
             </div>
