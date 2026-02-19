@@ -1,111 +1,173 @@
+
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, Heart } from 'lucide-react'
-
-const PHONE = '069 12345678'
-const SERVICE_AREA = 'Berlin'
+import { Phone, Mail, ArrowUp, MapPin, Heart, Shield, CheckCircle } from 'lucide-react'
 
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <footer className="mt-auto bg-[#E0F2F1]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-3 group mb-4">
+    <footer className="bg-[#144E4A] text-white pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Main Grid: 4 Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+          {/* Column 1: Brand */}
+          <div className="space-y-6">
+            <Link href="/" className="inline-block">
+               {/* Logo in White - using brightness/invert filter if needed, or just relying on the svg if it has white components.
+                   If the logo is dark, 'brightness-0 invert' makes it white. */}
               <Image
                 src="/trans_logo.svg"
                 alt="Morgenlicht Logo"
-                width={48}
-                height={48}
-                className="w-12 h-12"
+                width={160}
+                height={60}
+                className="brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
               />
-              <div className="flex flex-col">
-                <span className="text-xl font-bold font-display leading-none tracking-tight text-[#0D6E64]">
-                  Morgenlicht
-                </span>
-                <span className="text-sm uppercase tracking-wide font-semibold text-[#26A69A] leading-tight mt-1">
-                  Alltagshilfe Berlin
-                </span>
-              </div>
             </Link>
-            <div className="flex items-center gap-2 text-[#455A64] text-sm mt-4">
-              <MapPin className="w-4 h-4 text-[#0D6E64]" aria-hidden="true" />
-              <span>Raum {SERVICE_AREA}</span>
+            <p className="font-heading font-medium text-lg leading-snug text-white/90 max-w-xs">
+              Herzlich & Würdevoll: Ihre Alltagshilfe in Berlin.
+            </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-sm">
+              <Shield className="w-4 h-4 text-[#FBBF24]" />
+              <span className="text-xs font-semibold tracking-wide text-white/90">
+                Anerkannt nach § 45a SGB XI
+              </span>
             </div>
           </div>
 
-          {/* Navigation & Info combined */}
+          {/* Column 2: Unternehmen */}
           <div>
-            <h3 className="font-semibold text-[#37474F] mb-4">Website</h3>
-            <nav aria-label="Footer-Navigation">
-              <ul className="space-y-2">
-                {[
-                  { href: '/leistungen', label: 'Leistungen' },
-                  { href: '/kosten', label: 'Kosten' },
-                  { href: '/ueber-uns', label: 'Über uns' },
-                  { href: '/blog', label: 'Blog' },
-                  { href: '/kontakt', label: 'Kontakt' },
-                ].map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-[#455A64] hover:text-[#0D6E64] transition-colors
-                                 focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded px-2 py-1 -ml-2"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <h3 className="font-heading font-bold text-xl mb-6 text-[#FBBF24]">Unternehmen</h3>
+            <ul className="space-y-4">
+              {[
+                { label: 'Über uns', href: '/ueber-uns' },
+                { label: 'Leistungen', href: '/leistungen' },
+                { label: 'Kosten & Pflegekasse', href: '/kosten' },
+                { label: 'Blog & Ratgeber', href: '/blog' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-[#FBBF24] hover:pl-1 transition-all duration-200 block"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Contact */}
+          {/* Column 3: Rechtliches */}
           <div>
-            <h3 className="font-semibold text-[#37474F] mb-4">Kontakt</h3>
-            <div className="space-y-3">
+            <h3 className="font-heading font-bold text-xl mb-6 text-[#FBBF24]">Rechtliches</h3>
+            <ul className="space-y-4">
+              {[
+                { label: 'Impressum', href: '/impressum' },
+                { label: 'Datenschutz', href: '/datenschutz' },
+                { label: 'Barrierefreiheit', href: '/barrierefreiheit' }, // Assuming this page exists or will exist
+                { label: 'Cookie-Einstellungen', href: '#' }, // Placeholder for cookie modal
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-white/80 hover:text-[#FBBF24] hover:pl-1 transition-all duration-200 block"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Kontakt */}
+          <div>
+            <h3 className="font-heading font-bold text-xl mb-6 text-[#FBBF24]">Kontakt</h3>
+            <div className="space-y-5">
+
+              {/* Phone */}
               <a
-                href={`tel:${PHONE.replace(/\s/g, '')}`}
-                className="flex items-center gap-2 text-[#455A64] hover:text-[#0D6E64] transition-colors font-medium
-                           focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded px-2 py-1 -ml-2"
+                href="tel:03023593028"
+                className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
               >
-                <Phone className="w-4 h-4" aria-hidden="true" />
-                {PHONE}
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#FBBF24] group-hover:text-[#144E4A] transition-colors">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                   <span className="block text-sm opacity-60 mb-0.5">Telefon</span>
+                   <span className="font-semibold tracking-wide">030 235 930 28</span>
+                </div>
               </a>
 
-              <p className="text-sm text-[#455A64]">
-                Mo-Fr: 8:00 - 18:00
-              </p>
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/4915156057365"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
+              >
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#25D366] group-hover:text-white transition-colors">
+                  <Phone className="w-4 h-4" /> {/* Using Phone icon as placeholder for WhatsApp if specific icon unavailable, or I can try to import MessageCircle */}
+                </div>
+                <div>
+                   <span className="block text-sm opacity-60 mb-0.5">WhatsApp</span>
+                   <span className="font-semibold tracking-wide">Nachricht senden</span>
+                </div>
+              </a>
 
-              <div className="flex items-center gap-2 text-sm text-[#0D6E64] pt-2">
-                <Heart className="w-4 h-4 text-[#B8472A]" aria-hidden="true" />
-                <span>Anerkannt nach § 45a SGB XI</span>
+              {/* Address */}
+              <div className="flex items-start gap-3 text-white/80">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                   <span className="block text-sm opacity-60 mb-0.5">Standort</span>
+                   <span className="font-medium">Berlin</span>
+                </div>
               </div>
+
+               {/* Email */}
+               <a
+                href="mailto:info@morgenlicht-alltagshilfe.de"
+                className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
+              >
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#FBBF24] group-hover:text-[#144E4A] transition-colors">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div>
+                   <span className="block text-sm opacity-60 mb-0.5">E-Mail</span>
+                   <span className="font-medium">info@morgenlicht-alltagshilfe.de</span>
+                </div>
+              </a>
+
             </div>
           </div>
+
         </div>
 
-        {/* Bottom */}
-        <div className="mt-10 pt-6 border-t border-[#0D6E64]/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[#455A64] text-sm">
-            © {new Date().getFullYear()} Morgenlicht Alltagshilfe
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/60 text-sm font-light">
+            © {currentYear} Morgenlicht Alltagshilfe. Alle Rechte vorbehalten.
           </p>
-          <div className="flex gap-6 text-sm">
-            <Link
-              href="/impressum"
-              className="text-[#455A64] hover:text-[#0D6E64] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1"
-            >
-              Impressum
-            </Link>
-            <Link
-              href="/datenschutz"
-              className="text-[#455A64] hover:text-[#0D6E64] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded px-2 py-1"
-            >
-              Datenschutz
-            </Link>
-          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="group flex items-center gap-2 text-white/60 hover:text-[#FBBF24] transition-colors text-sm font-medium"
+            aria-label="Nach oben scrollen"
+          >
+            Nach oben
+            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#FBBF24] group-hover:bg-[#FBBF24] group-hover:text-[#144E4A] transition-all">
+              <ArrowUp className="w-4 h-4" />
+            </div>
+          </button>
         </div>
+
       </div>
     </footer>
   )
