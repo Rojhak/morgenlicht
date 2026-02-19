@@ -224,7 +224,7 @@ export default function HomePage() {
                 icon: Users
               },
             ].map((service, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
+              <div key={i} className="bg-white rounded-[24px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
                 <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#144E41] transition-colors">
                   <service.icon className="w-7 h-7 text-[#144E4A] group-hover:text-white transition-colors" />
                 </div>
@@ -246,9 +246,9 @@ export default function HomePage() {
       </section>
 
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
-      <section className="bg-[#FFFBEB] py-20 px-6">
+      <section className="bg-[#FEF9E7] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
             <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
               WICHTIG ZU WISSEN
             </span>
@@ -275,8 +275,8 @@ export default function HomePage() {
       </section>
 
 
-      {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-White Background */}
-      <section className="bg-[#F9FBFB] py-20 px-6">
+      {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background */}
+      <section className="bg-[#F2F6F6] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -302,8 +302,8 @@ export default function HomePage() {
                 desc: 'Wir kümmern uns um die Abrechnung mit der Kasse. Sie genießen die Entlastung.'
               }
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 relative group">
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-[#F9FBFB] group-hover:scale-110 transition-transform">
+              <div key={i} className="bg-white rounded-[24px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 relative group">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-[#F2F6F6] group-hover:scale-110 transition-transform">
                   {item.step}
                 </div>
                 <h3 className="font-heading text-xl font-bold text-[#134E4A] mt-6 mb-3">{item.title}</h3>
@@ -320,7 +320,7 @@ export default function HomePage() {
       <FAQSection />
 
       {/* Sektion 6: Kontakt Abschluss - Mint Background */}
-      <section className="bg-[#F9FBFB] py-20 px-6">
+      <section className="bg-[#F2F6F6] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -331,7 +331,7 @@ export default function HomePage() {
 
           <div className="flex justify-center">
             {/* Landline Center Tile */}
-            <div className="bg-white rounded-[24px] p-12 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 max-w-2xl w-full flex flex-col items-center justify-center text-center">
+            <div className="bg-white rounded-[24px] p-12 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 max-w-2xl w-full flex flex-col items-center justify-center text-center">
               <div className="w-20 h-20 bg-[#F0FDF4] rounded-full flex items-center justify-center mb-8">
                 <Phone className="w-10 h-10 text-[#144E4A]" />
               </div>
