@@ -4,8 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, ArrowUp, MapPin, Shield, Printer } from 'lucide-react'
 
-// Official WhatsApp Brand Icon (Standard Simple Path for maximum clarity)
-// This path represents the logo silhouette. Used with fill="currentColor" to apply color.
+// Official WhatsApp Icon: Minimalist, filled path (Bubble + Phone)
+// This is the standard "Simplex" or "FontAwesome" style shape that is universally recognized.
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 24 24"
@@ -120,7 +120,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Kontakt (Refined & Aligned) */}
+          {/* Column 4: Kontakt (Perfectly Aligned) */}
           <div className="pt-1">
              <p
               className="font-heading font-bold text-base mb-4 !text-[#FBBF24] relative z-20"
@@ -131,55 +131,55 @@ export function Footer() {
             <div className="space-y-4">
 
               {/* Address */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center">
                 <div className="w-6 flex justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium text-sm text-white/90">Berlin</span>
+                <span className="ml-4 font-medium text-sm text-white/90">Berlin</span>
               </div>
 
               {/* Phone */}
               <a
                 href="tel:03023593028"
-                className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
+                className="flex items-center group hover:opacity-80 transition-opacity"
               >
                 <div className="w-6 flex justify-center shrink-0">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium text-sm text-white/90">030 235 930 28</span>
+                <span className="ml-4 font-medium text-sm text-white/90">030 235 930 28</span>
               </a>
 
                {/* Fax (Printer Icon) - Placed under Phone */}
-               <div className="flex items-center gap-4 text-white/90">
+               <div className="flex items-center text-white/90">
                 <div className="w-6 flex justify-center shrink-0">
                   <Printer className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium text-sm">030 530 59 389</span>
+                <span className="ml-4 font-medium text-sm">030 530 59 389</span>
               </div>
 
-              {/* WhatsApp (Standard Icon - Green) */}
+              {/* WhatsApp (Official Icon - Green SVG - Same Size as Phone) */}
               <a
                 href="https://wa.me/4915156057365"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
+                className="flex items-center group hover:opacity-80 transition-opacity"
               >
                  <div className="w-6 flex justify-center shrink-0">
-                  {/* w-5 h-5 to match Phone icon exactly, no circle wrapper */}
-                  <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
+                  {/* w-5 h-5 to match Phone icon exactly */}
+                   <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
                 </div>
-                <span className="font-medium text-sm text-white/90">0151 560 573 65</span>
+                <span className="ml-4 font-medium text-sm text-white/90">0151 560 573 65</span>
               </a>
 
                {/* Email */}
                <a
                 href="mailto:info@morgenlicht-alltagshilfe.de"
-                className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
+                className="flex items-center group hover:opacity-80 transition-opacity"
               >
                 <div className="w-6 flex justify-center shrink-0">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-medium text-sm text-white/90">info@morgenlicht-alltagshilfe.de</span>
+                <span className="ml-4 font-medium text-sm text-white/90">info@morgenlicht-alltagshilfe.de</span>
               </a>
 
             </div>
