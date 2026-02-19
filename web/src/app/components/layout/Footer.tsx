@@ -55,7 +55,7 @@ export function Footer() {
 
           {/* Column 2: Unternehmen */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-white uppercase tracking-wider">Unternehmen</h3>
+            <h3 className="font-heading font-bold text-lg mb-6 text-[#FBBF24] uppercase tracking-wider">Unternehmen</h3>
             <ul className="space-y-4">
               {[
                 { label: 'Über uns', href: '/ueber-uns' },
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Column 3: Rechtliches */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-white uppercase tracking-wider">Rechtliches</h3>
+            <h3 className="font-heading font-bold text-lg mb-6 text-[#FBBF24] uppercase tracking-wider">Rechtliches</h3>
             <ul className="space-y-4">
               {[
                 { label: 'Impressum', href: '/impressum' },
@@ -99,7 +99,7 @@ export function Footer() {
 
           {/* Column 4: Kontakt */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-white uppercase tracking-wider">Kontakt</h3>
+            <h3 className="font-heading font-bold text-lg mb-6 text-[#FBBF24] uppercase tracking-wider">Kontakt</h3>
             <div className="space-y-6">
 
               {/* Address (Now First) */}
