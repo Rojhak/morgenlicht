@@ -78,7 +78,7 @@ export function FAQSection() {
       {/* Final CTA Section - Yellow Background */}
       <section className="bg-[#FFFBEB] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-12 md:p-14 text-center shadow-md border border-gray-100/50">
+          <div className="bg-white rounded-[24px] p-12 md:p-14 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50">
             <h3 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
               Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
             </h3>

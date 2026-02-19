@@ -187,6 +187,7 @@ export default function HomePage() {
 
       {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
       {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
+      {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
       <section className="bg-[#F9FBFB] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -223,9 +224,9 @@ export default function HomePage() {
                 icon: Users
               },
             ].map((service, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-8 shadow-sm border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
+              <div key={i} className="bg-white rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
                 <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#144E41] transition-colors">
-                  <service.icon className="w-7 h-7 text-[#144E41] group-hover:text-white transition-colors" />
+                  <service.icon className="w-7 h-7 text-[#144E4A] group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-[#134E4A] mb-3">{service.title}</h3>
                 <p className="font-body text-gray-600 font-normal leading-relaxed text-left">{service.desc}</p>
@@ -247,7 +248,7 @@ export default function HomePage() {
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
       <section className="bg-[#FFFBEB] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-sm">
+          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
               WICHTIG ZU WISSEN
             </span>
