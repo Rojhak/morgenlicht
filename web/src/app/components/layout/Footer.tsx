@@ -19,23 +19,34 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
           {/* Column 1: Brand */}
-          <div className="space-y-6">
-            <Link href="/" className="inline-block">
-               {/* Logo in White - Increased presence */}
+          <div className="flex flex-col items-start">
+            <Link href="/" className="inline-block mb-4">
+               {/* Logo in White - Optimized for Dark Background */}
               <Image
                 src="/trans_logo.svg"
                 alt="Morgenlicht Logo"
-                width={180}
-                height={68}
-                className="brightness-0 invert opacity-95 hover:opacity-100 transition-opacity"
+                width={0}
+                height={0}
+                className="h-12 w-auto brightness-0 invert opacity-95 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <p className="font-heading font-medium text-lg leading-relaxed text-white/90 max-w-xs">
+
+            <div className="flex flex-col mb-4">
+               <span className="font-heading font-bold text-xl tracking-wide text-white leading-tight">
+                 MORGENLICHT
+               </span>
+               <span className="font-body text-sm font-medium text-white/80 uppercase tracking-wider">
+                 Alltagshilfe Berlin
+               </span>
+            </div>
+
+            <p className="font-body text-sm leading-relaxed text-white/80 max-w-xs mb-6">
               Herzlich & Würdevoll:<br />Ihre interkulturelle Alltagshilfe in Berlin.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-sm">
-              <Shield className="w-4 h-4 text-[#FBBF24]" />
-              <span className="text-xs font-semibold tracking-wide text-white/90">
+
+            <div className="inline-flex items-center gap-2 px-0 py-1 rounded-full">
+              <Shield className="w-4 h-4 text-white/80" />
+              <span className="text-xs font-semibold tracking-wide text-white/80">
                 Anerkannt nach § 45a SGB XI
               </span>
             </div>
