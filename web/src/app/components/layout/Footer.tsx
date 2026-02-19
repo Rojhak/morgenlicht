@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, ArrowUp, MapPin, Shield, MessageCircle } from 'lucide-react'
+import { Phone, Mail, ArrowUp, MapPin, Shield, MessageCircle, Printer } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -159,6 +159,14 @@ export function Footer() {
                 </div>
                 <span className="font-medium text-sm text-white/90">info@morgenlicht-alltagshilfe.de</span>
               </a>
+
+              {/* Fax */}
+              <div className="flex items-center gap-3 text-white/90">
+                <div className="w-5 flex justify-center shrink-0">
+                  <Printer className="w-4 h-4 text-white" />
+                </div>
+                <span className="font-medium text-sm">030 53059389</span>
+              </div>
 
             </div>
           </div>
