@@ -1,7 +1,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, ArrowUp, MapPin, Heart, Shield, CheckCircle } from 'lucide-react'
+import { Phone, Mail, ArrowUp, MapPin, Shield } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -11,7 +11,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-[#144E4A] text-white pt-16 pb-8">
+    <footer className="bg-[#144E4A] text-white py-20">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Main Grid: 4 Columns */}
@@ -20,18 +20,17 @@ export function Footer() {
           {/* Column 1: Brand */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-               {/* Logo in White - using brightness/invert filter if needed, or just relying on the svg if it has white components.
-                   If the logo is dark, 'brightness-0 invert' makes it white. */}
+               {/* Logo in White - Increased presence */}
               <Image
                 src="/trans_logo.svg"
                 alt="Morgenlicht Logo"
-                width={160}
-                height={60}
-                className="brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+                width={180}
+                height={68}
+                className="brightness-0 invert opacity-95 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <p className="font-heading font-medium text-lg leading-snug text-white/90 max-w-xs">
-              Herzlich & Würdevoll: Ihre Alltagshilfe in Berlin.
+            <p className="font-heading font-medium text-lg leading-relaxed text-white/90 max-w-xs">
+              Herzlich & Würdevoll:<br />Ihre interkulturelle Alltagshilfe in Berlin.
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20 backdrop-blur-sm">
               <Shield className="w-4 h-4 text-[#FBBF24]" />
@@ -43,8 +42,8 @@ export function Footer() {
 
           {/* Column 2: Unternehmen */}
           <div>
-            <h3 className="font-heading font-bold text-xl mb-6 text-[#FBBF24]">Unternehmen</h3>
-            <ul className="space-y-4">
+            <h3 className="font-heading font-semibold text-xl mb-6 text-[#FBBF24]">Unternehmen</h3>
+            <ul className="space-y-3">
               {[
                 { label: 'Über uns', href: '/ueber-uns' },
                 { label: 'Leistungen', href: '/leistungen' },
@@ -65,13 +64,13 @@ export function Footer() {
 
           {/* Column 3: Rechtliches */}
           <div>
-            <h3 className="font-heading font-bold text-xl mb-6 text-[#FBBF24]">Rechtliches</h3>
-            <ul className="space-y-4">
+            <h3 className="font-heading font-semibold text-xl mb-6 text-[#FBBF24]">Rechtliches</h3>
+            <ul className="space-y-3">
               {[
                 { label: 'Impressum', href: '/impressum' },
                 { label: 'Datenschutz', href: '/datenschutz' },
-                { label: 'Barrierefreiheit', href: '/barrierefreiheit' }, // Assuming this page exists or will exist
-                { label: 'Cookie-Einstellungen', href: '#' }, // Placeholder for cookie modal
+                { label: 'Barrierefreiheit', href: '/barrierefreiheit' },
+                { label: 'Cookie-Einstellungen', href: '#' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -87,7 +86,7 @@ export function Footer() {
 
           {/* Column 4: Kontakt */}
           <div>
-            <h3 className="font-heading font-bold text-xl mb-6 text-[#FBBF24]">Kontakt</h3>
+            <h3 className="font-heading font-semibold text-xl mb-6 text-[#FBBF24]">Kontakt</h3>
             <div className="space-y-5">
 
               {/* Phone */}
@@ -95,8 +94,8 @@ export function Footer() {
                 href="tel:03023593028"
                 className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
               >
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#FBBF24] group-hover:text-[#144E4A] transition-colors">
-                  <Phone className="w-4 h-4" />
+                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
                    <span className="block text-sm opacity-60 mb-0.5">Telefon</span>
@@ -111,8 +110,8 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
               >
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#25D366] group-hover:text-white transition-colors">
-                  <Phone className="w-4 h-4" /> {/* Using Phone icon as placeholder for WhatsApp if specific icon unavailable, or I can try to import MessageCircle */}
+                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#25D366]">
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
                    <span className="block text-sm opacity-60 mb-0.5">WhatsApp</span>
@@ -120,24 +119,13 @@ export function Footer() {
                 </div>
               </a>
 
-              {/* Address */}
-              <div className="flex items-start gap-3 text-white/80">
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                   <span className="block text-sm opacity-60 mb-0.5">Standort</span>
-                   <span className="font-medium">Berlin</span>
-                </div>
-              </div>
-
                {/* Email */}
                <a
                 href="mailto:info@morgenlicht-alltagshilfe.de"
                 className="flex items-start gap-3 group text-white/80 hover:text-white transition-colors"
               >
-                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#FBBF24] group-hover:text-[#144E4A] transition-colors">
-                  <Mail className="w-4 h-4" />
+                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
+                  <Mail className="w-5 h-5" />
                 </div>
                 <div>
                    <span className="block text-sm opacity-60 mb-0.5">E-Mail</span>
@@ -145,13 +133,24 @@ export function Footer() {
                 </div>
               </a>
 
+              {/* Address */}
+              <div className="flex items-start gap-3 text-white/80">
+                <div className="w-6 h-6 mt-1 flex items-center justify-center shrink-0 text-[#FBBF24]">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                   <span className="block text-sm opacity-60 mb-0.5">Standort</span>
+                   <span className="font-medium">Berlin</span>
+                </div>
+              </div>
+
             </div>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm font-light">
             © {currentYear} Morgenlicht Alltagshilfe. Alle Rechte vorbehalten.
           </p>

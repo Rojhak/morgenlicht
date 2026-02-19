@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
-import { Navbar } from './components/layout'
-import { GlassFooter } from './components/layout'
+import { Navbar, Footer } from './components/layout'
 
 // Montserrat - Modern, geometrische Schrift für Überschriften und Logo
 const montserrat = Montserrat({
@@ -48,7 +47,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-grow pt-16">
           {children}
         </main>
-        <GlassFooter />
+        <Footer />
       </body>
     </html>
   )
