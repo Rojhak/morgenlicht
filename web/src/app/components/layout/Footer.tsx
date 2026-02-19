@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, ArrowUp, MapPin, Shield, Printer } from 'lucide-react'
 
-// Official WhatsApp Icon SVG
+// Standard Familiar WhatsApp Icon (Phone in Bubble)
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 24 24"
@@ -12,8 +12,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.232-.298.347-.497.115-.198.058-.372-.029-.545-.087-.174-.787-1.898-1.078-2.601-.284-.685-.575-.591-.791-.602-.206-.011-.442-.013-.679-.013-.237 0-.623.09-1.483.454a8.538 8.538 0 1 1 11.83 11.218H17.5V24l-3.23-1.615C7.94 22.15 3.999 18.069 3.999 12.002c0-5.83 4.908-10.375 10.375-10.375s10.375 4.545 10.375 10.375a10.3 10.3 0 0 1-7.277 2.38z" fillRule="evenodd" clipRule="evenodd"/>
-    <path d="M12.001 2.998c5.158 0 9.375 4.09 9.375 9.004 0 5.159-4.217 9.004-9.375 9.004-1.616 0-3.13-.393-4.469-1.082l-3.376 1.688.892-3.123c-1.282-1.503-2.05-3.418-2.05-5.487 0-4.914 4.095-9.004 9.003-9.004zm0 1.286c-4.326 0-7.717 3.515-7.717 7.718 0 1.956.762 3.733 2.015 5.071l-.547 1.914 2.158-1.079a7.66 7.66 0 0 0 4.091 1.196c4.327 0 7.718-3.515 7.718-7.718 0-4.203-3.39-7.718-7.718-7.718z" fillRule="evenodd" clipRule="evenodd"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.232-.298.347-.497.115-.198.058-.372-.029-.545-.087-.174-.787-1.898-1.078-2.601-.284-.685-.575-.591-.791-.602-.206-.011-.442-.013-.679-.013-.237 0-.623.09-1.483.454a8.538 8.538 0 1 1 11.83 11.218H17.5V24l-3.23-1.615C7.94 22.15 3.999 18.069 3.999 12.002c0-5.83 4.908-10.375 10.375-10.375s10.375 4.545 10.375 10.375a10.3 10.3 0 0 1-7.277 2.38zM12.001 2.998c5.158 0 9.375 4.09 9.375 9.004 0 5.159-4.217 9.004-9.375 9.004-1.616 0-3.13-.393-4.469-1.082l-3.376 1.688.892-3.123c-1.282-1.503-2.05-3.418-2.05-5.487 0-4.914 4.095-9.004 9.003-9.004zm0 1.286c-4.326 0-7.717 3.515-7.717 7.718 0 1.956.762 3.733 2.015 5.071l-.547 1.914 2.158-1.079a7.66 7.66 0 0 0 4.091 1.196c4.327 0 7.718-3.515 7.718-7.718 0-4.203-3.39-7.718-7.718-7.718z" fillRule="evenodd" clipRule="evenodd"/>
   </svg>
 )
 
@@ -128,11 +127,11 @@ export function Footer() {
             >
               Kontakt
             </p>
-            <div className="space-y-4"> {/* Increased vertical spacing as requested */}
+            <div className="space-y-4">
 
               {/* Address */}
-              <div className="flex items-center gap-4"> {/* gap-4 as requested */}
-                <div className="w-6 flex justify-center shrink-0"> {/* w-6 for alignment */}
+              <div className="flex items-center gap-4">
+                <div className="w-6 flex justify-center shrink-0">
                   <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <span className="font-medium text-sm text-white/90">Berlin</span>
@@ -157,7 +156,7 @@ export function Footer() {
                 <span className="font-medium text-sm">030 530 59 389</span>
               </div>
 
-              {/* WhatsApp (Official SVG) */}
+              {/* WhatsApp (Simple Standard Icon) */}
               <a
                 href="https://wa.me/4915156057365"
                 target="_blank"
@@ -165,6 +164,8 @@ export function Footer() {
                 className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
               >
                  <div className="w-6 flex justify-center shrink-0">
+                  {/* Using a simpler filled-style path if SVG above is still weird,
+                      BUT let's try ensuring the SVG is rendered correctly filled. */}
                   <WhatsAppIcon className="w-4 h-4 text-white" />
                 </div>
                 <span className="font-medium text-sm text-white/90">0151 560 573 65</span>
