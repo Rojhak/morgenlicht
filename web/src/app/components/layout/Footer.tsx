@@ -55,8 +55,8 @@ export function Footer() {
 
           {/* Column 2: Unternehmen */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-white">Unternehmen</h3>
-            <ul className="space-y-3">
+            <h3 className="font-heading font-bold text-lg mb-6 text-white uppercase tracking-wider">Unternehmen</h3>
+            <ul className="space-y-4">
               {[
                 { label: 'Über uns', href: '/ueber-uns' },
                 { label: 'Leistungen', href: '/leistungen' },
@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-sm"
+                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-base font-medium"
                   >
                     {link.label}
                   </Link>
@@ -77,8 +77,8 @@ export function Footer() {
 
           {/* Column 3: Rechtliches */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-white">Rechtliches</h3>
-            <ul className="space-y-3">
+            <h3 className="font-heading font-bold text-lg mb-6 text-white uppercase tracking-wider">Rechtliches</h3>
+            <ul className="space-y-4">
               {[
                 { label: 'Impressum', href: '/impressum' },
                 { label: 'Datenschutz', href: '/datenschutz' },
@@ -88,7 +88,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-sm"
+                    className="text-white/80 hover:text-white hover:pl-1 transition-all duration-200 block text-base font-medium"
                   >
                     {link.label}
                   </Link>
@@ -99,8 +99,8 @@ export function Footer() {
 
           {/* Column 4: Kontakt */}
           <div>
-            <h3 className="font-heading font-bold text-lg mb-6 text-white">Kontakt</h3>
-            <div className="space-y-5">
+            <h3 className="font-heading font-bold text-lg mb-6 text-white uppercase tracking-wider">Kontakt</h3>
+            <div className="space-y-6">
 
               {/* Address (Now First) */}
               <div className="flex items-start gap-3 text-white/80">
@@ -108,8 +108,8 @@ export function Footer() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5">Standort</span>
-                   <span className="font-medium">Berlin</span>
+                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#FBBF24]">Standort</span>
+                   <span className="font-medium text-base text-white">Berlin</span>
                 </div>
               </div>
 
@@ -122,8 +122,8 @@ export function Footer() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5">Telefon</span>
-                   <span className="font-semibold tracking-wide">030 235 930 28</span>
+                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#FBBF24]">Telefon</span>
+                   <span className="font-semibold tracking-wide text-base text-white">030 235 930 28</span>
                 </div>
               </a>
 
@@ -138,8 +138,8 @@ export function Footer() {
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5">WhatsApp</span>
-                   <span className="font-semibold tracking-wide">Nachricht senden</span>
+                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#25D366]">WhatsApp</span>
+                   <span className="font-semibold tracking-wide text-base text-white">Nachricht senden</span>
                 </div>
               </a>
 
@@ -152,8 +152,8 @@ export function Footer() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                   <span className="block text-sm opacity-60 mb-0.5">E-Mail</span>
-                   <span className="font-medium">info@morgenlicht-alltagshilfe.de</span>
+                   <span className="block text-sm opacity-60 mb-0.5 font-medium text-[#FBBF24]">E-Mail</span>
+                   <span className="font-medium text-base text-white">info@morgenlicht-alltagshilfe.de</span>
                 </div>
               </a>
 
