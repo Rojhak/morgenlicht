@@ -28,7 +28,8 @@ export function FAQSection() {
 
   return (
     <>
-      <section className="bg-[#F9FBFB] py-20 px-6">
+    <>
+      <section className="bg-[#F3F6F6] py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-12 text-center">
             Häufige Fragen
@@ -39,7 +40,7 @@ export function FAQSection() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-100 rounded-[12px] overflow-hidden transition-all duration-300 hover:border-[#134E4A]/30 hover:shadow-sm"
+                className="bg-white border border-transparent rounded-[12px] overflow-hidden transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg"
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -77,7 +78,7 @@ export function FAQSection() {
       {/* Final CTA Section - Yellow Background */}
       <section className="bg-[#FFFBEB] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-sm border border-gray-100">
+          <div className="bg-white rounded-[24px] p-12 md:p-14 text-center shadow-md border border-gray-100/50">
             <h3 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
               Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
             </h3>

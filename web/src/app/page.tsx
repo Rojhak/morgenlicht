@@ -274,8 +274,8 @@ export default function HomePage() {
       </section>
 
 
-      {/* Sektion 4: In 3 Schritten zur Entlastung - White Background */}
-      <section className="bg-white py-20 px-6">
+      {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background for Contrast */}
+      <section className="bg-[#F3F6F6] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -298,15 +298,17 @@ export default function HomePage() {
               {
                 step: '03',
                 title: 'Sorglos starten',
-                desc: 'Wir regeln alles mit der Kasse. Ihre feste Hilfe startet und entlastet Sie direkt im Alltag.'
+                desc: 'Wir kümmern uns um die Abrechnung mit der Kasse. Sie genießen die Entlastung.'
               },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center bg-white p-8 rounded-[24px] border border-gray-100 shadow-sm hover:shadow-md transition-shadow h-full">
-                <div className="mb-6">
-                  <span className="font-heading font-bold text-6xl text-[#144E41] opacity-90">{item.step}</span>
+              <div key={i} className="bg-white rounded-[24px] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 relative group">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-[#F3F6F6] group-hover:scale-110 transition-transform">
+                  {item.step}
                 </div>
-                <h3 className="font-heading text-xl font-bold text-[#134E4A] mb-3">{item.title}</h3>
-                <p className="font-body text-gray-600 leading-relaxed max-w-xs">{item.desc}</p>
+                <h3 className="font-heading text-xl font-bold text-[#134E4A] mt-6 mb-3">{item.title}</h3>
+                <p className="font-body text-gray-600 leading-relaxed font-normal">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
