@@ -325,9 +325,7 @@ export default function HomePage() {
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
               Wir sind für Sie da
             </h2>
-            <p className="text-[#1F2937] text-lg font-medium">
-              Rufen Sie uns an oder schreiben Sie uns. Wir beraten Sie gerne persönlich.
-            </p>
+
           </div>
 
           <div className="flex justify-center">
