@@ -78,7 +78,7 @@ export function FAQSection() {
       {/* Final CTA Section - Yellow Background */}
       <section className="bg-[#FEF9E7] py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-12 md:p-14 text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100/50">
+          <div className="bg-white rounded-[24px] p-10 md:p-12 text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100/50">
             <h3 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
               Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
             </h3>
@@ -88,7 +88,7 @@ export function FAQSection() {
             <div className="flex justify-center">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold font-body text-lg px-8 py-4 rounded-[12px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center bg-[#144E41] text-white hover:bg-[#114037] transition-all duration-300 font-semibold font-body text-lg px-8 py-4 rounded-[12px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-lg hover:-translate-y-0.5"
               >
                 Jetzt Kontakt aufnehmen
                 <ArrowRight className="w-5 h-5 ml-2" />
