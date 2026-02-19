@@ -12,8 +12,8 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-[#144E4A] text-white py-20 relative z-10">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-[#144E4A] text-white pt-20 pb-0 relative z-10 flex flex-col">
+      <div className="max-w-7xl mx-auto px-6 w-full flex-grow">
 
         {/* Main Grid: 4 Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -54,7 +54,7 @@ export function Footer() {
           </div>
 
           {/* Column 2: Unternehmen */}
-          <div>
+          <div className="pt-2"> {/* Added pt-2 for alignment with logo */}
             {/* Force Visibility: Changed to p tag, added !important class and inline style */}
             <p
               className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] relative z-20"
@@ -62,7 +62,7 @@ export function Footer() {
             >
               Unternehmen
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-5"> {/* Increased spacing to space-y-5 */}
               {[
                 { label: 'Über uns', href: '/ueber-uns' },
                 { label: 'Leistungen', href: '/leistungen' },
@@ -82,14 +82,14 @@ export function Footer() {
           </div>
 
           {/* Column 3: Rechtliches */}
-          <div>
+          <div className="pt-2"> {/* Added pt-2 for alignment */}
              <p
               className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] relative z-20"
               style={{ color: '#FBBF24' }}
             >
               Rechtliches
             </p>
-            <ul className="space-y-4">
+            <ul className="space-y-5"> {/* Increased spacing to space-y-5 */}
               {[
                 { label: 'Impressum', href: '/impressum' },
                 { label: 'Datenschutz', href: '/datenschutz' },
@@ -109,7 +109,7 @@ export function Footer() {
           </div>
 
           {/* Column 4: Kontakt */}
-          <div>
+          <div className="pt-2"> {/* Added pt-2 for alignment */}
              <p
               className="font-heading font-bold text-lg mb-6 !text-[#FBBF24] relative z-20"
               style={{ color: '#FBBF24' }}
@@ -119,12 +119,12 @@ export function Footer() {
             <div className="space-y-6">
 
               {/* Address */}
-              <div className="flex items-start gap-4">
-                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-4"> {/* items-center for vertical centering */}
+                <div className="w-5 h-5 flex items-center justify-center shrink-0">
                   <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">Standort:</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] leading-tight">Standort:</span> {/* Reduced gap by tightening leading/margin */}
                    <span className="font-medium text-sm text-white block">Berlin</span>
                 </div>
               </div>
@@ -132,25 +132,25 @@ export function Footer() {
               {/* Phone */}
               <a
                 href="tel:03023593028"
-                className="flex items-start gap-4 group hover:opacity-90 transition-opacity"
+                className="flex items-center gap-4 group hover:opacity-90 transition-opacity"
               >
-                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 flex items-center justify-center shrink-0">
                   <Phone className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">Telefon:</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] leading-tight">Telefon:</span>
                    <span className="font-medium text-sm text-white block">030 235 930 28</span>
                 </div>
               </a>
 
               {/* WhatsApp */}
-              <div className="flex items-start gap-4">
-                 <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-4">
+                 <div className="w-5 h-5 flex items-center justify-center shrink-0">
                   <Phone className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">WhatsApp:</span>
-                   <span className="font-medium text-sm text-white block mb-1">0151 560 573 65</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] leading-tight">WhatsApp:</span>
+                   <span className="font-medium text-sm text-white block mb-0.5">0151 560 573 65</span>
                    <a
                     href="https://wa.me/4915156057365"
                     target="_blank"
@@ -165,13 +165,13 @@ export function Footer() {
                {/* Email */}
                <a
                 href="mailto:info@morgenlicht-alltagshilfe.de"
-                className="flex items-start gap-4 group hover:opacity-90 transition-opacity"
+                className="flex items-center gap-4 group hover:opacity-90 transition-opacity"
               >
-                <div className="w-5 h-5 mt-0.5 flex items-center justify-center shrink-0">
+                <div className="w-5 h-5 flex items-center justify-center shrink-0">
                   <Mail className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                   <span className="block text-sm font-bold text-[#FBBF24] mb-0.5">E-Mail:</span>
+                   <span className="block text-sm font-bold text-[#FBBF24] leading-tight">E-Mail:</span>
                    <span className="font-medium text-sm text-white block">info@morgenlicht-alltagshilfe.de</span>
                 </div>
               </a>
@@ -180,9 +180,11 @@ export function Footer() {
           </div>
 
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+      {/* Bottom Bar - Full Width Border */}
+      <div className="w-full border-t border-white/10 mt-auto">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-xs font-light tracking-wide">
             © {currentYear} Morgenlicht Alltagshilfe. Alle Rechte vorbehalten.
           </p>
@@ -198,8 +200,8 @@ export function Footer() {
             </div>
           </button>
         </div>
-
       </div>
+
     </footer>
   )
 }
