@@ -274,8 +274,8 @@ export default function HomePage() {
       </section>
 
 
-      {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background for Contrast */}
-      <section className="bg-[#F3F6F6] py-20 px-6">
+      {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-White Background */}
+      <section className="bg-[#F9FBFB] py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -299,10 +299,10 @@ export default function HomePage() {
                 step: '03',
                 title: 'Sorglos starten',
                 desc: 'Wir kümmern uns um die Abrechnung mit der Kasse. Sie genießen die Entlastung.'
-              },
+              }
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-[24px] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 relative group">
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-[#F3F6F6] group-hover:scale-110 transition-transform">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-[#F9FBFB] group-hover:scale-110 transition-transform">
                   {item.step}
                 </div>
                 <h3 className="font-heading text-xl font-bold text-[#134E4A] mt-6 mb-3">{item.title}</h3>
@@ -315,15 +315,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sektion 5: Häufige Fragen */}
+      {/* Sektion 5: Häufige Fragen (CTA included in component) */}
       <FAQSection />
 
-
-
-
-
-      {/* Sektion 5: Kontakt Abschluss - Creme/White */}
-      {/* Sektion 5: Kontakt Abschluss - Mint Background */}
+      {/* Sektion 6: Kontakt Abschluss - Mint Background */}
       <section className="bg-[#F9FBFB] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
