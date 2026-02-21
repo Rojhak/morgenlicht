@@ -161,9 +161,9 @@ export default function LeistungenPage() {
           >
             <div className="max-w-6xl mx-auto">
               {/* Zig-Zag Header: Image + Text */}
-              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} space-y-6 md:space-y-0 md:gap-16 items-center mb-10 md:mb-14`}>
+              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-16 items-center mb-4 md:mb-14`}>
                 {/* Image Placeholder (Icon + Gradient) */}
-                <div className="w-full md:w-2/5 flex-shrink-0 order-2 md:order-none">
+                <div className="hidden md:block w-full md:w-2/5 flex-shrink-0">
                   <div className="aspect-[16/9] md:aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-sm border border-gray-100">
                     <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#FFFBEB] flex items-center justify-center shadow-lg border border-[#FBBF24]/20">
                       <SectionIcon className="w-10 h-10 md:w-14 md:h-14 text-[#FBBF24]" />
@@ -171,10 +171,10 @@ export default function LeistungenPage() {
                   </div>
                 </div>
 
-                <div className="w-full md:w-3/5 order-1 md:order-none">
+                <div className="w-full md:w-3/5">
                   <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
-                      <SectionIcon className="w-5 h-5 md:w-7 md:h-7 text-white" />
+                    <div className="w-9 h-9 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
+                      <SectionIcon className="w-4.5 h-4.5 md:w-7 md:h-7 text-white" />
                     </div>
                     <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-heading text-[#134E4A] leading-tight">
                       {service.title}
