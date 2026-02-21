@@ -109,13 +109,13 @@ export default function LeistungenPage() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold text-[#134E4A] mb-6 border border-[#FBBF24]">
+          <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold font-body text-[#134E4A] mb-6 border border-[#FBBF24]">
             Alle Leistungen im Überblick
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight">
             Unsere 5 Leistungen
           </h1>
-          <p className="text-xl md:text-2xl text-[#6B7280] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl font-body text-[#6B7280] leading-relaxed max-w-2xl mx-auto">
             Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> über Ihre Pflegekasse.
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function LeistungenPage() {
                   <div className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
                     <NavIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <span className="text-xs font-semibold text-[#134E4A] text-center whitespace-nowrap group-hover:text-[#FBBF24] transition-colors">
+                  <span className="text-xs font-body font-medium text-[#134E4A] text-center whitespace-nowrap group-hover:text-[#FBBF24] transition-colors">
                     {navLabels[index]}
                   </span>
                 </button>
@@ -176,10 +176,10 @@ export default function LeistungenPage() {
                   <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#134E4A] mb-4 leading-tight">
                     {service.title}
                   </h2>
-                  <p className="text-lg text-[#6B7280] mb-3 font-medium">
+                  <p className="text-lg font-body text-[#6B7280] mb-3 font-medium leading-relaxed">
                     {service.subtitle}
                   </p>
-                  <p className="text-base text-[#374151] leading-relaxed">
+                  <p className="text-base font-body text-[#374151] leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -199,10 +199,10 @@ export default function LeistungenPage() {
                           <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-[#134E4A] mb-1 text-sm">
+                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-sm">
                             {item.title}
                           </h3>
-                          <p className="text-xs text-[#6B7280] leading-relaxed">
+                          <p className="text-xs font-body text-[#6B7280] leading-relaxed">
                             {item.desc}
                           </p>
                         </div>
@@ -216,7 +216,7 @@ export default function LeistungenPage() {
               <div className="text-center md:text-left">
                 <Link
                   href="/kontakt"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#134E4A] text-white font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#134E4A] text-white font-heading font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
                 >
                   Jetzt für {service.ctaLabel} anfragen
                   <ArrowRight className="w-4 h-4" />
@@ -233,28 +233,28 @@ export default function LeistungenPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading">
             Fragen zu unseren Leistungen?
           </h2>
-          <p className="text-xl text-[#6B7280] mb-10 max-w-2xl mx-auto">
+          <p className="text-xl font-body text-[#6B7280] mb-10 max-w-2xl mx-auto leading-relaxed">
             Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
+              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
             >
               Jetzt anfragen
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <a
               href="tel:03023593028"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
+              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
             >
               <Phone className="w-5 h-5 mr-2" />
               030 235 930 28
             </a>
           </div>
 
-          <p className="text-[#6B7280] text-sm mt-8">
+          <p className="font-body text-[#6B7280] text-sm mt-8">
             Mo–Fr: 09:00 – 16:00 Uhr
           </p>
         </div>
