@@ -112,7 +112,7 @@ export default function LeistungenPage() {
           <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold font-body text-[#134E4A] mb-6 border border-[#FBBF24]">
             Alle Leistungen im Überblick
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
             Unsere 5 Leistungen
           </h1>
           <p className="text-lg md:text-xl font-body text-gray-600 leading-relaxed max-w-2xl mx-auto">
@@ -136,7 +136,7 @@ export default function LeistungenPage() {
                   <div className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
                     <NavIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <span className="text-xs font-body font-semibold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-wide group-hover:text-[#FBBF24] transition-colors">
+                  <span className="text-[10px] font-body font-semibold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-widest group-hover:text-[#FBBF24] transition-colors">
                     {navLabels[index]}
                   </span>
                 </button>
@@ -151,13 +151,13 @@ export default function LeistungenPage() {
         const isEven = sectionIndex % 2 === 1
         const SectionIcon = service.icon
         // Sections 1, 3, 5 (index 0, 2, 4) = white; Sections 2, 4 (index 1, 3) = warm light beige
-        const sectionBg = isEven ? 'bg-[#FAFAF8]' : 'bg-white'
+        const sectionBg = isEven ? 'bg-[#F7F6F3]' : 'bg-white'
 
         return (
           <section
             key={service.id}
             id={service.id}
-            className={`py-20 px-4 scroll-mt-40 ${sectionBg}`}
+            className={`py-24 px-4 scroll-mt-40 ${sectionBg}`}
           >
             <div className="max-w-6xl mx-auto">
               {/* Zig-Zag Header: Image + Text */}
@@ -199,7 +199,7 @@ export default function LeistungenPage() {
                           <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
                         </div>
                         <div>
-                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-base">
+                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-sm">
                             {item.title}
                           </h3>
                           <p className="text-sm font-body text-gray-600 leading-relaxed">
