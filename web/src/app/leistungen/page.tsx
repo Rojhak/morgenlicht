@@ -112,10 +112,10 @@ export default function LeistungenPage() {
           <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold font-body text-[#134E4A] mb-6 border border-[#FBBF24]">
             Alle Leistungen im Überblick
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
             Unsere 5 Leistungen
           </h1>
-          <p className="text-xl md:text-2xl font-body text-[#6B7280] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl font-body text-gray-600 leading-relaxed max-w-2xl mx-auto">
             Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> über Ihre Pflegekasse.
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function LeistungenPage() {
                   <div className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
                     <NavIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <span className="text-xs font-body font-medium text-[#134E4A] text-center whitespace-nowrap group-hover:text-[#FBBF24] transition-colors">
+                  <span className="text-xs font-body font-semibold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-wide group-hover:text-[#FBBF24] transition-colors">
                     {navLabels[index]}
                   </span>
                 </button>
@@ -173,10 +173,10 @@ export default function LeistungenPage() {
 
                 {/* Text */}
                 <div className="w-full md:w-3/5">
-                  <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#134E4A] mb-4 leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] mb-4 leading-tight">
                     {service.title}
                   </h2>
-                  <p className="text-lg font-body text-[#6B7280] mb-3 font-medium leading-relaxed">
+                  <p className="text-lg font-body text-gray-600 mb-3 font-medium leading-relaxed">
                     {service.subtitle}
                   </p>
                   <p className="text-base font-body text-[#374151] leading-relaxed">
@@ -199,10 +199,10 @@ export default function LeistungenPage() {
                           <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
                         </div>
                         <div>
-                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-sm">
+                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-base">
                             {item.title}
                           </h3>
-                          <p className="text-xs font-body text-[#6B7280] leading-relaxed">
+                          <p className="text-sm font-body text-gray-600 leading-relaxed">
                             {item.desc}
                           </p>
                         </div>
