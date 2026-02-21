@@ -122,21 +122,21 @@ export default function LeistungenPage() {
       </section>
 
       {/* Navigation - 5 Horizontal Anchor Cards */}
-      <section className="py-10 px-4 bg-white border-b border-gray-100 sticky top-[72px] z-30">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex justify-center gap-4 md:gap-6 overflow-x-auto pb-2 scrollbar-hide">
+      <section className="py-6 px-4 bg-white/95 backdrop-blur-md border-b border-gray-200/60 sticky top-[72px] z-30 shadow-sm">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex justify-center gap-3 md:gap-5 overflow-x-auto pb-1 scrollbar-hide bg-[#F8FAFB] rounded-2xl px-6 py-4 border border-gray-100">
             {services.map((service, index) => {
               const NavIcon = navIcons[index]
               return (
                 <button
                   key={service.id}
                   onClick={() => scrollToSection(service.id)}
-                  className="flex flex-col items-center gap-2 min-w-[80px] group cursor-pointer"
+                  className="flex flex-col items-center gap-2 min-w-[72px] group cursor-pointer"
                 >
-                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#0F3F3C] group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
-                    <NavIcon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  <div className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+                    <NavIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <span className="text-xs md:text-sm font-semibold text-[#134E4A] text-center whitespace-nowrap">
+                  <span className="text-xs font-semibold text-[#134E4A] text-center whitespace-nowrap group-hover:text-[#FBBF24] transition-colors">
                     {navLabels[index]}
                   </span>
                 </button>
@@ -146,93 +146,86 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* Detailed Service Sections - Zig-Zag Layout */}
-      <div className="bg-[#FAF9F6]">
-        {services.map((service, sectionIndex) => {
-          const isEven = sectionIndex % 2 === 1
-          const SectionIcon = service.icon
+      {/* Detailed Service Sections - Zig-Zag Layout with Alternating Backgrounds */}
+      {services.map((service, sectionIndex) => {
+        const isEven = sectionIndex % 2 === 1
+        const SectionIcon = service.icon
+        // Sections 1, 3, 5 (index 0, 2, 4) = white; Sections 2, 4 (index 1, 3) = warm light beige
+        const sectionBg = isEven ? 'bg-[#FAFAF8]' : 'bg-white'
 
-          return (
-            <section
-              key={service.id}
-              id={service.id}
-              className="py-20 px-4 scroll-mt-40"
-            >
-              <div className="max-w-6xl mx-auto">
-                {/* Zig-Zag Header: Image + Text */}
-                <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 md:gap-16 items-center mb-14`}>
-                  {/* Image Placeholder (Icon + Gradient) */}
-                  <div className="w-full md:w-2/5 flex-shrink-0">
-                    <div className="aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-white/60">
-                      <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-[#134E4A] flex items-center justify-center shadow-xl">
-                        <SectionIcon className="w-12 h-12 md:w-14 md:h-14 text-white" />
-                      </div>
+        return (
+          <section
+            key={service.id}
+            id={service.id}
+            className={`py-20 px-4 scroll-mt-40 ${sectionBg}`}
+          >
+            <div className="max-w-6xl mx-auto">
+              {/* Zig-Zag Header: Image + Text */}
+              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 md:gap-16 items-center mb-14`}>
+                {/* Image Placeholder (Icon + Gradient) */}
+                <div className="w-full md:w-2/5 flex-shrink-0">
+                  <div className="aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100">
+                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-[#134E4A] flex items-center justify-center shadow-xl">
+                      <SectionIcon className="w-12 h-12 md:w-14 md:h-14 text-white" />
                     </div>
                   </div>
-
-                  {/* Text */}
-                  <div className="w-full md:w-3/5">
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#134E4A] mb-4 leading-tight">
-                      {service.title}
-                    </h2>
-                    <p className="text-lg text-[#6B7280] mb-3 font-medium">
-                      {service.subtitle}
-                    </p>
-                    <p className="text-base text-[#374151] leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
                 </div>
 
-                {/* Sub-Service Cards - 3-Column Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-                  {service.items.map((item, index) => {
-                    const ItemIcon = item.icon
-                    return (
-                      <div
-                        key={index}
-                        className="bg-white rounded-[12px] p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-gray-50"
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className="w-9 h-9 rounded-lg bg-[#FFFBEB] flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-[#134E4A] mb-1 text-sm">
-                              {item.title}
-                            </h3>
-                            <p className="text-xs text-[#6B7280] leading-relaxed">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-
-                {/* Per-Section CTA */}
-                <div className="text-center md:text-left">
-                  <Link
-                    href="/kontakt"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#134E4A] text-white font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
-                  >
-                    Jetzt für {service.ctaLabel} anfragen
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
+                {/* Text */}
+                <div className="w-full md:w-3/5">
+                  <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#134E4A] mb-4 leading-tight">
+                    {service.title}
+                  </h2>
+                  <p className="text-lg text-[#6B7280] mb-3 font-medium">
+                    {service.subtitle}
+                  </p>
+                  <p className="text-base text-[#374151] leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
               </div>
 
-              {/* Divider between sections (except last) */}
-              {sectionIndex < services.length - 1 && (
-                <div className="max-w-2xl mx-auto mt-20">
-                  <div className="h-px bg-gradient-to-r from-transparent via-[#134E4A]/15 to-transparent" />
-                </div>
-              )}
-            </section>
-          )
-        })}
-      </div>
+              {/* Sub-Service Cards - 3-Column Grid (always white) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+                {service.items.map((item, index) => {
+                  const ItemIcon = item.icon
+                  return (
+                    <div
+                      key={index}
+                      className="bg-white rounded-[12px] p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-gray-100"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="w-9 h-9 rounded-lg bg-[#FFFBEB] flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-[#134E4A] mb-1 text-sm">
+                            {item.title}
+                          </h3>
+                          <p className="text-xs text-[#6B7280] leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              {/* Per-Section CTA */}
+              <div className="text-center md:text-left">
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#134E4A] text-white font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
+                >
+                  Jetzt für {service.ctaLabel} anfragen
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        )
+      })}
 
       {/* Bottom CTA */}
       <section className="py-20 px-4 bg-[#FAF9F6]">
