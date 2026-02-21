@@ -124,7 +124,7 @@ export default function LeistungenPage() {
       {/* Navigation - 5 Horizontal Anchor Cards */}
       <section className="py-3 md:py-5 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-[72px] z-30 shadow-sm">
         <div className="max-w-3xl mx-auto">
-          <div className="flex justify-start md:justify-center items-center gap-2 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-4 md:px-6 py-3 md:py-4 border border-gray-100">
+          <div className="flex justify-start md:justify-center items-center gap-2 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-4 md:px-6 py-4 border border-gray-100">
             {services.map((service, index) => {
               const NavIcon = navIcons[index]
               return (
@@ -161,7 +161,7 @@ export default function LeistungenPage() {
           >
             <div className="max-w-6xl mx-auto">
               {/* Zig-Zag Header: Image + Text */}
-              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-16 items-center mb-10 md:mb-14`}>
+              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} space-y-6 md:space-y-0 md:gap-16 items-center mb-10 md:mb-14`}>
                 {/* Image Placeholder (Icon + Gradient) */}
                 <div className="w-full md:w-2/5 flex-shrink-0 order-2 md:order-none">
                   <div className="aspect-[16/9] md:aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-sm border border-gray-100">
@@ -171,20 +171,19 @@ export default function LeistungenPage() {
                   </div>
                 </div>
 
-                {/* Text */}
                 <div className="w-full md:w-3/5 order-1 md:order-none">
-                  <div className="flex items-center gap-3 md:gap-4 mb-4">
+                  <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                     <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
                       <SectionIcon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] leading-tight">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-heading text-[#134E4A] leading-tight">
                       {service.title}
                     </h2>
                   </div>
-                  <p className="text-lg font-body text-gray-600 mb-3 font-medium leading-relaxed">
+                  <p className="text-base md:text-lg font-body text-gray-600 mb-2 md:mb-3 font-medium leading-relaxed">
                     {service.subtitle}
                   </p>
-                  <p className="text-base font-body text-[#374151] leading-relaxed">
+                  <p className="text-sm md:text-base font-body text-[#374151] leading-relaxed">
                     {service.description}
                   </p>
                 </div>
@@ -221,7 +220,7 @@ export default function LeistungenPage() {
               <div className="text-center md:text-left">
                 <Link
                   href="/kontakt"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#134E4A] text-white font-heading font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
+                  className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3.5 md:py-3 bg-[#134E4A] text-white font-heading font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
                 >
                   Jetzt für {service.ctaLabel} anfragen
                   <ArrowRight className="w-4 h-4" />
