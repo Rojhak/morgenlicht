@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home, ShoppingBag, Stethoscope, FileText, Handshake, Star, CheckCircle, Check, Sparkles, MapPin } from 'lucide-react'
+import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home, ShoppingBag, Stethoscope, FileText, Handshake, Star, CheckCircle, Check, Sparkles, MapPin, Footprints } from 'lucide-react'
 import { CareFinder } from '@/app/components/wizard'
 import { FAQSection } from '@/app/components/sections/FAQSection'
 
@@ -201,7 +201,7 @@ export default function HomePage() {
               {
                 title: 'Haushalt & Wohlbefinden',
                 desc: 'Unterstützung beim Reinigen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
-                icon: Sparkles
+                icon: Home
               },
               {
                 title: 'Einkauf & Erledigungen',
@@ -211,7 +211,7 @@ export default function HomePage() {
               {
                 title: 'Begleitung & Mobilität',
                 desc: 'Sicherer Begleitung zu Ärzten, Behörden, zum Friseur oder zu Ihren Terminen im Kiez.',
-                icon: MapPin
+                icon: Footprints
               },
               {
                 title: 'Alltag & Struktur',
@@ -221,12 +221,12 @@ export default function HomePage() {
               {
                 title: 'Soziale Teilhabe & Freizeit',
                 desc: 'Gemeinsame Spaziergänge, gemeinsames Einkaufen oder Begleitung zu kulturellen Veranstaltungen.',
-                icon: Users
+                icon: Handshake
               },
             ].map((service, i) => (
               <div key={i} className="bg-white rounded-[24px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
-                <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#144E41] transition-colors">
-                  <service.icon className="w-7 h-7 text-[#144E4A] group-hover:text-white transition-colors" />
+                <div className="w-12 h-12 rounded-full bg-[#134E4A] flex items-center justify-center mb-6 group-hover:bg-[#FBBF24] transition-colors shadow-md">
+                  <service.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-[#134E4A] mb-3">{service.title}</h3>
                 <p className="font-body text-gray-600 font-normal leading-relaxed text-left">{service.desc}</p>
