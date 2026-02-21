@@ -122,16 +122,16 @@ export default function LeistungenPage() {
       </section>
 
       {/* Navigation - 5 Horizontal Anchor Cards */}
-      <section className="py-6 px-4 bg-white/95 backdrop-blur-md border-b border-gray-200/60 sticky top-[72px] z-30 shadow-sm">
+      <section className="py-5 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-[72px] z-30 shadow-sm">
         <div className="max-w-3xl mx-auto">
-          <div className="flex justify-center gap-3 md:gap-5 overflow-x-auto pb-1 scrollbar-hide bg-[#F8FAFB] rounded-2xl px-6 py-4 border border-gray-100">
+          <div className="flex justify-center items-center gap-3 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-6 py-4 border border-gray-100">
             {services.map((service, index) => {
               const NavIcon = navIcons[index]
               return (
                 <button
                   key={service.id}
                   onClick={() => scrollToSection(service.id)}
-                  className="flex flex-col items-center gap-2 min-w-[72px] group cursor-pointer"
+                  className="flex flex-col items-center justify-center gap-2 min-w-[72px] group cursor-pointer"
                 >
                   <div className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
                     <NavIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
