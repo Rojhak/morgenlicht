@@ -20,7 +20,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-      <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
+      <header className="w-full bg-white/80 backdrop-blur-md border-b border-gray-100/50 sticky top-0 z-50">
         {/* Container: max-w-[1440px] px-16 (64px) - Strict 3-Column Layout */}
         <div className="max-w-[1440px] mx-auto px-16 h-28 flex items-center justify-between">
 
