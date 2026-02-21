@@ -173,9 +173,14 @@ export default function LeistungenPage() {
 
                 {/* Text */}
                 <div className="w-full md:w-3/5">
-                  <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] mb-4 leading-tight">
-                    {service.title}
-                  </h2>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
+                      <SectionIcon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] leading-tight">
+                      {service.title}
+                    </h2>
+                  </div>
                   <p className="text-lg font-body text-gray-600 mb-3 font-medium leading-relaxed">
                     {service.subtitle}
                   </p>
