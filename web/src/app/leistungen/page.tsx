@@ -112,7 +112,7 @@ export default function LeistungenPage() {
           <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold font-body text-[#134E4A] mb-6 border border-[#FBBF24]">
             Alle Leistungen im Überblick
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
             Unsere 5 Leistungen
           </h1>
           <p className="text-lg md:text-xl font-body text-gray-600 leading-relaxed max-w-2xl mx-auto">
@@ -122,19 +122,19 @@ export default function LeistungenPage() {
       </section>
 
       {/* Navigation - 5 Horizontal Anchor Cards */}
-      <section className="py-5 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-[72px] z-30 shadow-sm">
+      <section className="py-3 md:py-5 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-[72px] z-30 shadow-sm">
         <div className="max-w-3xl mx-auto">
-          <div className="flex justify-center items-center gap-3 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-6 py-4 border border-gray-100">
+          <div className="flex justify-start md:justify-center items-center gap-2 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-4 md:px-6 py-3 md:py-4 border border-gray-100">
             {services.map((service, index) => {
               const NavIcon = navIcons[index]
               return (
                 <button
                   key={service.id}
                   onClick={() => scrollToSection(service.id)}
-                  className="flex flex-col items-center justify-center gap-2 min-w-[72px] group cursor-pointer"
+                  className="flex flex-col items-center justify-center gap-1.5 md:gap-2 min-w-[60px] md:min-w-[72px] group cursor-pointer"
                 >
-                  <div className="w-13 h-13 md:w-15 md:h-15 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
-                    <NavIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+                    <NavIcon className="w-4 h-4 md:w-6 md:h-6 text-white" />
                   </div>
                   <span className="text-[10px] font-body font-semibold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-widest group-hover:text-[#FBBF24] transition-colors">
                     {navLabels[index]}
@@ -157,25 +157,25 @@ export default function LeistungenPage() {
           <section
             key={service.id}
             id={service.id}
-            className={`py-24 px-4 scroll-mt-40 ${sectionBg}`}
+            className={`py-16 md:py-24 px-4 scroll-mt-40 ${sectionBg}`}
           >
             <div className="max-w-6xl mx-auto">
               {/* Zig-Zag Header: Image + Text */}
-              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 md:gap-16 items-center mb-14`}>
+              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-16 items-center mb-10 md:mb-14`}>
                 {/* Image Placeholder (Icon + Gradient) */}
-                <div className="w-full md:w-2/5 flex-shrink-0">
-                  <div className="aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-sm border border-gray-100">
-                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-[#FFFBEB] flex items-center justify-center shadow-lg border border-[#FBBF24]/20">
-                      <SectionIcon className="w-12 h-12 md:w-14 md:h-14 text-[#FBBF24]" />
+                <div className="w-full md:w-2/5 flex-shrink-0 order-2 md:order-none">
+                  <div className="aspect-[16/9] md:aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-sm border border-gray-100">
+                    <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#FFFBEB] flex items-center justify-center shadow-lg border border-[#FBBF24]/20">
+                      <SectionIcon className="w-10 h-10 md:w-14 md:h-14 text-[#FBBF24]" />
                     </div>
                   </div>
                 </div>
 
                 {/* Text */}
-                <div className="w-full md:w-3/5">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
-                      <SectionIcon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                <div className="w-full md:w-3/5 order-1 md:order-none">
+                  <div className="flex items-center gap-3 md:gap-4 mb-4">
+                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
+                      <SectionIcon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                     </div>
                     <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] leading-tight">
                       {service.title}
@@ -191,7 +191,7 @@ export default function LeistungenPage() {
               </div>
 
               {/* Sub-Service Cards - 3-Column Grid (always white) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-10">
                 {service.items.map((item, index) => {
                   const ItemIcon = item.icon
                   return (
@@ -204,7 +204,7 @@ export default function LeistungenPage() {
                           <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
                         </div>
                         <div>
-                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-sm">
+                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-base">
                             {item.title}
                           </h3>
                           <p className="text-sm font-body text-gray-600 leading-relaxed">
