@@ -235,33 +235,33 @@ export default function LeistungenPage() {
       </div>
 
       {/* Bottom CTA */}
-      <section className="py-20 px-4 bg-[#134E4A]">
+      <section className="py-20 px-4 bg-[#FAF9F6]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading">
             Fragen zu unseren Leistungen?
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-[#6B7280] mb-10 max-w-2xl mx-auto">
             Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white text-[#134E4A] hover:bg-gray-50 shadow-xl transition-all"
+              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
             >
               Jetzt anfragen
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <a
               href="tel:03023593028"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 transition-all"
+              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
             >
               <Phone className="w-5 h-5 mr-2" />
               030 235 930 28
             </a>
           </div>
 
-          <p className="text-white/70 text-sm mt-8">
+          <p className="text-[#6B7280] text-sm mt-8">
             Mo–Fr: 09:00 – 16:00 Uhr
           </p>
         </div>
