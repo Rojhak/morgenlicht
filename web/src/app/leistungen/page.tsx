@@ -164,9 +164,9 @@ export default function LeistungenPage() {
               <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} gap-10 md:gap-16 items-center mb-14`}>
                 {/* Image Placeholder (Icon + Gradient) */}
                 <div className="w-full md:w-2/5 flex-shrink-0">
-                  <div className="aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100">
-                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-[#134E4A] flex items-center justify-center shadow-xl">
-                      <SectionIcon className="w-12 h-12 md:w-14 md:h-14 text-white" />
+                  <div className="aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-sm border border-gray-100">
+                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-[#FFFBEB] flex items-center justify-center shadow-lg border border-[#FBBF24]/20">
+                      <SectionIcon className="w-12 h-12 md:w-14 md:h-14 text-[#FBBF24]" />
                     </div>
                   </div>
                 </div>
