@@ -104,21 +104,23 @@ export default function KostenPage() {
               Ab Pflegegrad 2 stehen Ihnen zusätzliche Mittel zur Verfügung, um Ihre pflegenden Angehörigen zu entlasten.
             </p>
 
-            <p className="text-sm font-body font-semibold text-[#134E4A] mb-2">Was ist die Verhinderungspflege?</p>
-            <p className="text-base font-body text-gray-600 mb-4 leading-relaxed">
-              Wenn Ihre privaten Pflegepersonen eine Pause brauchen oder selbst Termine haben, springen wir ein.
-            </p>
-            <ul className="space-y-3">
-              {[
-                'Vielseitig einsetzbar: Dieses Budget (1.612 € pro Jahr) können Sie auch stundenweise nutzen',
-                'Sorgsame Planung: Wir achten darauf, es verantwortungsbewusst zu nutzen',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base font-body text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="bg-[#FFF8E1] rounded-xl p-4">
+              <p className="text-[#B8472A] font-medium mb-2">Was ist die Verhinderungspflege?</p>
+              <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                Wenn Ihre privaten Pflegepersonen eine Pause brauchen oder selbst Termine haben, springen wir ein.
+              </p>
+              <ul className="space-y-2">
+                {[
+                  'Vielseitig einsetzbar: Dieses Budget (1.612 € pro Jahr) können Sie auch stundenweise nutzen',
+                  'Sorgsame Planung: Wir achten darauf, es verantwortungsbewusst zu nutzen',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-gray-700">
+                    <CheckCircle className="w-4 h-4 text-[#144E41] flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </ScrollRevealSection>
 
           {/* Card 3 – Privatzahler */}
@@ -138,13 +140,15 @@ export default function KostenPage() {
               Falls Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen:
             </p>
 
-            <div className="flex items-center gap-2 mb-3">
-              <Euro className="w-5 h-5 text-[#144E41]" />
-              <p className="text-base font-body font-semibold text-[#134E4A]">Stundensatz: 35,50 €</p>
+            <div className="bg-[#FBE9E7] rounded-xl p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Euro className="w-5 h-5 text-[#B8472A]" />
+                <p className="text-[#B8472A] font-medium">Stundensatz: 35,50 €</p>
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Steuer-Tipp: Sie können 20 % unserer Rechnung von der Steuer absetzen. Das Finanzamt erstattet Ihnen somit einen Teil der Kosten zurück.
+              </p>
             </div>
-            <p className="text-base font-body text-gray-600 leading-relaxed">
-              Steuer-Tipp: Sie können 20 % unserer Rechnung von der Steuer absetzen. Das Finanzamt erstattet Ihnen somit einen Teil der Kosten zurück.
-            </p>
           </ScrollRevealSection>
 
           {/* Rechenbeispiel – Larger Card */}
