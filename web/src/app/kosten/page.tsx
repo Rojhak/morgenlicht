@@ -63,15 +63,15 @@ export default function KostenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 px-4 bg-white">
+      <section className="relative py-24 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 bg-[#E0F2F1] rounded-full text-sm font-medium text-[#0D6E64] mb-6">
+          <span className="inline-block px-4 py-1.5 bg-[#144E41]/10 rounded-full text-sm font-medium text-[#144E41] mb-6">
             Transparente Preise
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold font-heading text-[#144E41] mb-6 tracking-tight">
             Kosten & Pflegekasse
           </h1>
-          <p className="text-lg md:text-xl text-teal-700/80 max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6">
             "Transparenz ist uns wichtig. Wir erklären Ihnen alles."
           </p>
           <p className="text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
