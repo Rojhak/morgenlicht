@@ -7,30 +7,6 @@ import { ScrollRevealSection } from '../components/animations/ScrollReveal'
 import { GlassCard, GlassButton } from '../components/glass'
 
 
-const values = [
-  {
-    icon: Heart,
-    title: 'Individuell',
-    description: 'Wir schauen uns ganz in Ruhe an: Wo drückt der Schuh? Was würde Ihnen den Tag wirklich erleichtern?',
-    color: 'from-[#FFD54F] to-[#FFA726]',
-    bgLight: 'bg-[#FFF8E1]'
-  },
-  {
-    icon: Users,
-    title: 'Augenhöhe & Würde',
-    description: 'Unsere Arbeit ist eine Herzensangelegenheit. Wir möchten, dass Sie sich sicher und gut aufgehoben fühlen.',
-    color: 'from-[#26A69A] to-[#00897B]',
-    bgLight: 'bg-[#E0F2F1]'
-  },
-  {
-    icon: Sparkles,
-    title: 'Mehr als Hilfe',
-    description: 'Unser Ziel ist es nicht, einfach nur Aufgaben abzuarbeiten. Wir wollen Ihren Alltag wirklich ein Stück heller machen.',
-    color: 'from-[#7B1FA2] to-[#9C27B0]',
-    bgLight: 'bg-[#F3E5F5]'
-  },
-]
-
 export default function UeberUnsPage() {
   return (
     <>
@@ -137,6 +113,28 @@ export default function UeberUnsPage() {
         </div>
       </ScrollRevealSection>
 
+      {/* Personal Quote Section */}
+      <ScrollRevealSection className="py-20 px-4 bg-[#FAF9F6]">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            <div className="absolute -top-8 -left-8 text-9xl text-[#C0A080]/10 font-serif" aria-hidden="true">
+              "
+            </div>
+            <div className="p-10 md:p-16 text-center relative bg-white rounded-[24px] shadow-sm border border-gray-100">
+              <Quote className="w-12 h-12 text-[#FBBF24] mx-auto mb-6" />
+              <blockquote className="mb-8">
+                <p className="text-2xl md:text-3xl text-[#134E4A] font-medium font-body leading-relaxed italic">
+                  "Jeder Mensch verdient Unterstützung, die Würde und Respekt zeigt – genau das wollen wir jeden Tag bei Morgenlicht leben."
+                </p>
+              </blockquote>
+              <cite className="text-[#134E4A] font-bold font-heading not-italic">
+                — Asiye Duman
+              </cite>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
       {/* Unser Versprechen Section - Clean Grid */}
       <section className="py-24 px-4 bg-white relative">
         <div className="max-w-6xl mx-auto">
@@ -150,18 +148,18 @@ export default function UeberUnsPage() {
             {[
               {
                 icon: Heart,
-                title: 'Herzlichkeit',
-                text: 'Wir begegnen Ihnen mit echter menschlicher Wärme und nehmen uns Zeit für Ihre Bedürfnisse.'
+                title: 'Individuelle Hilfe',
+                text: 'Wir schauen genau hin: Was erleichtert Ihren Alltag wirklich? Bei uns gibt es keine Lösungen von der Stange, sondern Unterstützung, die exakt zu Ihrem Leben passt.'
               },
               {
                 icon: ShieldCheck,
-                title: 'Professionalität',
-                text: 'Als anerkannter Anbieter nach § 45a SGB XI garantieren wir höchste Qualität und Zuverlässigkeit.'
+                title: 'Würde & Respekt',
+                text: 'Unsere Arbeit ist eine Herzensangelegenheit; Würde und Respekt sind unser Fundament. Als zertifizierter Anbieter garantieren wir Ihnen eine würdevolle Begleitung auf Augenhöhe und absolute Zuverlässigkeit.'
               },
               {
                 icon: Zap,
                 title: 'Einfachheit',
-                text: 'Wir übernehmen die Bürokratie mit der Pflegekasse, damit Sie sich auf das Wesentliche konzentrieren können.'
+                text: 'Wir nehmen Ihnen die Last ab – auch bei der Bürokratie. Wir rechnen direkt mit der Pflegekasse ab, sodass unsere Hilfe für Sie mit Pflegegrad 100% kostenlos ist.'
               }
             ].map((promise, idx) => {
               const Icon = promise.icon
@@ -186,106 +184,6 @@ export default function UeberUnsPage() {
           </div>
         </div>
       </section>
-
-      {/* Values Section - Premium Cards */}
-      <ScrollRevealSection className="py-20 px-4 bg-[#F7F6F3]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-5 tracking-tight">
-              Was uns wichtig ist
-            </h2>
-            <p className="text-xl font-body text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Erfahrung und viel Herz – das ist unser Versprechen an Sie
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {values.map((value, idx) => {
-              const IconComponent = value.icon
-              return (
-                <ScrollRevealSection
-                  key={value.title}
-                  className="group"
-                  delay={idx * 100}
-                >
-                  <div className="h-full bg-white rounded-[12px] p-8 md:p-10 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:-translate-y-1">
-                    <div className="w-16 h-16 bg-[#FFFBEB] rounded-2xl flex items-center justify-center mb-8 border border-[#FBBF24]/20 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-[#FBBF24]" />
-                    </div>
-                    <h3 className="text-2xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">{value.title}</h3>
-                    <p className="text-gray-600 font-body leading-relaxed text-base">{value.description}</p>
-                  </div>
-                </ScrollRevealSection>
-              )
-            })}
-          </div>
-
-          {/* Highlight Card */}
-          <ScrollRevealSection delay={300}>
-            <div className="p-10 bg-[#134E4A] rounded-[24px] shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32" />
-              <div className="relative z-10 text-center">
-                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
-                  <Handshake className="w-8 h-8 text-white" />
-                </div>
-                <p className="text-xl md:text-2xl text-white font-body leading-relaxed max-w-3xl mx-auto">
-                  Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="font-semibold">menschlicher Wärme</span>. Wir verstehen sehr gut, dass es nicht einfach ist, jemanden Fremden in die Wohnung zu lassen und Hilfe anzunehmen. Deshalb gibt es bei uns <span className="text-[#FBBF24] font-semibold">keine Standard-Lösungen von der Stange</span>.
-                </p>
-              </div>
-            </div>
-          </ScrollRevealSection>
-        </div>
-      </ScrollRevealSection>
-
-      {/* Berlin Love Section - Premium */}
-      <ScrollRevealSection className="py-20 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#134E4A] rounded-[24px] p-10 md:p-16 relative overflow-hidden shadow-xl">
-            {/* Decorative pattern */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32" />
-
-            <div className="relative z-10 text-center">
-              <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg border border-white/20">
-                <MapPin className="w-10 h-10 text-white" />
-              </div>
-
-              <h3 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 tracking-tight">
-                Ein Herz für Berlin
-              </h3>
-
-              <p className="text-xl font-body text-white/90 max-w-2xl mx-auto leading-relaxed mb-6">
-                Wir lieben die Vielfalt unserer Stadt. Unser Ziel ist es, dass gerade die Menschen, die Berlin zu dem gemacht haben, was es heute ist, <span className="font-semibold text-white">hier gut versorgt und glücklich alt werden können</span>.
-              </p>
-
-              <p className="text-lg font-body text-white/80">
-                Egal ob es um den Haushalt, Begleitung zum Arzt oder gemeinsames Einkaufen geht – wir sind für Sie da.
-              </p>
-            </div>
-          </div>
-        </div>
-      </ScrollRevealSection>
-
-      {/* Personal Quote Section */}
-      <ScrollRevealSection className="py-20 px-4 bg-[#FAF9F6]">
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            <div className="absolute -top-8 -left-8 text-9xl text-[#C0A080]/10 font-serif" aria-hidden="true">
-              "
-            </div>
-            <div className="p-10 md:p-16 text-center relative bg-white rounded-[24px] shadow-sm border border-gray-100">
-              <Quote className="w-12 h-12 text-[#FBBF24] mx-auto mb-6" />
-              <blockquote className="mb-8">
-                <p className="text-2xl md:text-3xl text-[#134E4A] font-medium font-body leading-relaxed italic">
-                  "Jeder Mensch verdient Unterstützung, die Würde und Respekt zeigt – genau das wollen wir jeden Tag bei Morgenlicht leben."
-                </p>
-              </blockquote>
-              <cite className="text-[#134E4A] font-bold font-heading not-italic">
-                — Asiye Duman
-              </cite>
-            </div>
-          </div>
-        </div>
-      </ScrollRevealSection>
 
       {/* Trust Badge - Premium */}
       <ScrollRevealSection className="py-16 px-4 bg-white">
