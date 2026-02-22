@@ -2,6 +2,7 @@
 
 import { ArrowRight, CheckCircle, Euro, Calculator, FileCheck, HeartHandshake } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
+import Link from 'next/link'
 
 
 const pricingCards = [
@@ -277,26 +278,38 @@ export default function KostenPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <GlassCard className="p-10 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-4">
-              Fragen zur Kostenübernahme?
-            </h2>
-            <p className="text-lg text-[#455A64] mb-8 max-w-lg mx-auto">
-              Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <GlassButton as="link" href="/kontakt" variant="primary" size="lg" className="btn-shadow-orange">
-                Jetzt anfragen
-                <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
-              </GlassButton>
-              <GlassButton as="link" href="tel:06912345678" variant="ghost" size="lg">
-                069 12345678
-              </GlassButton>
+      {/* CTA - matching Über uns style */}
+      <section className="py-24 px-4 bg-[#FAF9F6] relative overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
+            Fragen zur Kostenübernahme?
+          </h2>
+          <p className="text-xl font-body text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder schreiben Sie uns eine Nachricht.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <Link
+              href="/kontakt"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#134E4A] hover:bg-[#0F3F3C] text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              Jetzt anfragen
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+
+            <a
+              href="tel:03023593028"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-white text-[#134E4A] text-lg font-bold rounded-xl border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
+            >
+              030 235 930 28
+            </a>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-gray-500 font-body">
+            <div className="flex items-center gap-2 text-sm font-medium">
+              Mo–Fr: 09:00 – 16:00 Uhr
             </div>
-          </GlassCard>
+          </div>
         </div>
       </section>
     </>
