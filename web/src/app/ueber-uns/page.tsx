@@ -255,22 +255,19 @@ export default function UeberUnsPage() {
       </ScrollRevealSection>
 
       {/* CTA Section - Premium */}
-      <section className="py-24 px-4 bg-[#134E4A] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -mr-48 -mt-48" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -ml-48 -mb-48" />
-
+      <section className="py-24 px-4 bg-[#FAF9F6] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
             Lernen Sie uns kennen
           </h2>
-          <p className="text-xl font-body text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl font-body text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
             Wir freuen uns auf ein unverbindliches Gespräch mit Ihnen. Rufen Sie uns einfach an oder schreiben Sie uns eine Nachricht.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <Link
               href="/kontakt"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#FBBF24] hover:bg-[#FBBF24]/90 text-[#134E4A] text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#134E4A] hover:bg-[#0F3F3C] text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               Jetzt anfragen
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -278,21 +275,19 @@ export default function UeberUnsPage() {
 
             <a
               href="tel:03023593028"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-white/10 hover:bg-white/20 text-white text-lg font-bold rounded-xl border-2 border-white/20 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-white text-[#134E4A] text-lg font-bold rounded-xl border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
             >
-              <Phone className="w-5 h-5 mr-3 text-[#FBBF24]" />
+              <Phone className="w-5 h-5 mr-3" />
               030 235 930 28
             </a>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-white/70">
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#FBBF24]" />
-              <span className="text-sm font-medium">Mo–Fr: 8:00 – 18:00 Uhr</span>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-gray-500 font-body">
+            <div className="flex items-center gap-2 text-sm font-medium">
+              Mo–Fr: 09:00 – 16:00 Uhr
             </div>
-            <div className="flex items-center gap-2">
-              <Heart className="w-4 h-4 text-[#FBBF24]" />
-              <span className="text-sm font-medium">Kostenlose Erstberatung</span>
+            <div className="flex items-center gap-2 text-sm font-medium">
+              Kostenlose Erstberatung
             </div>
           </div>
         </div>
