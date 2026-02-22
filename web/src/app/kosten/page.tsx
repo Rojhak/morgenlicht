@@ -63,7 +63,7 @@ export default function KostenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 px-4 overflow-hidden">
+      <section className="relative py-20 md:py-28 px-4 overflow-hidden bg-white">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-gradient-to-b from-[#FFD54F]/20 via-[#FFAB91]/10 to-transparent rounded-full blur-3xl animate-float-slow" />
           <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] bg-gradient-to-tr from-[#26A69A]/15 via-[#4DB6AC]/10 to-transparent rounded-full blur-3xl" />
@@ -91,7 +91,7 @@ export default function KostenPage() {
       </section>
 
       {/* Hourly Rate Banner */}
-      <section className="py-12 px-4">
+      <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-[#0D6E64]/10 via-transparent to-[#FFD54F]/10">
             <div className="text-center">
@@ -111,7 +111,7 @@ export default function KostenPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 bg-[#F7F6F3]">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-6">
             {pricingCards.map((plan) => (
@@ -143,7 +143,7 @@ export default function KostenPage() {
       </section>
 
       {/* Detailed Info */}
-      <section className="py-12 px-4">
+      <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
             {/* Detail Card 1 */}
@@ -163,7 +163,7 @@ export default function KostenPage() {
                     <p className="text-[#0D6E64] font-medium mb-2">Ihr Vorteil:</p>
                     <ul className="space-y-1 text-sm text-[#37474F]">
                       <li>• Wir rechnen diese 131 € direkt mit der Kasse ab</li>
-                      <li>• In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos</li>
+                      <li className="text-[#144E41] font-semibold">• In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos</li>
                       <li>• Wichtig: Ihr monatliches Pflegegeld wird dadurch nicht gekürzt</li>
                     </ul>
                   </div>
@@ -228,7 +228,7 @@ export default function KostenPage() {
       </section>
 
       {/* Example Calculation */}
-      <section className="py-12 px-4 section-warm">
+      <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-8 md:p-10">
             <h2 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-6 text-center">
@@ -248,7 +248,7 @@ export default function KostenPage() {
       </section>
 
       {/* Services Banner */}
-      <section className="py-12 px-4">
+      <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <GlassCard className="p-8 md:p-10 relative overflow-hidden bg-gradient-to-br from-[#0D6E64] to-[#0D7D72]">
             <div className="relative text-center text-white">
