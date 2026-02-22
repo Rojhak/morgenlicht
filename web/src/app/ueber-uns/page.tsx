@@ -193,7 +193,7 @@ export default function UeberUnsPage() {
 
       {/* Trust Badge - Compact & Matching Design */}
       <ScrollRevealSection className="py-20 px-4 bg-white">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto mb-12 md:mb-0">
           <div className="bg-[#FFFFFF] rounded-[12px] p-8 md:p-10 text-center border border-gray-100 shadow-sm">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FFFBEB] rounded-2xl shadow-sm border border-[#FBBF24]/20 mb-6">
               <Award className="w-8 h-8 text-[#FBBF24]" />
