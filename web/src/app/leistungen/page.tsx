@@ -1,270 +1,289 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { ScrollRevealSection } from '../components/animations/ScrollReveal'
-import { ArrowRight, Phone, Home, ShoppingBag, Footprints, FileText, Handshake, Sparkles, Bath, UtensilsCrossed, Shirt, Wind, Trash2, ShoppingCart, Building2, Pill, Package, Users, Stethoscope, Scissors, Landmark, CalendarCheck, Smartphone, MapPin, Mail, ClipboardList, Clock, Monitor, PhoneCall, Compass, BookOpen, TreePine, Ticket, Coffee, Search } from 'lucide-react'
-
+import { ArrowRight, Phone } from 'lucide-react'
+import { GlassCard, GlassButton } from '../components/glass'
 
 
 const services = [
   {
     id: 'haushalt',
-    icon: Home,
-    title: '1. Haushalt & Wohlbefinden',
+    emoji: '🏠',
+    title: '1. Haushalt',
     subtitle: 'Ein sauberes Zuhause zum Wohlfühlen',
-    description: 'Wir sorgen für ein gepflegtes Zuhause, in dem Sie sich rundum wohlfühlen. Von der gründlichen Reinigung bis zur Wäschepflege – wir kümmern uns um alles.',
-    ctaLabel: 'Haushaltshilfe',
+    description: 'Wir kümmern uns um Ihre Wohnung, damit Sie sich wohlfühlen.',
+    color: 'from-[#FFE0B2] to-[#FFD54F]',
+    bgLight: 'bg-[#FFF8E1]',
+    iconColor: 'text-[#B8472A]',
     items: [
-      { title: 'Wohnungsreinigung', desc: 'Staubsaugen und Wischen aller Wohnräume sowie Staubwischen auf allen Oberflächen.', icon: Sparkles },
-      { title: 'Küche & Bad', desc: 'Gründliche Reinigung der Arbeitsflächen und Sanitäranlagen für optimale Hygiene.', icon: Bath },
-      { title: 'Mahlzeiten', desc: 'Zubereitung einfacher Mahlzeiten, Geschirrspülen sowie ein regelmäßiger Kühlschrank-Check.', icon: UtensilsCrossed },
-      { title: 'Wäsche & Betten', desc: 'Waschen, Bügeln und Zusammenlegen der Wäsche sowie das frische Beziehen der Betten.', icon: Shirt },
-      { title: 'Fenster & Gardinen', desc: 'Fenster putzen sowie das Waschen und Aufhängen der Gardinen.', icon: Wind },
-      { title: 'Rund ums Haus', desc: 'Allgemeine Ordnung, Müllentsorgung, Pflanzenpflege sowie Aufräumen von Balkon oder Terrasse.', icon: Trash2 },
+      { title: 'Wohnungsreinigung', desc: 'Staubsaugen, Wischen und Staubwischen aller Wohnräume.' },
+      { title: 'Küche & Bad', desc: 'Gründliche Reinigung der Arbeitsflächen und Sanitäranlagen.' },
+      { title: 'Wäsche & Betten', desc: 'Waschen, Bügeln und frisches Beziehen der Betten.' },
+      { title: 'Fenster & Gardinen', desc: 'Fenster putzen sowie Waschen und Aufhängen der Gardinen.' },
+      { title: 'Müll & Ordnung', desc: 'Müllentsorgung, allgemeine Ordnung und kleine Reparaturen.' },
     ],
   },
   {
-    id: 'einkauf',
-    icon: ShoppingBag,
-    title: '2. Einkauf & Erledigungen',
-    subtitle: 'Wir nehmen Ihnen die schweren Wege ab',
-    description: 'Ob Wocheneinkauf, Apothekengang oder Behördenbesuch – wir erledigen das für Sie oder begleiten Sie gerne dabei.',
-    ctaLabel: 'Einkaufshilfe',
+    id: 'koerperpflege',
+    emoji: '🛁',
+    title: '2. Körperpflege',
+    subtitle: 'Hilfe bei der täglichen Hygiene',
+    description: 'Wir unterstützen Sie bei der Körperpflege mit Respekt und Würde.',
+    color: 'from-[#B3E5FC] to-[#64B5F6]',
+    bgLight: 'bg-[#E3F2FD]',
+    iconColor: 'text-[#1976D2]',
     items: [
-      { title: 'Wocheneinkauf', desc: 'Planung, Einkauf der Lebensmittel und Einräumen der Vorräte.', icon: ShoppingCart },
-      { title: 'Botengänge', desc: 'Erledigungen bei der Post, Behörde, Bank oder bei anderen Dienstleistern in Ihrem Kiez.', icon: Building2 },
-      { title: 'Apotheken', desc: 'Abholen von Rezepten und Besorgung Ihrer Medikamente.', icon: Pill },
-      { title: 'Besorgungen', desc: 'Kauf von Drogeriewaren und Haushaltsartikeln.', icon: Package },
-      { title: 'Begleitung beim Einkauf', desc: 'Wir begleiten Sie gerne zum Supermarkt oder zum Wochenmarkt und unterstützen beim Tragen.', icon: Users },
+      { title: 'Hilfe beim Waschen', desc: 'Unterstützung beim Duschen oder Baden.' },
+      { title: 'Kleiderwechsel', desc: 'Hilfe beim An- und Auskleiden.' },
+      { title: 'Haarpflege', desc: 'Haarewaschen, Kämmen und einfache Frisurpflege.' },
+      { title: 'Nagelpflege', desc: 'Fingernagel schneiden und pflegen.' },
+      { title: 'Rasurhilfe', desc: 'Unterstützung bei der täglichen Rasur.' },
     ],
   },
   {
     id: 'begleitung',
-    icon: Footprints,
-    title: '3. Begleitung & Mobilität',
-    subtitle: 'Sicherheit und Unterstützung außer Haus',
-    description: 'Wir begleiten Sie sicher und zuverlässig zu allen wichtigen Terminen – ob Arzt, Behörde oder Freizeit.',
-    ctaLabel: 'Begleitung',
+    emoji: '🏥',
+    title: '3. Begleitung',
+    subtitle: 'Sichere Begleitung zu allen Terminen',
+    description: 'Wir begleiten Sie sicher zu Ärzten, Behörden und unterwegs.',
+    color: 'from-[#C8E6C9] to-[#81C784]',
+    bgLight: 'bg-[#E8F5E9]',
+    iconColor: 'text-[#0D6E64]',
     items: [
-      { title: 'Begleitung zum Arzt', desc: 'Wir begleiten Sie zu Ihren Terminen beim Arzt, zur Physiotherapie oder zu anderen Behandlungen.', icon: Stethoscope },
-      { title: 'Begleitung zu Dienstleistern', desc: 'Wir begleiten Sie zur Bank, zum Friseur, zur Fußpflege oder zu anderen Dienstleistern.', icon: Scissors },
-      { title: 'Behördengänge', desc: 'Ob Bürgeramt oder Krankenkasse – wir begleiten Sie zu Ihren Terminen und unterstützen vor Ort.', icon: Landmark },
-      { title: 'Termin-Vorbereitung', desc: 'Gemeinsames Heraussuchen wichtiger Unterlagen und Vorbereiten der passenden Kleidung.', icon: CalendarCheck },
-      { title: 'Soziale Kontakte & Freizeit', desc: 'Begleitung zu Freizeitangeboten, kulturellen Räumen oder privaten Besuchen bei Familie und Freunden.', icon: Users },
-      { title: 'Mobilitäts-Hilfe', desc: 'Unterstützung bei der Orientierung im Straßenverkehr und sichere Begleitung im ÖPNV.', icon: MapPin },
+      { title: 'Arztbesuche', desc: 'Begleitung zu Arzt, Physiotherapie und Behandlungen.' },
+      { title: 'Behördengänge', desc: 'Begleitung zu Bürgeramt, Krankenkasse und Ämtern.' },
+      { title: 'Dienstleistungen', desc: 'Begleitung zu Friseur, Fußpflege und Bank.' },
+      { title: 'Öffentliche Verkehrsmittel', desc: 'Hilfe bei Bus, Bahn und Taxifahrten.' },
+      { title: 'Familienbesuche', desc: 'Begleitung zu Besuchen bei Familie und Freunden.' },
     ],
   },
   {
-    id: 'alltag',
-    icon: FileText,
-    title: '4. Alltag, Überblick & Struktur',
-    subtitle: 'Kein Stress mehr mit der Alltags-Organisation',
-    description: 'Wir behalten für Sie den Überblick – von der Post über Anträge bis hin zur digitalen Teilhabe.',
-    ctaLabel: 'Alltagshilfe',
+    id: 'gesellschaft',
+    emoji: '💬',
+    title: '4. Gesellschaft',
+    subtitle: 'Gespräche und gemeinsame Zeit',
+    description: 'Wir sind da für Zweisprache, Gesellschaft und Aktivierung.',
+    color: 'from-[#F8BBD0] to-[#F48FB1]',
+    bgLight: 'bg-[#FCE4EC]',
+    iconColor: 'text-[#C2185B]',
     items: [
-      { title: 'Post- & Dokumente', desc: 'Gemeinsames Öffnen, Sichten und Sortieren der täglichen Post sowie Organisation wichtiger Dokumente.', icon: Mail },
-      { title: 'Schriftverkehr', desc: 'Unterstützung beim Verfassen einfacher Briefe oder E-Mails sowie Hilfe beim Haushaltsbuch.', icon: ClipboardList },
-      { title: 'Antragshilfe', desc: 'Unterstützung beim Ausfüllen von Formularen und Anträgen für Pflegekassen oder Behörden.', icon: FileText },
-      { title: 'Fristen- & Termine', desc: 'Überwachung wichtiger Fristen und Planung von Arzt-, Handwerker- oder Beratungsterminen.', icon: Clock },
-      { title: 'Digitale Teilhabe', desc: 'Hilfe bei der Nutzung von Smartphone, Tablet oder PC – von Messengern bis Videoanrufen.', icon: Monitor },
-      { title: 'Telefon- & Organisations-Hilfe', desc: 'Unterstützung bei wichtigen Telefonaten und Organisation von Feierlichkeiten oder Reisen.', icon: PhoneCall },
-      { title: 'Tagesstruktur', desc: 'Wir helfen, den Tag zu planen, erinnern an Wichtiges und geben Sicherheit im Alltag.', icon: Compass },
-      { title: 'Vorbereitung', desc: 'Unterstützung und Vorbereitung für Besuche des Pflegedienstes oder des Medizinischen Dienstes.', icon: CalendarCheck },
-      { title: 'Wohnungs-Check', desc: 'Wir schauen nach Ihrer Wohnung während Ihrer Abwesenheit (Blumen gießen, Post leeren).', icon: Home },
+      { title: 'Gesprächsführung', desc: 'Zuhören, Plaudern und emotionale Unterstützung.' },
+      { title: 'Vorlesen', desc: 'Gemeinsames Lesen von Büchern und Zeitungen.' },
+      { title: 'Spiele', desc: 'Gesellschaftsspiele, Quiz und gemeinsame Unterhaltung.' },
+      { title: 'Gedächtnistraining', desc: 'Gemeinsames Rätseln, Erinnern und Üben.' },
+      { title: 'Abendgesellschaft', desc: 'Gesellschaft am Abend für Sicherheit und Geborgenheit.' },
     ],
   },
   {
-    id: 'soziale',
-    icon: Handshake,
-    title: '5. Soziale Teilhabe & Freizeit',
-    subtitle: 'Gesellschaft & Aktivierung',
-    description: 'Gemeinsam gegen Einsamkeit – wir bringen Freude und Abwechslung in Ihren Alltag.',
-    ctaLabel: 'Freizeitbegleitung',
+    id: 'einkauf',
+    emoji: '🛒',
+    title: '5. Einkauf',
+    subtitle: 'Wir erledigen Ihre Einkäufe',
+    description: 'Vom Wocheneinkauf bis zu Besorgungen – wir übernehmen es für Sie.',
+    color: 'from-[#FFCC80] to-[#FFA726]',
+    bgLight: 'bg-[#FFE0B2]',
+    iconColor: 'text-[#E65100]',
     items: [
-      { title: 'Gesellschaft', desc: 'Gemeinsames Zeitungslesen, Vorlesen von Büchern oder unterhaltsame Gesellschaftsspiele.', icon: BookOpen },
-      { title: 'Raus an die Luft', desc: 'Gemütliche Spaziergänge oder Wanderungen in Ihrem Kiez für Mobilität und Wohlbefinden.', icon: TreePine },
-      { title: 'Kultur & Genuss', desc: 'Begleitung zu Theater, Konzerten oder Ausflügen.', icon: Ticket },
-      { title: 'Soziale Kontakte', desc: 'Begleitung zu Senioren-Treffs, Nachbarschafts-Cafés oder zu Besuchen bei Freunden und Familie.', icon: Coffee },
-      { title: 'Freizeit-Vermittlung', desc: 'Wir helfen, passende Angebote in Ihrem Kiez zu finden und begleiten Sie auf Wunsch dorthin.', icon: Search },
+      { title: 'Wocheneinkauf', desc: 'Planung, Einkauf und Einräumen der Lebensmittel.' },
+      { title: 'Drogerie', desc: 'Kauf von Drogeriewaren und Haushaltsartikeln.' },
+      { title: 'Apotheken', desc: 'Abholen von Rezepten und Medikamenten.' },
+      { title: 'Schweres Tragen', desc: 'Hilfe beim Tragen schwerer Einkaufstaschen.' },
+      { title: 'Einkaufsbegleitung', desc: 'Gemeinsamer Einkauf auf dem Wochenmarkt oder Supermarkt.' },
+    ],
+  },
+  {
+    id: 'mahlzeiten',
+    emoji: '🍲',
+    title: '6. Mahlzeiten',
+    subtitle: 'Gut essen für mehr Lebensfreude',
+    description: 'Wir kochen gemeinsam oder bereiten warme Mahlzeiten für Sie zu.',
+    color: 'from-[#FFAB91] to-[#FF8A65]',
+    bgLight: 'bg-[#FBE9E7]',
+    iconColor: 'text-[#D84315]',
+    items: [
+      { title: 'Zusammen kochen', desc: 'Gemeinsames Kochen nach Ihren Wünschen und Rezepten.' },
+      { title: 'Mahlzeiten vorbereiten', desc: 'Kochen von warmen Mahlzeiten für Sie.' },
+      { title: 'Essenseinladungen', desc: 'Einladung zum gemeinsamen Essen und Gesellschaft.' },
+      { title: 'Kühlschrank-Check', desc: 'Regelmäßige Kontrolle und Beseitigung von verdorbenen Lebensmitteln.' },
+      { title: 'Getränke', desc: 'Für ausreichende Flüssigkeitsaufnahme während des Tages.' },
+    ],
+  },
+  {
+    id: 'boten',
+    emoji: '📦',
+    title: '7. Botengänge',
+    subtitle: 'Erledigungen übernehmen',
+    description: 'Post, Bank, Behörden – wir erledigen Ihre Botengänge.',
+    color: 'from-[#CE93D8] to-[#AB47BC]',
+    bgLight: 'bg-[#F3E5F5]',
+    iconColor: 'text-[#7B1FA2]',
+    items: [
+      { title: 'Post & Pakete', desc: 'Abholen und Einordnen der Post und Pakete.' },
+      { title: 'Bankgeschäfte', desc: 'Begleitung und Erledigung von Bankgeschäften.' },
+      { title: 'Schuhe-Reparatur', desc: 'Abholen und Abgeben von Schuhen zur Reparatur.' },
+      { title: 'Kleiner-Reparaturen', desc: 'Abholen und Abgeben von Gegenständen zur Reparatur.' },
+      { title: 'Wäscherei', desc: 'Bringen und Abholen von Wäsche zur Wäscherei.' },
+    ],
+  },
+  {
+    id: 'nacht',
+    emoji: '🌙',
+    title: '8. Nachtwache',
+    subtitle: 'Sicherheit in der Nacht',
+    description: 'Wir sind auch nachts für Sie da – für Sicherheit und Geborgenheit.',
+    color: 'from-[#9FA8DA] to-[#7986CB]',
+    bgLight: 'bg-[#E8EAF6]',
+    iconColor: 'text-[#3949AB]',
+    items: [
+      { title: 'Nachtwache', desc: 'Sicherheits Checks in der Nacht und Hilfe bei Bedarf.' },
+      { title: 'Nachtbetreuung', desc: 'Begleitung und Unterstützung während der Nachtstunden.' },
+      { title: 'Nächtliche Mobilität', desc: 'Hilfe beim Aufstehen und Toilettengang in der Nacht.' },
+      { title: 'Schlaf-Routine', desc: 'Unterstützung beim Zubettgehen und Aufstehen.' },
+      { title: 'Beruhigung', desc: 'Anwesenheit für ein sicheres und ruhiges Schlafumfeld.' },
+    ],
+  },
+  {
+    id: 'freizeit',
+    emoji: '♟️',
+    title: '9. Freizeit & Aktivierung',
+    subtitle: 'Gemeinsame Zeit für mehr Lebensfreude',
+    description: 'Wir unternehmen gemeinsam Dinge und bringen Freude in Ihren Alltag.',
+    color: 'from-[#80CBC4] to-[#26A69A]',
+    bgLight: 'bg-[#B2DFDB]',
+    iconColor: 'text-[#00695C]',
+    items: [
+      { title: 'Spaziergänge', desc: 'Gemütliche Spaziergänge im Park oder im Kiez.' },
+      { title: 'Ausflüge', desc: 'Tageausflüge zu Sehenswürdigkeiten oder in die Natur.' },
+      { title: 'Kultur', desc: 'Besuche von Theater, Kino, Museen oder Konzerten.' },
+      { title: 'Senioren-Treffs', desc: 'Begleitung zu Senioren-Treffs und Café-Kränzchen.' },
+      { title: 'Feiertage', desc: 'Besondere Gestaltung von Feiertagen und Geburtstagen.' },
     ],
   },
 ]
 
-// Navigation icons for the top anchor cards
-const navIcons = [Home, ShoppingBag, Footprints, FileText, Handshake]
-const navLabels = ['Haushalt', 'Einkauf', 'Begleitung', 'Alltag', 'Soziales']
-
 export default function LeistungenPage() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative px-4 overflow-hidden bg-[#FAF9F6] pt-20 pb-12">
+      {/* Hero Section - Premium */}
+      <section className="relative min-h-[60vh] flex items-center px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#FAFAFA] via-[#F5F5F0] to-[#E8F5E9]" />
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FBBF24]/8 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#134E4A]/8 to-transparent rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FFD54F]/8 to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#26A69A]/8 to-transparent rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold font-body text-[#134E4A] mb-6 border border-[#FBBF24]">
-            Alle Leistungen im Überblick
-          </span>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
-            Unsere 5 Leistungen
+        <div className="relative max-w-4xl mx-auto py-16 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display text-[#0D6E64] mb-6 leading-tight">
+            Unsere 9 Leistungen
           </h1>
-          <p className="text-lg md:text-xl font-body text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> über Ihre Pflegekasse.
+          <p className="text-xl md:text-2xl text-[#546E7A] leading-relaxed max-w-2xl mx-auto">
+            Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#0D6E64]">100% kostenfrei</span> über Ihre Pflegekasse.
           </p>
         </div>
       </section>
 
-      {/* Navigation - 5 Horizontal Anchor Cards */}
-      <section className="py-3 md:py-5 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-28 z-30 shadow-sm">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex justify-start md:justify-center items-center gap-2 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-4 md:px-6 py-4 border border-gray-100">
-            {services.map((service, index) => {
-              const NavIcon = navIcons[index]
-              return (
-                <button
-                  key={service.id}
-                  onClick={() => scrollToSection(service.id)}
-                  className="flex flex-col items-center justify-center gap-1.5 md:gap-2 min-w-[60px] md:min-w-[72px] group cursor-pointer"
-                >
-                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
-                    <NavIcon className="w-4 h-4 md:w-6 md:h-6 text-white" />
+      {/* Quick Overview - 9 Cards */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-lg text-[#546E7A]">
+              Übersicht aller 9 Leistungsbereiche – klicken Sie für Details
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <a
+                key={service.id}
+                href={`#${service.id}`}
+                className="group block"
+              >
+                <div className={`h-full rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 ${service.bgLight}`}>
+                  <div className={`w-14 h-14 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center text-3xl shadow-md group-hover:scale-110 transition-transform duration-300 mb-4`}>
+                    {service.emoji}
                   </div>
-                  <span className="text-[10px] font-body font-semibold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-widest group-hover:text-[#FBBF24] transition-colors">
-                    {navLabels[index]}
-                  </span>
-                </button>
-              )
-            })}
+                  <h3 className="font-bold text-[#37474F] mb-2 text-lg">{service.title}</h3>
+                  <p className="text-sm text-[#546E7A] line-clamp-2">{service.subtitle}</p>
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Detailed Service Sections - Zig-Zag Layout with Alternating Backgrounds */}
-      {services.map((service, sectionIndex) => {
-        const isEven = sectionIndex % 2 === 1
-        const SectionIcon = service.icon
-        // Sections 1, 3, 5 (index 0, 2, 4) = white; Sections 2, 4 (index 1, 3) = warm light beige
-        const sectionBg = isEven ? 'bg-[#F7F6F3]' : 'bg-white'
-
-        return (
-          <ScrollRevealSection
-            key={service.id}
-            id={service.id}
-            className={`py-16 md:py-24 px-4 scroll-mt-40 ${sectionBg}`}
-            delay={sectionIndex * 100}
-          >
-            <div className="max-w-6xl mx-auto">
-              {/* Zig-Zag Header: Image + Text */}
-              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-16 items-center mb-4 md:mb-14`}>
-                {/* Image Placeholder (Icon + Gradient) */}
-                <div className="hidden md:block w-full md:w-2/5 flex-shrink-0">
-                  <div className="aspect-[16/9] md:aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-sm border border-gray-100">
-                    <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#FFFBEB] flex items-center justify-center shadow-lg border border-[#FBBF24]/20">
-                      <SectionIcon className="w-10 h-10 md:w-14 md:h-14 text-[#FBBF24]" />
-                    </div>
+      {/* Detailed Services */}
+      <section className="py-16 px-4 bg-[#FAFAFA]">
+        <div className="max-w-5xl mx-auto">
+          <div className="space-y-16">
+            {services.map((service) => (
+              <GlassCard key={service.id} id={service.id} className={`p-8 md:p-12 border-0 shadow-xl ${service.bgLight}`}>
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+                  <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-3xl flex items-center justify-center text-4xl shadow-xl flex-shrink-0`}>
+                    {service.emoji}
                   </div>
-                </div>
-
-                <div className="w-full md:w-3/5">
-                  <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                    <div className="w-9 h-9 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
-                      <SectionIcon className="w-4.5 h-4.5 md:w-7 md:h-7 text-white" />
-                    </div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-heading text-[#134E4A] leading-tight">
+                  <div className="text-center md:text-left">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-2">
                       {service.title}
                     </h2>
+                    <p className="text-lg text-[#0D6E64] font-medium mb-2">{service.subtitle}</p>
+                    <p className="text-[#546E7A]">{service.description}</p>
                   </div>
-                  <p className="text-base md:text-lg font-body text-gray-600 mb-2 md:mb-3 font-medium leading-relaxed">
-                    {service.subtitle}
-                  </p>
-                  <p className="text-sm md:text-base font-body text-[#374151] leading-relaxed">
-                    {service.description}
-                  </p>
                 </div>
-              </div>
 
-              {/* Sub-Service Cards - 3-Column Grid (always white) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-10">
-                {service.items.map((item, index) => {
-                  const ItemIcon = item.icon
-                  return (
+                <div className="grid md:grid-cols-2 gap-4">
+                  {service.items.map((item, index) => (
                     <div
                       key={index}
-                      className="bg-white rounded-[12px] p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-gray-100"
+                      className="flex gap-4 p-5 rounded-xl bg-white/80 hover:bg-white transition-colors shadow-sm"
                     >
-                      <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-[#FFFBEB] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
-                        </div>
-                        <div>
-                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-base">
-                            {item.title}
-                          </h3>
-                          <p className="text-sm font-body text-gray-600 leading-relaxed">
-                            {item.desc}
-                          </p>
-                        </div>
+                      <div className={`w-10 h-10 ${service.bgLight} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        <div className={`w-2 h-2 rounded-full ${service.iconColor.replace('text', 'bg')}`} />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-[#37474F] mb-1">{item.title}</h3>
+                        <p className="text-sm text-[#546E7A]">{item.desc}</p>
                       </div>
                     </div>
-                  )
-                })}
-              </div>
+                  ))}
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              {/* Per-Section CTA */}
-              <div className="text-center md:text-left">
-                <Link
-                  href="/kontakt"
-                  className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3.5 md:py-3 bg-[#134E4A] text-white font-heading font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
-                >
-                  Jetzt für {service.ctaLabel} anfragen
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </ScrollRevealSection>
-        )
-      })}
-
-      {/* Bottom CTA */}
-      <section className="py-20 px-4 bg-[#FAF9F6]">
+      {/* CTA - Premium */}
+      <section className="py-20 px-4 bg-gradient-to-br from-[#0D6E64] to-[#26A69A]">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Fragen zu unseren Leistungen?
           </h2>
-          <p className="text-xl font-body text-[#6B7280] mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
             Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Link
+            <GlassButton
+              as="link"
               href="/kontakt"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
+              variant="primary"
+              size="lg"
+              className="!bg-white !text-[#0D6E64] hover:!bg-gray-50 shadow-xl font-bold px-10"
             >
               Jetzt anfragen
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
+              <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
+            </GlassButton>
             <a
-              href="tel:03023593028"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
+              href="tel:06912345678"
+              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 transition-all"
             >
-              <Phone className="w-5 h-5 mr-2" />
-              030 235 930 28
+              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
+              069 12345678
             </a>
           </div>
 
-          <p className="font-body text-[#6B7280] text-sm mt-8">
-            Mo–Fr: 09:00 – 16:00 Uhr
+          <p className="text-white/70 text-sm mt-8">
+            Mo–Fr: 8:00 – 18:00 Uhr • Kostenlos aus dem deutschen Festnetz
           </p>
         </div>
       </section>
