@@ -23,12 +23,19 @@ export function ScrollRevealSection({
     const el = ref.current
     if (!el) return
 
+    // Disable all scroll animations on mobile (< 768px)
+    if (window.innerWidth < 768) {
+      el.style.opacity = '1'
+      el.style.transform = 'none'
+      el.style.transition = 'none'
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             el.style.opacity = '1'
-            el.style.transform = 'translateY(0)'
           }, delay)
           observer.unobserve(el)
         }
@@ -47,8 +54,7 @@ export function ScrollRevealSection({
       className={className}
       style={{
         opacity: 0,
-        transform: 'translateY(16px)',
-        transition: `opacity 700ms ease-out, transform 700ms ease-out`,
+        transition: `opacity 400ms ease-out`,
       }}
     >
       {children}
