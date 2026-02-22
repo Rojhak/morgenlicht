@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, CheckCircle, Wallet, Users, Percent, Calculator, FileCheck, HeartHandshake } from 'lucide-react'
+import { ArrowRight, CheckCircle, Euro, Wallet, Users, Percent, Calculator, FileCheck, HeartHandshake } from 'lucide-react'
 import { ScrollRevealSection } from '../components/animations/ScrollReveal'
 import Link from 'next/link'
 
@@ -9,80 +9,77 @@ export default function KostenPage() {
     <>
       {/* Hero - White Background */}
       <ScrollRevealSection className="py-24 px-4 bg-white text-center">
-        <div className="max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F0FDF4] rounded-full border border-[#134E4A]/20 mb-8">
-            <div className="w-2 h-2 rounded-full bg-[#134E4A]" />
-            <span className="text-sm font-body font-semibold text-[#134E4A]">Transparente Preise</span>
-          </div>
-
+        <div className="max-w-4xl mx-auto">
+          <span className="inline-block px-4 py-1.5 bg-[#F0FDF4] rounded-full text-sm font-medium text-[#134E4A] mb-6 border border-[#134E4A]/20">
+            Transparente Preise
+          </span>
           <h1 className="text-3xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
             Kosten & Pflegekasse
           </h1>
-
-          <p className="text-lg font-body text-gray-600 leading-relaxed max-w-2xl mx-auto mb-4">
+          <p className="text-lg md:text-xl text-gray-600 font-body max-w-2xl mx-auto leading-relaxed mb-4">
             „Transparenz ist uns wichtig. Wir erklären Ihnen alles."
           </p>
-          <p className="text-base font-body text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base text-gray-500 font-body max-w-2xl mx-auto leading-relaxed">
             Gute Hilfe muss nicht teuer sein. Wir zeigen Ihnen, wie Sie Ihr Budget bei der Pflegekasse am besten nutzen.
           </p>
         </div>
       </ScrollRevealSection>
 
-      {/* Information Area - Beige Background */}
+      {/* Information Area – Beige Background */}
       <section className="py-24 px-4 md:px-8 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto space-y-8">
 
           {/* Stundensatz Banner */}
-          <ScrollRevealSection className="bg-white rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
-            <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto md:mx-0">
-              <Calculator className="w-7 h-7 text-[#144E41]" />
-            </div>
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold font-heading text-[#134E4A] mb-2">
-                Unser Stundensatz: 35,50 €
-              </h2>
-              <p className="text-base font-body text-gray-600 leading-relaxed">
-                In diesem Preis ist bereits alles enthalten: von der Anfahrt über die Administration bis hin zur direkten Abrechnung mit Ihrer Kasse.{' '}
-                <span className="font-semibold text-[#134E4A]">Es kommen keine weiteren Gebühren auf Sie zu.</span>
-              </p>
+          <ScrollRevealSection className="bg-white rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100">
+            <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+              <div className="w-12 h-12 bg-[#F0FDF4] rounded-2xl flex items-center justify-center flex-shrink-0 mx-auto md:mx-0">
+                <Euro className="w-6 h-6 text-[#144E41]" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold font-heading text-[#134E4A] mb-2">
+                  Unser Stundensatz: 35,50 €
+                </h2>
+                <p className="text-base font-body text-gray-600 leading-relaxed">
+                  In diesem Preis ist bereits alles enthalten: von der Anfahrt über die Administration bis hin zur direkten Abrechnung mit Ihrer Kasse.{' '}
+                  <strong className="text-[#134E4A]">Es kommen keine weiteren Gebühren auf Sie zu.</strong>
+                </p>
+              </div>
             </div>
           </ScrollRevealSection>
 
           {/* Card 1 – Ab Pflegegrad 1 */}
           <ScrollRevealSection delay={100} className="bg-white rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100">
-            <div className="flex items-start gap-4 mb-6">
+            <div className="flex items-start gap-4 mb-5">
               <div className="w-12 h-12 bg-[#F0FDF4] rounded-2xl flex items-center justify-center flex-shrink-0">
                 <Wallet className="w-6 h-6 text-[#144E41]" />
               </div>
               <div>
-                <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">Ab Pflegegrad 1</h3>
-                <p className="text-sm font-body text-[#144E41] font-semibold uppercase tracking-wider">Der Entlastungsbetrag</p>
+                <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">
+                  Für jeden mit Pflegegrad (1 bis 5): Der Entlastungsbetrag
+                </h3>
               </div>
             </div>
 
-            <div className="flex items-baseline gap-1 mb-4">
-              <span className="text-4xl font-bold font-heading text-[#134E4A]">131 €</span>
-              <span className="text-base font-body text-gray-500">/Monat</span>
-            </div>
-
-            <p className="text-base font-body text-gray-600 mb-6 leading-relaxed">
-              Jeder Mensch mit einem Pflegegrad hat Anspruch auf monatlichen Entlastungsbetrag.
+            <p className="text-base font-body text-gray-600 mb-5 leading-relaxed">
+              Jeder Mensch mit einem Pflegegrad hat Anspruch auf 131 € monatlich.
             </p>
 
-            <ul className="space-y-3 mb-6">
-              {[
-                'Wir rechnen direkt mit der Kasse ab',
-                'Ihr Pflegegeld wird dadurch nicht gekürzt',
-                'Ca. 3,5 bis 4 Stunden Unterstützung pro Monat',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base font-body text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="mb-5">
+              <p className="text-sm font-body font-semibold text-[#134E4A] mb-3">Ihr Vorteil:</p>
+              <ul className="space-y-3">
+                {[
+                  'Wir rechnen diese 131 € direkt mit der Kasse ab',
+                  'Wichtig: Ihr monatliches Pflegegeld wird dadurch nicht gekürzt',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-base font-body text-gray-700">
+                    <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            {/* Waldgrün Highlight */}
+            {/* Waldgrün Highlight Box */}
             <div className="bg-[#144E41] rounded-[10px] px-5 py-4 text-white">
               <p className="text-sm md:text-base font-body font-semibold leading-relaxed">
                 In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos.
@@ -92,31 +89,29 @@ export default function KostenPage() {
 
           {/* Card 2 – Ab Pflegegrad 2 */}
           <ScrollRevealSection delay={150} className="bg-white rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100">
-            <div className="flex items-start gap-4 mb-6">
+            <div className="flex items-start gap-4 mb-5">
               <div className="w-12 h-12 bg-[#F0FDF4] rounded-2xl flex items-center justify-center flex-shrink-0">
                 <Users className="w-6 h-6 text-[#144E41]" />
               </div>
               <div>
-                <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">Ab Pflegegrad 2</h3>
-                <p className="text-sm font-body text-[#144E41] font-semibold uppercase tracking-wider">Zusätzliche Verhinderungspflege</p>
+                <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">
+                  Extra-Hilfe ab Pflegegrad 2: Die Verhinderungspflege
+                </h3>
               </div>
             </div>
 
-            <div className="flex items-baseline gap-1 mb-4">
-              <span className="text-4xl font-bold font-heading text-[#134E4A]">bis zu 10 Std.</span>
-              <span className="text-base font-body text-gray-500">/Monat</span>
-            </div>
-
-            <p className="text-base font-body text-gray-600 mb-6 leading-relaxed">
-              Extra-Hilfe ab Pflegegrad 2: Zusätzliche Mittel zur Entlastung Ihrer pflegenden Angehörigen.
+            <p className="text-base font-body text-gray-600 mb-5 leading-relaxed">
+              Ab Pflegegrad 2 stehen Ihnen zusätzliche Mittel zur Verfügung, um Ihre pflegenden Angehörigen zu entlasten.
             </p>
 
-            <ul className="space-y-3 mb-6">
+            <p className="text-sm font-body font-semibold text-[#134E4A] mb-2">Was ist die Verhinderungspflege?</p>
+            <p className="text-base font-body text-gray-600 mb-4 leading-relaxed">
+              Wenn Ihre privaten Pflegepersonen eine Pause brauchen oder selbst Termine haben, springen wir ein.
+            </p>
+            <ul className="space-y-3">
               {[
-                '1.612 € pro Jahr zusätzlich verfügbar',
-                'Für Begleitungen oder Hilfe im Haushalt nutzbar',
-                'Sorgsame Planung für Notfälle reserviert',
-                'Auch stundenweise einsetzbar',
+                'Vielseitig einsetzbar: Dieses Budget (1.612 € pro Jahr) können Sie auch stundenweise nutzen',
+                'Sorgsame Planung: Wir achten darauf, es verantwortungsbewusst zu nutzen',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-base font-body text-gray-700">
                   <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
@@ -128,38 +123,28 @@ export default function KostenPage() {
 
           {/* Card 3 – Privatzahler */}
           <ScrollRevealSection delay={200} className="bg-white rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100">
-            <div className="flex items-start gap-4 mb-6">
+            <div className="flex items-start gap-4 mb-5">
               <div className="w-12 h-12 bg-[#F0FDF4] rounded-2xl flex items-center justify-center flex-shrink-0">
                 <Percent className="w-6 h-6 text-[#144E41]" />
               </div>
               <div>
-                <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">Privatzahler</h3>
-                <p className="text-sm font-body text-[#144E41] font-semibold uppercase tracking-wider">Ohne Pflegegrad</p>
+                <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">
+                  Privatzahler & Steuervorteil
+                </h3>
               </div>
             </div>
 
-            <div className="flex items-baseline gap-1 mb-4">
-              <span className="text-4xl font-bold font-heading text-[#134E4A]">35,50 €</span>
-              <span className="text-base font-body text-gray-500">/Stunde</span>
-            </div>
-
-            <p className="text-base font-body text-gray-600 mb-6 leading-relaxed">
-              Wenn Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen.
+            <p className="text-base font-body text-gray-600 mb-5 leading-relaxed">
+              Falls Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen:
             </p>
 
-            <ul className="space-y-3">
-              {[
-                '20 % direkt von der Steuer absetzbar',
-                'Kein Pflegegrad erforderlich',
-                'Flexible Buchung',
-                'Finanzamt erstattet einen Teil der Kosten',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base font-body text-gray-700">
-                  <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="flex items-center gap-2 mb-3">
+              <Euro className="w-5 h-5 text-[#144E41]" />
+              <p className="text-base font-body font-semibold text-[#134E4A]">Stundensatz: 35,50 €</p>
+            </div>
+            <p className="text-base font-body text-gray-600 leading-relaxed">
+              Steuer-Tipp: Sie können 20 % unserer Rechnung von der Steuer absetzen. Das Finanzamt erstattet Ihnen somit einen Teil der Kosten zurück.
+            </p>
           </ScrollRevealSection>
 
           {/* Rechenbeispiel – Larger Card */}
@@ -184,34 +169,26 @@ export default function KostenPage() {
           <ScrollRevealSection delay={300} className="bg-[#144E41] rounded-[16px] p-8 md:p-12 text-white shadow-lg">
             <div className="text-center mb-8">
               <HeartHandshake className="w-12 h-12 mx-auto mb-4 text-[#FBBF24]" />
-              <h2 className="text-2xl md:text-3xl font-bold font-heading mb-2">
+              <h2 className="text-2xl md:text-3xl font-bold font-heading">
                 Unser Rundum-Sorglos-Service für Sie
               </h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6 text-left">
-              {[
-                {
-                  icon: FileCheck,
-                  title: 'Wir übernehmen den Papierkram',
-                  text: 'Wir rechnen direkt mit der Pflegekasse ab. Sie müssen kein Geld vorstrecken.',
-                },
-                {
-                  icon: Calculator,
-                  title: 'Budget-Beratung',
-                  text: 'Wir schauen gemeinsam, wie viel Geld Ihnen zusteht und wie wir das Beste herausholen.',
-                },
-                {
-                  icon: CheckCircle,
-                  title: 'Hilfe beim Antrag',
-                  text: 'Sie haben noch keinen Pflegegrad? Wir unterstützen Sie beim Antrag.',
-                },
-              ].map(({ icon: Icon, title, text }) => (
-                <div key={title} className="bg-white/10 rounded-[12px] p-5">
-                  <Icon className="w-6 h-6 text-[#FBBF24] mb-3" />
-                  <h3 className="font-bold font-heading mb-1">{title}</h3>
-                  <p className="text-sm font-body text-white/80 leading-relaxed">{text}</p>
-                </div>
-              ))}
+              <div className="bg-white/10 rounded-[12px] p-5">
+                <FileCheck className="w-6 h-6 text-[#FBBF24] mb-3" />
+                <h3 className="font-bold font-heading mb-1">Wir übernehmen den Papierkram</h3>
+                <p className="text-sm font-body text-white/80 leading-relaxed">Wir rechnen direkt mit der Pflegekasse ab. Sie müssen kein Geld vorstrecken.</p>
+              </div>
+              <div className="bg-white/10 rounded-[12px] p-5">
+                <Calculator className="w-6 h-6 text-[#FBBF24] mb-3" />
+                <h3 className="font-bold font-heading mb-1">Budget-Beratung</h3>
+                <p className="text-sm font-body text-white/80 leading-relaxed">Wir schauen gemeinsam, wie viel Geld Ihnen zusteht und wie wir das Beste herausholen.</p>
+              </div>
+              <div className="bg-white/10 rounded-[12px] p-5">
+                <CheckCircle className="w-6 h-6 text-[#FBBF24] mb-3" />
+                <h3 className="font-bold font-heading mb-1">Hilfe beim Antrag</h3>
+                <p className="text-sm font-body text-white/80 leading-relaxed">Sie haben noch keinen Pflegegrad? Wir unterstützen Sie beim Antrag.</p>
+              </div>
             </div>
           </ScrollRevealSection>
 
@@ -221,10 +198,10 @@ export default function KostenPage() {
       {/* CTA - White */}
       <ScrollRevealSection className="py-24 px-4 bg-white text-center">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">
+          <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">
             Fragen zur Kostenübernahme?
           </h2>
-          <p className="text-lg font-body text-gray-600 leading-relaxed mb-10">
+          <p className="text-lg font-body text-gray-600 mb-10 max-w-lg mx-auto leading-relaxed">
             Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
