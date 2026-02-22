@@ -68,18 +68,13 @@ export default function KostenPage() {
           <span className="inline-block px-4 py-1.5 bg-[#E0F2F1] rounded-full text-sm font-medium text-[#0D6E64] mb-6">
             Transparente Preise
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display text-teal-900 mb-6 tracking-tight">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900">
-              Kosten &
-            </span>
-            <span className="block mt-2 text-teal-800 italic">
-              Pflegekasse
-            </span>
+          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-6 tracking-tight">
+            Kosten & Pflegekasse
           </h1>
-          <p className="text-xl md:text-2xl text-teal-700/80 max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="text-lg md:text-xl text-teal-700/80 max-w-2xl mx-auto leading-relaxed mb-6">
             "Transparenz ist uns wichtig. Wir erklären Ihnen alles."
           </p>
-          <p className="text-lg text-[#455A64] max-w-2xl mx-auto">
+          <p className="text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
             Gute Hilfe muss nicht teuer sein. Wir zeigen Ihnen, wie Sie Ihr Budget bei der Pflegekasse am besten nutzen.
           </p>
         </div>
@@ -92,11 +87,11 @@ export default function KostenPage() {
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-[#0D6E64]" />
-                <h2 className="text-2xl md:text-3xl font-bold text-[#37474F]">
-                  Unser Stundensatz: 35,50 €
+                <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#144E41]">
+                  Unser Stundensatz: <span className="font-heading font-semibold">35,50 €</span>
                 </h2>
               </div>
-              <p className="text-lg text-[#455A64] max-w-2xl mx-auto">
+              <p className="text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
                 In diesem Preis ist bereits alles enthalten: von der Anfahrt über die Administration bis hin zur direkten Abrechnung mit Ihrer Kasse.
                 <strong className="text-[#37474F]"> Es kommen keine weiteren Gebühren auf Sie zu.</strong>
               </p>
@@ -115,19 +110,19 @@ export default function KostenPage() {
                   <div className={`w-14 h-14 ${plan.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
                     <Calculator className={`w-7 h-7 ${plan.iconColor}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-[#37474F] mb-1">{plan.title}</h3>
+                  <h3 className="text-xl font-bold font-heading text-[#37474F] mb-1">{plan.title}</h3>
                   <p className="text-sm font-medium text-[#0D6E64] mb-3">{plan.subtitle}</p>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl font-bold text-[#0D6E64]">{plan.amount}</span>
+                    <span className="text-4xl font-bold font-heading text-[#0D6E64]">{plan.amount}</span>
                     <span className="text-[#455A64]">{plan.period}</span>
                   </div>
                 </div>
-                <p className="text-sm text-[#455A64] text-center mb-6">{plan.description}</p>
-                <ul className="space-y-3 mb-6">
+                <p className="text-base font-body text-[#455A64] text-center mb-6 leading-relaxed">{plan.description}</p>
+                <ul className="space-y-4 mb-6">
                   {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm">
+                    <li key={index} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-[#0D6E64] flex-shrink-0 mt-0.5" />
-                      <span className="text-[#37474F]">{feature}</span>
+                      <span className="text-base font-body text-[#37474F] leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -148,18 +143,18 @@ export default function KostenPage() {
                   <span className="text-2xl font-bold text-[#0D6E64]">1</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#37474F] mb-3">
+                  <h3 className="text-xl font-bold font-heading text-[#37474F] mb-3">
                     Für jeden mit Pflegegrad (1 bis 5): Der Entlastungsbetrag
                   </h3>
-                  <p className="text-[#455A64] mb-3">
-                    Jeder Mensch mit einem Pflegegrad hat Anspruch auf 131 € monatlich.
+                  <p className="text-lg font-body text-[#455A64] mb-3 leading-relaxed">
+                    Jeder Mensch mit einem Pflegegrad hat Anspruch auf <span className="font-heading font-semibold text-[#37474F]">131 €</span> monatlich.
                   </p>
                   <div className="bg-[#E8F5E9] rounded-xl p-4">
                     <p className="text-[#0D6E64] font-medium mb-2">Ihr Vorteil:</p>
-                    <ul className="space-y-1 text-sm text-[#37474F]">
-                      <li>• Wir rechnen diese 131 € direkt mit der Kasse ab</li>
-                      <li className="text-[#144E41] font-semibold">• In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos</li>
-                      <li>• Wichtig: Ihr monatliches Pflegegeld wird dadurch nicht gekürzt</li>
+                    <ul className="space-y-3 font-body">
+                      <li className="text-base text-[#37474F] leading-relaxed">• Wir rechnen diese 131 € direkt mit der Kasse ab</li>
+                      <li className="text-xl font-heading font-semibold text-white bg-[#144E41] rounded-lg px-3 py-2">• In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos</li>
+                      <li className="text-base text-[#37474F] leading-relaxed">• Wichtig: Ihr monatliches Pflegegeld wird dadurch nicht gekürzt</li>
                     </ul>
                   </div>
                 </div>
@@ -173,20 +168,20 @@ export default function KostenPage() {
                   <span className="text-2xl font-bold text-[#B8472A]">2</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#37474F] mb-3">
+                  <h3 className="text-xl font-bold font-heading text-[#37474F] mb-3">
                     Extra-Hilfe ab Pflegegrad 2: Die Verhinderungspflege
                   </h3>
-                  <p className="text-[#455A64] mb-3">
+                  <p className="text-lg font-body text-[#455A64] mb-3 leading-relaxed">
                     Ab Pflegegrad 2 stehen Ihnen zusätzliche Mittel zur Verfügung, um Ihre pflegenden Angehörigen zu entlasten.
                   </p>
                   <div className="bg-[#FFF8E1] rounded-xl p-4">
                     <p className="text-[#B8472A] font-medium mb-2">Was ist die Verhinderungspflege?</p>
-                    <p className="text-sm text-[#37474F] mb-3">
+                    <p className="text-base font-body text-[#37474F] mb-3 leading-relaxed">
                       Wenn Ihre privaten Pflegepersonen eine Pause brauchen oder selbst Termine haben, springen wir ein.
                     </p>
-                    <ul className="space-y-1 text-sm text-[#37474F]">
-                      <li>• Vielseitig einsetzbar: Dieses Budget (1.612 € pro Jahr) können Sie auch stundenweise nutzen</li>
-                      <li>• Sorgsame Planung: Wir achten darauf, es verantwortungsbewusst zu nutzen</li>
+                    <ul className="space-y-3 font-body">
+                      <li className="text-base text-[#37474F] leading-relaxed">• Vielseitig einsetzbar: Dieses Budget (<span className="font-heading font-semibold">1.612 €</span> pro Jahr) können Sie auch stundenweise nutzen</li>
+                      <li className="text-base text-[#37474F] leading-relaxed">• Sorgsame Planung: Wir achten darauf, es verantwortungsbewusst zu nutzen</li>
                     </ul>
                   </div>
                 </div>
@@ -200,18 +195,18 @@ export default function KostenPage() {
                   <span className="text-2xl font-bold text-[#B8472A]">3</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#37474F] mb-3">
+                  <h3 className="text-xl font-bold font-heading text-[#37474F] mb-3">
                     Privatzahler & Steuervorteil
                   </h3>
-                  <p className="text-[#455A64] mb-3">
+                  <p className="text-lg font-body text-[#455A64] mb-3 leading-relaxed">
                     Falls Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen:
                   </p>
                   <div className="bg-[#FBE9E7] rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-2">
                       <Euro className="w-5 h-5 text-[#B8472A]" />
-                      <p className="text-[#B8472A] font-medium">Stundensatz: 35,50 €</p>
+                      <p className="text-[#B8472A] font-medium font-heading">Stundensatz: <span className="font-semibold">35,50 €</span></p>
                     </div>
-                    <p className="text-sm text-[#37474F]">
+                    <p className="text-base font-body text-[#37474F] leading-relaxed">
                       Steuer-Tipp: Sie können 20 % unserer Rechnung von der Steuer absetzen. Das Finanzamt erstattet Ihnen somit einen Teil der Kosten zurück.
                     </p>
                   </div>
