@@ -135,8 +135,8 @@ export default function UeberUnsPage() {
         </div>
       </ScrollRevealSection>
 
-      {/* Unser Versprechen Section - Clean Grid */}
-      <section className="py-24 px-4 bg-white relative">
+      {/* Unser Versprechen Section - Design System Polish */}
+      <section className="py-24 px-4 bg-[#F7F6F3] relative">
         <div className="max-w-6xl mx-auto text-center">
           <ScrollRevealSection className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-5 tracking-tight">
@@ -167,7 +167,7 @@ export default function UeberUnsPage() {
                 <ScrollRevealSection
                   key={promise.title}
                   delay={idx * 150}
-                  className="bg-[#ffffff] rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col items-center"
+                  className="bg-[#FFFFFF] rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col items-center"
                 >
                   <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-[#144E41]" />
@@ -183,8 +183,8 @@ export default function UeberUnsPage() {
             })}
           </div>
 
-          <ScrollRevealSection delay={500} className="max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl text-gray-600 font-body leading-relaxed italic">
+          <ScrollRevealSection delay={500} className="max-w-3xl mx-auto mt-12">
+            <p className="text-base md:text-lg text-gray-600 font-body leading-relaxed">
               Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="text-[#134E4A] font-semibold">menschlicher Wärme</span>. Wir verstehen sehr gut, dass es nicht einfach ist, jemanden Fremden in die Wohnung zu lassen und Hilfe anzunehmen. Deshalb gibt es bei uns <span className="text-[#134E4A] font-semibold">keine Standard-Lösungen von der Stange</span>.
             </p>
           </ScrollRevealSection>
