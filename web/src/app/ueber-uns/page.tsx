@@ -185,6 +185,23 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
+      {/* Highlight Card - Restored */}
+      <ScrollRevealSection className="py-12 md:py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="p-10 bg-[#134E4A] rounded-[24px] shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32" />
+            <div className="relative z-10 text-center">
+              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
+                <Handshake className="w-8 h-8 text-white" />
+              </div>
+              <p className="text-xl md:text-2xl text-white font-body leading-relaxed max-w-3xl mx-auto">
+                Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="font-semibold">menschlicher Wärme</span>. Wir verstehen sehr gut, dass es nicht einfach ist, jemanden Fremden in die Wohnung zu lassen und Hilfe anzunehmen. Deshalb gibt es bei uns <span className="text-[#FBBF24] font-semibold">keine Standard-Lösungen von der Stange</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
       {/* Trust Badge - Premium */}
       <ScrollRevealSection className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
