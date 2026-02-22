@@ -144,7 +144,7 @@ export default function UeberUnsPage() {
             </h2>
           </ScrollRevealSection>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-16">
             {[
               {
                 icon: Heart,
@@ -183,7 +183,7 @@ export default function UeberUnsPage() {
             })}
           </div>
 
-          <ScrollRevealSection delay={500} className="max-w-3xl mx-auto mt-12">
+          <ScrollRevealSection delay={500} className="max-w-3xl mx-auto mt-16">
             <p className="text-base md:text-lg text-gray-600 font-body leading-relaxed">
               Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="text-[#134E4A] font-semibold">menschlicher Wärme</span>. Wir verstehen sehr gut, dass es nicht einfach ist, jemanden Fremden in die Wohnung zu lassen und Hilfe anzunehmen. Deshalb gibt es bei uns <span className="text-[#134E4A] font-semibold">keine Standard-Lösungen von der Stange</span>.
             </p>
@@ -191,17 +191,20 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
-      {/* Trust Badge - Premium */}
-      <ScrollRevealSection className="py-16 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-[#FFFBEB] rounded-[24px] p-10 text-center border border-[#FBBF24]/20 shadow-sm">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl shadow-md border border-[#FBBF24]/20 mb-6">
-              <Award className="w-10 h-10 text-[#FBBF24]" />
+      {/* Trust Badge - Compact & Matching Design */}
+      <ScrollRevealSection className="py-20 px-4 bg-white">
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-[#FFFFFF] rounded-[12px] p-8 md:p-10 text-center border border-gray-100 shadow-sm">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#FFFBEB] rounded-2xl shadow-sm border border-[#FBBF24]/20 mb-6">
+              <Award className="w-8 h-8 text-[#FBBF24]" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">
+            <h3 className="text-2xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">
               Anerkannter Anbieter nach § 45a SGB XI
             </h3>
-            <p className="text-lg font-body text-gray-600 max-w-lg mx-auto leading-relaxed">
+            <p className="text-base md:text-lg font-body text-gray-600 leading-relaxed uppercase tracking-wide text-sm opacity-80 mb-2">
+              Zertifizierte Qualität
+            </p>
+            <p className="text-base font-body text-gray-600 max-w-lg mx-auto leading-relaxed">
               Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <span className="font-bold text-[#134E4A]">100% für Sie kostenlos</span>.
             </p>
           </div>
