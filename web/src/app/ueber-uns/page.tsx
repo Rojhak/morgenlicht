@@ -286,9 +286,6 @@ export default function UeberUnsPage() {
             <div className="flex items-center gap-2 text-sm font-medium">
               Mo–Fr: 09:00 – 16:00 Uhr
             </div>
-            <div className="flex items-center gap-2 text-sm font-medium">
-              Kostenlose Erstberatung
-            </div>
           </div>
         </div>
       </section>
