@@ -15,7 +15,7 @@ export function ScrollRevealSection({
   className,
   id,
   delay = 0,
-  threshold = 0.15
+  threshold = 0  // Trigger immediately at viewport edge
 }: ScrollRevealSectionProps) {
   const ref = useRef<HTMLElement>(null)
 
@@ -55,7 +55,7 @@ export function ScrollRevealSection({
       style={{
         // Ensure initial visibility on mobile (< 768px) to avoid animation flash
         opacity: typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 0,
-        transition: `opacity 400ms ease-out`,
+        transition: `opacity 250ms ease-out`,
       }}
     >
       {children}
