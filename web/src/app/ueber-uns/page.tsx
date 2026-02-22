@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heart, Users, Award, ArrowRight, Sparkles, MapPin, Handshake, Quote, Clock, Phone } from 'lucide-react'
+import { Heart, Users, Award, ArrowRight, Sparkles, MapPin, Handshake, Quote, Clock, Phone, ShieldCheck, Zap } from 'lucide-react'
 import { ScrollRevealSection } from '../components/animations/ScrollReveal'
 import { GlassCard, GlassButton } from '../components/glass'
 
@@ -136,6 +136,56 @@ export default function UeberUnsPage() {
           </div>
         </div>
       </ScrollRevealSection>
+
+      {/* Unser Versprechen Section - Clean Grid */}
+      <section className="py-24 px-4 bg-white relative">
+        <div className="max-w-6xl mx-auto">
+          <ScrollRevealSection className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-5 tracking-tight">
+              Unser Versprechen an Sie
+            </h2>
+          </ScrollRevealSection>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Heart,
+                title: 'Herzlichkeit',
+                text: 'Wir begegnen Ihnen mit echter menschlicher Wärme und nehmen uns Zeit für Ihre Bedürfnisse.'
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Professionalität',
+                text: 'Als anerkannter Anbieter nach § 45a SGB XI garantieren wir höchste Qualität und Zuverlässigkeit.'
+              },
+              {
+                icon: Zap,
+                title: 'Einfachheit',
+                text: 'Wir übernehmen die Bürokratie mit der Pflegekasse, damit Sie sich auf das Wesentliche konzentrieren können.'
+              }
+            ].map((promise, idx) => {
+              const Icon = promise.icon
+              return (
+                <ScrollRevealSection
+                  key={promise.title}
+                  delay={idx * 150}
+                  className="bg-white rounded-[12px] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6">
+                    <Icon className="w-7 h-7 text-[#144E41]" />
+                  </div>
+                  <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-4">
+                    {promise.title}
+                  </h3>
+                  <p className="text-gray-600 font-body leading-relaxed">
+                    {promise.text}
+                  </p>
+                </ScrollRevealSection>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* Values Section - Premium Cards */}
       <ScrollRevealSection className="py-20 px-4 bg-[#F7F6F3]">
