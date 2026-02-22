@@ -28,7 +28,7 @@ export default function UeberUnsPage() {
               <span className="text-sm font-bold font-body text-[#134E4A]">Das Herz hinter Morgenlicht</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
               Über uns
             </h1>
 
@@ -63,8 +63,8 @@ export default function UeberUnsPage() {
                   </div>
                 </div>
 
-                {/* Floating badge - Scaled on mobile */}
-                <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-white rounded-2xl shadow-lg p-3 md:p-4 border border-gray-100 flex items-center gap-2 md:gap-3 scale-75 md:scale-100 origin-bottom-right">
+                {/* Floating badge - Scaled on mobile (~65%) */}
+                <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-white rounded-2xl shadow-lg p-3 md:p-4 border border-gray-100 flex items-center gap-2 md:gap-3 scale-[0.65] md:scale-100 origin-bottom-right">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-[#FFFBEB] rounded-xl flex items-center justify-center border border-[#FBBF24]/20">
                     <Award className="w-5 h-5 md:w-6 md:h-6 text-[#FBBF24]" />
                   </div>
@@ -136,7 +136,7 @@ export default function UeberUnsPage() {
       </ScrollRevealSection>
 
       {/* Unser Versprechen Section - Design System Polish */}
-      <section className="py-24 px-4 bg-[#F7F6F3] relative">
+      <section className="py-24 px-4 md:px-8 bg-[#F7F6F3] relative">
         <div className="max-w-6xl mx-auto text-center">
           <ScrollRevealSection className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-5 tracking-tight">
@@ -167,7 +167,7 @@ export default function UeberUnsPage() {
                 <ScrollRevealSection
                   key={promise.title}
                   delay={idx * 150}
-                  className="bg-[#FFFFFF] rounded-[12px] p-8 md:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col items-center"
+                  className="bg-[#FFFFFF] rounded-[12px] p-6 md:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col items-center"
                 >
                   <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-[#144E41]" />
