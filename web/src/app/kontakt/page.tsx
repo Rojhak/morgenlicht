@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
 import { Modal } from '../components/ui'
+import { GlassButton } from '../components/glass'
 
 const PHONE = '030 235 930 28 / 0151 560 573 65'
 const PHONE_HREF = '03023593028'
@@ -170,13 +171,13 @@ export default function KontaktPage() {
                 )}
               </div>
 
-              <button
+              <GlassButton
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-[#134E4A] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-sm"
+                isLoading={isSubmitting}
+                className="w-full bg-[#134E4A] hover:bg-[#0F3F3C] text-white font-bold py-4 rounded-xl shadow-sm"
               >
                 {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
-              </button>
+              </GlassButton>
             </form>
           </div>
 
