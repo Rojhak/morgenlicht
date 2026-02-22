@@ -45,7 +45,7 @@ export default function UeberUnsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Photo Side */}
             <div className="relative order-2 lg:order-1">
-              <div className="relative">
+              <div className="relative w-[90%] mx-auto lg:w-full mb-6 lg:mb-0">
                 {/* Decorative background */}
                 <div className="absolute -inset-4 bg-gradient-to-br from-[#134E4A]/5 via-transparent to-[#FBBF24]/5 rounded-[32px] blur-2xl" />
 
@@ -63,14 +63,14 @@ export default function UeberUnsPage() {
                   </div>
                 </div>
 
-                {/* Floating badge */}
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-lg p-4 border border-gray-100 flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#FFFBEB] rounded-xl flex items-center justify-center border border-[#FBBF24]/20">
-                    <Award className="w-6 h-6 text-[#FBBF24]" />
+                {/* Floating badge - Scaled on mobile */}
+                <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-white rounded-2xl shadow-lg p-3 md:p-4 border border-gray-100 flex items-center gap-2 md:gap-3 scale-75 md:scale-100 origin-bottom-right">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-[#FFFBEB] rounded-xl flex items-center justify-center border border-[#FBBF24]/20">
+                    <Award className="w-5 h-5 md:w-6 md:h-6 text-[#FBBF24]" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Zertifiziert</div>
-                    <div className="font-bold font-heading text-[#134E4A]">§ 45a SGB XI</div>
+                    <div className="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-wider">Zertifiziert</div>
+                    <div className="text-sm md:text-base font-bold font-heading text-[#134E4A]">§ 45a SGB XI</div>
                   </div>
                 </div>
               </div>
