@@ -153,13 +153,13 @@ export default function UeberUnsPage() {
               },
               {
                 icon: ShieldCheck,
-                title: 'Würde & Respekt',
-                text: 'Unsere Arbeit ist eine Herzensangelegenheit; Würde und Respekt sind unser Fundament. Als zertifizierter Anbieter garantieren wir Ihnen eine würdevolle Begleitung auf Augenhöhe und absolute Zuverlässigkeit.'
+                title: 'Professionalität & Respekt',
+                text: 'Würde und Respekt sind unser Fundament. Als zertifizierter Anbieter nach § 45a SGB XI garantieren wir Ihnen höchste Professionalität, absolute Zuverlässigkeit und eine Begleitung auf Augenhöhe.'
               },
               {
                 icon: Zap,
-                title: 'Einfachheit',
-                text: 'Wir nehmen Ihnen die Last ab – auch bei der Bürokratie. Wir rechnen direkt mit der Pflegekasse ab, sodass unsere Hilfe für Sie mit Pflegegrad 100% kostenlos ist.'
+                title: 'Kostenlos & Einfach',
+                text: 'Wir übernehmen die gesamte Bürokratie für Sie und rechnen direkt mit der Pflegekasse ab. So bleibt unsere Hilfe für Sie mit Pflegegrad 100% kostenlos.'
               }
             ].map((promise, idx) => {
               const Icon = promise.icon
