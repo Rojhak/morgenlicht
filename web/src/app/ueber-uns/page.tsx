@@ -28,7 +28,7 @@ export default function UeberUnsPage() {
               <span className="text-sm font-bold font-body text-[#134E4A]">Das Herz hinter Morgenlicht</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
               Über uns
             </h1>
 
@@ -114,7 +114,7 @@ export default function UeberUnsPage() {
       </ScrollRevealSection>
 
       {/* Personal Quote Section */}
-      <ScrollRevealSection className="py-20 px-4 bg-[#FAF9F6]">
+      <ScrollRevealSection className="py-24 md:py-32 px-4 bg-[#FAF9F6]">
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="absolute -top-8 -left-8 text-9xl text-[#C0A080]/10 font-serif" aria-hidden="true">
@@ -122,8 +122,8 @@ export default function UeberUnsPage() {
             </div>
             <div className="p-10 md:p-16 text-center relative bg-white rounded-[24px] shadow-sm border border-gray-100">
               <Quote className="w-12 h-12 text-[#FBBF24] mx-auto mb-6" />
-              <blockquote className="mb-8">
-                <p className="text-2xl md:text-3xl text-[#134E4A] font-medium font-body leading-relaxed italic">
+              <blockquote className="mb-0">
+                <p className="text-2xl text-[#134E4A] font-medium font-body leading-relaxed italic">
                   "Jeder Mensch verdient Unterstützung, die Würde und Respekt zeigt – genau das wollen wir jeden Tag bei Morgenlicht leben."
                 </p>
               </blockquote>
@@ -175,7 +175,7 @@ export default function UeberUnsPage() {
                   <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-4">
                     {promise.title}
                   </h3>
-                  <p className="text-gray-600 font-body leading-relaxed">
+                  <p className="text-base text-gray-600 font-body leading-relaxed">
                     {promise.text}
                   </p>
                 </ScrollRevealSection>
