@@ -2,47 +2,10 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { ScrollRevealSection } from '../components/animations/ScrollReveal'
 import { ArrowRight, Phone, Home, ShoppingBag, Footprints, FileText, Handshake, Sparkles, Bath, UtensilsCrossed, Shirt, Wind, Trash2, ShoppingCart, Building2, Pill, Package, Users, Stethoscope, Scissors, Landmark, CalendarCheck, Smartphone, MapPin, Mail, ClipboardList, Clock, Monitor, PhoneCall, Compass, BookOpen, TreePine, Ticket, Coffee, Search } from 'lucide-react'
 
-function ScrollRevealSection({ children, className, id, delay = 0 }: { children: React.ReactNode; className?: string; id?: string; delay?: number }) {
-  const ref = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            el.style.opacity = '1'
-            el.style.transform = 'translateY(0)'
-          }, delay)
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.15 }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [delay])
-
-  return (
-    <section
-      ref={ref}
-      id={id}
-      className={className}
-      style={{
-        opacity: 0,
-        transform: 'translateY(16px)',
-        transition: `opacity 700ms ease-out, transform 700ms ease-out`,
-      }}
-    >
-      {children}
-    </section>
-  )
-}
 
 const services = [
   {

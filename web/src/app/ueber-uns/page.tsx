@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heart, Users, Award, ArrowRight, Sparkles, MapPin, Handshake, Quote } from 'lucide-react'
+import { Heart, Users, Award, ArrowRight, Sparkles, MapPin, Handshake, Quote, Clock, Phone } from 'lucide-react'
+import { ScrollRevealSection } from '../components/animations/ScrollReveal'
 import { GlassCard, GlassButton } from '../components/glass'
 
 
@@ -34,48 +35,47 @@ export default function UeberUnsPage() {
   return (
     <>
       {/* Hero Section - Premium */}
-      <section className="relative min-h-[70vh] flex items-center px-4 overflow-hidden bg-[#FAF9F6]">
-
+      <ScrollRevealSection className="relative min-h-[70vh] flex items-center px-4 overflow-hidden bg-[#FAF9F6]">
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FFD54F]/8 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#26A69A]/8 to-transparent rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FBBF24]/8 to-transparent rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#134E4A]/8 to-transparent rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-6xl mx-auto py-20">
           <div className="text-center">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white rounded-full shadow-md border border-gray-100 mb-8">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#26A69A] to-[#00897B] rounded-full flex items-center justify-center">
-                <Heart className="w-4 h-4 text-white" />
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+              <div className="w-8 h-8 bg-[#FFFBEB] rounded-full flex items-center justify-center border border-[#FBBF24]/20">
+                <Heart className="w-4 h-4 text-[#FBBF24]" />
               </div>
-              <span className="text-sm font-semibold text-[#134E4A]">Das Herz hinter Morgenlicht</span>
+              <span className="text-sm font-bold font-body text-[#134E4A]">Das Herz hinter Morgenlicht</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-[#134E4A] mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
               Über uns
             </h1>
 
-            <p className="text-2xl sm:text-3xl text-[#1F2937] leading-relaxed mb-6 max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl font-body text-gray-600 leading-relaxed mb-6 max-w-3xl mx-auto">
               Unterstützung auf Augenhöhe – <span className="font-semibold text-[#134E4A]">mit Herz, Hand und Verstand.</span>
             </p>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Founder Story - Premium Design */}
-      <section className="py-20 px-4 bg-white">
+      <ScrollRevealSection className="py-20 px-4 bg-white" delay={100}>
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Photo Side */}
             <div className="relative order-2 lg:order-1">
               <div className="relative">
                 {/* Decorative background */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-[#26A69A]/20 via-[#4DB6AC]/10 to-[#FFD54F]/20 rounded-3xl blur-2xl" />
+                <div className="absolute -inset-4 bg-gradient-to-br from-[#134E4A]/5 via-transparent to-[#FBBF24]/5 rounded-[32px] blur-2xl" />
 
                 {/* Main photo frame */}
-                <div className="relative bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB] rounded-3xl p-3 shadow-2xl">
-                  <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+                <div className="relative bg-white rounded-[24px] p-2 shadow-xl border border-gray-100">
+                  <div className="relative rounded-[16px] overflow-hidden aspect-[4/5]">
                     <Image
                       src="/images/asiye-duman.jpeg"
                       alt="Asiye Duman - Gründerin und Geschäftsführerin von Morgenlicht Alltagshilfe Berlin"
@@ -88,15 +88,13 @@ export default function UeberUnsPage() {
                 </div>
 
                 {/* Floating badge */}
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-gray-100">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#26A69A] to-[#00897B] rounded-xl flex items-center justify-center">
-                      <Award className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-[#1F2937]">Zertifiziert</div>
-                      <div className="font-bold text-[#134E4A]">§ 45a SGB XI</div>
-                    </div>
+                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-lg p-4 border border-gray-100 flex items-center gap-3">
+                  <div className="w-12 h-12 bg-[#FFFBEB] rounded-xl flex items-center justify-center border border-[#FBBF24]/20">
+                    <Award className="w-6 h-6 text-[#FBBF24]" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Zertifiziert</div>
+                    <div className="font-bold font-heading text-[#134E4A]">§ 45a SGB XI</div>
                   </div>
                 </div>
               </div>
@@ -104,22 +102,22 @@ export default function UeberUnsPage() {
 
             {/* Content Side */}
             <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFF8E1] rounded-full mb-6">
-                <Sparkles className="w-4 h-4 text-[#FFA726]" />
-                <span className="text-sm font-medium text-[#B8472A]">Gründerin & Geschäftsführerin</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFFBEB] rounded-full mb-6 border border-[#FBBF24]/30">
+                <Sparkles className="w-4 h-4 text-[#FBBF24]" />
+                <span className="text-sm font-bold font-body text-[#134E4A]">Gründerin & Geschäftsführerin</span>
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">
                 Asiye Duman
               </h2>
 
-              <p className="text-lg text-[#134E4A] font-medium mb-8">
+              <p className="text-lg font-body text-[#134E4A] font-semibold mb-8">
                 Morgenlicht Alltagshilfe Berlin
               </p>
 
-              <div className="space-y-6 text-[#1F2937] leading-relaxed">
-                <p className="text-lg">
-                  Hinter der Gründung von Morgenlicht steht meine <strong>langjährige Erfahrung im sozialen Bereich</strong>. Über viele Jahre hinweg habe ich Menschen in unterschiedlichsten Lebenslagen beraten und unterstützt.
+              <div className="space-y-6 text-gray-600 font-body leading-relaxed">
+                <p>
+                  Hinter der Gründung von Morgenlicht steht meine <strong className="text-[#134E4A]">langjährige Erfahrung im sozialen Bereich</strong>. Über viele Jahre hinweg habe ich Menschen in unterschiedlichsten Lebenslagen beraten und unterstützt.
                 </p>
 
                 <p>
@@ -134,170 +132,169 @@ export default function UeberUnsPage() {
                   Oft möchten die Angehörigen helfen, stoßen aber selbst an ihre Grenzen. Genau hier setzen wir an. Mein Ziel war es, eine Unterstützung zu schaffen, die nicht nur eine "Dienstleistung" ist, sondern eine <strong className="text-[#134E4A]">würdevolle Begleitung auf Augenhöhe</strong>.
                 </p>
               </div>
-
-              {/* Stats */}
-              <div className="flex gap-8 mt-10 pt-10 border-t border-gray-200">
-                <div>
-                  <div className="text-3xl font-bold text-[#134E4A]">500+</div>
-                  <div className="text-sm text-[#1F2937]">Zufriedene Kunden</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-[#134E4A]">5★</div>
-                  <div className="text-sm text-[#1F2937]">Durchschnittsbewertung</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Values Section - Premium Cards */}
-      <section className="py-20 px-4 bg-[#FAF9F6]">
+      <ScrollRevealSection className="py-20 px-4 bg-[#F7F6F3]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#134E4A] mb-5">
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-5 tracking-tight">
               Was uns wichtig ist
             </h2>
-            <p className="text-xl text-[#1F2937] max-w-2xl mx-auto">
+            <p className="text-xl font-body text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Erfahrung und viel Herz – das ist unser Versprechen an Sie
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {values.map((value) => {
+            {values.map((value, idx) => {
               const IconComponent = value.icon
               return (
-                <div key={value.title} className="group">
-                  <div className={`h-full rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 ${value.bgLight}`}>
-                    <div className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="w-10 h-10 text-white" />
+                <ScrollRevealSection
+                  key={value.title}
+                  className="group"
+                  delay={idx * 100}
+                >
+                  <div className="h-full bg-white rounded-[12px] p-8 md:p-10 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+                    <div className="w-16 h-16 bg-[#FFFBEB] rounded-2xl flex items-center justify-center mb-8 border border-[#FBBF24]/20 group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-8 h-8 text-[#FBBF24]" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#134E4A] mb-4">{value.title}</h3>
-                    <p className="text-[#1F2937] leading-relaxed text-lg">{value.description}</p>
+                    <h3 className="text-2xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">{value.title}</h3>
+                    <p className="text-gray-600 font-body leading-relaxed text-base">{value.description}</p>
                   </div>
-                </div>
+                </ScrollRevealSection>
               )
             })}
           </div>
 
           {/* Highlight Card */}
-          <GlassCard className="p-10 bg-[#134E4A] border-0 shadow-xl">
-            <div className="relative z-10 text-center">
-              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Handshake className="w-8 h-8 text-white" />
+          <ScrollRevealSection delay={300}>
+            <div className="p-10 bg-[#134E4A] rounded-[24px] shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32" />
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
+                  <Handshake className="w-8 h-8 text-white" />
+                </div>
+                <p className="text-xl md:text-2xl text-white font-body leading-relaxed max-w-3xl mx-auto">
+                  Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="font-semibold">menschlicher Wärme</span>. Wir verstehen sehr gut, dass es nicht einfach ist, jemanden Fremden in die Wohnung zu lassen und Hilfe anzunehmen. Deshalb gibt es bei uns <span className="text-[#FBBF24] font-semibold">keine Standard-Lösungen von der Stange</span>.
+                </p>
               </div>
-              <p className="text-xl md:text-2xl text-white leading-relaxed">
-                Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <strong>menschlicher Wärme</strong>. Wir verstehen sehr gut, dass es nicht einfach ist, jemanden Fremden in die Wohnung zu lassen und Hilfe anzunehmen. Deshalb gibt es bei uns <strong className="text-[#FFD54F]">keine Standard-Lösungen von der Stange</strong>.
-              </p>
             </div>
-          </GlassCard>
+          </ScrollRevealSection>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Berlin Love Section - Premium */}
-      <section className="py-20 px-4 bg-white">
+      <ScrollRevealSection className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-[#E0F2F1] to-[#B2DFDB] rounded-3xl p-10 md:p-16 relative overflow-hidden shadow-xl">
+          <div className="bg-[#134E4A] rounded-[24px] p-10 md:p-16 relative overflow-hidden shadow-xl">
             {/* Decorative pattern */}
-            <div className="absolute inset-0 opacity-10" aria-hidden="true">
-              <div className="absolute top-8 left-8 w-4 h-4 bg-[#0D6E64] rounded-full" />
-              <div className="absolute top-8 right-8 w-4 h-4 bg-[#0D6E64] rounded-full" />
-              <div className="absolute bottom-8 left-8 w-4 h-4 bg-[#0D6E64] rounded-full" />
-              <div className="absolute bottom-8 right-8 w-4 h-4 bg-[#0D6E64] rounded-full" />
-            </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32" />
 
             <div className="relative z-10 text-center">
-              <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg">
-                <MapPin className="w-10 h-10 text-[#0D6E64]" />
+              <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg border border-white/20">
+                <MapPin className="w-10 h-10 text-white" />
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
+              <h3 className="text-3xl md:text-4xl font-bold font-heading text-white mb-6 tracking-tight">
                 Ein Herz für Berlin
               </h3>
 
-              <p className="text-xl text-[#1F2937] max-w-2xl mx-auto leading-relaxed mb-6">
-                Wir lieben die Vielfalt unserer Stadt. Unser Ziel ist es, dass gerade die Menschen, die Berlin zu dem gemacht haben, was es heute ist, <strong className="text-[#134E4A]">hier gut versorgt und glücklich alt werden können</strong>.
+              <p className="text-xl font-body text-white/90 max-w-2xl mx-auto leading-relaxed mb-6">
+                Wir lieben die Vielfalt unserer Stadt. Unser Ziel ist es, dass gerade die Menschen, die Berlin zu dem gemacht haben, was es heute ist, <span className="font-semibold text-white">hier gut versorgt und glücklich alt werden können</span>.
               </p>
 
-              <p className="text-lg text-[#1F2937]">
+              <p className="text-lg font-body text-white/80">
                 Egal ob es um den Haushalt, Begleitung zum Arzt oder gemeinsames Einkaufen geht – wir sind für Sie da.
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Personal Quote Section */}
-      <section className="py-20 px-4 bg-[#FAF9F6]">
+      <ScrollRevealSection className="py-20 px-4 bg-[#FAF9F6]">
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            <div className="absolute -top-8 -left-8 text-9xl text-[#FFD54F]/20 font-serif" aria-hidden="true">
+            <div className="absolute -top-8 -left-8 text-9xl text-[#C0A080]/10 font-serif" aria-hidden="true">
               "
             </div>
-            <GlassCard className="p-10 md:p-16 text-center relative">
-              <Quote className="w-12 h-12 text-[#FFD54F] mx-auto mb-6" />
+            <div className="p-10 md:p-16 text-center relative bg-white rounded-[24px] shadow-sm border border-gray-100">
+              <Quote className="w-12 h-12 text-[#FBBF24] mx-auto mb-6" />
               <blockquote className="mb-8">
-                <p className="text-2xl md:text-3xl text-[#134E4A] font-medium leading-relaxed italic">
+                <p className="text-2xl md:text-3xl text-[#134E4A] font-medium font-body leading-relaxed italic">
                   "Jeder Mensch verdient Unterstützung, die Würde und Respekt zeigt – genau das wollen wir jeden Tag bei Morgenlicht leben."
                 </p>
               </blockquote>
-              <cite className="text-[#134E4A] font-semibold not-italic">
+              <cite className="text-[#134E4A] font-bold font-heading not-italic">
                 — Asiye Duman
               </cite>
-            </GlassCard>
+            </div>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Trust Badge - Premium */}
-      <section className="py-16 px-4 bg-white">
+      <ScrollRevealSection className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-gradient-to-br from-[#FFF8E1] to-[#FFECB3] rounded-3xl p-10 text-center border border-[#FFD54F]/20 shadow-xl">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#B8472A] to-[#FFD54F] rounded-2xl shadow-lg mb-6">
-              <Award className="w-10 h-10 text-white" />
+          <div className="bg-[#FFFBEB] rounded-[24px] p-10 text-center border border-[#FBBF24]/20 shadow-sm">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl shadow-md border border-[#FBBF24]/20 mb-6">
+              <Award className="w-10 h-10 text-[#FBBF24]" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#134E4A] mb-4">
+            <h3 className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">
               Anerkannter Anbieter nach § 45a SGB XI
             </h3>
-            <p className="text-lg text-[#1F2937] max-w-lg mx-auto leading-relaxed">
-              Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <strong className="text-[#134E4A]">100% für Sie kostenlos</strong>.
+            <p className="text-lg font-body text-gray-600 max-w-lg mx-auto leading-relaxed">
+              Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <span className="font-bold text-[#134E4A]">100% für Sie kostenlos</span>.
             </p>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* CTA Section - Premium */}
-      <section className="py-20 px-4 bg-[#134E4A]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+      <section className="py-24 px-4 bg-[#134E4A] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -mr-48 -mt-48" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -ml-48 -mb-48" />
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-6 tracking-tight">
             Lernen Sie uns kennen
           </h2>
-          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-            Wir freuen uns auf ein unverbindliches Gespräch mit Ihnen. Rufen Sie an oder schreiben Sie uns.
+          <p className="text-xl font-body text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Wir freuen uns auf ein unverbindliches Gespräch mit Ihnen. Rufen Sie uns einfach an oder schreiben Sie uns eine Nachricht.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <GlassButton
-              as="link"
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <Link
               href="/kontakt"
-              variant="primary"
-              size="lg"
-              className="!bg-white !text-[#134E4A] hover:!bg-gray-50 shadow-xl font-bold px-10"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#FBBF24] hover:bg-[#FBBF24]/90 text-[#134E4A] text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               Jetzt anfragen
-              <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
-            </GlassButton>
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+
             <a
-              href="tel:06912345678"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold rounded-xl bg-white/10 hover:bg-white/20 text-white border-2 border-white/30 transition-all"
+              href="tel:03023593028"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-white/10 hover:bg-white/20 text-white text-lg font-bold rounded-xl border-2 border-white/20 transition-all"
             >
-              069 12345678
+              <Phone className="w-5 h-5 mr-3 text-[#FBBF24]" />
+              030 235 930 28
             </a>
           </div>
 
-          <p className="text-white/70 text-sm mt-8">
-            Mo–Fr: 8:00 – 18:00 Uhr • Kostenlos aus dem deutschen Festnetz
-          </p>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-white/70">
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#FBBF24]" />
+              <span className="text-sm font-medium">Mo–Fr: 8:00 – 18:00 Uhr</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Heart className="w-4 h-4 text-[#FBBF24]" />
+              <span className="text-sm font-medium">Kostenlose Erstberatung</span>
+            </div>
+          </div>
         </div>
       </section>
     </>
