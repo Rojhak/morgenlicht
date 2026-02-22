@@ -63,12 +63,7 @@ export default function KostenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 px-4 overflow-hidden bg-white">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-gradient-to-b from-[#FFD54F]/20 via-[#FFAB91]/10 to-transparent rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] bg-gradient-to-tr from-[#26A69A]/15 via-[#4DB6AC]/10 to-transparent rounded-full blur-3xl" />
-        </div>
-
+      <section className="relative py-20 md:py-28 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center">
           <span className="inline-block px-4 py-1.5 bg-[#E0F2F1] rounded-full text-sm font-medium text-[#0D6E64] mb-6">
             Transparente Preise
