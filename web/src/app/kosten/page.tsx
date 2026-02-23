@@ -65,7 +65,7 @@ export default function KostenPage() {
       {/* Hero Section */}
       <section className="relative py-28 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block px-5 py-2 bg-white border border-[#144E41]/20 rounded-xl text-sm font-bold font-heading text-[#144E41] mb-6">
+          <span className="inline-block px-4 py-1.5 bg-[#144E41]/5 border border-[#144E41]/10 rounded-full text-sm font-semibold uppercase tracking-wider text-[#144E41] mb-6">
             Transparente Preise
           </span>
           <h1 className="text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tight">

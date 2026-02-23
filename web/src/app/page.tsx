@@ -14,13 +14,13 @@ export default function HomePage() {
               {/* Kicker & Headline Group */}
               <div>
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-10">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm border border-gray-100 h-[28px]">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#144E41]/5 rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
                     <Check className="w-4 h-4 text-[#144E41] stroke-[1.5]" />
-                    <span className="font-inter text-[13px] font-medium text-slate-800 tracking-wide whitespace-nowrap">Anerkannt nach § 45a SGB XI</span>
+                    <span className="font-inter text-sm font-semibold text-[#144E41] uppercase tracking-wider whitespace-nowrap">Anerkannt nach § 45a SGB XI</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm border border-gray-100 h-[28px]">
-                    <Heart className="w-4 h-4 text-[#FBBF24] stroke-[1.5]" />
-                    <span className="font-inter text-[13px] font-medium text-slate-800 tracking-wide whitespace-nowrap">Alltagshilfe für Senioren & Pflegebedürftige</span>
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#144E41]/5 rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
+                    <Heart className="w-4 h-4 text-[#144E41] stroke-[1.5]" />
+                    <span className="font-inter text-sm font-semibold text-[#144E41] uppercase tracking-wider whitespace-nowrap">Alltagshilfe für Senioren & Pflegebedürftige</span>
                   </div>
                 </div>
 
@@ -76,9 +76,9 @@ export default function HomePage() {
                      "Feste Bezugsperson",
                      "Wir übernehmen alle Formalitäten"
                    ].map((text, i) => (
-                     <div key={i} className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-100 shadow-sm">
+                     <div key={i} className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#144E41]/5 rounded-full border border-[#144E41]/10 shadow-sm">
                        <CheckCircle className="w-4 h-4 text-[#134E4A]" />
-                       <span className="font-body font-medium text-[13px] text-[#134E4A]">{text}</span>
+                       <span className="font-body font-semibold text-sm text-[#134E4A] uppercase tracking-wider">{text}</span>
                      </div>
                    ))}
                  </div>
@@ -249,7 +249,7 @@ export default function HomePage() {
       <section className="bg-[#FEF9E7] py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
-            <span className="inline-block bg-[#F0FDF4] text-[#134E4A] px-4 py-1.5 rounded-full text-sm font-body font-semibold tracking-wide uppercase mb-6">
+            <span className="inline-block bg-[#144E41]/5 text-[#144E41] px-4 py-1.5 border border-[#144E41]/10 rounded-full text-sm font-body font-semibold tracking-wider uppercase mb-6">
               WICHTIG ZU WISSEN
             </span>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
