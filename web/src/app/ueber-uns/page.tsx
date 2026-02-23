@@ -21,11 +21,11 @@ export default function UeberUnsPage() {
         <div className="relative max-w-6xl mx-auto py-20">
           <div className="text-center">
             {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-[#144E41]/5 rounded-full shadow-sm border border-[#144E41]/10 mb-8">
+            <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 mb-8">
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center border border-[#144E41]/10">
                 <Heart className="w-4 h-4 text-[#144E41]" />
               </div>
-              <span className="text-sm font-semibold font-body text-[#144E41] uppercase tracking-wider">Das Herz hinter Morgenlicht</span>
+              <span className="text-sm font-semibold font-body text-[#144E41] tracking-wider">Das Herz hinter Morgenlicht</span>
             </div>
 
             <h1 className="text-3xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
@@ -69,7 +69,7 @@ export default function UeberUnsPage() {
                     <Award className="w-5 h-5 md:w-6 md:h-6 text-[#FBBF24]" />
                   </div>
                   <div>
-                    <div className="text-[10px] md:text-xs font-semibold text-[#144E41] bg-[#144E41]/5 px-2 py-0.5 rounded-full border border-[#144E41]/10 uppercase tracking-widest mb-1">Zertifiziert</div>
+                    <div className="text-[10px] md:text-xs font-semibold text-[#144E41] bg-white px-2 py-0.5 rounded-full border border-[#144E41]/10 tracking-widest mb-1">Zertifiziert</div>
                     <div className="text-sm md:text-base font-bold font-heading text-[#134E4A]">§ 45a SGB XI</div>
                   </div>
                 </div>
@@ -78,9 +78,9 @@ export default function UeberUnsPage() {
 
             {/* Content Side */}
             <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#144E41]/5 rounded-full mb-6 border border-[#144E41]/10">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full mb-6 border border-[#144E41]/10">
                 <Sparkles className="w-4 h-4 text-[#144E41]" />
-                <span className="text-sm font-semibold font-body text-[#144E41] uppercase tracking-wider">Gründerin & Geschäftsführerin</span>
+                <span className="text-sm font-semibold font-body text-[#144E41] tracking-wider">Gründerin & Geschäftsführerin</span>
               </div>
 
               <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">

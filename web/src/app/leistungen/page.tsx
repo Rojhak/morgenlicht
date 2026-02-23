@@ -113,7 +113,7 @@ export default function LeistungenPage() {
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 bg-[#144E41]/5 rounded-full text-sm font-semibold font-body text-[#144E41] mb-6 border border-[#144E41]/10 uppercase tracking-wider">
+          <span className="inline-block px-4 py-1.5 bg-white rounded-full text-sm font-semibold font-body text-[#144E41] mb-6 border border-[#144E41]/10 tracking-wider">
             Alle Leistungen im Überblick
           </span>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
