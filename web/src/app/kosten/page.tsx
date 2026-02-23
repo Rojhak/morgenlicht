@@ -101,32 +101,53 @@ export default function KostenPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-12 px-4 bg-[#F7F6F3]">
+      <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pricingCards.map((plan) => (
-              <GlassCard key={plan.id} className={`p-6 bg-gradient-to-br ${plan.color} relative overflow-hidden`}>
-                <div className="text-center mb-6">
-                  <div className={`w-14 h-14 ${plan.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                    <Calculator className={`w-7 h-7 ${plan.iconColor}`} />
+              <div
+                key={plan.id}
+                className="bg-white rounded-xl shadow-sm border border-[#144E41]/5 p-8 md:p-10 flex flex-col transition-all hover:shadow-md"
+              >
+                <div className="text-center mb-8">
+                  <div className="inline-block px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs font-semibold tracking-wider text-[#144E41] mb-4">
+                    {plan.title}
                   </div>
-                  <h3 className="text-xl font-bold font-heading text-[#37474F] mb-1">{plan.title}</h3>
-                  <p className="text-sm font-medium text-[#0D6E64] mb-3">{plan.subtitle}</p>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-4xl font-bold font-heading text-[#0D6E64]">{plan.amount}</span>
+                  <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">{plan.subtitle}</h3>
+                  <div className="flex items-baseline justify-center gap-1 mt-4">
+                    <span className="text-4xl font-bold font-heading text-[#144E41]">{plan.amount}</span>
                     <span className="text-[#455A64]">{plan.period}</span>
                   </div>
                 </div>
-                <p className="text-base font-body text-[#455A64] text-center mb-6 leading-relaxed">{plan.description}</p>
-                <ul className="space-y-4 mb-6">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#0D6E64] flex-shrink-0 mt-0.5" />
-                      <span className="text-base font-body text-[#37474F] leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
+
+                <p className="text-sm font-body text-[#455A64] text-center mb-8 leading-relaxed italic">
+                  {plan.description}
+                </p>
+
+                <ul className="space-y-4 mb-8 flex-grow">
+                  {plan.features.map((feature, index) => {
+                    const isHighlight = plan.id === 'pg1' && feature.includes('völlig kostenlos');
+                    return (
+                      <li key={index} className={isHighlight ? "bg-[#144E41] text-white p-4 rounded-lg shadow-sm" : "flex items-start gap-3"}>
+                        {!isHighlight && <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />}
+                        <span className={`text-base font-body ${isHighlight ? 'text-white font-medium leading-snug' : 'text-[#37474F] leading-relaxed'}`}>
+                          {feature}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
-              </GlassCard>
+
+                <div className="mt-auto pt-6 border-t border-gray-100">
+                  <Link
+                    href="/kontakt"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-[#134E4A] text-white rounded-lg font-bold hover:bg-[#0F3F3C] transition-colors"
+                  >
+                    Details anfragen
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -269,7 +290,7 @@ export default function KostenPage() {
       </section>
 
       {/* CTA - matching Über uns style */}
-      <section className="py-24 px-4 bg-[#FAF9F6] relative overflow-hidden">
+      <section className="py-24 px-4 bg-[#F7F6F3] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
             Fragen zur Kostenübernahme?
