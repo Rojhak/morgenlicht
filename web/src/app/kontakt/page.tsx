@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import { Modal } from '../components/ui'
 
 const PHONE = '030 235 930 28 / 0151 560 573 65'
@@ -173,9 +173,17 @@ export default function KontaktPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
+                aria-busy={isSubmitting}
                 className="w-full bg-[#134E4A] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-sm"
               >
-                {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <Loader2 className="w-5 h-5 animate-spin mr-2" />
+                    Wird gesendet...
+                  </span>
+                ) : (
+                  'Anfrage senden'
+                )}
               </button>
             </form>
           </div>
