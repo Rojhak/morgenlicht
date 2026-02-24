@@ -83,7 +83,7 @@ export default function KostenPage() {
       {/* Hourly Rate Banner */}
       <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
-          <GlassCard className="p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-[#0D6E64]/10 via-transparent to-[#FFD54F]/10">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 md:p-12 relative overflow-hidden">
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-[#0D6E64]" />
@@ -96,7 +96,7 @@ export default function KostenPage() {
                 <strong className="text-[#37474F]"> Es kommen keine weiteren Gebühren auf Sie zu.</strong>
               </p>
             </div>
-          </GlassCard>
+          </div>
         </div>
       </section>
 
