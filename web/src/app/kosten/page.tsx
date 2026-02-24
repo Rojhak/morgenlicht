@@ -80,9 +80,9 @@ export default function KostenPage() {
         </div>
       </section>
 
-      {/* Hourly Rate Banner */}
-      <section className="pt-24 pb-0 px-4 bg-[#F7F6F3]">
-        <div className="max-w-4xl mx-auto">
+      {/* Hourly Rate Banner & Pricing Cards - Grouped as one thematic unit */}
+      <section className="pt-24 pb-24 px-4 bg-[#F7F6F3]">
+        <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 relative overflow-hidden">
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
@@ -98,10 +98,7 @@ export default function KostenPage() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Pricing Cards */}
-      <section className="pt-16 pb-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pricingCards.map((plan) => (
@@ -152,8 +149,8 @@ export default function KostenPage() {
         </div>
       </section>
 
-      {/* Example Calculation - Moved and restyled */}
-      <section className="py-24 px-4 bg-[#F7F6F3]">
+      {/* Example Calculation - Clear section transition */}
+      <section className="pb-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#144E41] text-white rounded-xl p-8 md:p-12 shadow-lg">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center !text-white">
@@ -172,10 +169,10 @@ export default function KostenPage() {
         </div>
       </section>
 
-      {/* Services Banner - Restyled as 3 small info cards */}
-      <section className="py-24 px-4 bg-[#F7F6F3]">
+      {/* Services Banner - Clear section transition */}
+      <section className="pb-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <HeartHandshake className="w-12 h-12 mx-auto mb-4 text-[#144E41]" />
             <h2 className="text-2xl md:text-3xl font-bold text-[#134E4A]">
               Unser Rundum-Sorglos-Service für Sie
