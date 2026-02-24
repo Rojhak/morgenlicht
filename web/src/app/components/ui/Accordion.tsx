@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, useId } from 'react'
 import { ChevronDown } from 'lucide-react'
 
 interface AccordionItemProps {
@@ -11,14 +11,19 @@ interface AccordionItemProps {
 
 export function AccordionItem({ title, children, defaultOpen = false }: AccordionItemProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
+  const id = useId()
+  const contentId = `accordion-content-${id}`
+  const buttonId = `accordion-button-${id}`
 
   return (
     <div className="border-b border-white/20 last:border-b-0">
       <button
+        id={buttonId}
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-4 flex items-center justify-between text-left
                    focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 rounded-lg"
         aria-expanded={isOpen}
+        aria-controls={contentId}
       >
         <span className="font-medium text-[#37474F]">{title}</span>
         <ChevronDown
@@ -29,6 +34,9 @@ export function AccordionItem({ title, children, defaultOpen = false }: Accordio
         />
       </button>
       <div
+        id={contentId}
+        role="region"
+        aria-labelledby={buttonId}
         className={`overflow-hidden transition-all duration-200 ${
           isOpen ? 'max-h-96 pb-4' : 'max-h-0'
         }`}
