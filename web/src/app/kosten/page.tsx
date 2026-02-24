@@ -81,7 +81,7 @@ export default function KostenPage() {
       </section>
 
       {/* Hourly Rate Banner */}
-      <section className="py-24 px-4 bg-[#F7F6F3]">
+      <section className="pt-24 pb-0 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 relative overflow-hidden">
             <div className="text-center">
@@ -101,7 +101,7 @@ export default function KostenPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-24 px-4 bg-[#F7F6F3]">
+      <section className="pt-16 pb-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pricingCards.map((plan) => (
@@ -114,17 +114,17 @@ export default function KostenPage() {
                     {plan.title}
                   </div>
                   <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">{plan.subtitle}</h3>
-                  <div className="flex items-baseline justify-center gap-1 mt-4">
-                    <span className="text-4xl font-bold font-heading text-[#144E41]">{plan.amount}</span>
-                    <span className="text-[#455A64]">{plan.period}</span>
+                  <div className="flex items-baseline justify-center gap-2 mt-4">
+                    <span className="text-4xl font-bold font-heading text-[#144E41] whitespace-nowrap">{plan.amount}</span>
+                    <span className="text-lg font-body text-[#455A64]">{plan.period}</span>
                   </div>
                 </div>
 
-                <p className="text-sm font-body text-[#455A64] text-center mb-8 leading-relaxed italic">
+                <p className="text-sm font-body text-gray-600 text-center mb-8 leading-relaxed">
                   {plan.description}
                 </p>
 
-                <ul className="space-y-4 mb-8 flex-grow">
+                <ul className="space-y-5 mb-8 flex-grow">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
