@@ -83,7 +83,7 @@ export default function KostenPage() {
       {/* Hourly Rate Banner */}
       <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 md:p-12 relative overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 relative overflow-hidden">
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-[#0D6E64]" />
@@ -107,7 +107,7 @@ export default function KostenPage() {
             {pricingCards.map((plan) => (
               <div
                 key={plan.id}
-                className="bg-white rounded-xl shadow-sm border border-[#144E41]/5 p-8 md:p-10 flex flex-col transition-all hover:shadow-md"
+                className="bg-white rounded-xl shadow-sm border border-[#144E41]/5 p-8 flex flex-col transition-all hover:shadow-md"
               >
                 <div className="text-center mb-8">
                   <div className="inline-block px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs font-semibold tracking-wider text-[#144E41] mb-4">
@@ -125,17 +125,14 @@ export default function KostenPage() {
                 </p>
 
                 <ul className="space-y-4 mb-8 flex-grow">
-                  {plan.features.map((feature, index) => {
-                    const isHighlight = plan.id === 'pg1' && feature.includes('völlig kostenlos');
-                    return (
-                      <li key={index} className={isHighlight ? "bg-[#144E41] text-white p-4 rounded-lg shadow-sm" : "flex items-start gap-3"}>
-                        {!isHighlight && <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />}
-                        <span className={`text-base font-body ${isHighlight ? 'text-white font-medium leading-snug' : 'text-[#37474F] leading-relaxed'}`}>
-                          {feature}
-                        </span>
-                      </li>
-                    );
-                  })}
+                  {plan.features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
+                      <span className="text-base font-body text-[#37474F] leading-relaxed">
+                        {feature}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
 
                 <div className="mt-auto pt-6 border-t border-gray-100">
