@@ -237,7 +237,7 @@ export default function LeistungenPage() {
       })}
 
       {/* Bottom CTA */}
-      <section className="py-20 px-4 bg-[#FAF9F6]">
+      <section className="py-24 px-4 bg-[#FAF9F6]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading">
             Fragen zu unseren Leistungen?
