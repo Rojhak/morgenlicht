@@ -113,9 +113,11 @@ export default function KostenPage() {
                   <div className="inline-block px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs font-semibold tracking-wider text-[#144E41] mb-4">
                     {plan.title}
                   </div>
-                  <h3 className="text-xl font-bold font-heading text-[#134E4A] mb-1">{plan.subtitle}</h3>
-                  <div className="flex items-baseline justify-center gap-2 mt-4">
-                    <span className="text-4xl font-bold font-heading text-[#144E41] whitespace-nowrap">{plan.amount}</span>
+                  <div className="h-14 flex items-center justify-center mb-1">
+                    <h3 className="text-xl font-bold font-heading text-[#134E4A] leading-tight">{plan.subtitle}</h3>
+                  </div>
+                  <div className="flex items-baseline justify-center gap-1 mt-4">
+                    <span className={`${plan.amount.length > 8 ? 'text-3xl' : 'text-4xl'} font-bold font-heading text-[#144E41] whitespace-nowrap`}>{plan.amount}</span>
                     <span className="text-lg font-body text-[#455A64]">{plan.period}</span>
                   </div>
                 </div>
@@ -154,7 +156,7 @@ export default function KostenPage() {
       <section className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#144E41] text-white rounded-xl p-8 md:p-12 shadow-lg">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center !text-white">
               Ein Rechenbeispiel für Sie
             </h2>
             <div className="bg-white/10 rounded-xl p-6 mb-6">
@@ -180,7 +182,7 @@ export default function KostenPage() {
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
               <div className="w-12 h-12 bg-[#144E41]/5 rounded-full flex items-center justify-center mb-6">
                 <FileCheck className="w-6 h-6 text-[#144E41]" />
               </div>
@@ -188,7 +190,7 @@ export default function KostenPage() {
               <p className="text-sm font-body text-[#455A64] leading-relaxed">Wir rechnen direkt mit der Pflegekasse ab. Sie müssen kein Geld vorstrecken.</p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
               <div className="w-12 h-12 bg-[#144E41]/5 rounded-full flex items-center justify-center mb-6">
                 <Calculator className="w-6 h-6 text-[#144E41]" />
               </div>
@@ -196,7 +198,7 @@ export default function KostenPage() {
               <p className="text-sm font-body text-[#455A64] leading-relaxed">Wir schauen gemeinsam, wie viel Geld Ihnen zusteht und wie wir das Beste herausholen.</p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
               <div className="w-12 h-12 bg-[#144E41]/5 rounded-full flex items-center justify-center mb-6">
                 <CheckCircle className="w-6 h-6 text-[#144E41]" />
               </div>
