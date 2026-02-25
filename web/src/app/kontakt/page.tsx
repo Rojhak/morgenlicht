@@ -110,14 +110,14 @@ export default function KontaktPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-12 items-stretch">
           {/* Column 1: Form Card */}
-          <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100">
+          <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100 flex flex-col h-full">
             <h2 className="text-2xl font-bold text-[#134E4A] mb-8 font-heading">
               Anfrage senden
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
                   Ihr Name
@@ -177,64 +177,67 @@ export default function KontaktPage() {
             </form>
           </div>
 
-          {/* Column 2: Contact Info & Highlight Box */}
-          <div className="space-y-8">
-            <div className="space-y-8 pl-4">
-              <div className="flex gap-5 items-start">
-                <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0">
-                  <Phone className="w-6 h-6 text-[#144E41]" />
+          {/* Column 2: Symmetric Info Card */}
+          <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100 flex flex-col h-full">
+            <h2 className="text-2xl font-bold text-[#134E4A] mb-8 font-heading">
+              Unsere Erreichbarkeit
+            </h2>
+
+            <div className="space-y-8 flex-grow">
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 bg-[#F0FDF4] rounded-lg flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-[#144E41]" />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">Zentrale</h3>
-                  <a href={`tel:${PHONE_HREF}`} className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block mb-1">
+                  <h3 className="font-heading font-bold text-base text-[#134E4A] mb-0.5">Zentrale</h3>
+                  <a href={`tel:${PHONE_HREF}`} className="text-lg font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block">
                     030 235 930 28
                   </a>
-                  <p className="text-gray-500 text-sm italic">Mo–Fr: 09:00 – 16:00 Uhr</p>
+                  <p className="text-gray-500 text-xs italic">Mo–Fr: 09:00 – 16:00 Uhr</p>
                 </div>
               </div>
 
-              <div className="flex gap-5 items-start">
-                <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0">
-                   <svg viewBox="0 0 24 24" className="w-6 h-6 fill-[#144E41]" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 bg-[#F0FDF4] rounded-lg flex items-center justify-center shrink-0">
+                   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#144E41]" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">WhatsApp & Mobil</h3>
-                  <a href="tel:015156057365" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block mb-1">
+                  <h3 className="font-heading font-bold text-base text-[#134E4A] mb-0.5">WhatsApp & Mobil</h3>
+                  <a href="tel:015156057365" className="text-lg font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block">
                     0151 560 573 65
                   </a>
                 </div>
               </div>
 
-              <div className="flex gap-5 items-start">
-                <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0">
-                  <Mail className="w-6 h-6 text-[#144E41]" />
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 bg-[#F0FDF4] rounded-lg flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5 text-[#144E41]" />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">E-Mail</h3>
-                  <a href="mailto:info@morgenlicht-alltagshilfe.de" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors break-all">
+                  <h3 className="font-heading font-bold text-base text-[#134E4A] mb-0.5">E-Mail</h3>
+                  <a href="mailto:info@morgenlicht-alltagshilfe.de" className="text-lg font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors break-all block">
                     info@morgenlicht-alltagshilfe.de
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Highlight Box */}
-            <div className="bg-[#144E41] rounded-[24px] p-8 md:p-10 shadow-xl relative overflow-hidden group">
-              {/* Decorative background element */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-110" />
-
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
-                  <CheckCircle className="w-6 h-6 text-white" />
+            {/* Dezent Info Block at the bottom */}
+            <div className="mt-12 pt-10 border-t border-gray-100 italic">
+              <div className="flex gap-4 items-start">
+                <div className="w-10 h-10 bg-[#F0FDF4] rounded-lg flex items-center justify-center shrink-0">
+                  <CheckCircle className="w-5 h-5 text-[#144E41]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 font-heading leading-tight">
-                  Anerkannter Anbieter nach <span className="opacity-90 font-medium">§ 45a SGB XI</span>
-                </h3>
-                <p className="text-xl text-white/90 font-body leading-relaxed">
-                  <span className="text-[#FFD54F] font-bold">Kostenlos</span> ab Pflegegrad 1 durch direkte Abrechnung mit Ihrer Pflegekasse.
-                </p>
+                <div className="text-[#144E41]">
+                  <h3 className="font-heading font-bold text-base mb-1">
+                    Anerkannter Anbieter <span className="font-normal opacity-80 text-sm italic">nach § 45a SGB XI</span>
+                  </h3>
+                  <p className="text-sm leading-relaxed">
+                    <span className="font-bold text-[#FFB300]">Kostenlos</span> ab Pflegegrad 1 durch direkte Abrechnung mit Ihrer Pflegekasse.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
