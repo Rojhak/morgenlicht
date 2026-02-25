@@ -224,18 +224,21 @@ export default function KontaktPage() {
               </div>
             </div>
 
-            {/* Dezent Info Block at the bottom */}
-            <div className="mt-12 pt-10 border-t border-gray-100 italic">
+            {/* Dezent Info Block at the bottom - pushed down with mt-auto for symmetry */}
+            <div className="mt-auto pt-10 border-t border-gray-100">
               <div className="flex gap-4 items-start">
                 <div className="w-10 h-10 bg-[#F0FDF4] rounded-lg flex items-center justify-center shrink-0">
                   <CheckCircle className="w-5 h-5 text-[#144E41]" />
                 </div>
                 <div className="text-[#144E41]">
+                  <p className="text-xs text-gray-500 font-medium mb-1 uppercase tracking-wider">
+                    Zertifizierte Qualität
+                  </p>
                   <h3 className="font-heading font-bold text-base mb-1">
-                    Anerkannter Anbieter <span className="font-normal opacity-80 text-sm italic">nach § 45a SGB XI</span>
+                    Anerkannter Anbieter <span className="font-normal text-gray-400 text-sm italic">nach § 45a SGB XI</span>
                   </h3>
                   <p className="text-sm leading-relaxed">
-                    <span className="font-bold text-[#FFB300]">Kostenlos</span> ab Pflegegrad 1 durch direkte Abrechnung mit Ihrer Pflegekasse.
+                    <span className="font-bold">Kostenlos</span> ab Pflegegrad 1 durch direkte Abrechnung mit Ihrer Pflegekasse.
                   </p>
                 </div>
               </div>
