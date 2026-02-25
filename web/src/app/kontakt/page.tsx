@@ -95,33 +95,32 @@ export default function KontaktPage() {
   }
 
   return (
-    <div className="py-16 px-4 relative overflow-hidden bg-[#FAF9F6]">
-      <div className="relative max-w-4xl mx-auto">
+    <div className="min-h-screen bg-[#F7F6F3] py-24 px-4 relative overflow-hidden">
+      <div className="relative max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 bg-[#FFFBEB] rounded-full text-sm font-bold text-[#134E4A] mb-4 border border-[#FBBF24]">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-1.5 bg-white rounded-full text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm">
             Wir sind für Sie da
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-4">
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
             Kontakt aufnehmen
           </h1>
-          <p className="text-lg text-[#1F2937] font-body">
+          <p className="text-lg md:text-xl text-gray-600 font-body max-w-2xl mx-auto">
             Wir melden uns innerhalb von 24 Stunden bei Ihnen
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Contact Form */}
-          <div className="bg-white rounded-[16px] p-8 shadow-sm border border-gray-100">
-            <h2 className="text-xl font-bold text-[#134E4A] mb-6 font-heading">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Column 1: Form Card */}
+          <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100">
+            <h2 className="text-2xl font-bold text-[#134E4A] mb-8 font-heading">
               Anfrage senden
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label htmlFor="name" className="block text-sm font-medium text-[#374151]">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
                   Ihr Name
-                  <span className="text-red-500 ml-1" aria-hidden="true" title="Pflichtfeld">*</span>
                 </label>
                 <input
                   id="name"
@@ -131,23 +130,15 @@ export default function KontaktPage() {
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
                   onBlur={() => handleBlur('name')}
-                  className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#134E4A] focus:ring-1 focus:ring-[#134E4A]'
-                    } bg-white transition-colors outline-none`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'
+                    } bg-white transition-all outline-none`}
                   required
-                  aria-invalid={!!errors.name}
-                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
-                {errors.name && (
-                  <p id="name-error" className="text-sm text-red-500 mt-1" role="alert">
-                    {errors.name}
-                  </p>
-                )}
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="phone" className="block text-sm font-medium text-[#374151]">
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">
                   Telefonnummer
-                  <span className="text-red-500 ml-1" aria-hidden="true" title="Pflichtfeld">*</span>
                 </label>
                 <input
                   id="phone"
@@ -157,94 +148,99 @@ export default function KontaktPage() {
                   value={formData.phone}
                   onChange={(e) => handleChange('phone', e.target.value)}
                   onBlur={() => handleBlur('phone')}
-                  className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#134E4A] focus:ring-1 focus:ring-[#134E4A]'
-                    } bg-white transition-colors outline-none`}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'
+                    } bg-white transition-all outline-none`}
                   required
-                  aria-invalid={!!errors.phone}
-                  aria-describedby={errors.phone ? "phone-error" : undefined}
                 />
-                {errors.phone && (
-                  <p id="phone-error" className="text-sm text-red-500 mt-1" role="alert">
-                    {errors.phone}
-                  </p>
-                )}
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
+                  Wie können wir Ihnen helfen? (Optional)
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  placeholder="Ihre Nachricht an uns..."
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41] bg-white transition-all outline-none resize-none"
+                />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#134E4A] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-colors disabled:opacity-70 disabled:cursor-not-allowed shadow-sm"
+                className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98]"
               >
                 {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
               </button>
             </form>
           </div>
 
-          {/* Contact Info */}
-          {/* Contact Info */}
-          <div className="space-y-4">
-            {/* Zentrale Tile */}
-            <div className="bg-white rounded-[12px] p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center hover:border-[#134E4A]/30 transition-colors">
-              <div className="w-12 h-12 bg-[#134E4A] rounded-full flex items-center justify-center mb-4">
-                <Phone className="w-6 h-6 text-white" />
+          {/* Column 2: Contact Info & Highlight Box */}
+          <div className="space-y-8">
+            <div className="space-y-8 pl-4">
+              <div className="flex gap-5 items-start">
+                <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0">
+                  <Phone className="w-6 h-6 text-[#144E41]" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">Zentrale</h3>
+                  <a href={`tel:${PHONE_HREF}`} className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block mb-1">
+                    030 235 930 28
+                  </a>
+                  <p className="text-gray-500 text-sm italic">Mo–Fr: 09:00 – 16:00 Uhr</p>
+                </div>
               </div>
-              <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">Zentrale</h3>
-              <a href="tel:03023593028" className="font-heading font-bold text-xl text-[#134E4A] hover:text-[#0F3F3C] transition-colors mb-1">
-                030 235 930 28
-              </a>
-              <p className="text-sm text-[#6B7280]">
-                Mo–Fr: 09:00 – 16:00 Uhr
-              </p>
+
+              <div className="flex gap-5 items-start">
+                <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0">
+                   <svg viewBox="0 0 24 24" className="w-6 h-6 fill-[#144E41]" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">WhatsApp & Mobil</h3>
+                  <a href="tel:015156057365" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block mb-1">
+                    0151 560 573 65
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-5 items-start">
+                <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0">
+                  <Mail className="w-6 h-6 text-[#144E41]" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">E-Mail</h3>
+                  <a href="mailto:info@morgenlicht-alltagshilfe.de" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors break-all">
+                    info@morgenlicht-alltagshilfe.de
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Mobil Tile - With WhatsApp Button */}
-            <div className="bg-white rounded-[12px] p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center hover:border-[#134E4A]/30 transition-colors">
-              <div className="w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center mb-4">
-                 <svg viewBox="0 0 24 24" className="w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-              </div>
-              <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">WhatsApp & Mobil</h3>
-              <a href="tel:015156057365" className="font-heading font-bold text-xl text-[#134E4A] hover:text-[#0F3F3C] transition-colors mb-2">
-                0151 560 573 65
-              </a>
-              <a
-                 href="https://wa.me/4915156057365"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition-colors mt-1"
-               >
-                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                 </svg>
-                 Nachricht senden
-               </a>
-            </div>
+            {/* Highlight Box */}
+            <div className="bg-[#144E41] rounded-[24px] p-8 md:p-10 shadow-xl relative overflow-hidden group">
+              {/* Decorative background element */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform duration-500 group-hover:scale-110" />
 
-            {/* Email Tile */}
-            <div className="bg-white rounded-[12px] p-6 shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center hover:border-[#134E4A]/30 transition-colors">
-              <div className="w-12 h-12 bg-[#FFFBEB] rounded-full flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-[#FBBF24]" aria-hidden="true" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4 font-heading leading-tight">
+                  Anerkannter Anbieter nach <span className="opacity-90 font-medium">§ 45a SGB XI</span>
+                </h3>
+                <p className="text-xl text-white/90 font-body leading-relaxed">
+                  <span className="text-[#FFD54F] font-bold">Kostenlos</span> ab Pflegegrad 1 durch direkte Abrechnung mit Ihrer Pflegekasse.
+                </p>
               </div>
-              <h3 className="font-heading font-bold text-lg text-[#1F2937] mb-1">E-Mail</h3>
-              <a href="mailto:info@morgenlicht-alltagshilfe.de" className="text-[#134E4A] hover:underline font-medium break-all">
-                info@morgenlicht-alltagshilfe.de
-              </a>
-            </div>
-
-            {/* Service & Trust (Optional - kept simple or merged) */}
-            <div className="bg-[#F0FDF4] rounded-[12px] p-6 border border-[#134E4A]/10 flex flex-col items-center justify-center text-center">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm">
-                <CheckCircle className="w-6 h-6 text-[#134E4A]" aria-hidden="true" />
-              </div>
-              <h3 className="font-heading font-bold text-[#134E4A] mb-1">Anerkannter Anbieter</h3>
-              <p className="text-sm text-[#1F2937]">
-                Kostenlos ab Pflegegrad 1<br/>nach § 45a SGB XI
-              </p>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Success/Error Modal */}
       <Modal
