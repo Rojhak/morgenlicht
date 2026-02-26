@@ -126,9 +126,9 @@ export default function LeistungenPage() {
       </section>
 
       {/* Navigation - 5 Horizontal Anchor Cards */}
-      <section className="py-3 md:py-5 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-28 z-30 shadow-sm">
+      <section className="py-2 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-16 md:top-28 z-30 shadow-sm">
         <div className="max-w-3xl mx-auto">
-          <div className="flex justify-start md:justify-center items-center gap-2 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-4 md:px-6 py-4 border border-gray-100">
+          <div className="flex justify-start md:justify-center items-center gap-3 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-5 md:px-6 py-3 md:py-4 border border-gray-100">
             {services.map((service, index) => {
               const NavIcon = navIcons[index]
               return (

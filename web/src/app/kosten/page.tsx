@@ -63,12 +63,12 @@ export default function KostenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-28 px-4 bg-white">
+      <section className="relative pt-20 pb-16 md:py-28 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center">
           <span className="inline-block px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-sm font-semibold tracking-wider text-[#144E41] mb-6">
             Transparente Preise
           </span>
-          <h1 className="text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tight">
             Kosten & Pflegekasse
           </h1>
           <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6">
@@ -81,9 +81,9 @@ export default function KostenPage() {
       </section>
 
       {/* Hourly Rate Banner & Pricing Cards - Grouped as one thematic unit */}
-      <section className="pt-24 pb-24 px-4 bg-[#F7F6F3]">
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 relative overflow-hidden">
+      <section className="pt-16 pb-20 md:pt-24 md:pb-24 px-4 bg-[#F7F6F3]">
+        <div className="max-w-4xl mx-auto mb-12 md:mb-16">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 relative overflow-hidden">
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Euro className="w-8 h-8 text-[#0D6E64]" />
