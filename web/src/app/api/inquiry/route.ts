@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { sanitizeInput, sanitizeForSubject, validateInquiry } from '@/lib/security'
 
 const EMAIL_TO = process.env.EMAIL_TO || 'info@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
@@ -12,14 +13,22 @@ interface InquiryData {
 
 export async function POST(request: NextRequest) {
   try {
-    const data: InquiryData = await request.json()
+    const rawData = await request.json()
 
-    // Validate required fields
-    if (!data.name || !data.phone) {
+    // Validate data using security utility
+    const validation = validateInquiry(rawData)
+    if (!validation.isValid) {
       return NextResponse.json(
-        { error: 'Name und Telefonnummer sind erforderlich' },
+        { error: validation.error },
         { status: 400 }
       )
+    }
+
+    // Sanitize input
+    const data: InquiryData = {
+      name: sanitizeInput(rawData.name),
+      phone: sanitizeInput(rawData.phone),
+      pflegegrad: rawData.pflegegrad ? sanitizeInput(rawData.pflegegrad) : undefined,
     }
 
     const apiKey = process.env.RESEND_API_KEY
@@ -42,7 +51,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
-      subject: `Neue Anfrage von ${data.name}`,
+      subject: sanitizeForSubject(`Neue Anfrage von ${rawData.name}`),
       html: `
         <h2>Neue Anfrage über die Website</h2>
         <table style="border-collapse: collapse; width: 100%; max-width: 500px;">
