@@ -95,24 +95,29 @@ export default function KontaktPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F6F3] py-24 px-4 relative overflow-hidden">
-      <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-1.5 bg-white rounded-full text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm">
-            Wir sind für Sie da
+    <div className="min-h-screen bg-[#F7F6F3]">
+      {/* Hero Section */}
+      <div className="pt-16 pb-12 md:pt-24 md:pb-24 px-6 md:px-16 text-center">
+        <div className="flex justify-center mb-6">
+          <div className="bg-white rounded-full px-4 py-1.5 border border-[#144E41]/10 shadow-sm">
+            <span className="text-[#144E41] font-semibold text-sm tracking-wide">
+              Wir sind für Sie da
+            </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
-            Kontakt aufnehmen
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 font-body max-w-2xl mx-auto">
-            Wir melden uns innerhalb von 24 Stunden bei Ihnen
-          </p>
         </div>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#134E4A] mb-4 font-heading">
+          Kontakt aufnehmen
+        </h1>
+        <p className="text-[#134E4A]/80 text-lg max-w-2xl mx-auto font-body">
+          Haben Sie Fragen zu unseren Leistungen oder benötigen Sie Unterstützung?
+          Schreiben Sie uns oder rufen Sie uns direkt an.
+        </p>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-stretch">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
           {/* Column 1: Form Card */}
-          <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100 flex flex-col h-full">
+          <div className="bg-white rounded-xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col h-full">
             <h2 className="text-2xl font-bold text-[#134E4A] mb-8 font-heading">
               Anfrage senden
             </h2>
@@ -178,7 +183,7 @@ export default function KontaktPage() {
           </div>
 
           {/* Column 2: Symmetric Info Card */}
-          <div className="bg-white rounded-xl p-10 shadow-sm border border-gray-100 flex flex-col h-full">
+          <div className="bg-white rounded-xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col h-full">
             <h2 className="text-2xl font-bold text-[#134E4A] mb-8 font-heading">
               Unsere Erreichbarkeit
             </h2>
