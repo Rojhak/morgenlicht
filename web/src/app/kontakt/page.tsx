@@ -183,7 +183,7 @@ export default function KontaktPage() {
               Unsere Erreichbarkeit
             </h2>
 
-            <div className="space-y-12 flex-grow">
+            <div className="flex flex-col gap-10 flex-grow">
               <div className="flex gap-4 items-center">
                 <div className="w-10 h-10 bg-[#F0FDF4] rounded-lg flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-[#144E41]" />
