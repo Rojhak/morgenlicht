@@ -97,10 +97,6 @@ const faqCategories = [
         a: 'So oft Sie möchten – im Rahmen Ihres Budgets. Die meisten Kunden nutzen unsere Leistungen 1-3 Mal pro Woche für einige Stunden.',
       },
       {
-        q: 'Können Sie auch am Wochenende kommen?',
-        a: 'Nach Absprache und je nach Verfügbarkeit können wir auch am Wochenende oder an Feiertagen Unterstützung anbieten. Sprechen Sie uns einfach an.',
-      },
-      {
         q: 'Muss ich bei der Anwesenheit einer Betreuungsperson zu Hause sein?',
         a: 'Nein, Sie müssen nicht immer zu Hause sein. Für bestimmte Aufgaben wie Einkäufe oder Behördengänge kann die Betreuungsperson auch selbstständig tätig werden. Dies besprechen wir individuell mit Ihnen.',
       },
