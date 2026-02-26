@@ -1,16 +1,13 @@
 'use client'
 
-import { ArrowRight, HelpCircle, Clock, Users, FileCheck, Phone } from 'lucide-react'
-import { GlassCard, GlassButton } from '../components/glass'
-import { Accordion, AccordionItem } from '../components/ui'
-
+import { useState } from 'react'
+import { ArrowRight, ChevronDown, Phone, Mail, HelpCircle } from 'lucide-react'
+import Link from 'next/link'
 
 const faqCategories = [
   {
     id: 'allgemein',
     title: 'Allgemeine Fragen',
-    icon: HelpCircle,
-    color: 'from-[#E0F2F1]/60 to-[#B2DFDB]/20',
     questions: [
       {
         q: 'Was ist Morgenlicht Alltagshilfe?',
@@ -33,8 +30,6 @@ const faqCategories = [
   {
     id: 'kosten',
     title: 'Kosten & Pflegekasse',
-    icon: FileCheck,
-    color: 'from-[#FFF8E1]/60 to-[#FFECB3]/20',
     questions: [
       {
         q: 'Was kostet die Alltagsbegleitung bei Morgenlicht?',
@@ -61,11 +56,9 @@ const faqCategories = [
   {
     id: 'antrag',
     title: 'Antrag & Pflegegrad',
-    icon: Users,
-    color: 'from-[#E8F5E9]/50 to-[#C8E6C9]/20',
     questions: [
       {
-        q: 'Wie bekomme ich einen Pflegegrad?',
+        q: 'Wie bekomme ich einen pflegegrad?',
         a: 'Der Antrag wird bei der Pflegekasse gestellt – telefonisch oder schriftlich. Die Kasse beauftragt dann den Medizinischen Dienst (MDK) mit einem Begutachtungstermin in Ihrer Wohnung. Wir unterstützen Sie gerne beim gesamten Prozess.',
       },
       {
@@ -85,8 +78,6 @@ const faqCategories = [
   {
     id: 'leistungen',
     title: 'Unsere Leistungen',
-    icon: Clock,
-    color: 'from-[#FBE9E7]/50 to-[#FFAB91]/20',
     questions: [
       {
         q: 'Welche Leistungen bieten Sie genau an?',
@@ -104,100 +95,126 @@ const faqCategories = [
   },
 ]
 
+function FAQItem({ question, answer }: { question: string, answer: string }) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div
+      className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-6 text-left transition-colors"
+      >
+        <span className="font-bold text-[#144E41] text-lg pr-8">
+          {question}
+        </span>
+        <div className={`shrink-0 w-8 h-8 rounded-full bg-[#F0FDF4] flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180 bg-[#144E41] text-white' : 'text-[#144E41]'}`}>
+          <ChevronDown className="w-5 h-5" />
+        </div>
+      </button>
+
+      <div
+        className={`grid transition-all duration-300 ease-in-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="p-6 pt-0 text-gray-700 leading-relaxed font-body border-t border-gray-50">
+            {answer}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function FragenPage() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28 px-4 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-gradient-to-b from-[#FFD54F]/20 via-[#FFAB91]/10 to-transparent rounded-full blur-3xl animate-float-slow" />
-          <div className="absolute bottom-0 -left-40 w-[400px] h-[400px] bg-gradient-to-tr from-[#26A69A]/15 via-[#4DB6AC]/10 to-transparent rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 bg-[#E0F2F1] rounded-full text-sm font-medium text-[#0D6E64] mb-6">
-            Häufige Fragen
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display text-teal-900 mb-6 tracking-tight">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900">
-              Fragen &
-            </span>
-            <span className="block mt-2 text-teal-800 italic">
-              Antworten
-            </span>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Clean White */}
+      <section className="py-20 md:py-28 px-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-flex items-center px-4 py-1.5 bg-[#F0FDF4] rounded-full text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm">
+            Hilfe & Ratgeber
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#134E4A] mb-6 font-heading tracking-tight">
+            Fragen & Antworten
           </h1>
-          <p className="text-xl md:text-2xl text-teal-700/80 max-w-2xl mx-auto leading-relaxed">
-            Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren Leistungen, Kosten und mehr.
+          <p className="text-[#134E4A]/80 text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed">
+            Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren Leistungen, Kosten und der Abrechnung mit der Pflegekasse.
           </p>
         </div>
       </section>
 
-      {/* FAQ Categories */}
-      <section className="py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-8">
-            {faqCategories.map((category) => {
-              const IconComponent = category.icon
-              return (
-                <div key={category.id}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-10 h-10 ${category.color} rounded-xl flex items-center justify-center`}>
-                      <IconComponent className="w-5 h-5 text-[#0D6E64]}" />
-                    </div>
-                    <h2 className="text-xl md:text-2xl font-bold text-[#37474F]">
-                      {category.title}
-                    </h2>
-                  </div>
-
-                  <GlassCard className="p-6 md:p-8">
-                    <Accordion>
-                      {category.questions.map((faq, index) => (
-                        <AccordionItem
-                          key={index}
-                          title={faq.q}
-                          defaultOpen={index === 0}
-                        >
-                          <p className="text-[#455A64] leading-relaxed">{faq.a}</p>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </GlassCard>
+      {/* FAQ Content Section - Soft Hellbeige */}
+      <section className="bg-[#F7F6F3] py-24 px-6 md:px-16">
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-20">
+            {faqCategories.map((category) => (
+              <div key={category.id}>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#144E41] mb-10 font-heading">
+                  {category.title}
+                </h2>
+                <div className="flex flex-col gap-4">
+                  {category.questions.map((faq, idx) => (
+                    <FAQItem
+                      key={`${category.id}-${idx}`}
+                      question={faq.q}
+                      answer={faq.a}
+                    />
+                  ))}
                 </div>
-              )
-            })}
+              </div>
+            ))}
+          </div>
+
+          {/* Contact Highlight Box */}
+          <div className="mt-24">
+            <div className="bg-[#144E41] rounded-[24px] p-10 md:p-16 text-center shadow-xl relative overflow-hidden group">
+              {/* Subtle pattern or glow effect */}
+              <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-white/5 rounded-full blur-3xl transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-black/5 rounded-full blur-3xl" />
+
+              <div className="relative">
+                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
+                  <HelpCircle className="w-8 h-8 text-white" />
+                </div>
+
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
+                  Noch Fragen offen?
+                </h3>
+
+                <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto font-body leading-relaxed">
+                  Lassen Sie uns unverbindlich über Ihre Situation sprechen.
+                  Wir beraten Sie kostenlos zu Ihren Ansprüchen.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                  <Link
+                    href="/kontakt"
+                    className="w-full sm:w-auto bg-white text-[#144E41] font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2 group shadow-sm active:scale-[0.98]"
+                  >
+                    Jetzt anfragen
+                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+
+                  <div className="flex flex-col items-center sm:items-start text-white">
+                    <span className="text-xs uppercase tracking-widest text-white/50 mb-1 font-bold">Rufen Sie uns an</span>
+                    <a
+                      href="tel:03023593028"
+                      className="text-xl md:text-2xl font-bold hover:text-white/80 transition-colors flex items-center gap-2"
+                    >
+                      <Phone className="w-5 h-5 text-[#B2F5EA]" />
+                      030 235 930 28
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Contact CTA */}
-      <section className="py-16 px-4 section-warm">
-        <div className="max-w-4xl mx-auto">
-          <GlassCard className="p-10 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0D6E64]/10 via-transparent to-[#FFD54F]/10" />
-            <div className="relative text-center">
-              <div className="w-16 h-16 bg-[#E0F2F1] rounded-full flex items-center justify-center mx-auto mb-4">
-                <HelpCircle className="w-8 h-8 text-[#0D6E64]" />
-              </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#37474F] mb-4">
-                Noch Fragen?
-              </h2>
-              <p className="text-lg text-[#455A64] mb-8 max-w-lg mx-auto">
-                Wir beantworten gerne Ihre persönlichen Fragen in einem unverbindlichen Gespräch.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <GlassButton as="link" href="/kontakt" variant="primary" size="lg" className="btn-shadow-orange">
-                  Jetzt anfragen
-                  <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
-                </GlassButton>
-                <GlassButton as="link" href="tel:06912345678" variant="ghost" size="lg">
-                  <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
-                  069 12345678
-                </GlassButton>
-              </div>
-            </div>
-          </GlassCard>
-        </div>
-      </section>
-    </>
+    </div>
   )
 }
