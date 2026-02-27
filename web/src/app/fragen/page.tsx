@@ -168,51 +168,39 @@ export default function FragenPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Contact Highlight Box */}
-          <div className="mt-24">
-            <div className="bg-[#144E41] rounded-[24px] p-10 md:p-16 text-center shadow-xl relative overflow-hidden group">
-              {/* Subtle pattern or glow effect */}
-              <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-white/5 rounded-full blur-3xl transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-black/5 rounded-full blur-3xl" />
+      {/* Bottom CTA - Global Standard Section */}
+      <section className="py-24 px-4 bg-[#FAF9F6]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
+            Lernen Sie uns kennen
+          </h2>
+          <p className="text-xl font-body text-[#6B7280] mb-10 max-w-2xl mx-auto leading-relaxed tracking-tight">
+            Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
+          </p>
 
-              <div className="relative">
-                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 backdrop-blur-sm">
-                  <HelpCircle className="w-8 h-8 text-white" />
-                </div>
-
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 font-heading">
-                  Noch Fragen offen?
-                </h3>
-
-                <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto font-body leading-relaxed">
-                  Lassen Sie uns unverbindlich über Ihre Situation sprechen.
-                  Wir beraten Sie kostenlos zu Ihren Ansprüchen.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <Link
-                    href="/kontakt"
-                    className="w-full sm:w-auto bg-white text-[#144E41] font-bold py-4 px-10 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2 group shadow-sm active:scale-[0.98]"
-                  >
-                    Jetzt anfragen
-                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                  </Link>
-
-                  <div className="flex flex-col items-center sm:items-start text-white">
-                    <span className="text-xs uppercase tracking-widest text-white/50 mb-1 font-bold">Rufen Sie uns an</span>
-                    <a
-                      href="tel:03023593028"
-                      className="text-xl md:text-2xl font-bold hover:text-white/80 transition-colors flex items-center gap-2"
-                    >
-                      <Phone className="w-5 h-5 text-[#B2F5EA]" />
-                      030 235 930 28
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <Link
+              href="/kontakt"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all hover:-translate-y-0.5"
+            >
+              Jetzt anfragen
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+            <a
+              href="tel:03023593028"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
+            >
+              <Phone className="w-5 h-5 mr-3 text-[#144E41]" />
+              030 235 930 28
+            </a>
           </div>
+
+          <p className="font-body text-[#6B7280] text-sm mt-8">
+            Mo–Fr: 09:00 – 16:00 Uhr
+          </p>
         </div>
       </section>
     </div>
