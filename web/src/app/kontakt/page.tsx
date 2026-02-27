@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Phone, Mail, MapPin, CheckCircle, AlertCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import { Modal } from '../components/ui'
 
 const PHONE = '030 235 930 28 / 0151 560 573 65'
@@ -125,7 +125,7 @@ export default function KontaktPage() {
             <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
-                  Ihr Name
+                  Ihr Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="name"
@@ -135,15 +135,22 @@ export default function KontaktPage() {
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
                   onBlur={() => handleBlur('name')}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'name-error' : undefined}
                   className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'
                     } bg-white transition-all outline-none`}
                   required
                 />
+                {errors.name && (
+                  <p id="name-error" role="alert" className="text-sm text-red-500 mt-1">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">
-                  Telefonnummer
+                  Telefonnummer <span className="text-red-500">*</span>
                 </label>
                 <input
                   id="phone"
@@ -153,10 +160,17 @@ export default function KontaktPage() {
                   value={formData.phone}
                   onChange={(e) => handleChange('phone', e.target.value)}
                   onBlur={() => handleBlur('phone')}
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? 'phone-error' : undefined}
                   className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'
                     } bg-white transition-all outline-none`}
                   required
                 />
+                {errors.phone && (
+                  <p id="phone-error" role="alert" className="text-sm text-red-500 mt-1">
+                    {errors.phone}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -175,9 +189,16 @@ export default function KontaktPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98]"
+                className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98] flex items-center justify-center gap-2"
               >
-                {isSubmitting ? 'Wird gesendet...' : 'Anfrage senden'}
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Wird gesendet...</span>
+                  </>
+                ) : (
+                  'Anfrage senden'
+                )}
               </button>
             </form>
           </div>
