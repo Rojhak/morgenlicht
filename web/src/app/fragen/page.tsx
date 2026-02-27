@@ -106,7 +106,7 @@ function FAQItem({ question, answer }: { question: string, answer: string }) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-6 text-left transition-colors"
       >
-        <span className="font-bold text-[#144E41] text-lg pr-8">
+        <span className="font-heading font-bold text-[#144E41] text-lg pr-8">
           {question}
         </span>
         <div className={`shrink-0 w-8 h-8 rounded-full bg-[#F0FDF4] flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180 bg-[#144E41] text-white' : 'text-[#144E41]'}`}>
@@ -138,10 +138,10 @@ export default function FragenPage() {
           <div className="inline-flex items-center px-4 py-1.5 bg-[#F0FDF4] rounded-full text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm">
             Hilfe & Ratgeber
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#134E4A] mb-6 font-heading tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
             Fragen & Antworten
           </h1>
-          <p className="text-[#134E4A]/80 text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed">
+          <p className="text-[#134E4A]/80 text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed tracking-tight">
             Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren Leistungen, Kosten und der Abrechnung mit der Pflegekasse.
           </p>
         </div>
