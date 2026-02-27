@@ -135,8 +135,9 @@ export default function FragenPage() {
       {/* Hero Section - Clean White */}
       <section className="py-20 md:py-28 px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center px-4 py-1.5 bg-[#F0FDF4] rounded-full text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm">
-            Hilfe & Ratgeber
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm h-[34px]">
+            <Sparkles className="w-4 h-4 text-[#144E41]" />
+            <span className="tracking-wider">Hilfe & Ratgeber</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
             Fragen & Antworten
