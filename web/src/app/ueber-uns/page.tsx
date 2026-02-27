@@ -11,7 +11,7 @@ export default function UeberUnsPage() {
   return (
     <>
       {/* Hero Section - Premium */}
-      <ScrollRevealSection className="relative min-h-[70vh] flex items-center px-4 overflow-hidden bg-[#FAF9F6]">
+      <ScrollRevealSection className="relative flex items-center bg-white px-4 overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FBBF24]/8 to-transparent rounded-full blur-3xl" />
@@ -28,7 +28,7 @@ export default function UeberUnsPage() {
               <span className="text-sm font-semibold font-body text-[#144E41] tracking-wider">Das Herz hinter Morgenlicht</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
               Über uns
             </h1>
 
@@ -114,7 +114,7 @@ export default function UeberUnsPage() {
       </ScrollRevealSection>
 
       {/* Personal Quote Section */}
-      <ScrollRevealSection className="py-24 md:py-32 px-4 bg-[#FAF9F6]">
+      <ScrollRevealSection className="py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="absolute -top-8 -left-8 text-9xl text-[#C0A080]/10 font-serif" aria-hidden="true">
@@ -212,7 +212,7 @@ export default function UeberUnsPage() {
       </ScrollRevealSection>
 
       {/* CTA Section - Premium */}
-      <section className="py-24 px-4 bg-[#FAF9F6] relative overflow-hidden">
+      <section className="py-24 px-4 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
             Lernen Sie uns kennen

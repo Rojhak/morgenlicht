@@ -95,9 +95,9 @@ export default function KontaktPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F6F3]">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="pt-16 pb-12 md:pt-24 md:pb-24 px-6 md:px-16 text-center">
+      <div className="pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-16 text-center">
         <div className="flex justify-center mb-6">
           <div className="bg-white rounded-full px-4 py-1.5 border border-[#144E41]/10 shadow-sm">
             <span className="text-[#144E41] font-semibold text-sm tracking-wide">

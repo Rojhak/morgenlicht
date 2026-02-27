@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, ChevronDown, Phone, Mail, HelpCircle } from 'lucide-react'
+import { ArrowRight, ChevronDown, Phone, HelpCircle, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 const faqCategories = [

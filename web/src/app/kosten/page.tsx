@@ -63,12 +63,13 @@ export default function KostenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 md:py-28 px-4 bg-white">
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-sm font-semibold tracking-wider text-[#144E41] mb-6">
-            Transparente Preise
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
+            <Euro className="w-4 h-4 text-[#144E41]" />
+            <span>Transparente Preise</span>
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
             Kosten & Pflegekasse
           </h1>
           <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6">

@@ -6,7 +6,7 @@ import { FAQSection } from '@/app/components/sections/FAQSection'
 export default function HomePage() {
   return (
     <>
-      <section className="relative flex items-center bg-[#FAF9F6] py-24 px-6 overflow-hidden">
+      <section className="relative flex items-center bg-white pt-24 pb-16 md:pt-32 md:pb-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -24,7 +24,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <h1 className="font-heading font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8">
+                <h1 className="font-heading font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8 tracking-tighter">
                   Herzlich & Würdevoll: <br className="hidden lg:block"/>
                   Ihre Alltagshilfe in Berlin
                 </h1>
@@ -188,7 +188,7 @@ export default function HomePage() {
       {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
       {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
       {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
-      <section className="bg-[#F9FBFB] py-20 px-6">
+      <section className="bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -246,7 +246,7 @@ export default function HomePage() {
       </section>
 
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
-      <section className="bg-[#FEF9E7] py-20 px-6">
+      <section className="bg-[#F7F6F3] py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
             <span className="inline-block bg-white text-[#144E41] px-4 py-1.5 border border-[#144E41]/10 rounded-full text-sm font-body font-semibold tracking-wider mb-6">
@@ -276,7 +276,7 @@ export default function HomePage() {
 
 
       {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background */}
-      <section className="bg-[#F2F6F6] py-20 px-6">
+      <section className="bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -320,7 +320,7 @@ export default function HomePage() {
       <FAQSection />
 
       {/* Sektion 6: Kontakt Abschluss - Off-White Background for Clean Cut */}
-      <section className="bg-[#FAF9F6] py-8 px-6">
+      <section className="bg-[#F7F6F3] py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-6">
             <h2 className="font-heading text-xl md:text-2xl font-bold text-[#134E4A] mb-2">
