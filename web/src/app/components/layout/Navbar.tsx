@@ -73,6 +73,9 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
              <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-gray-600 hover:text-[#134E4A] transition-colors"
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -82,7 +85,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 
         {/* Mobile Menu Overlay - Preserving existing mobile menu logic/style but simplifying to match new aesthetic */}
         {mobileMenuOpen && (
-          <div className="fixed inset-0 top-20 z-40 bg-white border-t border-gray-100 md:hidden overflow-y-auto">
+          <div id="mobile-menu" className="fixed inset-0 top-20 z-40 bg-white border-t border-gray-100 md:hidden overflow-y-auto">
             <div className="p-6 space-y-4">
               {navLinks.map((link) => (
                 <Link
