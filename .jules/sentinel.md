@@ -1,0 +1,4 @@
+## 2024-06-05 - HTML/Header Injection in Email Templates
+**Vulnerability:** Next.js API route accepted raw JSON data (`request.json()`) and immediately embedded it into an HTML email template using string interpolation, with no runtime type checking or sanitization.
+**Learning:** Returning `any` from `request.json()` means data bypasses TypeScript types. When this unvalidated data is directly used in email templates (like Resend), it introduces HTML injection / XSS vulnerabilities in the recipient's email client, and potentially Header injection if used in the subject line.
+**Prevention:** Always validate API request bodies at runtime (using libraries or custom validators like `validateInquiry`) and sanitize all inputs before embedding them into HTML bodies (`sanitizeInput`) or subjects (`sanitizeForSubject`).
