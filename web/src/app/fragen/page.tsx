@@ -133,23 +133,23 @@ export default function FragenPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Clean White */}
-      <section className="py-20 md:py-28 px-6 text-center">
+      <section className="pt-10 md:pt-28 pb-16 md:pb-24 px-6 text-center bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm h-[34px]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full text-xs sm:text-sm font-semibold text-[#144E41] mb-6 border border-[#144E41]/10 shadow-sm h-[34px]">
             <Sparkles className="w-4 h-4 text-[#144E41]" />
             <span className="tracking-wider">Hilfe & Ratgeber</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
             Fragen & Antworten
           </h1>
-          <p className="text-[#134E4A]/80 text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed tracking-tight">
+          <p className="text-[#134E4A]/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed tracking-tight px-4">
             Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren Leistungen, Kosten und der Abrechnung mit der Pflegekasse.
           </p>
         </div>
       </section>
 
       {/* FAQ Content Section - Soft Hellbeige */}
-      <section className="bg-[#F7F6F3] py-24 px-6 md:px-16">
+      <section className="bg-[#F7F6F3] py-16 md:py-24 px-6 md:px-16">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-20">
             {faqCategories.map((category) => (
@@ -172,8 +172,8 @@ export default function FragenPage() {
         </div>
       </section>
 
-      {/* Bottom CTA - Global Standard Section */}
-      <section className="py-24 px-4 bg-[#FAF9F6]">
+      {/* Bottom CTA - White (Rhythm Alignment) */}
+      <section className="py-24 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
             Lernen Sie uns kennen

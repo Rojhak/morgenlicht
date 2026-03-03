@@ -127,9 +127,9 @@ export default function LeistungenPage() {
       </section>
 
       {/* Navigation - 5 Horizontal Anchor Cards */}
-      <section className="py-2 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-16 md:top-28 z-30 shadow-sm">
+      <section className="py-2 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-20 md:top-28 z-30 shadow-sm">
         <div className="max-w-3xl mx-auto">
-          <div className="flex justify-start md:justify-center items-center gap-3 md:gap-5 overflow-x-auto scrollbar-hide bg-[#F8FAFB] rounded-2xl px-5 md:px-6 py-3 md:py-4 border border-gray-100">
+          <div className="flex justify-start md:justify-center items-center gap-3 md:gap-5 overflow-x-auto scrollbar-hide bg-white rounded-2xl px-5 md:px-6 py-3 md:py-4 border border-gray-100">
             {services.map((service, index) => {
               const NavIcon = navIcons[index]
               return (
@@ -153,16 +153,16 @@ export default function LeistungenPage() {
 
       {/* Detailed Service Sections - Zig-Zag Layout with Alternating Backgrounds */}
       {services.map((service, sectionIndex) => {
-        const isEven = sectionIndex % 2 === 1
+        const isEven = sectionIndex % 2 === 0
         const SectionIcon = service.icon
-        // Sections 1, 3, 5 (index 0, 2, 4) = white; Sections 2, 4 (index 1, 3) = warm light beige
+        // Sections 1, 3, 5 (index 0, 2, 4) = beige; Sections 2, 4 (index 1, 3) = white
         const sectionBg = isEven ? 'bg-[#F7F6F3]' : 'bg-white'
 
         return (
           <ScrollRevealSection
             key={service.id}
             id={service.id}
-            className={`py-16 md:py-24 px-4 scroll-mt-40 ${sectionBg}`}
+            className={`py-16 md:py-24 px-4 scroll-mt-24 md:scroll-mt-40 ${sectionBg}`}
             delay={sectionIndex * 100}
           >
             <div className="max-w-6xl mx-auto">

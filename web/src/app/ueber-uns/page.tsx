@@ -10,37 +10,37 @@ import { GlassCard, GlassButton } from '../components/glass'
 export default function UeberUnsPage() {
   return (
     <>
-      {/* Hero Section - Premium */}
-      <ScrollRevealSection className="relative flex items-center bg-white px-4 overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24">
+      {/* Hero Section - Premium - White */}
+      <ScrollRevealSection className="relative flex items-center bg-white px-4 overflow-hidden pt-10 md:pt-32 pb-16 md:pb-24">
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FBBF24]/8 to-transparent rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#134E4A]/8 to-transparent rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto py-20">
+        <div className="relative max-w-6xl mx-auto md:py-20">
           <div className="text-center">
             {/* Premium Badge */}
             <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 mb-8">
               <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center border border-[#144E41]/10">
                 <Heart className="w-4 h-4 text-[#144E41]" />
               </div>
-              <span className="text-sm font-semibold font-body text-[#144E41] tracking-wider">Das Herz hinter Morgenlicht</span>
+              <span className="text-xs sm:text-sm font-semibold font-body text-[#144E41] tracking-wider">Das Herz hinter Morgenlicht</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
+            <h1 className="text-3xl sm:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
               Über uns
             </h1>
 
-            <p className="text-xl sm:text-2xl font-body text-gray-600 leading-relaxed mb-6 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl md:text-2xl font-body text-gray-600 leading-relaxed mb-6 max-w-3xl mx-auto px-4">
               Unterstützung auf Augenhöhe – <span className="font-semibold text-[#134E4A]">mit Herz, Hand und Verstand.</span>
             </p>
           </div>
         </div>
       </ScrollRevealSection>
 
-      {/* Founder Story - Premium Design */}
-      <ScrollRevealSection className="py-24 px-4 bg-white" delay={100}>
+      {/* Founder Story - Premium Design - Beige */}
+      <ScrollRevealSection className="py-16 md:py-24 px-4 bg-[#F7F6F3]" delay={100}>
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Photo Side */}
@@ -113,8 +113,8 @@ export default function UeberUnsPage() {
         </div>
       </ScrollRevealSection>
 
-      {/* Personal Quote Section */}
-      <ScrollRevealSection className="py-24 px-4 bg-[#F7F6F3]">
+      {/* Personal Quote - White */}
+      <ScrollRevealSection className="py-24 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="absolute -top-8 -left-8 text-9xl text-[#C0A080]/10 font-serif" aria-hidden="true">
@@ -135,7 +135,7 @@ export default function UeberUnsPage() {
         </div>
       </ScrollRevealSection>
 
-      {/* Unser Versprechen Section - Design System Polish */}
+      {/* Unser Versprechen Section - Beige (Rhythm Alignment) */}
       <section className="py-24 px-4 md:px-8 bg-[#F7F6F3] relative">
         <div className="max-w-6xl mx-auto text-center">
           <ScrollRevealSection className="mb-16">
@@ -167,7 +167,7 @@ export default function UeberUnsPage() {
                 <ScrollRevealSection
                   key={promise.title}
                   delay={idx * 150}
-                  className="bg-[#FFFFFF] rounded-[12px] p-6 md:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col items-center"
+                  className="bg-white rounded-[12px] p-6 md:p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300 flex flex-col items-center"
                 >
                   <div className="w-14 h-14 bg-[#F0FDF4] rounded-2xl flex items-center justify-center mb-6">
                     <Icon className="w-7 h-7 text-[#144E41]" />
@@ -211,8 +211,8 @@ export default function UeberUnsPage() {
         </div>
       </ScrollRevealSection>
 
-      {/* CTA Section - Premium */}
-      <section className="py-24 px-4 bg-white relative overflow-hidden">
+      {/* CTA Section - Premium - Beige */}
+      <section className="py-24 px-4 bg-[#F7F6F3] relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
             Lernen Sie uns kennen

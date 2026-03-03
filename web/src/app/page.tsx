@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home, ShoppingBag, Stethoscope, FileText, Handshake, Star, CheckCircle, Check, Sparkles, MapPin, Footprints } from 'lucide-react'
-import { CareFinder } from '@/app/components/wizard'
 import { FAQSection } from '@/app/components/sections/FAQSection'
+import { ScrollRevealSection } from '@/app/components/animations/ScrollReveal'
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative flex items-center bg-white pt-24 pb-16 md:pt-32 md:pb-24 px-6 overflow-hidden">
+      <ScrollRevealSection className="relative flex items-center bg-white pt-10 md:pt-32 pb-16 md:pb-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -24,7 +24,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <h1 className="font-heading font-bold text-[#134E4A] text-4xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8 tracking-tighter">
+                <h1 className="font-heading font-bold text-[#134E4A] text-3xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8 tracking-tighter">
                   Herzlich & Würdevoll: <br className="hidden lg:block"/>
                   Ihre Alltagshilfe in Berlin
                 </h1>
@@ -52,7 +52,7 @@ export default function HomePage() {
                 </a>
 
                 {/* 0€ Benefit Box - Foundation element */}
-                <div className="mt-8 bg-[#F0FDF4] border border-[#134E4A]/20 rounded-xl px-6 py-3 max-w-xl flex items-center">
+                <div className="mt-8 bg-[#F7F6F3] border border-[#134E4A]/20 rounded-xl px-6 py-3 max-w-xl flex items-center">
                    <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
                      <CheckCircle className="w-5 h-5 text-white" />
                    </div>
@@ -146,15 +146,14 @@ export default function HomePage() {
 
                </div>
 
-               {/* Background Blob (Behind Grid) */}
-               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[#F0FDF4] rounded-full blur-3xl opacity-60 mix-blend-multiply pointer-events-none"></div>
+                <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[#F7F6F3] rounded-full blur-3xl opacity-60 mix-blend-multiply pointer-events-none"></div>
             </div>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
       {/* Empathy Section - Compact & Modern */}
-      <section className="relative w-full py-16 overflow-hidden">
+      <section className="relative w-full py-16 md:py-24 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -186,9 +185,7 @@ export default function HomePage() {
       </section>
 
       {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
-      {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
-      {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
-      <section className="bg-white py-24 px-6">
+      <section className="bg-white py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -246,7 +243,7 @@ export default function HomePage() {
       </section>
 
       {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
-      <section className="bg-[#F7F6F3] py-24 px-6">
+      <ScrollRevealSection className="py-16 md:py-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
             <span className="inline-block bg-white text-[#144E41] px-4 py-1.5 border border-[#144E41]/10 rounded-full text-sm font-body font-semibold tracking-wider mb-6">
@@ -272,11 +269,11 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </ScrollRevealSection>
 
 
       {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background */}
-      <section className="bg-white py-24 px-6">
+      <section className="bg-white py-16 md:py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
@@ -303,7 +300,7 @@ export default function HomePage() {
               }
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-[24px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 relative group">
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-[#F2F6F6] group-hover:scale-110 transition-transform">
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-white group-hover:scale-110 transition-transform">
                   {item.step}
                 </div>
                 <h3 className="font-heading text-xl font-bold text-[#134E4A] mt-6 mb-3">{item.title}</h3>
@@ -316,38 +313,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sektion 5: Häufige Fragen (CTA included in component) */}
+      {/* Sektion 5: Häufige Fragen */}
       <FAQSection />
 
-      {/* Sektion 6: Kontakt Abschluss - Off-White Background for Clean Cut */}
-      <section className="bg-[#F7F6F3] py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-6">
-            <h2 className="font-heading text-xl md:text-2xl font-bold text-[#134E4A] mb-2">
-              Wir sind für Sie da
+      {/* Sektion 6: Kontakt Abschluss - White Background for rhythm after Beige FAQ */}
+      <section className="bg-white py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-white rounded-[24px] p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100/50">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 tracking-tighter">
+              Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
             </h2>
-          </div>
+            <p className="font-body text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Wir nehmen uns Zeit für Ihre Situation und beraten Sie kostenlos zu Ihren Ansprüchen.
+            </p>
 
-          <div className="flex justify-center">
-            {/* Landline Center Tile - Compact Side-by-Side */}
-            <div className="bg-white rounded-[24px] p-6 md:p-8 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 max-w-md w-full flex items-center justify-center gap-6">
-              <div className="w-14 h-14 bg-[#F0FDF4] rounded-full flex items-center justify-center flex-shrink-0">
-                <Phone className="w-6 h-6 text-[#144E4A]" />
-              </div>
-
-              <div className="text-left">
-                <h3 className="font-heading text-lg font-bold text-[#134E4A] mb-0">Rufen Sie uns an</h3>
-                <a
-                  href="tel:03023593028"
-                  className="font-heading font-bold text-2xl md:text-3xl text-[#144E4A] hover:text-[#0F3F3C] transition-colors block whitespace-nowrap no-underline"
-                >
-                  030 235 930 28
-                </a>
-                <p className="text-[#6B7280] text-sm mt-1">
-                  Mo–Fr: 09:00 – 16:00 Uhr
-                </p>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+              <Link
+                href="/kontakt"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all hover:-translate-y-0.5"
+              >
+                Jetzt anfragen
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+              <a
+                href="tel:03023593028"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
+              >
+                <Phone className="w-5 h-5 mr-3 text-[#144E41]" />
+                030 235 930 28
+              </a>
             </div>
+
+            <p className="font-body text-[#6B7280] text-sm mt-8 opacity-70">
+              Mo–Fr: 09:00 – 16:00 Uhr
+            </p>
           </div>
         </div>
       </section>

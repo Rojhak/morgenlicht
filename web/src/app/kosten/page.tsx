@@ -63,19 +63,19 @@ export default function KostenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 px-4 bg-white">
-        <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
+      <section className="relative pt-10 md:pt-32 pb-16 md:pb-24 px-4 bg-white">
+        <div className="relative max-w-4xl mx-auto text-center px-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Euro className="w-4 h-4 text-[#144E41]" />
             <span>Transparente Preise</span>
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
+          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
             Kosten & Pflegekasse
           </h1>
-          <p className="text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6">
             "Transparenz ist uns wichtig. Wir erklären Ihnen alles."
           </p>
-          <p className="text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
             Gute Hilfe muss nicht teuer sein. Wir zeigen Ihnen, wie Sie Ihr Budget bei der Pflegekasse am besten nutzen.
           </p>
         </div>
@@ -150,8 +150,8 @@ export default function KostenPage() {
         </div>
       </section>
 
-      {/* Example Calculation - Clear section transition */}
-      <section className="pb-24 px-4 bg-[#F7F6F3]">
+      {/* Example Calculation - White (Rhythm Alignment) */}
+      <section className="pb-24 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#144E41] text-white rounded-xl p-8 md:p-12 shadow-lg">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center !text-white">
@@ -170,7 +170,7 @@ export default function KostenPage() {
         </div>
       </section>
 
-      {/* Services Banner - Clear section transition */}
+      {/* Services Banner - Beige (Rhythm Alignment) */}
       <section className="pb-24 px-4 bg-[#F7F6F3]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -207,8 +207,8 @@ export default function KostenPage() {
         </div>
       </section>
 
-      {/* CTA - matching Über uns style */}
-      <section className="py-24 px-4 bg-[#F7F6F3] relative overflow-hidden">
+      {/* CTA - White (Rhythm Alignment) */}
+      <section className="py-24 px-4 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
             Fragen zur Kostenübernahme?

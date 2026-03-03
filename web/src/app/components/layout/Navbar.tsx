@@ -21,33 +21,32 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 
     return (
       <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
-        {/* Container: max-w-[1440px] px-16 (64px) - Strict 3-Column Layout */}
-        <div className="max-w-[1440px] mx-auto px-16 h-28 flex items-center justify-between">
+        {/* Container: px-6 (mobile) / px-16 (desktop) - Strict 3-Column Layout */}
+        <div className="max-w-[1440px] mx-auto px-6 md:px-16 h-20 md:h-28 flex items-center justify-between">
 
           {/* 1. Säule (Links): Logo - BOOSTED */}
-          <Link href="/" className="flex-none flex items-center gap-x-4 group">
-            <div className="w-[48px] md:w-[64px] h-[48px] md:h-[64px] flex-shrink-0">
+          <Link href="/" className="flex-none flex items-center gap-x-2 md:gap-x-4 group">
+            <div className="w-[40px] md:w-[64px] h-[40px] md:h-[64px] flex-shrink-0">
               <img src="/trans_logo.svg" alt="Morgenlicht" className="w-full h-full object-contain" />
             </div>
 
             <div className="flex flex-col justify-center items-center">
-              {/* MORGENLICHT: Montserrat Bold, 28px */}
-              <span className="text-[#1F2937] text-[28px] font-bold font-heading leading-none tracking-tight">MORGENLICHT</span>
+              {/* MORGENLICHT: Montserrat Bold, 20px (mobile) / 28px (desktop) */}
+              <span className="text-[#1F2937] text-[20px] md:text-[28px] font-bold font-heading leading-none tracking-tight">MORGENLICHT</span>
               {/* Slogan: Montserrat Medium, Proportional Grow, CENTERED */}
-              <span className="text-[#1F2937] text-[11px] font-medium font-heading tracking-[0.15em] mt-1.5 leading-none uppercase text-center w-full">ALLTAGSHILFE BERLIN</span>
+              <span className="text-[#1F2937] text-[8px] md:text-[11px] font-medium font-heading tracking-[0.12em] md:tracking-[0.15em] mt-1 md:mt-1.5 leading-none uppercase text-center w-full">ALLTAGSHILFE BERLIN</span>
             </div>
           </Link>
 
           {/* 2. Säule (Mitte): Navigation */}
           {/* gap-x-10, Inter Medium 16px (Unchanged) */}
-          <nav className="hidden md:flex items-center gap-x-10">
+          <nav className="hidden lg:flex items-center gap-x-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`text-[#1F2937] hover:text-[#134E4A] font-medium font-body text-base transition-colors antialiased
                   ${link.label === 'Über uns' ? 'whitespace-nowrap' : ''}
-                  ${(link.label === 'Blog' || link.label === 'Fragen') ? 'hidden lg:block' : ''}
                 `}
               >
                 {link.label}
@@ -56,7 +55,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
           </nav>
 
           {/* 3. Säule (Rechts): Button */}
-          <div className="hidden md:flex items-center flex-none">
+          <div className="hidden lg:flex items-center flex-none">
              {/* Text: "Kontakt", Green (#134E4A), px-10 py-3 (Premium), rounded-[12px] */}
             <Link
               href="/kontakt"
