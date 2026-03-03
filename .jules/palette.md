@@ -16,3 +16,7 @@ This journal documents critical UX and accessibility learnings for the project.
 ## 2025-02-13 - Icon-only Mobile Menu Toggles
 **Learning:** The mobile navigation menu toggle button (`Menu` / `X` icons) lacked context for screen readers as it did not have an `aria-label` or state indication.
 **Action:** Ensure all icon-only buttons, especially layout toggles, include dynamic `aria-label` (e.g., "Menü öffnen"/"Menü schließen"), `aria-expanded` reflecting their state, and `aria-controls` linked to the target container's ID.
+
+## 2025-02-28 - Custom Accordion Accessibility
+**Learning:** Custom accordion implementations (`FAQItem`, `FAQSection`) often miss critical ARIA attributes for screen reader support (`aria-expanded`, `aria-controls`), making them difficult to navigate. Generating unique IDs manually can be error-prone or cause hydration issues.
+**Action:** Use `React.useId()` to generate predictable, hydration-safe IDs for the accordion content sections, link them to the toggle button using `aria-controls`, and accurately map the `aria-expanded` state. Ensure toggle icons are `aria-hidden="true"` to reduce screen reader noise.

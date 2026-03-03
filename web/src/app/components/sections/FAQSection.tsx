@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useId } from 'react'
 import { Plus, Minus, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
@@ -25,6 +25,7 @@ const faqs = [
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const baseId = useId()
 
   return (
     <>
@@ -44,21 +45,24 @@ export function FAQSection() {
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full flex items-center justify-between p-6 bg-white text-left group"
+                  className="w-full flex items-center justify-between p-6 bg-white text-left group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#144E41] rounded-[12px]"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-content-${baseId}-${index}`}
                 >
                   <span className="font-heading font-semibold text-lg text-[#144E41] pr-4">
                     {faq.question}
                   </span>
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-[#144E41] text-white rotate-180' : 'bg-gray-50 text-gray-400 group-hover:text-[#144E41]'}`}>
                      {openIndex === index ? (
-                      <Minus className="w-4 h-4" />
+                      <Minus className="w-4 h-4" aria-hidden="true" />
                     ) : (
-                      <Plus className="w-4 h-4" />
+                      <Plus className="w-4 h-4" aria-hidden="true" />
                     )}
                   </div>
                 </button>
 
                 <div
+                  id={`faq-content-${baseId}-${index}`}
                   className={`grid transition-all duration-300 ease-in-out ${
                     openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                   }`}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useId } from 'react'
 import { ArrowRight, ChevronDown, Phone, HelpCircle, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
@@ -97,6 +97,8 @@ const faqCategories = [
 
 function FAQItem({ question, answer }: { question: string, answer: string }) {
   const [isOpen, setIsOpen] = useState(false)
+  const id = useId()
+  const contentId = `faq-content-${id}`
 
   return (
     <div
@@ -104,17 +106,20 @@ function FAQItem({ question, answer }: { question: string, answer: string }) {
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-6 text-left transition-colors"
+        className="w-full flex items-center justify-between p-6 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#144E41] rounded-lg"
+        aria-expanded={isOpen}
+        aria-controls={contentId}
       >
         <span className="font-heading font-bold text-[#144E41] text-lg pr-8">
           {question}
         </span>
         <div className={`shrink-0 w-8 h-8 rounded-full bg-[#F0FDF4] flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180 bg-[#144E41] text-white' : 'text-[#144E41]'}`}>
-          <ChevronDown className="w-5 h-5" />
+          <ChevronDown className="w-5 h-5" aria-hidden="true" />
         </div>
       </button>
 
       <div
+        id={contentId}
         className={`grid transition-all duration-300 ease-in-out ${
           isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         }`}
