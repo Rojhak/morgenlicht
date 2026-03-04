@@ -35,8 +35,17 @@ export default function DatenschutzPage() {
 
             <h2>2. Hosting</h2>
             <p>
-              Wir hosten die Inhalte unserer Website bei Vercel Inc. Anbieter ist die
-              Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
+              Wir hosten die Inhalte unserer Website bei der STRATO AG. Anbieter ist die STRATO AG, Otto-Ostrowski-Straße 7, 10249 Berlin (nachfolgend: „Strato“).
+            </p>
+            <p>
+              Wenn Sie unsere Website besuchen, erfasst Strato verschiedene Logfiles inklusive Ihrer IP-Adressen.
+            </p>
+            <p>
+              Die Verwendung von Strato erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.
+            </p>
+            <h3>Auftragsverarbeitung</h3>
+            <p>
+              Wir haben einen Vertrag über Auftragsverarbeitung (AVV) mit dem oben genannten Anbieter geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.
             </p>
 
             <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
