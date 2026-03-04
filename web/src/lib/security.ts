@@ -15,6 +15,10 @@ export function sanitizeForSubject(input: string): string {
 }
 
 export function validateInquiry(data: { name?: string; phone?: string; pflegegrad?: string }): string | null {
+  if (!data || typeof data !== 'object') {
+    return 'Ungültige Anfragedaten.'
+  }
+
   if (!data.name || typeof data.name !== 'string' || data.name.trim().length < 2 || data.name.trim().length > 100) {
     return 'Name muss zwischen 2 und 100 Zeichen lang sein.'
   }
