@@ -53,9 +53,12 @@ export default function DatenschutzPage() {
               Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:
             </p>
             <p>
-              Morgenlicht Alltagshilfe<br />
-              [Adresse]<br />
-              Telefon: 069 12345678<br />
+              Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)<br />
+              3. Hof, Aufgang links, 1. OG<br />
+              Urbanstr. 71<br />
+              10967 Berlin<br />
+              <br />
+              Telefon: 030 235 930 28<br />
               E-Mail: info@morgenlicht-alltagshilfe.de
             </p>
 
@@ -135,12 +138,10 @@ export default function DatenschutzPage() {
             <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
             <p>
               Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht
-              bei einer Aufsichtsbehörde zu. Die zuständige Aufsichtsbehörde in Hessen ist:
-            </p>
             <p>
-              Der Hessische Beauftragte für Datenschutz und Informationsfreiheit<br />
-              Gustav-Stresemann-Ring 1<br />
-              65189 Wiesbaden
+              Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
+              Alt-Moabit 59-61<br />
+              10555 Berlin
             </p>
           </div>
         </GlassCard>

@@ -13,14 +13,15 @@ export default function ImpressumPage() {
           <div className="prose prose-lg text-[#37474F]">
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
-              Morgenlicht Alltagshilfe<br />
-              [Straße und Hausnummer]<br />
-              [PLZ] Frankfurt am Main
+              Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)<br />
+              3. Hof, Aufgang links, 1. OG<br />
+              Urbanstr. 71<br />
+              10967 Berlin
             </p>
 
             <h2>Kontakt</h2>
             <p>
-              Telefon: 069 12345678<br />
+              Telefon: 030 235 930 28<br />
               E-Mail: info@morgenlicht-alltagshilfe.de
             </p>
 
