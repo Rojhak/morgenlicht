@@ -79,7 +79,9 @@ export default function DatenschutzPage() {
             <p>
               <strong>Welche Daten werden erfasst?</strong><br />
               - Name<br />
-              - Telefonnummer
+              - Telefonnummer<br />
+              - E-Mail-Adresse (falls im Text angegeben)<br />
+              - Ihre Nachricht / Ihr Anliegen
             </p>
             <p>
               <strong>Wie lange werden die Daten gespeichert?</strong><br />
@@ -94,6 +96,17 @@ export default function DatenschutzPage() {
               Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive
               aller daraus hervorgehenden personenbezogenen Daten zum Zwecke der Bearbeitung
               Ihres Anliegens bei uns gespeichert und verarbeitet.
+            </p>
+
+            <h3>Kommunikation über WhatsApp</h3>
+            <p>
+              Für die Kommunikation mit unseren Kunden und Interessenten nutzen wir unter anderem den Instant-Messaging-Dienst WhatsApp. Anbieter ist die WhatsApp Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland.
+            </p>
+            <p>
+              Die Kommunikation erfolgt über eine Ende-zu-Ende-Verschlüsselung (Peer-to-Peer), die verhindert, dass WhatsApp oder Dritte Zugriff auf die Kommunikationsinhalte erlangen. WhatsApp erhält jedoch Zugriff auf Metadaten (z. B. Absender, Empfänger, Zeitpunkt). Wir weisen darauf hin, dass WhatsApp personenbezogene Daten an Server des Mutterkonzerns Meta Platforms Inc. in den USA weiterleiten kann.
+            </p>
+            <p>
+              Die Nutzung von WhatsApp erfolgt auf Grundlage unseres berechtigten Interesses an einer möglichst schnellen und effektiven Kommunikation (Art. 6 Abs. 1 lit. f DSGVO).
             </p>
 
             <h2>5. Analyse-Tools und Werbung</h2>
@@ -137,13 +150,14 @@ export default function DatenschutzPage() {
 
             <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
             <p>
-              Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht
-              bei einer Aufsichtsbehörde zu.
+              Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde zu. Die für uns zuständige Aufsichtsbehörde ist:
             </p>
             <p>
               Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
               Alt-Moabit 59-61<br />
-              10555 Berlin
+              10555 Berlin<br />
+              Telefon: 030 13889-0<br />
+              E-Mail: mailbox@datenschutz-berlin.de
             </p>
           </div>
         </GlassCard>
