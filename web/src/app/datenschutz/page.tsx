@@ -138,6 +138,8 @@ export default function DatenschutzPage() {
             <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
             <p>
               Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht
+              bei einer Aufsichtsbehörde zu.
+            </p>
             <p>
               Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
               Alt-Moabit 59-61<br />
