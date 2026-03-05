@@ -20,3 +20,6 @@ This journal documents critical UX and accessibility learnings for the project.
 ## 2025-02-28 - Custom Accordion Accessibility
 **Learning:** Custom accordion implementations (`FAQItem`, `FAQSection`) often miss critical ARIA attributes for screen reader support (`aria-expanded`, `aria-controls`), making them difficult to navigate. Generating unique IDs manually can be error-prone or cause hydration issues.
 **Action:** Use `React.useId()` to generate predictable, hydration-safe IDs for the accordion content sections, link them to the toggle button using `aria-controls`, and accurately map the `aria-expanded` state. Ensure toggle icons are `aria-hidden="true"` to reduce screen reader noise.
+## 2025-03-05 - Add loading spinner and aria-busy to contact form submit button
+**Learning:** Adding `aria-busy` and a visual indicator (like a spinner and changing button text) to an asynchronous submit button improves both accessibility and user experience, providing clear feedback that an action is processing.
+**Action:** Always verify that interactive elements triggering async actions communicate their state visually and semantically.
