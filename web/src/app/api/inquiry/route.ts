@@ -13,7 +13,15 @@ interface InquiryData {
 
 export async function POST(request: NextRequest) {
   try {
-    const data: InquiryData = await request.json()
+    const rawData = await request.json()
+
+    // 🛡️ Security: Strict Input Filtering (Mass Assignment Prevention)
+    // Only extract expected fields, discarding any injected properties
+    const data: InquiryData = {
+      name: rawData?.name,
+      phone: rawData?.phone,
+      pflegegrad: rawData?.pflegegrad
+    }
 
     // Validate inputs
     const validationError = validateInquiry(data)
