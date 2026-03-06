@@ -1,25 +1,3 @@
-# Palette's Journal
-
-This journal documents critical UX and accessibility learnings for the project.
-
-## Format
-`## YYYY-MM-DD - [Title]`
-`**Learning:** [UX/a11y insight]`
-`**Action:** [How to apply next time]`
-
----
-
-## 2025-02-12 - Form Error Accessibility
-**Learning:** Contact forms lacked explicit error message association (`aria-describedby`) and invalid state (`aria-invalid`), making error feedback difficult for screen reader users.
-**Action:** Ensure all form inputs with validation have corresponding error message IDs linked via `aria-describedby` and reflect validation state with `aria-invalid`. Visually indicate required fields in labels.
-
-## 2025-02-13 - Icon-only Mobile Menu Toggles
-**Learning:** The mobile navigation menu toggle button (`Menu` / `X` icons) lacked context for screen readers as it did not have an `aria-label` or state indication.
-**Action:** Ensure all icon-only buttons, especially layout toggles, include dynamic `aria-label` (e.g., "Menü öffnen"/"Menü schließen"), `aria-expanded` reflecting their state, and `aria-controls` linked to the target container's ID.
-
-## 2025-02-28 - Custom Accordion Accessibility
-**Learning:** Custom accordion implementations (`FAQItem`, `FAQSection`) often miss critical ARIA attributes for screen reader support (`aria-expanded`, `aria-controls`), making them difficult to navigate. Generating unique IDs manually can be error-prone or cause hydration issues.
-**Action:** Use `React.useId()` to generate predictable, hydration-safe IDs for the accordion content sections, link them to the toggle button using `aria-controls`, and accurately map the `aria-expanded` state. Ensure toggle icons are `aria-hidden="true"` to reduce screen reader noise.
-## 2025-03-05 - Add loading spinner and aria-busy to contact form submit button
-**Learning:** Adding `aria-busy` and a visual indicator (like a spinner and changing button text) to an asynchronous submit button improves both accessibility and user experience, providing clear feedback that an action is processing.
-**Action:** Always verify that interactive elements triggering async actions communicate their state visually and semantically.
+## 2024-03-06 - [Form Validation UX]
+**Learning:** The contact form had custom validation logic and visual error states (red borders) but lacked explicit inline error messages and required field indicators (`*`), making it confusing for users to understand what went wrong and which fields were mandatory. It also lacked the necessary ARIA attributes linking the error states to the inputs.
+**Action:** When implementing custom form validation, always pair visual cues (like borders) with explicit inline error text (`role="alert"`), clearly mark required fields, and use `aria-invalid` and `aria-describedby` to ensure screen readers announce the validation state and error message when the input is focused.

@@ -126,7 +126,7 @@ export default function KontaktPage() {
             <form onSubmit={handleSubmit} className="space-y-6 flex-grow">
               <div className="space-y-2">
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700">
-                  Ihr Name
+                  Ihr Name <span className="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   id="name"
@@ -139,12 +139,19 @@ export default function KontaktPage() {
                   className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'
                     } bg-white transition-all outline-none`}
                   required
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'name-error' : undefined}
                 />
+                {errors.name && (
+                  <p id="name-error" className="text-sm text-red-500 font-medium" role="alert">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">
-                  Telefonnummer
+                  Telefonnummer <span className="text-red-500" aria-hidden="true">*</span>
                 </label>
                 <input
                   id="phone"
@@ -157,7 +164,14 @@ export default function KontaktPage() {
                   className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'
                     } bg-white transition-all outline-none`}
                   required
+                  aria-invalid={!!errors.phone}
+                  aria-describedby={errors.phone ? 'phone-error' : undefined}
                 />
+                {errors.phone && (
+                  <p id="phone-error" className="text-sm text-red-500 font-medium" role="alert">
+                    {errors.phone}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
