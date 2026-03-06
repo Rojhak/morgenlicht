@@ -196,8 +196,8 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-8">
             {[
               {
-                title: 'Haushalt & Wohlbefinden',
-                desc: 'Unterstützung beim Reinigen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
+                title: 'Haushaltshilfe & Reinigung',
+                desc: 'Zuverlässige Haushaltshilfe beim Reinigen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
                 icon: Home
               },
               {
@@ -207,7 +207,7 @@ export default function HomePage() {
               },
               {
                 title: 'Begleitung & Mobilität',
-                desc: 'Sicherer Begleitung zu Ärzten, Behörden, zum Friseur oder zu Ihren Terminen im Kiez.',
+                desc: 'Sichere Begleitung zu Ärzten, Behörden, zum Friseur oder zu Ihren Terminen im Kiez.',
                 icon: Footprints
               },
               {
@@ -250,7 +250,7 @@ export default function HomePage() {
               Wichtig zu wissen
             </span>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-              Ihr Recht auf Unterstützung: 131 € monatlich geschenkt.
+              Ihr Recht auf Unterstützung: 131 € monatliches Budget für Ihre Entlastung.
             </h2>
             <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
               Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von <span className="font-bold text-[#144E41]">131 €</span> pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
