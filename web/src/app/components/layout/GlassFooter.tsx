@@ -84,8 +84,7 @@ export function GlassFooter() {
             <ul className="space-y-3 font-body text-sm">
               <li><Link href="/impressum" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Impressum</Link></li>
               <li><Link href="/datenschutz" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Datenschutz</Link></li>
-              <li><Link href="/datenschutz#barrierefreiheit" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Barrierefreiheit</Link></li>
-              <li><button className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1 text-left">Cookie-Einstellungen</button></li>
+              <li><Link href="/barrierefreiheit" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Barrierefreiheit</Link></li>
             </ul>
           </div>
 

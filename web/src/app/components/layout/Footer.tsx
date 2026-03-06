@@ -105,7 +105,6 @@ export function Footer() {
                 { label: 'Impressum', href: '/impressum' },
                 { label: 'Datenschutz', href: '/datenschutz' },
                 { label: 'Barrierefreiheit', href: '/barrierefreiheit' },
-                { label: 'Cookie-Einstellungen', href: '#' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

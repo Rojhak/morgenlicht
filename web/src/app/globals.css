@@ -9,14 +9,14 @@
   /* ========================================
      COLOR PALETTE - Strict Definitions
      ======================================== */
-  
+
   /* Primary Action (Forest Green) */
   --color-primary: #134E4A;
   --color-primary-hover: #0F3F3C;
 
   /* Accent Highlights (Gold Yellow) */
   --color-accent: #FBBF24;
-  
+
   /* Text Colors */
   --color-text-main: #1F2937; /* Dark Anthrazit */
   --color-text-muted: #4B5563;
@@ -41,7 +41,7 @@
   /* Colors */
   --color-primary: var(--color-primary);
   --color-accent: var(--color-accent);
-  
+
   --color-text-main: var(--color-text-main);
   --color-bg-main: var(--bg-main);
   --color-bg-sun: var(--bg-sun);
@@ -49,12 +49,20 @@
   --color-bg-footer: var(--bg-footer);
 
   /* Fonts (mapped from layout.tsx variables) */
-  --font-heading: var(--font-heading); /* Montserrat */
-  --font-body: var(--font-body);       /* Inter */
+  --font-heading: Montserrat, sans-serif;
+  --font-body: Inter, sans-serif;
 
   /* Radii */
   --radius-xl: var(--radius-card);
   --radius-lg: var(--radius-button);
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /* ========================================
@@ -121,7 +129,7 @@ p {
 .card-base:hover {
   border-color: var(--color-primary);
   /* Optional: Add subtle green shadow on hover as requested */
-  box-shadow: 0 4px 6px -1px rgba(19, 78, 74, 0.1); 
+  box-shadow: 0 4px 6px -1px rgba(19, 78, 74, 0.1);
 }
 
 /* Form Inputs */
