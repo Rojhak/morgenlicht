@@ -6,6 +6,10 @@ import Link from 'next/link'
 
 const faqs = [
   {
+    question: 'Was ist Morgenlicht Alltagshilfe?',
+    answer: 'Morgenlicht Alltagshilfe ist ein anerkannter Anbieter nach § 45a SGB XI. Wir bieten Alltagsbegleitung und Entlastung für Senioren und ihre Angehörigen in Berlin – von Haushaltshilfe über Begleitung zu Arztterminen bis hin zu Gesellschaft.'
+  },
+  {
     question: 'Entstehen für mich zusätzliche Kosten?',
     answer: 'Nein. Ab Pflegegrad 1 stehen Ihnen monatlich 131 € Entlastungsbetrag zu. Wir rechnen direkt mit Ihrer Pflegekasse ab, sodass Sie nichts vorstrecken müssen und Ihr Pflegegeld nicht gekürzt wird.'
   },
