@@ -30,7 +30,7 @@ export default function HomePage() {
                 </h1>
 
                 <p className="font-body font-medium text-[#4B5563] text-lg sm:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-                  Selbstbestimmt leben im eigenen Zuhause. Wir entlasten Sie in der Hauswirtschaft und im Alltag – herzlich, zuverlässig und unkompliziert.
+                  Selbstbestimmt leben im eigenen Zuhause. Wir entlasten Sie im Haushalt und im Alltag – herzlich, zuverlässig und unkompliziert.
                 </p>
               </div>
 
