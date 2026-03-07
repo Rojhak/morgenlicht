@@ -72,7 +72,7 @@ export function GlassFooter() {
               <li><Link href="/ueber-uns" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Über uns</Link></li>
               <li><Link href="/leistungen" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Leistungen</Link></li>
               <li><Link href="/kosten" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Kosten & Pflegekasse</Link></li>
-              <li><Link href="/blog" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Blog & Ratgeber</Link></li>
+              {/* <li><Link href="/blog" className="text-white/80 hover:text-[#FBBF24] transition-colors block py-1">Blog & Ratgeber</Link></li> */}
             </ul>
           </div>
 

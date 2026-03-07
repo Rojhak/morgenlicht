@@ -13,7 +13,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
     { href: '/kosten', label: 'Kosten & Pflegekasse' },
     { href: '/ueber-uns', label: 'Über uns' },
     { href: '/fragen', label: 'Fragen' },
-    { href: '/blog', label: 'Blog' },
+    // { href: '/blog', label: 'Blog' },
   ]
 
   export function Navbar() {

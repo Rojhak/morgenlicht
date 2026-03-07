@@ -78,7 +78,7 @@ export function Footer() {
                 { label: 'Über uns', href: '/ueber-uns' },
                 { label: 'Leistungen', href: '/leistungen' },
                 { label: 'Kosten & Pflegekasse', href: '/kosten' },
-                { label: 'Blog & Ratgeber', href: '/blog' },
+                // { label: 'Blog & Ratgeber', href: '/blog' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
