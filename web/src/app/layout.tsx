@@ -21,15 +21,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Morgenlicht Alltagshilfe',
-    template: '%s | Morgenlicht Alltagshilfe',
+    default: 'Morgenlicht Alltagshilfe Berlin | Haushaltshilfe ab Pflegegrad 1',
+    template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
-  description: 'Alltagsbegleitung und Entlastung für Senioren und Angehörige. Anerkannter Anbieter nach § 45a SGB XI.',
-  keywords: ['Alltagshilfe', 'Seniorenbetreuung', 'Entlastungsbetrag', 'Pflegegrad', 'SGB XI', 'Frankfurt'],
+  description: 'Wir entlasten Senioren in Berlin liebevoll im Alltag & Haushalt. 100% Kostenübernahme durch die Pflegekasse ab Pflegegrad 1. Jetzt kostenfrei beraten lassen!',
+  keywords: ['Alltagshilfe', 'Seniorenbetreuung', 'Entlastungsbetrag', 'Pflegegrad', 'SGB XI', 'Berlin'],
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   openGraph: {
-    title: 'Morgenlicht Alltagshilfe',
-    description: 'Würdevolle Unterstützung im Alltag für Senioren und Angehörige',
+    title: 'Morgenlicht Alltagshilfe Berlin | Haushaltshilfe ab Pflegegrad 1',
+    description: 'Wir entlasten Senioren in Berlin liebevoll im Alltag & Haushalt. 100% Kostenübernahme durch die Pflegekasse ab Pflegegrad 1. Jetzt kostenfrei beraten lassen!',
     type: 'website',
     locale: 'de_DE',
   },
