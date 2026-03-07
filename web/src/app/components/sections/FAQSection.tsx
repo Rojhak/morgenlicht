@@ -10,12 +10,8 @@ const faqs = [
     answer: 'Morgenlicht Alltagshilfe ist ein anerkannter Anbieter nach § 45a SGB XI. Wir bieten Alltagsbegleitung und Entlastung für Senioren und ihre Angehörigen in Berlin – von Haushaltshilfe über Begleitung zu Arztterminen bis hin zu Gesellschaft.'
   },
   {
-    question: 'Entstehen für mich zusätzliche Kosten?',
-    answer: 'Nein. Ab Pflegegrad 1 stehen Ihnen monatlich 131 € Entlastungsbetrag zu. Wir rechnen direkt mit Ihrer Pflegekasse ab, sodass Sie nichts vorstrecken müssen und Ihr Pflegegeld nicht gekürzt wird.'
-  },
-  {
-    question: 'Muss ich mich um den Papierkram kümmern?',
-    answer: 'Wir nehmen Ihnen die Last ab. Von der Aktivierung des Budgets bis zur monatlichen Abrechnung erledigen wir alle Formalitäten mit der Pflegekasse für Sie.'
+    question: 'Ich benötige mehr Hilfe. Gibt es neben den 131 € noch andere Budgets?',
+    answer: 'Ja, das ist ein großer Vorteil! Ab Pflegegrad 2 können Sie bis zu 40 % Ihrer ungenutzten Pflegesachleistungen für unsere Unterstützung umwandeln. So steht Ihnen ein deutlich höheres Budget für eine regelmäßige Putzhilfe über den Pflegegrad zur Verfügung. Wir beraten Sie dazu gerne.'
   },
   {
     question: 'Kann ich die Hilfe auch kurzfristig testen oder kündigen?',
