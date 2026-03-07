@@ -249,12 +249,44 @@ export default function HomePage() {
             <span className="inline-block bg-white text-[#144E41] px-4 py-1.5 border border-[#144E41]/10 rounded-full text-sm font-body font-semibold tracking-wider mb-6">
               Wichtig zu wissen
             </span>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-              Ihr Recht auf Unterstützung: 131 € monatliches Budget für Ihre Entlastung.
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-8">
+              Ihr 131 € Pflege-Budget: Für Sie komplett kostenlos.
             </h2>
-            <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
-              Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von <span className="font-bold text-[#144E41]">131 €</span> pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
-            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 text-left mb-12">
+              {[
+                {
+                  q: "Sie haben Pflegegrad 1 bis 5?",
+                  a: "Die Pflegekasse stellt Ihnen jeden Monat ein festes Budget von mindestens 131 € für Ihre Entlastung zur Verfügung."
+                },
+                {
+                  q: "Kostet mich das etwas?",
+                  a: "Nein. Wenn wir im Rahmen dieses Budgets bleiben, zahlen Sie für unsere Hilfe 0 €."
+                },
+                {
+                  q: "Wird mein Pflegegeld gekürzt?",
+                  a: "Nein. Dieses Budget ist eine zusätzliche Leistung. Ihr reguläres Pflegegeld bleibt unangetastet."
+                },
+                {
+                  q: "Muss ich in Vorkasse gehen?",
+                  a: "Nein. Wir erledigen den gesamten Papierkram und rechnen direkt mit Ihrer Pflegekasse ab."
+                }
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#144E41]/10 flex items-center justify-center mt-1">
+                    <Check className="w-4 h-4 text-[#144E41] stroke-[3]" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="font-heading font-bold text-[#134E4A] leading-snug">
+                      {item.q}
+                    </p>
+                    <p className="font-body text-gray-600 text-[15px] leading-relaxed">
+                      {item.a}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
             <div className="flex flex-col items-center gap-3">
               <Link
                 href="/kontakt"
