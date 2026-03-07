@@ -25,8 +25,8 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="font-heading font-bold text-[#134E4A] text-3xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8 tracking-tighter">
-                  Herzlich & Würdevoll: Ihre Alltagshilfe & <br className="hidden lg:block"/>
-                  Haushaltshilfe für Senioren in Berlin
+                  Herzlich & Würdevoll: <br className="hidden lg:block"/>
+                  Ihre Alltagshilfe in Berlin
                 </h1>
 
                 <p className="font-body font-medium text-[#4B5563] text-lg sm:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
@@ -106,7 +106,7 @@ export default function HomePage() {
                         <div className="w-full h-full rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
                           <img
                             src="/images/hero_daily_moments.png"
-                            alt="Haushaltshilfe Berlin: Gemeinsame Momente und Unterstützung im Alltag"
+                            alt="Gemeinsame Momente"
                             className="w-full h-full object-cover"
                           />
                         </div>
@@ -117,7 +117,7 @@ export default function HomePage() {
                          >
                           <img
                             src="/images/asiye-duman.jpeg"
-                            alt="Asiye Duman - Gründerin von Morgenlicht Alltagshilfe Berlin"
+                            alt="Asiye Duman"
                             className="w-10 h-10 rounded-full object-cover border border-gray-100 shadow-sm ml-1"
                           />
                           <div className="flex flex-col text-left">
@@ -158,7 +158,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero_helping_hand.png"
-            alt="Alltagsbegleiter Berlin: Liebevolle Unterstützung für Senioren"
+            alt="Helfende Hände"
             className="w-full h-full object-cover opacity-90"
           />
         </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
 
           <p className="font-body text-base md:text-lg leading-relaxed max-w-xl mx-auto mt-4" style={{ color: '#F3F4F6', opacity: 0.9 }}>
             Wir wissen, wie schwer es sein kann, Hilfe anzunehmen.
-            Morgenlicht ist Ihr persönlicher **Alltagsbegleiter in Berlin**, der hilft, und das offene Ohr, das zuhört –
+            Morgenlicht ist die Hand, die hilft, und das offene Ohr, das zuhört –
             damit wieder Raum für die schönen Momente bleibt.
           </p>
 
@@ -189,7 +189,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
-              Professionelle Hilfe im Haushalt für Senioren & ganzheitliche Unterstützung
+              Ganzheitliche Unterstützung für Ihr Zuhause
             </h2>
           </div>
 
@@ -197,7 +197,7 @@ export default function HomePage() {
             {[
               {
                 title: 'Haushaltshilfe & Reinigung',
-                desc: 'Zuverlässige **Putzhilfe über den Pflegegrad** beim Reinigen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
+                desc: 'Zuverlässige Haushaltshilfe beim Reinigen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
                 icon: Home
               },
               {
@@ -250,7 +250,7 @@ export default function HomePage() {
               Wichtig zu wissen
             </span>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-              Entlastungsbetrag der Pflegekasse nutzen: Ihr Recht auf 131 € monatliches Budget.
+              Ihr Recht auf Unterstützung: 131 € monatliches Budget für Ihre Entlastung.
             </h2>
             <p className="font-body text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-8">
               Haben Sie Pflegegrad 1 oder höher? Dann steht Ihnen der Entlastungsbetrag von <span className="font-bold text-[#144E41]">131 €</span> pro Monat zu. <span className="text-gray-900 font-medium decoration-[#FBBF24]/60 underline decoration-2 underline-offset-4">Dieses Budget verfällt, wenn es nicht genutzt wird.</span> Wir wandeln diesen Anspruch in echte Hilfe um – ohne dass Ihr Pflegegeld gekürzt wird.
