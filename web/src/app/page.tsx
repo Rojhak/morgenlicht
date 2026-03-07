@@ -197,7 +197,7 @@ export default function HomePage() {
             {[
               {
                 title: 'Haushaltshilfe & Reinigung',
-                desc: 'Zuverlässige Haushaltshilfe beim Reinigen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
+                desc: 'Zuverlässige Unterstützung beim Putzen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
                 icon: Home
               },
               {
