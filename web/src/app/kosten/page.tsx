@@ -8,8 +8,8 @@ import Link from 'next/link'
 const pricingCards = [
   {
     id: 'pg1',
-    badge: 'Ab Pflegegrad 1',
-    title: 'Der Entlastungsbetrag',
+    title: 'Ab Pflegegrad 1',
+    subtitle: 'Der Entlastungsbetrag',
     amount: '131 €',
     period: '/Monat',
     description: 'Jeder Mensch mit einem Pflegegrad hat Anspruch auf monatlichen Entlastungsbetrag.',
@@ -25,15 +25,16 @@ const pricingCards = [
   },
   {
     id: 'pg2',
-    badge: 'Weitere Budgets nutzen',
     title: 'Ab Pflegegrad 2',
-    amount: '',
-    period: '',
-    description: 'Sie benötigen mehr Unterstützung im Alltag? Ab Pflegegrad 2 gibt es zusätzliche Fördertöpfe der Pflegekasse.',
+    subtitle: 'Zusätzliche Verhinderungspflege',
+    amount: 'bis zu 10 Std.',
+    period: '/Monat',
+    description: 'Extra-Hilfe ab Pflegegrad 2: Zusätzliche Mittel zur Entlastung Ihrer pflegenden Angehörigen.',
     features: [
-      'Ungenutzte Leistungen umwandeln: Oft können Gelder der Pflegekasse, die Sie bisher nicht abrufen, ganz einfach in zusätzliche Stunden für unsere Haushaltshilfe umgewandelt werden.',
-      'Unterstützung bei Ausfall: Wenn Ihre pflegenden Angehörigen im Urlaub oder krank sind, steht Ihnen ein separater Topf für unsere Hilfe zur Verfügung.',
-      'Wir beraten Sie dazu: Jeder Pflegefall ist individuell. Wir prüfen Ihre persönliche Situation kostenlos und holen das maximale Budget für Sie heraus.',
+      '1.612 € pro Jahr zusätzlich verfügbar',
+      'Für Begleitungen oder Hilfe im Haushalt nutzbar',
+      'Sorgsame Planung für Notfälle reserviert',
+      'Auch stundenweise einsetzbar',
     ],
     color: 'from-[#E0F2F1]/60 to-[#B2DFDB]/20',
     iconBg: 'bg-[#E0F2F1]',
@@ -41,8 +42,8 @@ const pricingCards = [
   },
   {
     id: 'private',
-    badge: 'Privatzahler',
-    title: 'Ohne Pflegegrad',
+    title: 'Privatzahler',
+    subtitle: 'Ohne Pflegegrad',
     amount: '35,50 €',
     period: '/Stunde',
     description: 'Wenn Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen.',
@@ -108,17 +109,15 @@ export default function KostenPage() {
               >
                 <div className="text-center mb-8">
                   <div className="inline-block px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs font-semibold tracking-wider text-[#144E41] mb-4">
-                    {plan.badge}
+                    {plan.title}
                   </div>
                   <div className="h-14 flex items-center justify-center mb-1">
-                    <h3 className="text-xl font-bold font-heading text-[#134E4A] leading-tight">{plan.title}</h3>
+                    <h3 className="text-xl font-bold font-heading text-[#134E4A] leading-tight">{plan.subtitle}</h3>
                   </div>
-                  {plan.amount && (
-                    <div className="flex items-baseline justify-center gap-1 mt-4">
-                      <span className={`${plan.amount.length > 8 ? 'text-3xl' : 'text-4xl'} font-bold font-heading text-[#144E41] whitespace-nowrap`}>{plan.amount}</span>
-                      <span className="text-lg font-body text-[#455A64]">{plan.period}</span>
-                    </div>
-                  )}
+                  <div className="flex items-baseline justify-center gap-1 mt-4">
+                    <span className={`${plan.amount.length > 8 ? 'text-3xl' : 'text-4xl'} font-bold font-heading text-[#144E41] whitespace-nowrap`}>{plan.amount}</span>
+                    <span className="text-lg font-body text-[#455A64]">{plan.period}</span>
+                  </div>
                 </div>
 
                 <p className="text-sm font-body text-gray-600 text-center mb-8 leading-relaxed">
@@ -129,7 +128,7 @@ export default function KostenPage() {
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
-                      <span className="text-[14px] font-body text-[#37474F] leading-tight">
+                      <span className="text-base font-body text-[#37474F] leading-relaxed">
                         {feature}
                       </span>
                     </li>
