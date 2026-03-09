@@ -34,7 +34,7 @@ const pricingCards = [
       'Ungenutztes Pflegebudget in Stunden umwandeln',
       'Extra-Geldtopf bei Urlaub oder Krankheit',
       'Ideal für regelmäßige, wöchentliche Hilfe',
-      'Wir beraten Sie dazu: Jeder Pflegefall ist individuell. Wir prüfen Ihre persönliche Situation und holen das maximale Budget für Sie heraus.',
+      'Jeder Pflegefall ist individuell. Wir prüfen Ihre persönliche Situation und holen das maximale Budget für Sie heraus.',
     ],
     color: 'from-[#E0F2F1]/60 to-[#B2DFDB]/20',
     iconBg: 'bg-[#E0F2F1]',
