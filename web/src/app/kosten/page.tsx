@@ -26,7 +26,7 @@ const pricingCards = [
   {
     id: 'pg2',
     title: 'Ab Pflegegrad 2',
-    subtitle: 'Zusätzliche Verhinderungspflege',
+    subtitle: 'Zusätzliche Fördertöpfe',
     amount: 'bis zu 10 Std.',
     period: '/Monat',
     description: 'Extra-Hilfe ab Pflegegrad 2: Zusätzliche Mittel zur Entlastung Ihrer pflegenden Angehörigen.',
