@@ -31,8 +31,8 @@ const pricingCards = [
     period: '/Monat',
     description: 'Extra-Hilfe ab Pflegegrad 2: Zusätzliche Fördertöpfe der Pflegekasse für mehr Hilfe.',
     features: [
-      'Ungenutztes Pflegebudget in Stunden umwandeln',
-      'Extra-Geldtopf bei Urlaub oder Krankheit',
+      'Ungenutztes Pflegebudget für mehr Haushaltshilfe einsetzen',
+      'Extra-Budget, wenn pflegende Angehörige im Urlaub oder krank sind',
       'Ideal für regelmäßige, wöchentliche Hilfe',
       'Jeder Pflegefall ist individuell. Wir prüfen Ihre persönliche Situation und holen das maximale Budget für Sie heraus.',
     ],
