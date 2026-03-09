@@ -29,7 +29,7 @@ const pricingCards = [
     subtitle: 'Zusätzliche Fördertöpfe',
     amount: 'bis zu 10 Std.',
     period: '/Monat',
-    description: 'Extra-Hilfe ab Pflegegrad 2: Zusätzliche Mittel zur Entlastung Ihrer pflegenden Angehörigen.',
+    description: 'Extra-Hilfe ab Pflegegrad 2: Zusätzliche Fördertöpfe der Pflegekasse für mehr Hilfe.',
     features: [
       'Ungenutztes Pflegebudget in Stunden umwandeln',
       'Extra-Geldtopf bei Urlaub oder Krankheit',
