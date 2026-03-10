@@ -9,6 +9,7 @@ interface InquiryData {
   name: string
   phone: string
   pflegegrad?: string
+  message?: string
 }
 
 export async function POST(request: NextRequest) {
@@ -20,7 +21,8 @@ export async function POST(request: NextRequest) {
     const data: InquiryData = {
       name: rawData?.name,
       phone: rawData?.phone,
-      pflegegrad: rawData?.pflegegrad
+      pflegegrad: rawData?.pflegegrad,
+      message: rawData?.message
     }
 
     // Validate inputs
@@ -35,6 +37,7 @@ export async function POST(request: NextRequest) {
     const sanitizedName = sanitizeInput(data.name)
     const sanitizedPhone = sanitizeInput(data.phone)
     const sanitizedPflegegrad = data.pflegegrad ? sanitizeInput(data.pflegegrad) : undefined
+    const sanitizedMessage = data.message ? sanitizeInput(data.message) : undefined
     const subjectName = sanitizeForSubject(data.name)
 
     const apiKey = process.env.RESEND_API_KEY
@@ -73,6 +76,12 @@ export async function POST(request: NextRequest) {
           <tr>
             <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Pflegegrad:</td>
             <td style="padding: 8px; border-bottom: 1px solid #eee;">${sanitizedPflegegrad}</td>
+          </tr>
+          ` : ''}
+          ${sanitizedMessage ? `
+          <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; vertical-align: top;">Nachricht:</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee; white-space: pre-wrap;">${sanitizedMessage}</td>
           </tr>
           ` : ''}
           <tr>
