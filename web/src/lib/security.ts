@@ -14,7 +14,7 @@ export function sanitizeForSubject(input: string): string {
   return input.replace(/[\r\n]+/g, ' ').trim()
 }
 
-export function validateInquiry(data: { name?: string; phone?: string; pflegegrad?: string }): string | null {
+export function validateInquiry(data: { name?: string; phone?: string; pflegegrad?: string; message?: string }): string | null {
   if (!data || typeof data !== 'object') {
     return 'Ungültige Anfragedaten.'
   }
@@ -37,6 +37,11 @@ export function validateInquiry(data: { name?: string; phone?: string; pflegegra
     if (!validPflegegrad.includes(data.pflegegrad)) {
       return 'Ungültiger Pflegegrad.'
     }
+  }
+
+  // Security: Enforce max length to prevent DoS via large payloads
+  if (data.message && typeof data.message === 'string' && data.message.length > 2000) {
+    return 'Nachricht darf maximal 2000 Zeichen lang sein.'
   }
 
   return null
