@@ -32,7 +32,7 @@ const pricingCards = [
     description: 'Extra-Hilfe ab Pflegegrad 2: Zusätzliche Fördertöpfe der Pflegekasse für mehr Hilfe.',
     features: [
       'Ungenutztes Pflegebudget für mehr Haushaltshilfe einsetzen',
-      'Extra-Budget, wenn pflegende Angehörige im Urlaub oder krank sind',
+      'Extra-Geldtopf für Urlaubsvertretung oder stundenweise Entlastung pflegender Angehöriger',
       'Ideal für regelmäßige, wöchentliche Hilfe',
       'Jeder Pflegefall ist individuell. Wir prüfen Ihre persönliche Situation und holen das maximale Budget für Sie heraus.',
     ],
