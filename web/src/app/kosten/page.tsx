@@ -12,7 +12,7 @@ const pricingCards = [
     subtitle: 'Der Entlastungsbetrag',
     amount: '131 €',
     period: '/Monat',
-    description: 'Jeder Mensch mit einem Pflegegrad hat Anspruch auf monatlichen Entlastungsbetrag.',
+    description: 'Jeder Mensch mit einem Pflegegrad hat Anspruch auf einen monatlichen Entlastungsbetrag.',
     features: [
       'Wir rechnen direkt mit der Kasse ab',
       'In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos',
