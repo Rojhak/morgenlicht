@@ -184,8 +184,11 @@ export default function UeberUnsPage() {
           </div>
 
           <ScrollRevealSection delay={500} className="max-w-3xl mx-auto mt-16">
+            <p className="text-base md:text-lg text-gray-600 font-body leading-relaxed mb-6">
+              Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="text-[#134E4A] font-semibold">menschlicher Wärme</span>. Wir wissen aus Erfahrung: Es kostet oft Überwindung, Hilfe anzunehmen und jemanden Fremden in die eigene Wohnung zu lassen.
+            </p>
             <p className="text-base md:text-lg text-gray-600 font-body leading-relaxed">
-              Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="text-[#134E4A] font-semibold">menschlicher Wärme</span>. Wir verstehen sehr gut, dass es nicht einfach ist, jemanden Fremden in die Wohnung zu lassen und Hilfe anzunehmen. Deshalb gibt es bei uns <span className="text-[#134E4A] font-semibold">keine Standard-Lösungen von der Stange</span>.
+              Genau deshalb setzen wir auf <span className="text-[#134E4A] font-semibold">feste, verlässliche Bezugspersonen</span>. Wir nehmen uns die Zeit, Vertrauen aufzubauen, zuzuhören und uns ganz auf Ihre persönlichen Bedürfnisse einzustellen. Wir sind nicht nur eine Hilfe im Haushalt – wir sind Menschen, die gerne für Sie da sind.
             </p>
           </ScrollRevealSection>
         </div>
