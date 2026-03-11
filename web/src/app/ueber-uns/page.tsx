@@ -231,10 +231,10 @@ export default function UeberUnsPage() {
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <Link
               href="/kontakt"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#134E4A] hover:bg-[#0F3F3C] text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#134E4A] hover:bg-[#0F3F3C] text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 group"
             >
               Jetzt anfragen
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
 
             <a

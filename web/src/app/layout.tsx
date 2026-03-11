@@ -43,8 +43,11 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${montserrat.variable} ${inter.variable}`}>
       <body className="flex flex-col min-h-screen antialiased font-body text-lg text-[#1F2937] leading-relaxed bg-[#FAF9F6]">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-[#144E41] text-white px-4 py-2 rounded-lg z-[100] font-bold outline-none ring-2 ring-offset-2 ring-[#144E41]">
+          Zum Hauptinhalt springen
+        </a>
         <Navbar />
-        <main id="main-content" className="flex-grow">
+        <main id="main-content" className="flex-grow" tabIndex={-1}>
           {children}
         </main>
         <Footer />

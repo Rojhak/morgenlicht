@@ -157,9 +157,9 @@ export default function PflegegradGuide() {
             size="lg"
             onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
             disabled={currentStep === 0}
-            className="order-2 sm:order-1"
+            className="order-2 sm:order-1 group"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" aria-hidden="true" />
+            <ArrowLeft className="w-5 h-5 mr-2 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
             Zurück
           </GlassButton>
 
@@ -168,20 +168,20 @@ export default function PflegegradGuide() {
               variant="primary"
               size="lg"
               onClick={() => setCurrentStep(currentStep + 1)}
-              className="order-1 sm:order-2"
+              className="order-1 sm:order-2 group"
             >
               Weiter
-              <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </GlassButton>
           ) : (
             <GlassButton
               variant="primary"
               size="lg"
-              className="order-1 sm:order-2"
+              className="order-1 sm:order-2 group"
             >
               <Link href="/kontakt" className="flex items-center gap-2">
                 Kostenlose Beratung anfragen
-                <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </Link>
             </GlassButton>
           )}
