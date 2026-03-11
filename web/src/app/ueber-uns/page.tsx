@@ -29,11 +29,15 @@ export default function UeberUnsPage() {
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
-              Über uns
+              Morgenlicht: Ihre Alltagshilfe in Berlin.
             </h1>
 
             <p className="text-base sm:text-xl md:text-2xl font-body text-gray-600 leading-relaxed mb-6 max-w-3xl mx-auto px-4">
               Unterstützung auf Augenhöhe – <span className="font-semibold text-[#134E4A]">mit Herz, Hand und Verstand.</span>
+            </p>
+
+            <p className="text-base sm:text-lg font-body text-gray-500 leading-relaxed max-w-3xl mx-auto px-4">
+              Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. <span className="font-semibold text-[#134E4A]">(Staatlich anerkannt nach § 45a SGB XI)</span>.
             </p>
           </div>
         </div>
