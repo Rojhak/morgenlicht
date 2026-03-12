@@ -117,7 +117,7 @@ export default function LeistungenPage() {
             <Sparkles className="w-4 h-4 text-[#144E41]" />
             <span>Alle Leistungen im Überblick</span>
           </span>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
+          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
             Unsere 5 Leistungen
           </h1>
           <p className="text-lg md:text-xl font-body text-gray-600 leading-relaxed max-w-2xl mx-auto">

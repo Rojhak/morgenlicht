@@ -106,7 +106,7 @@ export default function KontaktPage() {
             </span>
           </div>
         </div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#144E4A] mb-4 font-heading tracking-tighter">
+        <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold text-[#144E4A] mb-4 font-heading tracking-tighter">
           Anfrage & Kontakt
         </h1>
         <p className="text-[#134E4A]/80 text-base sm:text-lg max-w-2xl mx-auto font-body px-4">

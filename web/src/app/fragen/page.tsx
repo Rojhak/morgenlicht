@@ -144,7 +144,7 @@ export default function FragenPage() {
             <Sparkles className="w-4 h-4 text-[#144E41]" />
             <span className="tracking-wider">Hilfe & Ratgeber</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
+          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
             Fragen & Antworten
           </h1>
           <p className="text-[#134E4A]/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto font-body leading-relaxed tracking-tight px-4">
