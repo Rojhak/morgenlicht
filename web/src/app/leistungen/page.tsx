@@ -106,7 +106,7 @@ export default function LeistungenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-10 md:pt-32 pb-16 md:pb-24 px-4 bg-white">
+      <section className="relative pt-24 md:pt-32 pb-8 md:pb-12 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center px-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Sparkles className="w-4 h-4 text-[#144E41]" />
