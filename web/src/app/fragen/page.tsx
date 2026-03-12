@@ -67,7 +67,7 @@ const faqCategories = [
       },
       {
         q: 'Wann lohnt sich ein Antrag?',
-        a: 'Ein Antrag lohnt sich immer bei dauerhaftem Hilfebedarf. Schon bei Pflegegrad 1 erhalten Sie 131 €/Monat Entlastungsbetrag. Höhere Pflegegrade bringen zusätzliches Budget für Verhinderungspflege und weitere Leistungen.',
+        a: 'Ein Antrag lohnt sich immer, wenn Sie dauerhaft Unterstützung im Alltag benötigen. Schon ab Pflegegrad 1 erhalten Sie jeden Monat 131 € Entlastungsbetrag. Ab Pflegegrad 2 stehen Ihnen sogar noch deutlich größere Extra-Budgets zur Verfügung, die Sie für unsere Haushaltshilfe und Betreuung nutzen können.',
       },
       {
         q: 'Wie lange dauert es, bis ich den Bescheid bekomme?',
