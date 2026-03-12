@@ -187,7 +187,7 @@ export function CareFinder() {
           <details className="bg-gray-50 rounded-xl border border-gray-200">
             <summary
               onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none"
+              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A]"
             >
               <span className="font-semibold text-[#1F2937]">Details zum Budget</span>
               <span className={`text-[#4B5563] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
