@@ -58,7 +58,7 @@ const faqCategories = [
     title: 'Antrag & Pflegegrad',
     questions: [
       {
-        q: 'Wie bekomme ich einen pflegegrad?',
+        q: 'Wie bekomme ich einen Pflegegrad?',
         a: 'Der Antrag wird bei der Pflegekasse gestellt – telefonisch oder schriftlich. Die Kasse beauftragt dann den Medizinischen Dienst (MDK) mit einem Begutachtungstermin in Ihrer Wohnung. Wir unterstützen Sie gerne beim gesamten Prozess.',
       },
       {
