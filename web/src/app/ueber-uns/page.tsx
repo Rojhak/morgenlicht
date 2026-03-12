@@ -10,38 +10,21 @@ import { GlassCard, GlassButton } from '../components/glass'
 export default function UeberUnsPage() {
   return (
     <>
-      {/* Hero Section - Premium - White */}
-      <ScrollRevealSection className="relative flex items-center bg-white px-4 overflow-hidden pt-10 md:pt-32 pb-16 md:pb-24">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FBBF24]/8 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#134E4A]/8 to-transparent rounded-full blur-3xl" />
+      {/* Hero Section - Matching other pages */}
+      <section className="relative pt-10 md:pt-32 pb-16 md:pb-24 px-4 bg-white">
+        <div className="relative max-w-4xl mx-auto text-center px-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
+            <Heart className="w-4 h-4 text-[#144E41]" />
+            <span>Das Herz hinter Morgenlicht</span>
+          </span>
+          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
+            Morgenlicht: Ihre Alltagshilfe in Berlin.
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
+            Unterstützung auf Augenhöhe – mit Herz, Hand und Verstand. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. <span className="font-semibold text-[#134E4A]">(anerkannte Anbieter nach § 45a SGB XI)</span>.
+          </p>
         </div>
-
-        <div className="relative max-w-6xl mx-auto md:py-20">
-          <div className="text-center">
-            {/* Premium Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 mb-8">
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center border border-[#144E41]/10">
-                <Heart className="w-4 h-4 text-[#144E41]" />
-              </div>
-              <span className="text-xs sm:text-sm font-semibold font-body text-[#144E41] tracking-wider">Das Herz hinter Morgenlicht</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
-              Morgenlicht: Ihre Alltagshilfe in Berlin.
-            </h1>
-
-            <p className="text-base sm:text-xl md:text-2xl font-body text-gray-600 leading-relaxed mb-6 max-w-3xl mx-auto px-4">
-              Unterstützung auf Augenhöhe – <span className="font-semibold text-[#134E4A]">mit Herz, Hand und Verstand.</span>
-            </p>
-
-            <p className="text-base sm:text-lg font-body text-gray-500 leading-relaxed max-w-3xl mx-auto px-4">
-              Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. <span className="font-semibold text-[#134E4A]">(anerkannte Anbieter nach § 45a SGB XI)</span>.
-            </p>
-          </div>
-        </div>
-      </ScrollRevealSection>
+      </section>
 
       {/* Founder Story - Premium Design - Beige */}
       <ScrollRevealSection className="py-16 md:py-24 px-4 bg-[#F7F6F3]" delay={100}>
