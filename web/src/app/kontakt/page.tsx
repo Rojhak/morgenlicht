@@ -97,23 +97,21 @@ export default function KontaktPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="pt-10 md:pt-32 pb-16 md:pb-24 px-6 md:px-16 text-center">
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full border border-[#144E41]/10 shadow-sm h-[34px]">
+      <section className="pt-10 md:pt-32 pb-16 md:pb-24 px-4 text-center bg-white">
+        <div className="relative max-w-4xl mx-auto text-center px-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Phone className="w-4 h-4 text-[#144E41]" />
-            <span className="text-[#144E41] font-semibold text-xs sm:text-sm tracking-wider">
-              Wir sind für Sie da
-            </span>
-          </div>
-        </div>
-        <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold text-[#144E4A] mb-4 font-heading tracking-tighter">
+            <span>Wir sind für Sie da</span>
+          </span>
+          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
           Anfrage & Kontakt
         </h1>
-        <p className="text-[#134E4A]/80 text-base sm:text-lg max-w-2xl mx-auto font-body px-4">
-          Haben Sie Fragen zu unseren Leistungen oder benötigen Sie Unterstützung?
-          Schreiben Sie uns oder rufen Sie uns direkt an.
-        </p>
-      </div>
+          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
+            Haben Sie Fragen zu unseren Leistungen oder benötigen Sie Unterstützung?
+            Schreiben Sie uns oder rufen Sie uns direkt an.
+          </p>
+        </div>
+      </section>
 
       <div className="max-w-6xl mx-auto px-6 md:px-16 pb-16 md:pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">

@@ -106,21 +106,16 @@ export default function LeistungenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative px-4 overflow-hidden bg-white pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#FBBF24]/8 to-transparent rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#134E4A]/8 to-transparent rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative max-w-4xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full text-sm font-semibold font-body text-[#144E41] mb-6 border border-[#144E41]/10 tracking-wider shadow-sm h-[34px]">
+      <section className="relative pt-10 md:pt-32 pb-16 md:pb-24 px-4 bg-white">
+        <div className="relative max-w-4xl mx-auto text-center px-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Sparkles className="w-4 h-4 text-[#144E41]" />
             <span>Alle Leistungen im Überblick</span>
           </span>
-          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 leading-tight tracking-tighter">
+          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
             Unsere 5 Leistungen
           </h1>
-          <p className="text-lg md:text-xl font-body text-gray-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
             Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> über Ihre Pflegekasse.
           </p>
         </div>
