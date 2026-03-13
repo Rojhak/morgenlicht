@@ -7,7 +7,7 @@ import Link from 'next/link'
 const faqs = [
   {
     question: 'Was ist Morgenlicht Alltagshilfe?',
-    answer: 'Morgenlicht Alltagshilfe ist ein anerkannter Anbieter nach § 45a SGB XI. Wir bieten Alltagsbegleitung und Entlastung für Senioren und ihre Angehörigen in Berlin – von Haushaltshilfe über Begleitung zu Arztterminen bis hin zu Gesellschaft.'
+    answer: 'Morgenlicht ist Ihre herzliche und zuverlässige Alltagshilfe in Berlin. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. Als staatlich anerkannter Anbieter können wir dabei direkt mit der Pflegekasse abrechnen.'
   },
   {
     question: 'Ich benötige mehr Hilfe. Gibt es neben den 131 € noch andere Budgets?',
