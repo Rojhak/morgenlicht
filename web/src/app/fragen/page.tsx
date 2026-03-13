@@ -11,15 +11,11 @@ const faqCategories = [
     questions: [
       {
         q: 'Was ist Morgenlicht Alltagshilfe?',
-        a: 'Morgenlicht ist ein nach § 45a SGB XI staatlich anerkannter Anbieter. Wir stellen liebevolle Alltagsbegleiter in Berlin für Senioren und ihre Angehörigen bereit – von der Haushaltshilfe über Begleitung zu Arztterminen bis hin zu Gesellschaft.',
+        a: 'Morgenlicht ist Ihre herzliche und zuverlässige Alltagshilfe in Berlin. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. Als staatlich anerkannter Anbieter können wir dabei direkt mit der Pflegekasse abrechnen.',
       },
       {
         q: 'Wie schnell kann ich einen Termin bekommen?',
         a: 'Wir bemühen uns, Ihnen schnell einen Termin zu bieten. In vielen Fällen können wir bereits innerhalb weniger Tage mit der Unterstützung beginnen. Rufen Sie uns einfach an – wir finden eine Lösung.',
-      },
-      {
-        q: 'Bekomme ich immer dieselbe Betreuungsperson?',
-        a: 'Wir bemühen uns sehr, Ihnen einen festen Ansprechpartner zuzuteilen. Kontinuität und Vertrauen sind uns wichtig. So entsteht mit der Zeit eine persönliche Beziehung.',
       },
       {
         q: 'In welchen Gebieten bietet Morgenlicht Leistungen an?',
@@ -36,12 +32,16 @@ const faqCategories = [
         a: 'Unser Stundensatz beträgt 35,50 €. Im Preis sind bereits Anfahrt, Administration und Abrechnung enthalten. Es kommen keine weiteren Gebühren auf Sie zu.',
       },
       {
-        q: 'Wie funktioniert die Abrechnung über die Pflegekasse?',
-        a: 'Wir rechnen direkt mit Ihrer Pflegekasse ab. Sie müssen kein Geld vorstrecken und keine komplizierten Formulare ausfüllen. Wenn Sie einen Pflegegrad haben, übernimmt die Kasse die Kosten im Rahmen des Entlastungsbetrags (131 €/Monat).',
+        q: 'Was ist der Entlastungsbetrag (131 €)?',
+        a: 'Jeder Mensch mit einem anerkannten Pflegegrad (1 bis 5) hat Anspruch auf einen monatlichen Entlastungsbetrag von 131 €. Dieser ist speziell für Dienstleistungen wie unsere Haushaltshilfe und Alltagsbegleitung gedacht. Da wir staatlich anerkannt sind, rechnen wir diesen Betrag direkt mit der Pflegekasse ab. Für Sie entstehen dabei 0 € Kosten. Ihr reguläres Pflegegeld wird dadurch nicht gekürzt.',
       },
       {
-        q: 'Was ist der Entlastungsbetrag?',
-        a: 'Jeder Mensch mit Pflegegrad (1-5) hat Anspruch auf monatlich 131 € Entlastungsbetrag. Dieses Geld können Sie für unsere Alltagsbegleitung nutzen – und das komplett kostenlos für Sie.',
+        q: 'Was ist, wenn ich mehr Hilfe benötige, als die 131 € abdecken?',
+        a: 'Ab Pflegegrad 2 gibt es zusätzliche Fördertöpfe der Pflegekasse, die viele gar nicht kennen. Wenn Sie beispielsweise keinen Pflegedienst für die Körperpflege nutzen, können wir einen Teil Ihres ungenutzten Pflegebudgets für mehr Haushaltshilfe einsetzen. So stehen Ihnen oft hunderte Euro zusätzlich im Monat zur Verfügung.',
+      },
+      {
+        q: 'Gibt es Hilfe, wenn meine pflegenden Angehörigen krank oder im Urlaub sind?',
+        a: 'Ja. Ab Pflegegrad 2 stellt die Pflegekasse ein Extra-Budget (die sogenannte Verhinderungspflege) zur Verfügung. Wenn Ihre Angehörigen im Urlaub, krank oder anderweitig verhindert sind, können wir dieses Budget nutzen, um stundenweise als Vertretung im Alltag einzuspringen.',
       },
       {
         q: 'Kann ich die Kosten von der Steuer absetzen?',
