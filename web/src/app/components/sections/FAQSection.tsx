@@ -14,10 +14,6 @@ const faqs = [
     answer: 'Ja, das ist ein großer Vorteil! Ab Pflegegrad 2 können Sie bis zu 40 % Ihrer ungenutzten Pflegesachleistungen für unsere Unterstützung umwandeln. So steht Ihnen ein deutlich höheres Budget für eine regelmäßige Putzhilfe über den Pflegegrad zur Verfügung. Wir beraten Sie dazu gerne.'
   },
   {
-    question: 'Kann ich die Hilfe auch kurzfristig testen oder kündigen?',
-    answer: 'Absolute Freiheit ist uns wichtig. Es gibt keine langen Vertragslaufzeiten. Sie können unsere Unterstützung jederzeit anpassen oder pausieren – ganz so, wie es Ihr Alltag erfordert.'
-  },
-  {
     question: 'Sind Ihre Mitarbeiter für diese Aufgaben qualifiziert?',
     answer: 'Ja, wir sind ein nach Landesrecht (§ 45a SGB XI) anerkannter Dienstleister. Unsere Alltagsbegleiter sind geschult, herzlich und zuverlässig, um Ihnen die bestmögliche Qualität zu bieten.'
   }
