@@ -28,8 +28,8 @@ const faqCategories = [
     title: 'Kosten & Pflegekasse',
     questions: [
       {
-        q: 'Was kostet die Alltagsbegleitung bei Morgenlicht?',
-        a: 'Unser Stundensatz beträgt 35,50 €. Im Preis sind bereits Anfahrt, Administration und Abrechnung enthalten. Es kommen keine weiteren Gebühren auf Sie zu.',
+        q: 'Was kostet die Alltagshilfe?',
+        a: 'Unser transparenter Stundensatz für die Alltagshilfe beträgt 35,50 €. Wenn Sie einen Pflegegrad (1 bis 5) haben, ist unsere Unterstützung für Sie jedoch in der Regel komplett kostenlos, da wir direkt mit der Pflegekasse abrechnen (z. B. über den Entlastungsbetrag). In unserem Stundensatz ist bereits alles enthalten – von der Anfahrt bis zur gesamten Bürokratie. Auch Privatzahler ohne Pflegegrad können uns zum exakt selben Preis buchen.',
       },
       {
         q: 'Was ist der Entlastungsbetrag (131 €)?',
