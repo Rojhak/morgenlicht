@@ -20,4 +20,13 @@ test('validateInquiry - input validation', () => {
 
   const resultValidMsg = validateInquiry({ name: 'Test', phone: '030 12345678', message: 'a'.repeat(2000) });
   assert.equal(resultValidMsg, null);
+
+  const resultInvalidMsgTypeArray = validateInquiry({ name: 'Test', phone: '030 12345678', message: ['a', 'b', 'c'] as any });
+  assert.equal(resultInvalidMsgTypeArray, 'Ungültiges Format für die Nachricht.');
+
+  const resultInvalidMsgTypeObject = validateInquiry({ name: 'Test', phone: '030 12345678', message: { key: 'value' } as any });
+  assert.equal(resultInvalidMsgTypeObject, 'Ungültiges Format für die Nachricht.');
+
+  const resultInvalidPflegegradTypeArray = validateInquiry({ name: 'Test', phone: '030 12345678', pflegegrad: ['1'] as any });
+  assert.equal(resultInvalidPflegegradTypeArray, 'Ungültiges Format für den Pflegegrad.');
 });
