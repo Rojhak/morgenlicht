@@ -63,7 +63,7 @@ const faqCategories = [
       },
       {
         q: 'Können Sie mir beim Antrag helfen?',
-        a: 'Ja, gerne! Durch meine Erfahrung in der Sozialberatung unterstütze ich Sie beim Antrag, bereite Sie auf den Besuch des Gutachters vor und helfe Ihnen, alle notwendigen Unterlagen zusammenzustellen.',
+        a: 'Wir stehen Ihnen bei allgemeinen Fragen zum Ablauf gerne zur Seite und geben Ihnen hilfreiche Tipps aus unserer Praxis, damit Sie wissen, welche Schritte auf Sie zukommen.',
       },
       {
         q: 'Wann lohnt sich ein Antrag?',
