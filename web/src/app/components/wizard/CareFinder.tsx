@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Calculator, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
@@ -22,6 +22,11 @@ export function CareFinder() {
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
   const [showDetails, setShowDetails] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    containerRef.current?.focus()
+  }, [step])
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -61,7 +66,12 @@ export function CareFinder() {
   const hasExtra = budget.convertible > 0 && !usesSachleistungen
 
   return (
-    <div className="w-full">
+    <div
+      ref={containerRef}
+      tabIndex={-1}
+      aria-live="polite"
+      className="w-full focus:outline-none"
+    >
       {/* Progress Indicator */}
       <div className="flex items-center justify-center gap-2 mb-8">
         <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
@@ -79,6 +89,7 @@ export function CareFinder() {
               {PFLEGEGRADE.map((grad) => (
                 <button
                   key={grad.value}
+                  type="button"
                   onClick={() => handleGradSelect(grad.value)}
                   className={`
                     aspect-square rounded-xl font-bold text-2xl sm:text-3xl transition-all duration-200
@@ -109,6 +120,7 @@ export function CareFinder() {
           </Link>
 
           <button
+            type="button"
             className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-md
               ${selectedGrad === null
                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
@@ -137,6 +149,7 @@ export function CareFinder() {
 
           <div className="grid grid-cols-2 gap-5">
             <button
+              type="button"
               onClick={() => handleSachleistungAnswer(false)}
               className="p-8 rounded-xl bg-[#F0FDF4] hover:bg-[#DCFCE7] border-2 border-transparent hover:border-[#134E4A]
                          transition-all duration-200 shadow-sm hover:shadow-md text-left group
@@ -146,6 +159,7 @@ export function CareFinder() {
               <div className="text-[#4B5563] font-medium group-hover:text-[#134E4A]">Mehr Budget verfügbar</div>
             </button>
             <button
+              type="button"
               onClick={() => handleSachleistungAnswer(true)}
               className="p-8 rounded-xl bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-[#4B5563]
                          transition-all duration-200 shadow-sm hover:shadow-md text-left
@@ -157,6 +171,7 @@ export function CareFinder() {
           </div>
 
           <button
+            type="button"
             onClick={() => setStep('select')}
             className="flex items-center justify-center gap-2 w-full text-[#4B5563] hover:text-[#1F2937] font-medium"
           >
@@ -187,7 +202,7 @@ export function CareFinder() {
           <details className="bg-gray-50 rounded-xl border border-gray-200">
             <summary
               onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none"
+              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A]"
             >
               <span className="font-semibold text-[#1F2937]">Details zum Budget</span>
               <span className={`text-[#4B5563] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
@@ -226,6 +241,7 @@ export function CareFinder() {
               <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </Link>
             <button
+              type="button"
               onClick={handleReset}
               className="flex-1 bg-white text-[#1F2937] border border-gray-200 hover:bg-gray-50 font-medium py-4 px-6 rounded-xl transition-colors"
             >
@@ -254,6 +270,7 @@ export function CareFinder() {
           </div>
 
           <button
+            type="button"
             onClick={handleReset}
             className="text-[#4B5563] hover:text-[#1F2937] font-medium flex items-center justify-center w-full gap-2"
           >
