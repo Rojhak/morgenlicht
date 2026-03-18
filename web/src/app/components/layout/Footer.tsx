@@ -194,8 +194,9 @@ export function Footer() {
           </p>
 
           <button
+            type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-white/50 hover:text-[#FBBF24] transition-colors text-xs font-medium uppercase tracking-wider"
+            className="group flex items-center gap-2 text-white/50 hover:text-[#FBBF24] transition-colors text-xs font-medium uppercase tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FBBF24] focus-visible:ring-offset-2 focus-visible:ring-offset-[#144E4A] rounded"
             aria-label="Nach oben scrollen"
           >
             Nach oben

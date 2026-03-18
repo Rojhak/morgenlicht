@@ -70,8 +70,9 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
           {/* Mobile Menu Toggle (Visible on Mobile) */}
           <div className="flex items-center md:hidden ml-auto gap-x-4">
              <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-gray-600 hover:text-[#134E4A] transition-colors"
+              className="p-2 text-gray-600 hover:text-[#134E4A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] rounded-lg"
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
               aria-controls="mobile-menu"
