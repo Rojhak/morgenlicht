@@ -189,7 +189,7 @@ export default function KontaktPage() {
                 type="submit"
                 disabled={isSubmitting}
                 aria-busy={isSubmitting}
-                className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98] flex justify-center items-center gap-2"
+                className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98] flex justify-center items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#144E41]"
               >
                 {isSubmitting ? (
                   <>
