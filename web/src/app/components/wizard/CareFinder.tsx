@@ -63,9 +63,16 @@ export function CareFinder() {
   return (
     <div className="w-full">
       {/* Progress Indicator */}
-      <div className="flex items-center justify-center gap-2 mb-8">
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`} />
+      <div
+        className="flex items-center justify-center gap-2 mb-8"
+        role="progressbar"
+        aria-valuenow={step === 'select' ? 1 : step === 'sachleistung' ? 2 : 3}
+        aria-valuemin={1}
+        aria-valuemax={3}
+        aria-label={`Schritt ${step === 'select' ? 1 : step === 'sachleistung' ? 2 : 3} von 3`}
+      >
+        <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} aria-hidden="true" />
+        <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`} aria-hidden="true" />
       </div>
 
       {/* Step 1: Select Pflegegrad */}
@@ -187,7 +194,7 @@ export function CareFinder() {
           <details className="bg-gray-50 rounded-xl border border-gray-200">
             <summary
               onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none"
+              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A]"
             >
               <span className="font-semibold text-[#1F2937]">Details zum Budget</span>
               <span className={`text-[#4B5563] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
