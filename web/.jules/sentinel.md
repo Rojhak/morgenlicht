@@ -1,4 +1,4 @@
-## 2024-05-24 - [Next.js Critical DoS and SSRF Vulnerabilities]
-**Vulnerability:** Found multiple vulnerabilities in `next@15.1.9` including Denial of Service via server components, SSRF due to middleware redirect handling, and Cache Key Confusion.
-**Learning:** Outdated frameworks, especially in SSR/SSG apps like Next.js, can expose critical infrastructure vulnerabilities (like DoS and SSRF) that aren't specific to application logic but rather framework behavior.
-**Prevention:** Regularly audit (`pnpm audit`) and update core framework dependencies (e.g., Next.js) to patched versions, especially when new minor/patch versions are available.
+## 2024-05-24 - DoS and Exception Leak Risk from Missing Type checks in API Payloads
+**Vulnerability:** API routes parsing JSON payloads via `request.json()` didn't explicitly ensure that properties were of type `string` before passing them to string manipulation functions like `.replace()`. Mass assignment filtering alone doesn't validate types.
+**Learning:** Even with manual object destructuring for Mass Assignment Prevention, an attacker can submit an array or object in place of a string field. This bypasses basic length validation (`array.length` returns the number of elements) and causes unhandled `TypeError: input.replace is not a function` exceptions when the data reaches string sanitization functions. This can lead to Denial of Service or leak sensitive stack traces depending on error handling configuration.
+**Prevention:** Always combine mass assignment prevention with explicit runtime type checks (`typeof data.field === 'string'`) in API input validation before performing any length checks, pattern matching, or string sanitization.
