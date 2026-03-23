@@ -18,11 +18,12 @@ export async function POST(request: NextRequest) {
 
     // 🛡️ Security: Strict Input Filtering (Mass Assignment Prevention)
     // Only extract expected fields, discarding any injected properties
+    // Also explicitly verify type to prevent array/object injection bypassing limits
     const data: InquiryData = {
-      name: rawData?.name,
-      phone: rawData?.phone,
-      pflegegrad: rawData?.pflegegrad,
-      message: rawData?.message
+      name: typeof rawData?.name === 'string' ? rawData.name : '',
+      phone: typeof rawData?.phone === 'string' ? rawData.phone : '',
+      pflegegrad: typeof rawData?.pflegegrad === 'string' ? rawData.pflegegrad : undefined,
+      message: typeof rawData?.message === 'string' ? rawData.message : undefined
     }
 
     // Validate inputs
@@ -57,7 +58,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Send notification email to staff
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       subject: `Neue Anfrage von ${subjectName}`,
@@ -91,6 +92,14 @@ export async function POST(request: NextRequest) {
         </table>
       `,
     })
+
+    if (sendError) {
+      console.error('Resend delivery error:', sendError)
+      return NextResponse.json(
+        { error: 'Fehler beim Senden der Anfrage' },
+        { status: 500 }
+      )
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
