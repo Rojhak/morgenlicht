@@ -43,8 +43,9 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.RESEND_API_KEY
     if (!apiKey) {
       console.error('RESEND_API_KEY is not configured')
+      // 🛡️ Security: Do not leak internal configuration state to the client
       return NextResponse.json(
-        { error: 'E-Mail-Service nicht konfiguriert' },
+        { error: 'Interner Serverfehler' },
         { status: 500 }
       )
     }
@@ -57,7 +58,8 @@ export async function POST(request: NextRequest) {
     })
 
     // Send notification email to staff
-    await resend.emails.send({
+    // 🛡️ Security: Explicitly check for Resend SDK { error } response to prevent silent failures
+    const { error: sendError } = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       subject: `Neue Anfrage von ${subjectName}`,
@@ -91,6 +93,14 @@ export async function POST(request: NextRequest) {
         </table>
       `,
     })
+
+    if (sendError) {
+      console.error('Resend API error:', sendError)
+      return NextResponse.json(
+        { error: 'Interner Serverfehler' },
+        { status: 500 }
+      )
+    }
 
     return NextResponse.json({ success: true })
   } catch (error) {
