@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Calculator, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
@@ -22,6 +22,15 @@ export function CareFinder() {
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
   const [showDetails, setShowDetails] = useState(false)
+
+  const stepContainerRef = useRef<HTMLDivElement>(null)
+
+  // Manage focus when the step changes
+  useEffect(() => {
+    if (stepContainerRef.current) {
+      stepContainerRef.current.focus()
+    }
+  }, [step])
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -63,14 +72,32 @@ export function CareFinder() {
   return (
     <div className="w-full">
       {/* Progress Indicator */}
-      <div className="flex items-center justify-center gap-2 mb-8">
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`} />
+      <div
+        className="flex items-center justify-center gap-2 mb-8"
+        role="progressbar"
+        aria-valuenow={step === 'select' ? 1 : step === 'sachleistung' ? 2 : 3}
+        aria-valuemin={1}
+        aria-valuemax={3}
+        aria-label="Schritt im Pflegegrad-Rechner"
+      >
+        <div
+          className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`}
+          aria-hidden="true"
+        />
+        <div
+          className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`}
+          aria-hidden="true"
+        />
       </div>
 
       {/* Step 1: Select Pflegegrad */}
       {step === 'select' && (
-        <div className="space-y-8">
+        <div
+          className="space-y-8"
+          ref={stepContainerRef}
+          tabIndex={-1}
+          aria-live="polite"
+        >
           <fieldset>
             <legend className="block text-xl font-bold text-[#1F2937] mb-8 text-center font-heading">
               Welchen Pflegegrad haben Sie?
@@ -125,7 +152,12 @@ export function CareFinder() {
 
       {/* Step 2: Sachleistung Question */}
       {step === 'sachleistung' && (
-        <div className="space-y-8">
+        <div
+          className="space-y-8"
+          ref={stepContainerRef}
+          tabIndex={-1}
+          aria-live="polite"
+        >
           <div className="text-center">
             <p className="text-xl font-bold text-[#1F2937] mb-3 font-heading">
               Nutzen Sie bereits einen Pflegedienst?
@@ -168,7 +200,12 @@ export function CareFinder() {
 
       {/* Step 3: Result */}
       {step === 'result' && hours > 0 && (
-        <div className="space-y-8">
+        <div
+          className="space-y-8"
+          ref={stepContainerRef}
+          tabIndex={-1}
+          aria-live="polite"
+        >
           {/* Main Result */}
           <div className="text-center py-10 px-6 bg-[#134E4A] rounded-2xl shadow-lg">
             <Clock className="w-10 h-10 text-[#FBBF24] mx-auto mb-4" aria-hidden="true" />
@@ -237,7 +274,12 @@ export function CareFinder() {
 
       {/* Fallback for PG1 */}
       {step === 'result' && hours === 0 && (
-        <div className="text-center space-y-6">
+        <div
+          className="text-center space-y-6"
+          ref={stepContainerRef}
+          tabIndex={-1}
+          aria-live="polite"
+        >
           <div className="py-6 px-4 bg-[#FFFBEB] rounded-xl border border-[#FBBF24]">
             <p className="text-lg font-bold text-[#1F2937] mb-2">
               Pflegegrad 1
