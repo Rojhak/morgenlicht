@@ -11,6 +11,7 @@ interface FormData {
   name: string
   phone: string
   pflegegrad?: string
+  message?: string
 }
 
 interface FormErrors {
@@ -19,7 +20,7 @@ interface FormErrors {
 }
 
 export default function KontaktPage() {
-  const [formData, setFormData] = useState<FormData>({ name: '', phone: '' })
+  const [formData, setFormData] = useState<FormData>({ name: '', phone: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -81,7 +82,7 @@ export default function KontaktPage() {
       if (response.ok) {
         setSubmitStatus('success')
         setShowModal(true)
-        setFormData({ name: '', phone: '' })
+        setFormData({ name: '', phone: '', message: '' })
       } else {
         setSubmitStatus('error')
         setShowModal(true)
@@ -173,14 +174,22 @@ export default function KontaktPage() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
-                  Wie können wir Ihnen helfen? (Optional)
-                </label>
+                <div className="flex justify-between items-center">
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
+                    Wie können wir Ihnen helfen? (Optional)
+                  </label>
+                  <span className="text-xs text-gray-500 font-medium">
+                    {formData.message?.length || 0}/2000
+                  </span>
+                </div>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
                   placeholder="Ihre Nachricht an uns..."
+                  value={formData.message}
+                  onChange={(e) => handleChange('message', e.target.value)}
+                  maxLength={2000}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41] bg-white transition-all outline-none resize-none"
                 />
               </div>
@@ -289,6 +298,7 @@ export default function KontaktPage() {
               Wir haben Ihre Anfrage erhalten und melden uns zeitnah bei Ihnen.
             </p>
             <button
+              type="button"
               onClick={() => setShowModal(false)}
               className="px-6 py-2 bg-[#134E4A] text-white rounded-xl font-bold hover:bg-[#0F3F3C] transition-colors"
             >
@@ -314,6 +324,7 @@ export default function KontaktPage() {
             </a>
             <div className="mt-6">
               <button
+                type="button"
                 onClick={() => setShowModal(false)}
                 className="text-[#4B5563] hover:text-[#1F2937] font-medium"
               >
