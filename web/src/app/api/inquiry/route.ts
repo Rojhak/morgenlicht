@@ -18,11 +18,13 @@ export async function POST(request: NextRequest) {
 
     // 🛡️ Security: Strict Input Filtering (Mass Assignment Prevention)
     // Only extract expected fields, discarding any injected properties
+    // We explicitly check typeof here to prevent payload manipulation (e.g. passing objects/arrays)
+    // which could bypass validations and cause TypeErrors later.
     const data: InquiryData = {
-      name: rawData?.name,
-      phone: rawData?.phone,
-      pflegegrad: rawData?.pflegegrad,
-      message: rawData?.message
+      name: typeof rawData?.name === 'string' ? rawData.name : '',
+      phone: typeof rawData?.phone === 'string' ? rawData.phone : '',
+      pflegegrad: typeof rawData?.pflegegrad === 'string' ? rawData.pflegegrad : undefined,
+      message: typeof rawData?.message === 'string' ? rawData.message : undefined
     }
 
     // Validate inputs
