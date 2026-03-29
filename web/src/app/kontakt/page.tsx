@@ -11,6 +11,7 @@ interface FormData {
   name: string
   phone: string
   pflegegrad?: string
+  message?: string
 }
 
 interface FormErrors {
@@ -81,7 +82,7 @@ export default function KontaktPage() {
       if (response.ok) {
         setSubmitStatus('success')
         setShowModal(true)
-        setFormData({ name: '', phone: '' })
+        setFormData({ name: '', phone: '', message: '' })
       } else {
         setSubmitStatus('error')
         setShowModal(true)
@@ -93,6 +94,9 @@ export default function KontaktPage() {
       setIsSubmitting(false)
     }
   }
+
+  const messageLength = formData.message?.length || 0
+  const isMessageTooLong = messageLength > 2000
 
   return (
     <div className="min-h-screen bg-white">
@@ -173,21 +177,33 @@ export default function KontaktPage() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
-                  Wie können wir Ihnen helfen? (Optional)
-                </label>
+                <div className="flex justify-between items-baseline">
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700">
+                    Wie können wir Ihnen helfen? (Optional)
+                  </label>
+                  <span
+                    className={`text-xs font-medium ${isMessageTooLong ? 'text-red-500' : 'text-gray-500'}`}
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
+                    {messageLength} / 2000
+                  </span>
+                </div>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
+                  value={formData.message || ''}
+                  onChange={(e) => handleChange('message', e.target.value)}
                   placeholder="Ihre Nachricht an uns..."
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41] bg-white transition-all outline-none resize-none"
+                  className={`w-full px-4 py-3 rounded-lg border ${isMessageTooLong ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'} bg-white transition-all outline-none resize-none`}
+                  aria-invalid={isMessageTooLong}
                 />
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || isMessageTooLong}
                 aria-busy={isSubmitting}
                 className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98] flex justify-center items-center gap-2"
               >
