@@ -130,8 +130,10 @@ export default function LeistungenPage() {
               return (
                 <button
                   key={service.id}
+                  type="button"
                   onClick={() => scrollToSection(service.id)}
-                  className="flex flex-col items-center justify-center gap-1.5 md:gap-2 min-w-[60px] md:min-w-[72px] group cursor-pointer"
+                  aria-label={`Zu ${navLabels[index]} scrollen`}
+                  className="flex flex-col items-center justify-center gap-1.5 md:gap-2 min-w-[60px] md:min-w-[72px] group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] rounded-lg p-1"
                 >
                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
                     <NavIcon className="w-4 h-4 md:w-6 md:h-6 text-white" />

@@ -239,9 +239,11 @@ export default function SucheePage() {
               <div className="lg:sticky lg:top-36">
                 {/* Filter Toggle Button (Mobile) */}
                 <button
+                  type="button"
                   onClick={() => setShowFilters(!showFilters)}
-                  className="lg:hidden w-full flex items-center justify-between p-4 glass rounded-xl mb-4"
+                  className="lg:hidden w-full flex items-center justify-between p-4 glass rounded-xl mb-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0D6E64]"
                   aria-expanded={showFilters}
+                  aria-label={showFilters ? "Filter ausblenden" : "Filter anzeigen"}
                 >
                   <div className="flex items-center gap-3 text-[#37474F] font-semibold">
                     <SlidersHorizontal className="w-5 h-5" />
