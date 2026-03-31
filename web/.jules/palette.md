@@ -1,0 +1,3 @@
+## 2024-05-18 - Added Character Counter and Limit to Kontakt Form Message Field
+**Learning:** Found that the text area for the message was uncontrolled and didn't have visual length constraints, while backend `validateInquiry` limits it to 2000 characters. Adding an accessible character counter provides immediate feedback, prevents backend errors from long inputs, and improves UX. Originally thought `aria-live` was best, but realized it causes screen reader spam on every keystroke.
+**Action:** When adding textareas that may have character limits, always implement an accessible character counter using `aria-describedby` linking the input to the counter, and disable submission before hitting the backend limit.

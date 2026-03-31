@@ -11,6 +11,7 @@ interface FormData {
   name: string
   phone: string
   pflegegrad?: string
+  message?: string
 }
 
 interface FormErrors {
@@ -19,7 +20,7 @@ interface FormErrors {
 }
 
 export default function KontaktPage() {
-  const [formData, setFormData] = useState<FormData>({ name: '', phone: '' })
+  const [formData, setFormData] = useState<FormData>({ name: '', phone: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -81,7 +82,7 @@ export default function KontaktPage() {
       if (response.ok) {
         setSubmitStatus('success')
         setShowModal(true)
-        setFormData({ name: '', phone: '' })
+        setFormData({ name: '', phone: '', message: '' })
       } else {
         setSubmitStatus('error')
         setShowModal(true)
@@ -181,13 +182,29 @@ export default function KontaktPage() {
                   name="message"
                   rows={4}
                   placeholder="Ihre Nachricht an uns..."
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41] bg-white transition-all outline-none resize-none"
+                  value={formData.message}
+                  onChange={(e) => handleChange('message', e.target.value)}
+                  className={`w-full px-4 py-3 rounded-lg border ${
+                    (formData.message || '').length > 2000 ? 'border-red-500 ring-1 ring-red-500' : 'border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41]'
+                  } bg-white transition-all outline-none resize-none`}
+                  aria-invalid={(formData.message || '').length > 2000}
+                  aria-describedby="message-counter"
                 />
+                <div className="flex justify-end mt-1">
+                  <span
+                    id="message-counter"
+                    className={`text-xs font-medium ${
+                      (formData.message || '').length > 2000 ? 'text-red-500' : 'text-gray-500'
+                    }`}
+                  >
+                    {(formData.message || '').length} / 2000
+                  </span>
+                </div>
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || (formData.message || '').length > 2000}
                 aria-busy={isSubmitting}
                 className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98] flex justify-center items-center gap-2"
               >
