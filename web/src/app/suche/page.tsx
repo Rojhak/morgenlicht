@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Search, SlidersHorizontal, MapPin, Clock, Users, Star, ChevronDown, X } from 'lucide-react'
 import { GlassCard, GlassButton } from '@/app/components/glass'
 
@@ -120,6 +120,7 @@ const BG_COLORS: Record<string, string> = {
 
 export default function SucheePage() {
   const [selectedFilter, setSelectedFilter] = useState('all')
+  const searchInputRef = useRef<HTMLInputElement>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [showFilters, setShowFilters] = useState(false)
   const [activeFilters, setActiveFilters] = useState<string[]>([])
@@ -180,6 +181,7 @@ export default function SucheePage() {
             <GlassCard className="p-2 flex items-center gap-2">
               <Search className="w-5 h-5 text-[#455A64] ml-3 flex-shrink-0" aria-hidden="true" />
               <input
+                ref={searchInputRef}
                 type="search"
                 placeholder="Suche nach Hilfe, Dienstleistungen..."
                 value={searchQuery}
@@ -189,7 +191,11 @@ export default function SucheePage() {
               />
               {searchQuery && (
                 <button
-                  onClick={() => setSearchQuery('')}
+                  type="button"
+                  onClick={() => {
+                    setSearchQuery('')
+                    searchInputRef.current?.focus()
+                  }}
                   className="p-2 hover:bg-black/5 rounded-full transition-colors"
                   aria-label="Suche löschen"
                 >
