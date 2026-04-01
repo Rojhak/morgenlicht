@@ -1,5 +1,5 @@
 export function sanitizeInput(input: string): string {
-  if (!input) return ''
+  if (!input || typeof input !== 'string') return ''
   return input
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -9,7 +9,7 @@ export function sanitizeInput(input: string): string {
 }
 
 export function sanitizeForSubject(input: string): string {
-  if (!input) return ''
+  if (!input || typeof input !== 'string') return ''
   // Remove newlines to prevent header injection
   return input.replace(/[\r\n]+/g, ' ').trim()
 }
@@ -40,8 +40,13 @@ export function validateInquiry(data: { name?: string; phone?: string; pflegegra
   }
 
   // Security: Enforce max length to prevent DoS via large payloads
-  if (data.message && typeof data.message === 'string' && data.message.length > 2000) {
-    return 'Nachricht darf maximal 2000 Zeichen lang sein.'
+  if (data.message) {
+    if (typeof data.message !== 'string') {
+      return 'Ungültige Nachricht.'
+    }
+    if (data.message.length > 2000) {
+      return 'Nachricht darf maximal 2000 Zeichen lang sein.'
+    }
   }
 
   return null
