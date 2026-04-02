@@ -1,0 +1,3 @@
+## 2025-04-02 - Accessible Character Counters
+**Learning:** When implementing visual character counters for text inputs (e.g. in forms), using `aria-live="polite"` on the counter element causes screen readers to announce the updated count on every single keystroke, resulting in significant spam and a poor user experience.
+**Action:** Always link the visual character counter to the input element using `aria-describedby` instead. This ensures the counter's current state and limits are announced contextually when the user focuses on the input, without spamming them during typing.
