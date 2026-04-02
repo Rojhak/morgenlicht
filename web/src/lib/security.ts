@@ -1,5 +1,6 @@
 export function sanitizeInput(input: string): string {
-  if (!input) return ''
+  // Security: Prevent TypeError crash if non-string input (like array or object) is passed via malicious payload
+  if (!input || typeof input !== 'string') return ''
   return input
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -9,7 +10,8 @@ export function sanitizeInput(input: string): string {
 }
 
 export function sanitizeForSubject(input: string): string {
-  if (!input) return ''
+  // Security: Prevent TypeError crash if non-string input is passed via malicious payload
+  if (!input || typeof input !== 'string') return ''
   // Remove newlines to prevent header injection
   return input.replace(/[\r\n]+/g, ' ').trim()
 }
