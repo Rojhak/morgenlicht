@@ -11,6 +11,7 @@ interface FormData {
   name: string
   phone: string
   pflegegrad?: string
+  message?: string
 }
 
 interface FormErrors {
@@ -19,7 +20,7 @@ interface FormErrors {
 }
 
 export default function KontaktPage() {
-  const [formData, setFormData] = useState<FormData>({ name: '', phone: '' })
+  const [formData, setFormData] = useState<FormData>({ name: '', phone: '', message: '' })
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -81,7 +82,7 @@ export default function KontaktPage() {
       if (response.ok) {
         setSubmitStatus('success')
         setShowModal(true)
-        setFormData({ name: '', phone: '' })
+        setFormData({ name: '', phone: '', message: '' })
       } else {
         setSubmitStatus('error')
         setShowModal(true)
@@ -181,13 +182,22 @@ export default function KontaktPage() {
                   name="message"
                   rows={4}
                   placeholder="Ihre Nachricht an uns..."
+                  value={formData.message}
+                  onChange={(e) => handleChange('message', e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#144E41] focus:ring-1 focus:ring-[#144E41] bg-white transition-all outline-none resize-none"
+                  aria-describedby="message-counter"
                 />
+                <div
+                  id="message-counter"
+                  className={`text-xs text-right mt-1 ${(formData.message?.length || 0) > 2000 ? 'text-red-500 font-bold' : (formData.message?.length || 0) > 1900 ? 'text-red-500' : 'text-gray-500'}`}
+                >
+                  {(formData.message?.length || 0)} / 2000
+                </div>
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || (formData.message?.length || 0) > 2000}
                 aria-busy={isSubmitting}
                 className="w-full bg-[#144E41] text-white font-bold py-4 rounded-xl hover:bg-[#0F3F3C] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg active:scale-[0.98] flex justify-center items-center gap-2"
               >
