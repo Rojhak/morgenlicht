@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Calculator, ArrowRight, HelpCircle, Check, Clock } from 'lucide-react'
 import { getMonthlyBudget, formatHours, formatCurrency, CARE_RATES } from '@/config/rates'
@@ -22,6 +22,11 @@ export function CareFinder() {
   const [selectedGrad, setSelectedGrad] = useState<number | null>(null)
   const [usesSachleistungen, setUsesSachleistungen] = useState<boolean | null>(null)
   const [showDetails, setShowDetails] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    containerRef.current?.focus()
+  }, [step])
 
   const handleGradSelect = (grad: number) => {
     setSelectedGrad(grad)
@@ -60,12 +65,26 @@ export function CareFinder() {
 
   const hasExtra = budget.convertible > 0 && !usesSachleistungen
 
+  const stepNumber = step === 'select' ? 1 : step === 'sachleistung' ? 2 : 3;
+
   return (
-    <div className="w-full">
+    <div
+      className="w-full focus:outline-none"
+      ref={containerRef}
+      tabIndex={-1}
+      aria-live="polite"
+    >
       {/* Progress Indicator */}
-      <div className="flex items-center justify-center gap-2 mb-8">
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`} />
+      <div
+        className="flex items-center justify-center gap-2 mb-8"
+        role="progressbar"
+        aria-valuenow={stepNumber}
+        aria-valuemin={1}
+        aria-valuemax={3}
+        aria-label={`Schritt ${stepNumber} von 3`}
+      >
+        <div aria-hidden="true" className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
+        <div aria-hidden="true" className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`} />
       </div>
 
       {/* Step 1: Select Pflegegrad */}
