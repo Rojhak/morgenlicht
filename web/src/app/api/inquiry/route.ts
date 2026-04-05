@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Send notification email to staff
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       subject: `Neue Anfrage von ${subjectName}`,
@@ -92,9 +92,18 @@ export async function POST(request: NextRequest) {
       `,
     })
 
+    if (sendError) {
+      console.error('Failed to send email:', sendError.message)
+      return NextResponse.json(
+        { error: 'Fehler beim Senden der Anfrage' },
+        { status: 500 }
+      )
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error sending inquiry email:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    console.error('Error sending inquiry email:', errorMessage)
     return NextResponse.json(
       { error: 'Fehler beim Senden der Anfrage' },
       { status: 500 }
