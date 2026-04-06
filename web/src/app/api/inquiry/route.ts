@@ -5,6 +5,19 @@ import { sanitizeInput, sanitizeForSubject, validateInquiry } from '@/lib/securi
 const EMAIL_TO = process.env.EMAIL_TO || 'info@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
 
+// Lazy singleton for Resend client to avoid redundant allocations and prevent crash on module load if env missing
+let resendClient: Resend | null = null;
+function getResendClient(): Resend {
+  if (!resendClient) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      throw new Error('RESEND_API_KEY is not configured');
+    }
+    resendClient = new Resend(apiKey);
+  }
+  return resendClient;
+}
+
 interface InquiryData {
   name: string
   phone: string
@@ -40,16 +53,16 @@ export async function POST(request: NextRequest) {
     const sanitizedMessage = data.message ? sanitizeInput(data.message) : undefined
     const subjectName = sanitizeForSubject(data.name)
 
-    const apiKey = process.env.RESEND_API_KEY
-    if (!apiKey) {
-      console.error('RESEND_API_KEY is not configured')
+    let resend: Resend;
+    try {
+      resend = getResendClient();
+    } catch (e) {
+      console.error('Email configuration error: ', e instanceof Error ? e.message : 'Unknown error');
       return NextResponse.json(
         { error: 'E-Mail-Service nicht konfiguriert' },
         { status: 500 }
       )
     }
-
-    const resend = new Resend(apiKey)
 
     const timestamp = new Date().toLocaleString('de-DE', {
       dateStyle: 'full',
@@ -57,7 +70,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Send notification email to staff
-    await resend.emails.send({
+    const { error: sendError } = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       subject: `Neue Anfrage von ${subjectName}`,
@@ -92,9 +105,19 @@ export async function POST(request: NextRequest) {
       `,
     })
 
+    // Resend v6 doesn't throw, we must check the error property
+    if (sendError) {
+      console.error('Error sending inquiry email:', sendError.message || sendError);
+      return NextResponse.json(
+        { error: 'Fehler beim Senden der Anfrage' },
+        { status: 500 }
+      )
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error sending inquiry email:', error)
+    // 🛡️ Security: Sanitize error logs (Information Exposure prevention)
+    console.error('Error processing inquiry:', error instanceof Error ? error.message : 'Unknown error')
     return NextResponse.json(
       { error: 'Fehler beim Senden der Anfrage' },
       { status: 500 }
