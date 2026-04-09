@@ -5,6 +5,17 @@ import { sanitizeInput, sanitizeForSubject, validateInquiry } from '@/lib/securi
 const EMAIL_TO = process.env.EMAIL_TO || 'info@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
 
+let resendInstance: Resend | null = null;
+function getResendClient() {
+  if (!resendInstance) {
+    const apiKey = process.env.RESEND_API_KEY
+    if (apiKey) {
+      resendInstance = new Resend(apiKey)
+    }
+  }
+  return resendInstance;
+}
+
 interface InquiryData {
   name: string
   phone: string
@@ -40,8 +51,8 @@ export async function POST(request: NextRequest) {
     const sanitizedMessage = data.message ? sanitizeInput(data.message) : undefined
     const subjectName = sanitizeForSubject(data.name)
 
-    const apiKey = process.env.RESEND_API_KEY
-    if (!apiKey) {
+    const resend = getResendClient()
+    if (!resend) {
       console.error('RESEND_API_KEY is not configured')
       return NextResponse.json(
         { error: 'E-Mail-Service nicht konfiguriert' },
@@ -49,15 +60,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const resend = new Resend(apiKey)
-
     const timestamp = new Date().toLocaleString('de-DE', {
       dateStyle: 'full',
       timeStyle: 'short',
     })
 
     // Send notification email to staff
-    await resend.emails.send({
+    const { error: resendError } = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       subject: `Neue Anfrage von ${subjectName}`,
@@ -92,9 +101,17 @@ export async function POST(request: NextRequest) {
       `,
     })
 
+    if (resendError) {
+      console.error('Resend API error:', resendError instanceof Error ? resendError.message : String(resendError))
+      return NextResponse.json(
+        { error: 'Fehler beim Senden der E-Mail' },
+        { status: 500 }
+      )
+    }
+
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error sending inquiry email:', error)
+    console.error('Error processing inquiry:', error instanceof Error ? error.message : String(error))
     return NextResponse.json(
       { error: 'Fehler beim Senden der Anfrage' },
       { status: 500 }
