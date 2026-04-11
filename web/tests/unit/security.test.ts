@@ -1,6 +1,16 @@
-import { validateInquiry } from '../../src/lib/security';
+import { validateInquiry, sanitizeInput } from '../../src/lib/security.ts';
 import test from 'node:test';
 import assert from 'node:assert';
+
+test('sanitizeInput - gracefully handles non-string inputs', () => {
+  assert.equal(sanitizeInput(null as any), '');
+  assert.equal(sanitizeInput(undefined as any), '');
+  assert.equal(sanitizeInput(123 as any), '');
+  assert.equal(sanitizeInput({} as any), '');
+  assert.equal(sanitizeInput([] as any), '');
+  assert.equal(sanitizeInput(true as any), '');
+  assert.equal(sanitizeInput('<script>alert(1)</script>'), '&lt;script&gt;alert(1)&lt;/script&gt;');
+});
 
 test('validateInquiry - input validation', () => {
   const result1 = validateInquiry(null as any);
