@@ -63,9 +63,22 @@ export function CareFinder() {
   return (
     <div className="w-full">
       {/* Progress Indicator */}
-      <div className="flex items-center justify-center gap-2 mb-8">
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`} />
-        <div className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`} />
+      <div
+        className="flex items-center justify-center gap-2 mb-8"
+        role="progressbar"
+        aria-valuenow={step === 'select' ? 1 : step === 'sachleistung' ? 2 : 3}
+        aria-valuemin={1}
+        aria-valuemax={3}
+        aria-label="Fortschritt der Berechnung"
+      >
+        <div
+          className={`h-1.5 rounded-full transition-all duration-300 ${step !== 'select' ? 'w-6 bg-[#134E4A]' : 'w-8 bg-[#134E4A]'}`}
+          aria-hidden="true"
+        />
+        <div
+          className={`h-1.5 rounded-full transition-all duration-300 ${step === 'result' ? 'w-8 bg-[#134E4A]' : 'w-6 bg-gray-200'}`}
+          aria-hidden="true"
+        />
       </div>
 
       {/* Step 1: Select Pflegegrad */}

@@ -1,0 +1,3 @@
+## 2025-04-11 - Add accessibility attributes to CareFinder progress bar
+**Learning:** Progress bars in wizard components need explicit `role="progressbar"` and related `aria-*` attributes for accessibility. Custom visual progress bars without these attributes are completely invisible to screen readers, leaving users unaware of multi-step progress.
+**Action:** Always verify custom visual indicators (like the steps in CareFinder) have `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, `aria-valuemax`, and a descriptive `aria-label`. Ensure any purely decorative elements representing the progress bar visually have `aria-hidden="true"`.
