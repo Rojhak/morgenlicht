@@ -96,9 +96,9 @@ export default function ImpressumPage() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold font-heading text-[#144E41]">Umsatzsteuer-ID</h3>
+                  <h3 className="text-xl font-bold font-heading text-[#144E41]">Steuernummer</h3>
                   <div className="text-lg font-body">
-                    <p>Umsatzsteuer-Identifikationsnummer: <span className="font-bold">—</span></p>
+                    <p>Steuernummer: <span className="font-bold">37/447/00936</span></p>
                   </div>
                 </div>
               </div>
