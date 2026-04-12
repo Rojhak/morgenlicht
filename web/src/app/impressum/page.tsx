@@ -49,6 +49,13 @@ export default function ImpressumPage() {
                       Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)
                     </h3>
 
+                    {/* CEO Row */}
+                    <div>
+                      <p className="text-lg text-[#333333] font-body">
+                        <span className="font-bold text-[#144E41] mr-1">Geschäftsführerin:</span> Asiye Duman
+                      </p>
+                    </div>
+
                     {/* Location Row */}
                     <div className="flex items-start">
                       <div className="text-lg text-[#333333] font-body -mt-0.5">
@@ -69,13 +76,6 @@ export default function ImpressumPage() {
                           <span className="font-bold text-[#144E41] mr-1">E-Mail:</span> info@morgenlicht-alltagshilfe.de
                         </p>
                       </div>
-                    </div>
-
-                    {/* CEO Row */}
-                    <div>
-                      <p className="text-lg text-[#333333] font-body">
-                        <span className="font-bold text-[#144E41] mr-1">Geschäftsführerin:</span> Asiye Duman
-                      </p>
                     </div>
                   </div>
                 </div>
