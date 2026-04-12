@@ -56,7 +56,6 @@ export default function ImpressumPage() {
                         <MapPin className="w-5 h-5 text-[#737373] shrink-0 mt-1" />
                         <div className="text-lg text-[#333333] font-body -mt-0.5">
                           <p>Urbanstr. 71, 10967 Berlin</p>
-                          <p className="text-base opacity-70 mt-1">3. Hof, Aufgang links, 1. OG</p>
                         </div>
                       </div>
 
