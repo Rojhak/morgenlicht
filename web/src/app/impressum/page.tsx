@@ -59,7 +59,7 @@ export default function ImpressumPage() {
                     {/* Location Row */}
                     <div className="flex items-start">
                       <div className="text-lg text-[#333333] font-body -mt-0.5">
-                        <p><span className="font-bold text-[#144E41] mr-1">Adresse:</span> Urbanstr. 71, 10967 Berlin</p>
+                        <p>Urbanstraße 71, 10967 Berlin</p>
                       </div>
                     </div>
 
