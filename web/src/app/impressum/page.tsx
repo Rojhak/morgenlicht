@@ -80,7 +80,6 @@ export default function ImpressumPage() {
                   </div>
                 </div>
               </div>
-              </div>
 
               {/* 3. Register & Steuer */}
               <div className="grid md:grid-cols-2 gap-12 border-t border-[#144E41]/10 pt-12">
