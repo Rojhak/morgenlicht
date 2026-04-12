@@ -37,51 +37,49 @@ export default function ImpressumPage() {
               <div className="space-y-12 text-[#455A64]">
               {/* 1. Angaben gemäß § 5 TMG */}
               <div className="space-y-10">
-                <div className="flex items-start gap-4">
-                  <FileText className="w-6 h-6 text-[#144E41] shrink-0 mt-1" />
-                  <div className="space-y-8">
-                    {/* Main Headline */}
-                    <h2 className="text-2xl font-bold font-heading text-[#144E41]">
-                      Angaben gemäß § 5 TMG
-                    </h2>
+                <div className="space-y-8">
+                  {/* Main Headline */}
+                  <h2 className="text-2xl font-bold font-heading text-[#144E41]">
+                    Angaben gemäß § 5 TMG
+                  </h2>
 
-                    {/* Company Name as Sub-Headline */}
-                    <div className="space-y-6">
-                      <h3 className="text-xl font-bold font-heading text-[#144E41]">
-                        Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)
-                      </h3>
+                  {/* Company Name as Sub-Headline */}
+                  <div className="space-y-6">
+                    <h3 className="text-xl font-bold font-heading text-[#144E41]">
+                      Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)
+                    </h3>
 
-                      {/* Location Row */}
-                      <div className="flex items-start pl-10">
-                        <div className="text-lg text-[#333333] font-body -mt-0.5">
-                          <p><span className="font-bold text-[#144E41] mr-1">Adresse:</span> Urbanstr. 71, 10967 Berlin</p>
-                        </div>
+                    {/* Location Row */}
+                    <div className="flex items-start">
+                      <div className="text-lg text-[#333333] font-body -mt-0.5">
+                        <p><span className="font-bold text-[#144E41] mr-1">Adresse:</span> Urbanstr. 71, 10967 Berlin</p>
                       </div>
+                    </div>
 
-                      {/* Contact Row */}
-                      <div className="flex items-start pl-10">
-                        <div className="text-lg text-[#333333] font-body space-y-2 -mt-0.5">
-                          <p>
-                            <span className="font-bold text-[#144E41] mr-1">Telefon:</span> 030 235 930 28
-                          </p>
-                          <p>
-                            <span className="font-bold text-[#144E41] mr-1">Fax:</span> 030 544 533 139
-                          </p>
-                          <p>
-                            <span className="font-bold text-[#144E41] mr-1">E-Mail:</span> info@morgenlicht-alltagshilfe.de
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* CEO Row (Indented but no icon) */}
-                      <div className="pl-10">
-                        <p className="text-lg text-[#333333] font-body">
-                          <span className="font-bold text-[#144E41] mr-1">Geschäftsführerin:</span> Asiye Duman
+                    {/* Contact Row */}
+                    <div className="flex items-start">
+                      <div className="text-lg text-[#333333] font-body space-y-2 -mt-0.5">
+                        <p>
+                          <span className="font-bold text-[#144E41] mr-1">Telefon:</span> 030 235 930 28
+                        </p>
+                        <p>
+                          <span className="font-bold text-[#144E41] mr-1">Fax:</span> 030 544 533 139
+                        </p>
+                        <p>
+                          <span className="font-bold text-[#144E41] mr-1">E-Mail:</span> info@morgenlicht-alltagshilfe.de
                         </p>
                       </div>
                     </div>
+
+                    {/* CEO Row */}
+                    <div>
+                      <p className="text-lg text-[#333333] font-body">
+                        <span className="font-bold text-[#144E41] mr-1">Geschäftsführerin:</span> Asiye Duman
+                      </p>
+                    </div>
                   </div>
                 </div>
+              </div>
               </div>
 
               {/* 3. Register & Steuer */}
