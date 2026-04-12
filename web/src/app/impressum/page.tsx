@@ -92,7 +92,7 @@ export default function ImpressumPage() {
                   <h3 className="text-xl font-bold font-heading text-[#144E41]">Registereintrag</h3>
                   <div className="text-lg font-body space-y-2">
                     <p>Registergericht: Amtsgericht Charlottenburg</p>
-                    <p>Registernummer: HRB 265219 B</p>
+                    <p>Registernummer: HRB 283117 B</p>
                   </div>
                 </div>
                 <div className="space-y-4">
