@@ -117,7 +117,7 @@ export default function DatenschutzPage() {
                     <div className="bg-[#FAF9F6] p-8 rounded-xl border border-[#144E41]/10 shadow-sm text-[#144E41]">
                       <p className="text-xl font-bold mb-3 font-heading">Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)</p>
                       <p className="text-lg font-body">3. Hof, Aufgang links, 1. OG</p>
-                      <p className="text-lg font-body">Urbanstr. 71, 10967 Berlin</p>
+                      <p className="text-lg font-body">Urbanstraße 71, 10967 Berlin</p>
                       <div className="mt-6 pt-6 border-t border-[#144E41]/10 flex flex-col gap-2 text-base font-medium">
                         <p><span className="font-bold">Telefon:</span> 030 235 930 28</p>
                         <p><span className="font-bold">Fax:</span> 030 544 533 139</p>
