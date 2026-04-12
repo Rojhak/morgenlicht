@@ -8,13 +8,13 @@ export default function KontaktPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-10 md:pt-32 pb-16 md:pb-24 px-4 text-center bg-white">
+      <section className="pt-20 md:pt-32 pb-12 md:pb-24 px-4 text-center bg-white">
         <div className="relative max-w-4xl mx-auto text-center px-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Phone className="w-4 h-4 text-[#144E41]" />
             <span>Wir sind für Sie da</span>
           </span>
-          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
             Anfrage & Kontakt
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
@@ -64,7 +64,7 @@ export default function KontaktPage() {
               </div>
               <div>
                 <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">E-Mail</h3>
-                <a href="mailto:info@morgenlicht-alltagshilfe.de" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors break-all block">
+                <a href="mailto:info@morgenlicht-alltagshilfe.de" className="text-lg sm:text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors break-words block">
                   info@morgenlicht-alltagshilfe.de
                 </a>
               </div>

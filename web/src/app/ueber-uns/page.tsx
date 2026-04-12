@@ -11,17 +11,17 @@ export default function UeberUnsPage() {
   return (
     <>
       {/* Hero Section - Matching other pages */}
-      <section className="relative pt-10 md:pt-32 pb-16 md:pb-24 px-4 bg-white">
+      <section className="relative pt-20 md:pt-32 pb-12 md:pb-24 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center px-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Heart className="w-4 h-4 text-[#144E41]" />
             <span>Das Herz hinter Morgenlicht</span>
           </span>
-          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
             Morgenlicht: Ihre Alltagshilfe in Berlin.
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-            Unterstützung auf Augenhöhe – mit Herz, Hand und Verstand. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. <span className="font-semibold text-[#134E4A]">(anerkannte Anbieter nach § 45a SGB XI)</span>.
+            Unterstützung auf Augenhöhe – mit Herz, Hand und Verstand. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Wir entlasten Sie und Ihre Angehörigen. <span className="font-semibold text-[#134E4A]">(anerkannte Anbieter nach § 45a SGB XI)</span>.
           </p>
         </div>
       </section>
@@ -51,7 +51,7 @@ export default function UeberUnsPage() {
                 </div>
 
                 {/* Floating badge - Scaled on mobile (~65%) */}
-                <div className="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-6 bg-white rounded-2xl shadow-lg p-3 md:p-4 border border-gray-100 flex items-center gap-2 md:gap-3 scale-[0.65] md:scale-100 origin-bottom-right">
+                <div className="absolute -bottom-2 -right-2 md:-bottom-6 md:-right-6 bg-white rounded-2xl shadow-lg p-3 md:p-4 border border-gray-100 flex items-center gap-2 md:gap-3 scale-[0.7] sm:scale-[0.85] md:scale-100 origin-bottom-right">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-[#FFFBEB] rounded-xl flex items-center justify-center border border-[#FBBF24]/20">
                     <Award className="w-5 h-5 md:w-6 md:h-6 text-[#FBBF24]" />
                   </div>

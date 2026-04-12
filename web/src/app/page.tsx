@@ -13,18 +13,18 @@ export default function HomePage() {
             <div className="text-center lg:text-left z-10 space-y-8">
               {/* Kicker & Headline Group */}
               <div>
-                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-10">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
-                    <Check className="w-4 h-4 text-[#144E41] stroke-[1.5]" />
-                    <span className="font-inter text-sm font-semibold text-[#144E41] tracking-wider whitespace-nowrap">Anerkannt nach § 45a SGB XI</span>
+                <div className="flex flex-wrap items-center lg:items-start justify-center lg:justify-start gap-3 mb-10">
+                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
+                    <Check className="w-3.5 h-3.5 text-[#144E41] stroke-[1.5]" />
+                    <span className="font-inter text-xs sm:text-sm font-semibold text-[#144E41] tracking-wider whitespace-nowrap">Anerkannt nach § 45a SGB XI</span>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
-                    <Heart className="w-4 h-4 text-[#144E41] stroke-[1.5]" />
-                    <span className="font-inter text-sm font-semibold text-[#144E41] tracking-wider whitespace-nowrap">Alltagshilfe für Senioren & Pflegebedürftige</span>
+                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
+                    <Heart className="w-3.5 h-3.5 text-[#144E41] stroke-[1.5]" />
+                    <span className="font-inter text-xs sm:text-sm font-semibold text-[#144E41] tracking-wider whitespace-nowrap">Alltagshilfe für Senioren</span>
                   </div>
                 </div>
 
-                <h1 className="font-heading font-bold text-[#134E4A] text-3xl sm:text-5xl lg:text-[48px] leading-[1.1] mb-8 tracking-tighter">
+                <h1 className="font-heading font-bold text-[#134E4A] text-3xl sm:text-5xl lg:text-[48px] leading-[1.2] mb-8 tracking-tighter">
                   Herzlich & Würdevoll: <br className="hidden lg:block"/>
                   Ihre Alltagshilfe in Berlin
                 </h1>

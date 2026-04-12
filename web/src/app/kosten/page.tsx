@@ -63,16 +63,16 @@ export default function KostenPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-10 md:pt-32 pb-16 md:pb-24 px-4 bg-white">
+      <section className="relative pt-20 md:pt-32 pb-12 md:pb-24 px-4 bg-white">
         <div className="relative max-w-4xl mx-auto text-center px-4">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Euro className="w-4 h-4 text-[#144E41]" />
             <span>Transparente Preise</span>
           </span>
-          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
             Kosten & Pflegekasse
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6">
+          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6 italic">
             "Transparenz ist uns wichtig. Wir erklären Ihnen alles."
           </p>
           <p className="text-base sm:text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
@@ -115,8 +115,8 @@ export default function KostenPage() {
                     <h3 className="text-xl font-bold font-heading text-[#134E4A] leading-tight">{plan.subtitle}</h3>
                   </div>
                   <div className="flex items-baseline justify-center gap-1 mt-4">
-                    <span className={`${plan.amount.length > 8 ? 'text-3xl' : 'text-4xl'} font-bold font-heading text-[#144E41] whitespace-nowrap`}>{plan.amount}</span>
-                    <span className="text-lg font-body text-[#455A64]">{plan.period}</span>
+                    <span className={`${plan.amount.length > 8 ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl'} font-bold font-heading text-[#144E41] whitespace-nowrap`}>{plan.amount}</span>
+                    <span className="text-base sm:text-lg font-body text-[#455A64]">{plan.period}</span>
                   </div>
                 </div>
 

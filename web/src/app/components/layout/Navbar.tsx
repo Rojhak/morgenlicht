@@ -65,10 +65,8 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle (Visible on Mobile) */}
-          {/* Mobile Menu Toggle (Visible on Mobile) */}
-          {/* Mobile Menu Toggle (Visible on Mobile) */}
-          <div className="flex items-center md:hidden ml-auto gap-x-4">
+          {/* Mobile Menu Toggle (Visible below LG) */}
+          <div className="flex items-center lg:hidden ml-auto gap-x-4">
              <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-gray-600 hover:text-[#134E4A] transition-colors"
@@ -82,9 +80,9 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 
         </div>
 
-        {/* Mobile Menu Overlay - Preserving existing mobile menu logic/style but simplifying to match new aesthetic */}
+        {/* Mobile Menu Overlay */}
         {mobileMenuOpen && (
-          <div id="mobile-menu" className="fixed inset-0 top-20 z-40 bg-white border-t border-gray-100 md:hidden overflow-y-auto">
+          <div id="mobile-menu" className="fixed inset-0 top-[80px] md:top-[112px] z-40 bg-white border-t border-gray-100 lg:hidden overflow-y-auto">
             <div className="p-6 space-y-4">
               {navLinks.map((link) => (
                 <Link

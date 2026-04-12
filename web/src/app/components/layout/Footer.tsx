@@ -177,7 +177,7 @@ export function Footer() {
                 <div className="w-6 flex justify-center shrink-0">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <span className="ml-4 font-medium text-sm text-white/90">info@morgenlicht-alltagshilfe.de</span>
+                <span className="ml-4 font-medium text-xs sm:text-sm text-white/90 break-words">info@morgenlicht-alltagshilfe.de</span>
               </a>
 
             </div>

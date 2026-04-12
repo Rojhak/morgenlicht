@@ -121,22 +121,22 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* Navigation - 5 Horizontal Anchor Cards */}
-      <section className="py-2 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-20 md:top-28 z-30 shadow-sm">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex justify-start md:justify-center items-center gap-3 md:gap-5 overflow-x-auto scrollbar-hide bg-white rounded-2xl px-5 md:px-6 py-3 md:py-4 border border-gray-100">
+      {/* Navigation - 5 Anchor Cards */}
+      <section className="py-4 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-[80px] md:top-[112px] z-30 shadow-sm">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5">
             {services.map((service, index) => {
               const NavIcon = navIcons[index]
               return (
                 <button
                   key={service.id}
                   onClick={() => scrollToSection(service.id)}
-                  className="flex flex-col items-center justify-center gap-1.5 md:gap-2 min-w-[60px] md:min-w-[72px] group cursor-pointer"
+                  className="flex flex-col items-center justify-center gap-2 min-w-[70px] sm:min-w-[80px] group cursor-pointer transition-transform active:scale-95"
                 >
-                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
-                    <NavIcon className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg transition-all duration-300">
+                    <NavIcon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                   </div>
-                  <span className="text-[10px] font-body font-semibold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-widest group-hover:text-[#FBBF24] transition-colors">
+                  <span className="text-[10px] font-body font-bold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-widest group-hover:text-[#FBBF24] transition-colors">
                     {navLabels[index]}
                   </span>
                 </button>
