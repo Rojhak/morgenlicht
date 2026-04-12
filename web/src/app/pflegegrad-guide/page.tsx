@@ -111,14 +111,22 @@ export default function PflegegradGuide() {
 
         {/* Progress Bar */}
         <div className="mb-8">
-          <div className="flex justify-between text-sm text-[#455A64] mb-2">
+          <div className="flex justify-between text-sm text-[#455A64] mb-2" aria-hidden="true">
             <span>Schritt {currentStep + 1} von {steps.length}</span>
             <span>{Math.round(progress)}%</span>
           </div>
-          <div className="h-2 bg-white/50 rounded-full overflow-hidden">
+          <div
+            className="h-2 bg-white/50 rounded-full overflow-hidden"
+            role="progressbar"
+            aria-valuenow={Math.round(progress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label={`Fortschritt Pflegegrad-Guide: Schritt ${currentStep + 1} von ${steps.length}`}
+          >
             <div
               className="h-full bg-[#26A69A] transition-all duration-300"
               style={{ width: `${progress}%` }}
+              aria-hidden="true"
             />
           </div>
         </div>
