@@ -61,8 +61,7 @@ export default function ImpressumPage() {
                       </div>
 
                       {/* Contact Row */}
-                      <div className="flex items-start gap-5">
-                        <Phone className="w-5 h-5 text-[#737373] shrink-0 mt-1" />
+                      <div className="flex items-start pl-10">
                         <div className="text-lg text-[#333333] font-body space-y-2 -mt-0.5">
                           <p>
                             <span className="font-bold text-[#144E41] mr-1">Telefon:</span> 030 235 930 28
