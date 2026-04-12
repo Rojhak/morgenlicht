@@ -52,10 +52,9 @@ export default function ImpressumPage() {
                       </h3>
 
                       {/* Location Row */}
-                      <div className="flex items-start gap-5">
-                        <MapPin className="w-5 h-5 text-[#737373] shrink-0 mt-1" />
+                      <div className="flex items-start pl-10">
                         <div className="text-lg text-[#333333] font-body -mt-0.5">
-                          <p>Urbanstr. 71, 10967 Berlin</p>
+                          <p><span className="font-bold text-[#144E41] mr-1">Adresse:</span> Urbanstr. 71, 10967 Berlin</p>
                         </div>
                       </div>
 
