@@ -9,7 +9,7 @@ export default function KontaktPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-20 md:pt-32 pb-12 md:pb-16 px-4 text-center bg-white">
+      <section className="pt-20 md:pt-32 pb-4 md:pb-8 px-4 text-center bg-white">
         <div className="relative max-w-4xl mx-auto text-center px-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
             <Phone className="w-4 h-4 text-[#144E41]" />
@@ -30,7 +30,7 @@ export default function KontaktPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           {/* Personalization Section (Next to Box) */}
-          <div className="lg:col-span-4 flex flex-col items-center lg:items-end text-center lg:text-right pt-8">
+          <div className="lg:col-span-4 flex flex-col items-center lg:items-end text-center lg:text-right pt-2">
             <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl mb-6">
               <Image
                 src="/images/asiye-duman.jpeg"
