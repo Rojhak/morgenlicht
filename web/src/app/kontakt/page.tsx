@@ -45,7 +45,6 @@ export default function KontaktPage() {
               </div>
             </div>
 
-            {/* WhatsApp */}
             <div className="flex gap-5 items-start focus-within:ring-2 focus-within:ring-[#144E41]/20 rounded-xl p-1 -m-1 transition-all">
               <a href="https://wa.me/4915156057365" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0 hover:bg-[#DCFCE7] transition-colors" aria-label="WhatsApp Nachricht schreiben">
                  <svg viewBox="0 0 24 24" className="w-6 h-6 fill-[#144E41]" xmlns="http://www.w3.org/2000/svg">
@@ -53,23 +52,11 @@ export default function KontaktPage() {
                   </svg>
               </a>
               <div>
-                <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">WhatsApp</h3>
-                <a href="https://wa.me/4915156057365" target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block">
-                  Chat starten
-                </a>
-              </div>
-            </div>
-
-            {/* Mobil */}
-            <div className="flex gap-5 items-start focus-within:ring-2 focus-within:ring-[#144E41]/20 rounded-xl p-1 -m-1 transition-all">
-              <a href="tel:015156057365" className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0 hover:bg-[#DCFCE7] transition-colors" aria-label="Mobil anrufen">
-                <Phone className="w-6 h-6 text-[#144E41]" />
-              </a>
-              <div>
-                <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">Mobil</h3>
+                <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">WhatsApp & Mobil</h3>
                 <a href="tel:015156057365" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block">
                   0151 560 573 65
                 </a>
+                <p className="text-gray-500 text-sm italic mt-1">(Schnell & unkompliziert)</p>
               </div>
             </div>
 
