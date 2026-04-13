@@ -94,7 +94,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Error sending inquiry email:', error)
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    console.error('Error sending inquiry email:', errorMessage)
     return NextResponse.json(
       { error: 'Fehler beim Senden der Anfrage' },
       { status: 500 }

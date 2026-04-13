@@ -1,4 +1,4 @@
-import { validateInquiry } from '../../src/lib/security';
+import { validateInquiry, sanitizeInput } from '../../src/lib/security';
 import test from 'node:test';
 import assert from 'node:assert';
 
@@ -20,4 +20,11 @@ test('validateInquiry - input validation', () => {
 
   const resultValidMsg = validateInquiry({ name: 'Test', phone: '030 12345678', message: 'a'.repeat(2000) });
   assert.equal(resultValidMsg, null);
+});
+
+test('sanitizeInput - gracefully handles non-string inputs', () => {
+  assert.equal(sanitizeInput(null as any), '');
+  assert.equal(sanitizeInput(undefined as any), '');
+  assert.equal(sanitizeInput(123 as any), '');
+  assert.equal(sanitizeInput({} as any), '');
 });
