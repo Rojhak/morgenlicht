@@ -21,6 +21,10 @@ const faqCategories = [
         q: 'In welchen Gebieten bietet Morgenlicht Leistungen an?',
         a: 'Wir sind in Berlin tätig, mit einem besonderen Schwerpunkt auf die Bezirke Kreuzberg, Neukölln und Mitte. Dort unterstützen wir Sie gerne direkt in Ihrem Kiez. Aber auch wenn Sie in einem angrenzenden Bezirk wohnen: Kontaktieren Sie uns einfach – wir besprechen gemeinsam, ob und wie wir Sie an Ihrem Wohnort betreuen können.',
       },
+      {
+        q: 'In welchen Sprachen bieten Sie die Beratung und Unterstützung an?',
+        a: 'Wir bieten unsere Hilfe und die gesamte Beratung neben Deutsch auch auf Türkisch und Englisch an.',
+      },
     ],
   },
   {

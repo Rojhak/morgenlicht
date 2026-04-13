@@ -16,6 +16,10 @@ const faqs = [
   {
     question: 'Sind Ihre Mitarbeiter für diese Aufgaben qualifiziert?',
     answer: 'Ja, wir sind ein nach Landesrecht (§ 45a SGB XI) anerkannter Dienstleister. Unsere Alltagsbegleiter sind geschult, herzlich und zuverlässig, um Ihnen die bestmögliche Qualität zu bieten.'
+  },
+  {
+    question: 'In welchen Sprachen bieten Sie die Beratung und Unterstützung an?',
+    answer: 'Wir bieten unsere Hilfe und die gesamte Beratung neben Deutsch auch auf Türkisch und Englisch an.'
   }
 ]
 
