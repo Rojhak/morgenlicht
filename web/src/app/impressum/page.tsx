@@ -103,8 +103,12 @@ export default function ImpressumPage() {
               <div className="space-y-6 border-t border-[#144E41]/10 pt-12">
                 <h2 className="text-2xl font-bold font-heading text-[#144E41]">Zuständige Aufsichtsbehörde</h2>
                 <div className="">
-                  <p className="text-lg font-bold">Landesamt für Gesundheit und Soziales Berlin (LAGeSo)</p>
-                  <p className="text-base text-[#737373]">Turmstraße 21, 10559 Berlin</p>
+                  <p className="text-lg font-bold">Senatsverwaltung für Wissenschaft, Gesundheit und Pflege</p>
+                  <p className="text-lg font-medium text-[#144E41] mb-2 uppercase tracking-tight">Abteilung Pflege</p>
+                  <div className="text-base text-[#737373] space-y-1">
+                    <p>Oranienstr. 106, 10969 Berlin</p>
+                    <p>Website: <a href="https://www.berlin.de/sen/wgp/" target="_blank" rel="noopener noreferrer" className="text-[#144E41] hover:underline transition-all">https://www.berlin.de/sen/wgp/</a></p>
+                  </div>
                 </div>
               </div>
 
