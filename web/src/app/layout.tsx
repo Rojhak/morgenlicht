@@ -21,15 +21,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Morgenlicht | Herzliche Alltagshilfe in Berlin : & 100% Kostenübernahme',
+    default: 'Morgenlicht | Herzliche Alltagshilfe in Berlin & 100% Kostenübernahme',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
-  description: 'Zertifizierte Alltagshilfe & Seniorenbetreuung & Haushaltshilfe in Berlin Mitte, Kreuzberg & Neukölln. 100% Kostenübernahme ab Pflegegrad 1.',
-  keywords: ['Alltagshilfe', 'Seniorenbetreuung', 'Haushaltshilfe', 'Entlastungsbetrag', 'Pflegegrad', 'Berlin', 'Kreuzberg', 'Neukölln', 'Mitte', '100% Kostenübernahme', 'Entlastung'],
+  description: 'Zertifizierte Alltagshilfe, Seniorenbetreuung & Haushaltshilfe in Berlin Mitte, Kreuzberg & Neukölln für Senioren & Pflegebedürftige. 100% Kostenübernahme ab Pflegegrad 1. Jetzt beraten lassen!',
+  keywords: ['Alltagshilfe Berlin', 'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln', 'Alltagshilfe Mitte', 'Entlastungsbetrag', 'Pflegegrad 1 Kostenübernahme', 'Morgenlicht Alltagshilfe', 'Entlastung Pflegendeangehörige'],
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   openGraph: {
-    title: 'Morgenlicht | Herzliche Alltagshilfe in Berlin : & 100% Kostenübernahme',
-    description: 'Zertifizierte Alltagshilfe & Seniorenbetreuung & Haushaltshilfe in Berlin Mitte, Kreuzberg & Neukölln. 100% Kostenübernahme ab Pflegegrad 1.',
+    title: 'Morgenlicht | Herzliche Alltagshilfe in Berlin & 100% Kostenübernahme',
+    description: 'Zertifizierte Alltagshilfe, Seniorenbetreuung & Haushaltshilfe in Berlin Mitte, Kreuzberg & Neukölln für Senioren & Pflegebedürftige. 100% Kostenübernahme ab Pflegegrad 1. Jetzt beraten lassen!',
     type: 'website',
     locale: 'de_DE',
   },
