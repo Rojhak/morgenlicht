@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
   description: 'Zertifizierte Alltagshilfe & Seniorenbetreuung & Haushaltshilfe in Berlin Mitte, Kreuzberg & Neukölln. 100% Kostenübernahme ab Pflegegrad 1.',
-  keywords: ['Alltagshilfe', 'Seniorenbetreuung', 'Haushaltshilfe', 'Entlastungsbetrag', 'Pflegegrad', 'Berlin', 'Kreuzberg', 'Neukölln', 'Mitte'],
+  keywords: ['Alltagshilfe', 'Seniorenbetreuung', 'Haushaltshilfe', 'Entlastungsbetrag', 'Pflegegrad', 'Berlin', 'Kreuzberg', 'Neukölln', 'Mitte', '100% Kostenübernahme', 'Entlastung'],
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   openGraph: {
     title: 'Morgenlicht | Herzliche Alltagshilfe in Berlin : & 100% Kostenübernahme',
