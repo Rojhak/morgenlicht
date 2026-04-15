@@ -105,7 +105,7 @@ export default function ImpressumPage() {
                 <div className="">
                   <p className="text-lg font-bold">Senatsverwaltung für Wissenschaft, Gesundheit und Pflege</p>
                   <p className="text-lg font-medium text-[#144E41] mb-2 tracking-tight">Abteilung Pflege</p>
-                  <div className="text-base text-[#737373] space-y-1">
+                  <div className="text-lg text-[#737373] space-y-1">
                     <p>Oranienstr. 106, 10969 Berlin</p>
                     <p>Website: <a href="https://www.berlin.de/sen/wgp/" target="_blank" rel="noopener noreferrer" className="text-[#144E41] hover:underline transition-all">https://www.berlin.de/sen/wgp/</a></p>
                   </div>
