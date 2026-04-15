@@ -21,14 +21,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte | 100% Kostenübernahme',
+    default: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte | 100% Kostenübernahme ab Pflegegrad 1',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
   description: 'Zertifizierte Alltagshilfe in Berlin. Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln und Mitte bei Haushalt, Begleitung und Alltag. Jetzt kostenfrei beraten lassen!',
   keywords: ['Alltagshilfe Berlin', 'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln', 'Alltagshilfe Mitte', 'Entlastungsbetrag', 'Pflegegrad 1 Kostenübernahme', 'Morgenlicht Alltagshilfe', 'Entlastung Pflegendeangehörige', 'SGB XI', 'Pflegesachleistung', 'Betreuungsdienst Berlin', 'Hauswirtschaftshilfe', 'Pflegedienst Alternative', 'Seniorenhilfe Berlin', 'Unterstützungsangebote im Alltag'],
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   openGraph: {
-    title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte | 100% Kostenübernahme',
+    title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte | 100% Kostenübernahme ab Pflegegrad 1',
     description: 'Zertifizierte Alltagshilfe in Berlin. Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln und Mitte bei Haushalt, Begleitung und Alltag. Jetzt kostenfrei beraten lassen!',
     type: 'website',
     locale: 'de_DE',
