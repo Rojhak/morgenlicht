@@ -382,6 +382,24 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* Sektion 7: Local Presence Badge - SEO & Trust */}
+      <section className="bg-white pb-24 px-6 md:pb-32">
+        <div className="max-w-4xl mx-auto flex justify-center">
+          <div className="inline-flex flex-col sm:flex-row items-center sm:items-start gap-4 px-6 py-5 bg-white border border-[#144E41]/10 rounded-[12px] shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FBBF24]/10 flex items-center justify-center">
+              <MapPin className="w-5 h-5 text-[#FBBF24] fill-[#FBBF24]/10" />
+            </div>
+            <div className="flex flex-col text-center sm:text-left">
+              <span className="font-heading font-bold text-[#144E41] text-xs uppercase tracking-[0.1em] mb-1">
+                Wir sind für Sie vor Ort
+              </span>
+              <p className="font-body text-[#4B5563] text-base leading-relaxed">
+                Ihre herzliche Alltagshilfe in: <span className="font-semibold text-[#144E41]">Berlin Kreuzberg, Neukölln und Mitte.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
