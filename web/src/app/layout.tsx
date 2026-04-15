@@ -21,14 +21,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
+    default: 'Morgenlicht | Herzliche Alltagshilfe in Berlin : & 100% Kostenübernahme',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
   description: 'Zertifizierte Alltagshilfe & Seniorenbetreuung & Haushaltshilfe in Berlin Mitte, Kreuzberg & Neukölln. 100% Kostenübernahme ab Pflegegrad 1.',
   keywords: ['Alltagshilfe', 'Seniorenbetreuung', 'Haushaltshilfe', 'Entlastungsbetrag', 'Pflegegrad', 'Berlin', 'Kreuzberg', 'Neukölln', 'Mitte'],
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   openGraph: {
-    title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
+    title: 'Morgenlicht | Herzliche Alltagshilfe in Berlin : & 100% Kostenübernahme',
     description: 'Zertifizierte Alltagshilfe & Seniorenbetreuung & Haushaltshilfe in Berlin Mitte, Kreuzberg & Neukölln. 100% Kostenübernahme ab Pflegegrad 1.',
     type: 'website',
     locale: 'de_DE',
