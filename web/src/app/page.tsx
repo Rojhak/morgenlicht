@@ -96,7 +96,7 @@ export default function HomePage() {
                      <div className="w-36 h-48 md:w-56 md:h-72 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
                        <img
                          src="/images/hero_helping_hand.png"
-                         alt="Helfende Hände Alltagshilfe"
+                         alt="Alltagshelferin hält die Hand einer Seniorin in Berlin – Morgenlicht Alltagshilfe"
                          className="w-full h-full object-cover"
                        />
                      </div>
@@ -106,7 +106,7 @@ export default function HomePage() {
                         <div className="w-full h-full rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
                           <img
                             src="/images/hero_daily_moments.png"
-                            alt="Gemeinsame Momente"
+                            alt="Seniorin und Alltagshelferin beim gemeinsamen Kochen in Berlin-Kreuzberg"
                             className="w-full h-full object-cover"
                           />
                         </div>
@@ -117,7 +117,7 @@ export default function HomePage() {
                          >
                           <img
                             src="/images/asiye-duman.jpeg"
-                            alt="Asiye Duman"
+                            alt="Asiye Duman – Ihre persönliche Ansprechpartnerin bei Morgenlicht Alltagshilfe Berlin"
                             className="w-10 h-10 rounded-full object-cover border border-gray-100 shadow-sm ml-1"
                           />
                           <div className="flex flex-col text-left">
@@ -138,7 +138,7 @@ export default function HomePage() {
                      <div className="w-40 h-60 md:w-64 md:h-80 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
                         <img
                           src="/images/hero_active_senior.png"
-                          alt="Aktive Senioren Berlin"
+                          alt="Aktiver Senior beim Spaziergang mit Begleitung in Berlin-Neukölln"
                           className="w-full h-full object-cover"
                         />
                      </div>
@@ -158,7 +158,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero_helping_hand.png"
-            alt="Helfende Hände"
+            alt="Helfende Hände – Morgenlicht Alltagshilfe in Berlin"
             className="w-full h-full object-cover opacity-90"
           />
         </div>
@@ -382,21 +382,70 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* Sektion 7: Local Presence Badge - SEO & Trust */}
-      <section className="bg-white pb-24 px-6 md:pb-32">
-        <div className="max-w-4xl mx-auto flex justify-center">
-          <div className="inline-flex flex-col sm:flex-row items-center sm:items-start gap-4 px-6 py-5 bg-white border border-[#144E41]/10 rounded-[12px] shadow-sm hover:shadow-md transition-shadow">
-            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FBBF24]/10 flex items-center justify-center">
-              <MapPin className="w-5 h-5 text-[#FBBF24] fill-[#FBBF24]/10" />
+      {/* Sektion 7: Beratung in Ihrer Sprache – Multilingual SEO + Trust */}
+      <section className="bg-white py-16 md:py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm">
+            <Heart className="w-4 h-4 text-[#144E41]" />
+            <span>Beratung in Ihrer Sprache</span>
+          </span>
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
+            Wir verstehen Sie – auf Deutsch, Türkisch und Englisch
+          </h2>
+          <p className="font-body text-lg text-[#4B5563] leading-relaxed mb-6">
+            Interkulturelle Alltagshilfe ist für uns selbstverständlich. Wir beraten und unterstützen Sie in Ihrer Sprache – mit Respekt für Ihre Kultur, Ihre Gewohnheiten und Ihre Geschichte.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4 mt-8">
+            <div className="bg-[#F7F6F3] rounded-xl p-5">
+              <div className="font-heading font-bold text-[#144E41] mb-1">Deutsch</div>
+              <p className="font-body text-sm text-[#4B5563]">Wir nehmen uns Zeit, hören zu und begleiten Sie verlässlich durch Ihren Alltag in Berlin.</p>
             </div>
-            <div className="flex flex-col text-center sm:text-left">
-              <span className="font-heading font-bold text-[#144E41] text-xs uppercase tracking-[0.1em] mb-1">
-                Wir sind für Sie vor Ort
-              </span>
-              <p className="font-body text-[#4B5563] text-base leading-relaxed">
-                Ihre herzliche Alltagshilfe in: <span className="font-semibold text-[#144E41]">Berlin Kreuzberg, Neukölln und Mitte.</span>
-              </p>
+            <div className="bg-[#F7F6F3] rounded-xl p-5" lang="tr">
+              <div className="font-heading font-bold text-[#144E41] mb-1">Türkçe</div>
+              <p className="font-body text-sm text-[#4B5563]">Kreuzberg, Neukölln ve Mitte&apos;de yaşayan yaşlılar için Türkçe günlük yaşam yardımı. Bakım sigortası üzerinden %100 ücretsiz.</p>
             </div>
+            <div className="bg-[#F7F6F3] rounded-xl p-5" lang="en">
+              <div className="font-heading font-bold text-[#144E41] mb-1">English</div>
+              <p className="font-body text-sm text-[#4B5563]">Daily living support for seniors in Berlin Kreuzberg, Neukölln &amp; Mitte. 100% covered by German care insurance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sektion 8: Local Presence – Verlinkte Bezirke (Local SEO) */}
+      <section className="bg-[#F7F6F3] py-16 md:py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="font-heading font-bold text-[#144E41] text-xs uppercase tracking-[0.1em] mb-3 block">
+            Wir sind für Sie vor Ort
+          </span>
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
+            Ihre Alltagshilfe in Ihrem Berliner Kiez
+          </h2>
+          <p className="font-body text-[#4B5563] mb-8 max-w-2xl mx-auto leading-relaxed">
+            Wir arbeiten wohnortnah und mit festen Bezugspersonen. Wählen Sie Ihren Bezirk – wir sind in der Nähe.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/berlin-kreuzberg"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
+            >
+              <MapPin className="w-4 h-4" />
+              Alltagshilfe Kreuzberg
+            </Link>
+            <Link
+              href="/berlin-neukoelln"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
+            >
+              <MapPin className="w-4 h-4" />
+              Alltagshilfe Neukölln
+            </Link>
+            <Link
+              href="/berlin-mitte"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
+            >
+              <MapPin className="w-4 h-4" />
+              Alltagshilfe Mitte
+            </Link>
           </div>
         </div>
       </section>

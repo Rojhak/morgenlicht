@@ -1,11 +1,8 @@
-# Robots.txt for Morgenlicht Alltagshilfe
+# Robots.txt for Morgenlicht Alltagshilfe Berlin
 # https://www.morgenlicht-alltagshilfe.de
 
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://www.morgenlicht-alltagshilfe.de/sitemap.xml
-
-# Block sensitive paths
 Disallow: /api/
+
+Sitemap: https://www.morgenlicht-alltagshilfe.de/sitemap.xml
