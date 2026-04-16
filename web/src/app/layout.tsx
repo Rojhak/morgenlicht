@@ -24,10 +24,10 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Alltagshilfe Berlin Kreuzberg, Neukölln & Mitte | Morgenlicht – Würdevoll, herzlich, 131 € Entlastungsbetrag',
+    default: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte | 100% Kostenübernahme ab Pflegegrad 1',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
-  description: 'Staatlich anerkannte Alltagshilfe (§ 45a SGB XI) in Berlin Kreuzberg, Neukölln & Mitte. Haushaltshilfe, Einkauf, Begleitung & Alltagsbetreuung – 100 % kostenlos über den 131 € Entlastungsbetrag ab Pflegegrad 1. Feste Bezugsperson. Beratung auf Deutsch, Türkisch & Englisch. ☎ 030 235 930 28.',
+  description: 'Zertifizierte Alltagshilfe in Berlin. Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln und Mitte bei Haushalt, Begleitung und Alltag. Jetzt kostenfrei beraten lassen!',
   keywords: [
     'Alltagshilfe Berlin', 'Haushaltshilfe Berlin', 'Haushaltshilfe Pflegekasse Berlin',
     'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln',
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Morgenlicht Alltagshilfe Berlin – Würdevolle Betreuung mit Herz',
-    description: 'Anerkannte Alltagshilfe (§ 45a SGB XI) in Kreuzberg, Neukölln & Mitte. Feste Bezugsperson, 100 % Kostenübernahme durch die Pflegekasse, Beratung auf Deutsch, Türkisch & Englisch.',
+    title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte | 100% Kostenübernahme ab Pflegegrad 1',
+    description: 'Zertifizierte Alltagshilfe in Berlin. Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln und Mitte bei Haushalt, Begleitung und Alltag. Jetzt kostenfrei beraten lassen!',
     type: 'website',
     locale: 'de_DE',
     url: `${SITE_URL}/`,
@@ -82,8 +82,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Morgenlicht Alltagshilfe Berlin – Würdevolle Betreuung mit Herz',
-    description: 'Anerkannte Alltagshilfe in Kreuzberg, Neukölln & Mitte. 100 % Kostenübernahme ab Pflegegrad 1. Feste Bezugsperson, deutsch/türkisch/englisch.',
+    title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
+    description: 'Zertifizierte Alltagshilfe in Berlin. 100 % Kostenübernahme ab Pflegegrad 1. Feste Bezugsperson, deutsch/türkisch/englisch.',
     images: ['/images/hero_helping_hand.png'],
   },
 }
