@@ -1,7 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Navbar, Footer } from './components/layout'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#144E41' },
+    { media: '(prefers-color-scheme: dark)', color: '#0F3F3C' },
+  ],
+  colorScheme: 'light',
+}
 
 // Montserrat - Modern, geometrische Schrift für Überschriften und Logo
 const montserrat = Montserrat({
@@ -119,6 +130,12 @@ const structuredData = {
       ],
       knowsLanguage: ['de', 'tr', 'en'],
       availableLanguage: ['German', 'Turkish', 'English'],
+      sameAs: [
+        // Beim Anlegen der Profile einfach hier eintragen:
+        // 'https://www.facebook.com/morgenlichtalltagshilfe',
+        // 'https://www.instagram.com/morgenlicht.alltagshilfe',
+        // 'https://g.page/morgenlicht-alltagshilfe-berlin',
+      ],
       openingHoursSpecification: [{
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

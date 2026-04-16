@@ -306,6 +306,51 @@ export default function HomePage() {
 
       {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background */}
       <section className="bg-white py-16 md:py-24 px-6">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: 'In 3 Schritten zur Alltagshilfe mit Pflegekassen-Abrechnung',
+              description:
+                'So einfach starten Sie mit Morgenlicht Alltagshilfe in Berlin: Erstkontakt, persönliches Kennenlernen und sorgenfreier Beginn – mit direkter Abrechnung über die Pflegekasse nach § 45b SGB XI.',
+              inLanguage: 'de-DE',
+              totalTime: 'PT15M',
+              estimatedCost: { '@type': 'MonetaryAmount', currency: 'EUR', value: '0' },
+              supply: [
+                { '@type': 'HowToSupply', name: 'Pflegegrad 1–5 (empfohlen)' },
+                { '@type': 'HowToSupply', name: 'Anschrift in Berlin (Kreuzberg, Neukölln oder Mitte)' },
+              ],
+              step: [
+                {
+                  '@type': 'HowToStep',
+                  position: 1,
+                  name: 'Erstkontakt',
+                  text:
+                    'Ein kurzes Telefonat unter 030 235 930 28 oder eine Nachricht genügt. Wir besprechen unverbindlich Ihre Situation und klären erste Fragen zur Alltagshilfe.',
+                  url: 'https://www.morgenlicht-alltagshilfe.de/kontakt',
+                },
+                {
+                  '@type': 'HowToStep',
+                  position: 2,
+                  name: 'Kennenlernen',
+                  text:
+                    'Ob persönlich vor Ort in Kreuzberg, Neukölln oder Mitte oder flexibel per Telefon – wir nehmen uns Zeit für Ihre Fragen, Wünsche und sprachlichen Vorlieben (Deutsch, Türkisch, Englisch).',
+                  url: 'https://www.morgenlicht-alltagshilfe.de/leistungen',
+                },
+                {
+                  '@type': 'HowToStep',
+                  position: 3,
+                  name: 'Sorglos starten',
+                  text:
+                    'Wir rechnen direkt mit Ihrer Pflegekasse über den Entlastungsbetrag nach § 45b SGB XI ab – ohne Vorkasse, ohne Papierkram. Sie genießen die Entlastung.',
+                  url: 'https://www.morgenlicht-alltagshilfe.de/kosten',
+                },
+              ],
+            }),
+          }}
+        />
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">

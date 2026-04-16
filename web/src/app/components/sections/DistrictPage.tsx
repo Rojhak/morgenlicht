@@ -39,6 +39,40 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
         availableLanguage: ['German', 'Turkish', 'English'],
       },
       {
+        '@type': 'Service',
+        '@id': `${SITE_URL}/${content.slug}#service`,
+        serviceType: 'Alltagshilfe nach § 45a SGB XI',
+        name: `Alltagshilfe in Berlin-${content.district}`,
+        description: `Staatlich anerkannte Alltagshilfe in Berlin-${content.district}: Haushaltshilfe, Einkauf, Begleitung, Alltagsstruktur und soziale Teilhabe. 100 % Kostenübernahme ab Pflegegrad 1 über den Entlastungsbetrag nach § 45b SGB XI.`,
+        provider: { '@id': `${SITE_URL}/${content.slug}#business-${content.slug}` },
+        areaServed: { '@type': 'AdministrativeArea', name: `Berlin-${content.district}` },
+        availableLanguage: ['German', 'Turkish', 'English'],
+        category: 'Home Care Services',
+        termsOfService: `${SITE_URL}/datenschutz`,
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'EUR',
+          availability: 'https://schema.org/InStock',
+          description: 'Kostenfrei für Versicherte mit Pflegegrad 1–5 über den Entlastungsbetrag (131 €/Monat) nach § 45b SGB XI.',
+          eligibleCustomerType: 'https://schema.org/Patient',
+          url: `${SITE_URL}/kosten`,
+        },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: `Leistungen in Berlin-${content.district}`,
+          itemListElement: services.map((s, i) => ({
+            '@type': 'Offer',
+            position: i + 1,
+            itemOffered: {
+              '@type': 'Service',
+              name: s.title,
+              description: s.desc,
+            },
+          })),
+        },
+      },
+      {
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Startseite', item: `${SITE_URL}/` },
