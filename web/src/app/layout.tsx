@@ -38,23 +38,41 @@ export const metadata: Metadata = {
     default: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte | 100% Kostenübernahme ab Pflegegrad 1',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
-  description: 'Zertifizierte Alltagshilfe in Berlin. Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln und Mitte bei Haushalt, Begleitung und Alltag. Jetzt kostenfrei beraten lassen!',
+  description: 'Anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI in Berlin. Haushaltsnahe Dienstleistungen, Begleitung & Betreuung für Senioren in Kreuzberg, Neukölln und Mitte – 100 % über die Pflegekasse ab Pflegegrad 1. Jetzt kostenfrei beraten lassen.',
   keywords: [
-    'Alltagshilfe Berlin', 'Haushaltshilfe Berlin', 'Haushaltshilfe Pflegekasse Berlin',
-    'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln',
-    'Alltagshilfe Mitte', 'Alltagshilfe Neukölln', 'Alltagshilfe Kreuzberg',
+    // Kern: Angebote zur Unterstützung im Alltag (AzU / § 45a SGB XI)
+    'Angebote zur Unterstützung im Alltag Berlin',
+    'Angebot zur Unterstützung im Alltag § 45a SGB XI',
+    'anerkanntes Angebot Unterstützung Alltag Berlin',
+    'AzU Berlin', 'AzUA Berlin', '§ 45a SGB XI Berlin', '§ 45b SGB XI Berlin',
+    'anerkannte Alltagshilfe Berlin', 'anerkannter Anbieter § 45a Berlin',
+    // Kern: Haushaltsnahe Dienstleistungen
+    'Haushaltsnahe Dienstleistungen Berlin',
+    'Haushaltsnahe Dienstleistungen Senioren Berlin',
+    'Haushaltsnahe Dienstleistungen Kreuzberg',
+    'Haushaltsnahe Dienstleistungen Neukölln',
+    'Haushaltsnahe Dienstleistungen Mitte',
+    'Haushaltsnahe Dienstleistungen Pflegekasse',
+    'Haushaltsnahe Dienstleistungen § 35a EStG',
+    // Alltagshilfe / Haushaltshilfe – Stadt + Bezirk
+    'Alltagshilfe Berlin', 'Alltagshilfe Kreuzberg', 'Alltagshilfe Neukölln', 'Alltagshilfe Mitte',
+    'Haushaltshilfe Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln', 'Haushaltshilfe Mitte',
+    'Haushaltshilfe Pflegekasse Berlin', 'Hauswirtschaftshilfe Berlin',
+    // Senioren / Pflege
+    'Seniorenbetreuung Berlin', 'Seniorenhilfe Berlin', 'Betreuungsdienst Berlin',
+    'Einkaufshilfe Senioren Berlin', 'Begleitung Arzttermin Berlin', 'Demenzbetreuung Berlin',
+    'würdevolle Seniorenbetreuung Berlin', 'persönliche Alltagshilfe Berlin',
+    // Leistungs- / Kosten-Keywords
     'Entlastungsbetrag Berlin', '131 Euro Entlastungsbetrag', '125 Euro Haushaltshilfe',
-    'Pflegegrad 1 Haushaltshilfe', 'Pflegegrad Kostenübernahme', '§ 45a SGB XI Berlin',
-    'Angebote zur Unterstützung im Alltag Berlin', 'anerkannte Alltagshilfe Berlin',
+    'Pflegegrad 1 Haushaltshilfe', 'Pflegegrad Kostenübernahme',
+    'Pflegesachleistung umwandeln', 'Verhinderungspflege Berlin',
+    'Entlastung pflegende Angehörige',
+    // Sprachen / Interkulturell
     'Alltagshilfe türkisch Berlin', 'Haushaltshilfe türkisch Berlin',
     'türkischsprachige Seniorenbetreuung', 'interkulturelle Alltagshilfe Berlin',
     'Yaşlı bakım Berlin', 'Ev yardımı Berlin', 'Türkçe bakım danışmanlığı Berlin',
-    'Entlastung pflegende Angehörige', 'Betreuungsdienst Berlin',
-    'Hauswirtschaftshilfe Berlin', 'Seniorenhilfe Berlin', 'Einkaufshilfe Senioren Berlin',
-    'Begleitung Arzttermin Berlin', 'Demenzbetreuung Berlin',
-    'würdevolle Seniorenbetreuung Berlin', 'persönliche Alltagshilfe Berlin',
-    'Verhinderungspflege Berlin', 'Pflegesachleistung umwandeln',
-    'Morgenlicht Alltagshilfe',
+    // Brand
+    'Morgenlicht Alltagshilfe', 'Morgenlicht Berlin',
   ],
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   alternates: {
@@ -106,9 +124,18 @@ const structuredData = {
       '@type': 'LocalBusiness',
       '@id': `${SITE_URL}/#business`,
       name: 'Morgenlicht Alltagshilfe Berlin',
-      alternateName: ['Morgenlicht Alltagshilfe', 'Morgenlicht Berlin'],
+      alternateName: [
+        'Morgenlicht Alltagshilfe',
+        'Morgenlicht Berlin',
+        'Morgenlicht – Angebot zur Unterstützung im Alltag',
+        'Morgenlicht Haushaltsnahe Dienstleistungen Berlin',
+      ],
+      additionalType: [
+        'https://schema.org/HomeAndConstructionBusiness',
+        'https://schema.org/HealthAndBeautyBusiness',
+      ],
       description:
-        'Staatlich anerkannte Alltagshilfe für Senioren in Berlin Kreuzberg, Neukölln und Mitte. Haushaltshilfe, Einkaufshilfe, Begleitung und Alltagsbetreuung – 100 % kostenlos über den Entlastungsbetrag (131 €/Monat) ab Pflegegrad 1. Beratung auf Deutsch, Türkisch und Englisch.',
+        'Staatlich anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI in Berlin Kreuzberg, Neukölln und Mitte. Haushaltsnahe Dienstleistungen, Haushaltshilfe, Einkaufshilfe, Begleitung und Alltagsbetreuung für Senioren – 100 % kostenlos über den Entlastungsbetrag (131 €/Monat) nach § 45b SGB XI ab Pflegegrad 1. Beratung auf Deutsch, Türkisch und Englisch.',
       url: SITE_URL,
       telephone: '+493023593028',
       email: 'info@morgenlicht-alltagshilfe.de',
@@ -144,8 +171,26 @@ const structuredData = {
       }],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Alltagshilfe-Leistungen',
+        name: 'Angebote zur Unterstützung im Alltag nach § 45a SGB XI & haushaltsnahe Dienstleistungen',
         itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Angebot zur Unterstützung im Alltag (§ 45a SGB XI)',
+              description: 'Anerkanntes Angebot zur Unterstützung im Alltag (AzU) nach § 45a SGB XI für Senioren in Berlin. Entlastung im Haushalt, in der Alltagsstruktur und bei der sozialen Teilhabe – abrechenbar über den Entlastungsbetrag (131 €/Monat) nach § 45b SGB XI.',
+              serviceType: 'Angebot zur Unterstützung im Alltag',
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Haushaltsnahe Dienstleistungen',
+              description: 'Haushaltsnahe Dienstleistungen für Senioren und Pflegebedürftige in Berlin: Reinigung, Wäschepflege, Kochen, Einkauf und Hauswirtschaft. Absetzbar nach § 35a EStG oder kostenfrei über die Pflegekasse (§ 45b SGB XI).',
+              serviceType: 'Haushaltsnahe Dienstleistung',
+            },
+          },
           {
             '@type': 'Offer',
             itemOffered: {
@@ -201,6 +246,22 @@ const structuredData = {
       '@type': 'FAQPage',
       '@id': `${SITE_URL}/#faq`,
       mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Was sind Angebote zur Unterstützung im Alltag nach § 45a SGB XI?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Angebote zur Unterstützung im Alltag (AzU) sind nach § 45a SGB XI staatlich anerkannte Dienste, die Pflegebedürftige im Alltag entlasten – z. B. im Haushalt, bei Einkäufen, Begleitungen oder sozialer Teilhabe. Morgenlicht ist in Berlin als Anbieter nach § 45a SGB XI anerkannt. Die Leistungen werden über den Entlastungsbetrag nach § 45b SGB XI (131 €/Monat) ab Pflegegrad 1 zu 100 % von der Pflegekasse übernommen – wir rechnen direkt ab, ohne Vorkasse.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Bietet Morgenlicht auch haushaltsnahe Dienstleistungen in Berlin an?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Ja. Morgenlicht erbringt haushaltsnahe Dienstleistungen in Berlin – Reinigung, Wäschepflege, Kochen, Einkäufe und leichte Hauswirtschaft. Für Pflegebedürftige sind diese Leistungen über den Entlastungsbetrag (§ 45b SGB XI) bis 131 €/Monat kostenfrei; privat gebuchte Stunden können unter Umständen als haushaltsnahe Dienstleistung nach § 35a EStG in der Steuererklärung geltend gemacht werden.',
+          },
+        },
         {
           '@type': 'Question',
           name: 'Was ist Morgenlicht Alltagshilfe?',

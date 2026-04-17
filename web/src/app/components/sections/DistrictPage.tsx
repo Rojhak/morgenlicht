@@ -14,10 +14,10 @@ export interface DistrictContent {
 }
 
 const services = [
-  { icon: Home, title: 'Haushaltshilfe & Reinigung', desc: 'Putzen, Wäsche, Küche – damit Sie sich zuhause wieder wohlfühlen.' },
+  { icon: Home, title: 'Haushaltsnahe Dienstleistungen', desc: 'Reinigung, Wäsche, Kochen, Hauswirtschaft – anerkannt und über die Pflegekasse abrechenbar.' },
   { icon: ShoppingBag, title: 'Einkauf & Erledigungen', desc: 'Wocheneinkauf, Apotheke, Post – wir erledigen es für Sie.' },
   { icon: Footprints, title: 'Begleitung & Mobilität', desc: 'Sicher zum Arzt, zur Behörde oder zum Café um die Ecke.' },
-  { icon: FileText, title: 'Alltag & Struktur', desc: 'Briefe, Termine und Telefonate – wir behalten den Überblick.' },
+  { icon: FileText, title: 'Alltagsstruktur & Behördenpost', desc: 'Briefe, Termine und Telefonate – wir behalten den Überblick.' },
   { icon: Handshake, title: 'Soziale Teilhabe', desc: 'Spaziergänge, Gespräche, Kulturbegleitung – gegen Einsamkeit.' },
 ]
 
@@ -41,9 +41,12 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
       {
         '@type': 'Service',
         '@id': `${SITE_URL}/${content.slug}#service`,
-        serviceType: 'Alltagshilfe nach § 45a SGB XI',
-        name: `Alltagshilfe in Berlin-${content.district}`,
-        description: `Staatlich anerkannte Alltagshilfe in Berlin-${content.district}: Haushaltshilfe, Einkauf, Begleitung, Alltagsstruktur und soziale Teilhabe. 100 % Kostenübernahme ab Pflegegrad 1 über den Entlastungsbetrag nach § 45b SGB XI.`,
+        serviceType: [
+          'Angebot zur Unterstützung im Alltag (§ 45a SGB XI)',
+          'Haushaltsnahe Dienstleistungen',
+        ],
+        name: `Angebot zur Unterstützung im Alltag & haushaltsnahe Dienstleistungen in Berlin-${content.district}`,
+        description: `Staatlich anerkanntes Angebot zur Unterstützung im Alltag (AzU) nach § 45a SGB XI in Berlin-${content.district}: haushaltsnahe Dienstleistungen, Einkauf, Begleitung, Alltagsstruktur und soziale Teilhabe. 100 % Kostenübernahme ab Pflegegrad 1 über den Entlastungsbetrag nach § 45b SGB XI.`,
         provider: { '@id': `${SITE_URL}/${content.slug}#business-${content.slug}` },
         areaServed: { '@type': 'AdministrativeArea', name: `Berlin-${content.district}` },
         availableLanguage: ['German', 'Turkish', 'English'],
@@ -141,9 +144,13 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
       {/* Services */}
       <section className="bg-white py-16 md:py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-10 text-center">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-4 text-center">
             Unsere Leistungen in {content.district}
           </h2>
+          <p className="font-body text-[#6B7280] text-center max-w-2xl mx-auto mb-10 text-[15px] leading-relaxed">
+            Anerkanntes <strong>Angebot zur Unterstützung im Alltag</strong> nach <strong>§ 45a SGB XI</strong> und
+            <strong> haushaltsnahe Dienstleistungen</strong> – abgerechnet über den Entlastungsbetrag (§ 45b SGB XI).
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
               <div key={s.title} className="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#134E4A]/10">

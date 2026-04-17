@@ -304,6 +304,63 @@ export default function HomePage() {
       </ScrollRevealSection>
 
 
+      {/* Sektion 3b: Anerkennung & haushaltsnahe Dienstleistungen (SEO content block) */}
+      <section className="bg-white py-16 md:py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="inline-block bg-white text-[#144E41] px-4 py-1.5 border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-body font-semibold tracking-wider mb-5">
+              Offiziell anerkannt in Berlin
+            </span>
+            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] tracking-tighter">
+              Anerkanntes <strong>Angebot zur Unterstützung im Alltag</strong> nach § 45a SGB XI
+              <br className="hidden md:block" />
+              <span className="text-[#144E41]">&nbsp;+ haushaltsnahe Dienstleistungen</span> für Berlin
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-[#F7F6F3] rounded-2xl p-7 border border-[#134E4A]/10">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-9 h-9 rounded-full bg-[#134E4A] flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-[#134E4A]">
+                  Angebot zur Unterstützung im Alltag
+                </h3>
+              </div>
+              <p className="font-body text-[#4B5563] leading-relaxed text-[15px]">
+                Morgenlicht ist in Berlin als <strong>Angebot zur Unterstützung im Alltag (AzU)</strong> nach{' '}
+                <strong>§ 45a SGB XI</strong> anerkannt. Das bedeutet: Wir dürfen direkt mit Ihrer Pflegekasse
+                abrechnen – über den <strong>Entlastungsbetrag nach § 45b SGB XI</strong> (131 € / Monat) ab
+                Pflegegrad 1. Für Sie entstehen keine Kosten, kein Papierkram, keine Vorkasse.
+              </p>
+            </div>
+
+            <div className="bg-[#F7F6F3] rounded-2xl p-7 border border-[#134E4A]/10">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-9 h-9 rounded-full bg-[#134E4A] flex items-center justify-center">
+                  <Home className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-[#134E4A]">
+                  Haushaltsnahe Dienstleistungen
+                </h3>
+              </div>
+              <p className="font-body text-[#4B5563] leading-relaxed text-[15px]">
+                Wir erbringen <strong>haushaltsnahe Dienstleistungen</strong> in Kreuzberg, Neukölln und Mitte:
+                Reinigung, Wäsche, Kochen, Einkäufe und Hauswirtschaft. Für Versicherte mit Pflegegrad
+                kostenfrei über die Pflegekasse – privat gebuchte Stunden lassen sich zudem häufig nach
+                <strong> § 35a EStG</strong> steuerlich geltend machen.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-center font-body text-[#6B7280] text-sm mt-8 max-w-2xl mx-auto">
+            Anerkannter Anbieter nach § 45a SGB XI · Direktabrechnung mit allen gesetzlichen Pflegekassen ·
+            Beratung auf Deutsch, Türkisch (Türkçe) und Englisch (English)
+          </p>
+        </div>
+      </section>
+
       {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background */}
       <section className="bg-white py-16 md:py-24 px-6">
         <script
