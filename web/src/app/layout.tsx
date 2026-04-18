@@ -24,7 +24,7 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Zertifizierte Haushaltshilfe & Angebote zur Unterstützung im Alltag für Senioren in Berlin',
+    default: 'Zertifizierte Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
 <<<<<<< HEAD
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Zertifizierte Haushaltshilfe & Angebote zur Unterstützung im Alltag für Senioren in Berlin',
+    title: 'Zertifizierte Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
     description: 'Wir unterstützen Senioren in Kreuzberg, Neukölln & Mitte bei Haushalt, Alltag, Einkauf und Begleitung. 100% Kostenübernahme ab Pflegegrad 1.',
     type: 'website',
     locale: 'de_DE',
