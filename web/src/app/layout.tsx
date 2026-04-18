@@ -27,8 +27,7 @@ export const metadata: Metadata = {
     default: 'Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
-<<<<<<< HEAD
-  description: 'Zertifizierte Alltagshilfe in Berlin. Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln und Mitte bei Haushalt, Begleitung und Alltag. Jetzt kostenfrei beraten lassen!',
+  description: 'Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln & Mitte bei Haushalt & Alltag. 100% Kostenübernahme ab Pflegegrad 1.',
   keywords: [
     'Alltagshilfe Berlin', 'Haushaltshilfe Berlin', 'Haushaltshilfe Pflegekasse Berlin',
     'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln',
@@ -46,10 +45,6 @@ export const metadata: Metadata = {
     'Verhinderungspflege Berlin', 'Pflegesachleistung umwandeln',
     'Morgenlicht Alltagshilfe',
   ],
-=======
-  description: 'Wir unterstützen Senioren in Kreuzberg, Neukölln & Mitte bei Haushalt, Alltag, Einkauf und Begleitung. 100% Kostenübernahme ab Pflegegrad 1.',
-  keywords: ['Alltagshilfe Berlin', 'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln', 'Alltagshilfe Mitte', 'Entlastungsbetrag', 'Pflegegrad 1 Kostenübernahme', 'Morgenlicht Alltagshilfe', 'Entlastung Pflegendeangehörige', 'SGB XI', 'Pflegesachleistung', 'Betreuungsdienst Berlin', 'Hauswirtschaftshilfe', 'Pflegedienst Alternative', 'Seniorenhilfe Berlin', 'Unterstützungsangebote im Alltag'],
->>>>>>> seo: update metadata with user's refined title and description
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   alternates: {
     canonical: '/',
@@ -71,7 +66,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
-    description: 'Wir unterstützen Senioren in Kreuzberg, Neukölln & Mitte bei Haushalt, Alltag, Einkauf und Begleitung. 100% Kostenübernahme ab Pflegegrad 1.',
+    description: 'Wir unterstützen Senioren und Pflegebedürftige in Kreuzberg, Neukölln & Mitte bei Haushalt & Alltag. 100% Kostenübernahme ab Pflegegrad 1.',
     type: 'website',
     locale: 'de_DE',
     url: `${SITE_URL}/`,
