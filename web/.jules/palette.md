@@ -1,0 +1,3 @@
+## 2025-02-24 - Skip to Content Accessibility
+**Learning:** In Next.js App Router applications, placing visually hidden accessibility links like "skip-to-content" directly inside the `<body>` element of `layout.tsx` is an effective pattern. Care must be taken to ensure they remain visually hidden (`sr-only`) but become clearly visible, positioned at the top, and layered properly (`z-50`) when receiving keyboard focus (`focus:not-sr-only focus:absolute focus:z-50`).
+**Action:** Use the combination `sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-[color] focus:text-white` for crucial navigational skip links across the design system to guarantee screen reader and keyboard accessibility without disrupting the visual layout for mouse users.
