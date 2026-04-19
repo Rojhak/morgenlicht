@@ -1,0 +1,3 @@
+## 2025-04-19 - [Adding visually hidden skip-to-content links]
+**Learning:** Adding a skip-to-content link right inside the body provides keyboard users quick access to main content. The Tailwind utility pattern `sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-emerald-900 focus:text-white` is a reusable pattern that ensures the element is completely hidden initially but fully accessible and visibly compliant when receiving focus.
+**Action:** Use this exact pattern whenever a skip link or a hidden-until-focused keyboard navigation helper is needed to maintain consistency with the brand's aesthetic (emerald green) and accessibility guidelines.
