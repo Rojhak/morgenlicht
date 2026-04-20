@@ -56,14 +56,14 @@ export default function HomePage() {
                    <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
                      <CheckCircle className="w-5 h-5 text-white" />
                    </div>
-                   <div className="flex flex-col">
-                     <span className="font-heading font-bold text-[#134E4A] text-base">
-                       100% Kostenübernahme ab Pflegegrad 1
-                     </span>
-                     <span className="font-body text-[#4B5563] text-sm">
-                       Direkte Abrechnung mit der Pflegekasse. Für Sie 0€ Kosten.
-                     </span>
-                   </div>
+                    <div className="flex flex-col">
+                      <span className="font-heading font-bold text-[#134E4A] text-base">
+                        Kostenfreie Hilfe ab Pflegegrad 1
+                      </span>
+                      <span className="font-body text-[#4B5563] text-sm">
+                        Direkte Abrechnung über Ihr 131€-Budget der Pflegekasse. Für Sie entstehen 0 € Kosten.
+                      </span>
+                    </div>
                 </div>
               </div>
 
