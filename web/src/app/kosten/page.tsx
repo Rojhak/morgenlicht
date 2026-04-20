@@ -154,12 +154,12 @@ export default function KostenPage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-[#144E41] text-white rounded-xl p-8 md:p-12 shadow-lg">
             <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center !text-white">
-              Ein Rechenbeispiel für Sie
+              Ihr Entlastungsbetrag in der Praxis
             </h2>
-            <div className="bg-white/10 rounded-xl p-6 mb-6">
+            <div className="bg-white/10 rounded-xl p-6 mb-6 text-center">
               <p className="text-lg text-white leading-relaxed">
-                Über den Entlastungsbetrag (131 €): <strong>Hiermit können wir Sie etwa 3,5 bis 4 Stunden pro Monat unterstützen</strong> – zum Beispiel für den wöchentlichen Hausputz oder Begleitungen.
-                <span className="block mt-3 text-[#FFD54F] font-semibold">Für Sie entstehen dabei keine Kosten.</span>
+                Über Ihren gesetzlichen Entlastungsbetrag (131 €) organisieren wir für Sie regelmäßige, verlässliche Hilfe im Alltag – ganz nach Ihren Wünschen. Wir kommen zum Beispiel für die gründliche Wohnungsreinigung zu Ihnen, übernehmen den gemeinsamen Wocheneinkauf oder begleiten Sie sicher zu Arztterminen.
+                <span className="block mt-4 text-[#FFD54F] font-bold">Wir rechnen direkt mit der Kasse ab. Für Sie entstehen dabei keine Kosten.</span>
               </p>
             </div>
             <p className="text-sm text-white/80 text-center max-w-2xl mx-auto">
