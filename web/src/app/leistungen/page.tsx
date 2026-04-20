@@ -115,8 +115,8 @@ export default function LeistungenPage() {
           <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
             Unsere 5 Leistungen
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-            Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> über Ihre Pflegekasse.
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> im Rahmen Ihres 131€-Budgets.
           </p>
         </div>
       </section>
