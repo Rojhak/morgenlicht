@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
-    description: 'Zertifizierte Alltagshilfe in Berlin. 100 % Kostenübernahme ab Pflegegrad 1. Feste Bezugsperson, deutsch/türkisch/englisch.',
+    description: 'Anerkannte Alltagshilfe in Berlin. 100 % Kostenübernahme ab Pflegegrad 1. Feste Bezugsperson, deutsch/türkisch/englisch.',
     images: ['/images/hero_helping_hand.png'],
   },
 }

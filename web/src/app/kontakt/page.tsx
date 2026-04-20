@@ -80,7 +80,7 @@ export default function KontaktPage() {
               </div>
               <div className="text-[#144E41]">
                 <p className="text-xs text-gray-500 font-bold mb-2 uppercase tracking-widest">
-                  Zertifizierte Qualität
+                  Anerkannte Qualität
                 </p>
                 <h3 className="font-heading font-bold text-lg mb-2">
                   Anerkannter Anbieter <span className="font-normal text-gray-400 text-sm italic">nach § 45a SGB XI</span>

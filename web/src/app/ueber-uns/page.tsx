@@ -56,7 +56,7 @@ export default function UeberUnsPage() {
                     <Award className="w-5 h-5 md:w-6 md:h-6 text-[#FBBF24]" />
                   </div>
                   <div>
-                    <div className="text-[10px] md:text-xs font-semibold text-[#144E41] bg-white px-2 py-0.5 rounded-full border border-[#144E41]/10 tracking-widest mb-1">Zertifiziert</div>
+                    <div className="text-[10px] md:text-xs font-semibold text-[#144E41] bg-white px-2 py-0.5 rounded-full border border-[#144E41]/10 tracking-widest mb-1">Anerkannt</div>
                     <div className="text-sm md:text-base font-bold font-heading text-[#134E4A]">§ 45a SGB XI</div>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ export default function UeberUnsPage() {
               {
                 icon: ShieldCheck,
                 title: 'Professionalität & Respekt',
-                text: 'Würde und Respekt sind unser Fundament. Als zertifizierter Anbieter nach § 45a SGB XI garantieren wir Ihnen höchste Professionalität, absolute Zuverlässigkeit und eine Begleitung auf Augenhöhe.'
+                text: 'Würde und Respekt sind unser Fundament. Als anerkannter Anbieter nach § 45a SGB XI garantieren wir Ihnen höchste Professionalität, absolute Zuverlässigkeit und eine Begleitung auf Augenhöhe.'
               },
               {
                 icon: Zap,
@@ -192,7 +192,7 @@ export default function UeberUnsPage() {
               Anerkannter Anbieter nach § 45a SGB XI
             </h3>
             <p className="text-base md:text-lg font-body text-gray-600 leading-relaxed uppercase tracking-wide text-sm opacity-80 mb-2">
-              Zertifizierte Qualität
+              Anerkannte Qualität
             </p>
             <p className="text-base font-body text-gray-600 max-w-lg mx-auto leading-relaxed">
               Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <span className="font-bold text-[#134E4A]">100% für Sie kostenlos</span>.
