@@ -191,9 +191,6 @@ export default function UeberUnsPage() {
             <h3 className="text-2xl font-bold font-heading text-[#134E4A] mb-4 tracking-tight">
               Anerkannter Anbieter nach § 45a SGB XI
             </h3>
-            <p className="text-base md:text-lg font-body text-gray-600 leading-relaxed uppercase tracking-wide text-sm opacity-80 mb-2">
-              Anerkannte Qualität
-            </p>
             <p className="text-base font-body text-gray-600 max-w-lg mx-auto leading-relaxed">
               Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <span className="font-bold text-[#134E4A]">100% für Sie kostenlos</span>.
             </p>
