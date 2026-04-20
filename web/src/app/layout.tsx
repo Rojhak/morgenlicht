@@ -97,7 +97,7 @@ const structuredData = {
       name: 'Morgenlicht Alltagshilfe Berlin',
       alternateName: ['Morgenlicht Alltagshilfe', 'Morgenlicht Berlin'],
       description:
-        'Staatlich anerkannte Alltagshilfe für Senioren in Berlin Kreuzberg, Neukölln und Mitte. Haushaltshilfe, Einkaufshilfe, Begleitung und Alltagsbetreuung – 100 % kostenlos über den Entlastungsbetrag (131 €/Monat) ab Pflegegrad 1. Beratung auf Deutsch, Türkisch und Englisch.',
+        'Staatlich anerkannte Alltagshilfe für Senioren in Berlin Kreuzberg, Neukölln und Mitte. Haushaltshilfe, Einkaufshilfe, Begleitung und Alltagsbetreuung – 0€ Kosten für Sie im Rahmen des 131€-Pflegebudgets (ab Pflegegrad 1). Beratung auf Deutsch, Türkisch und Englisch.',
       url: SITE_URL,
       telephone: '+493023593028',
       email: 'info@morgenlicht-alltagshilfe.de',
