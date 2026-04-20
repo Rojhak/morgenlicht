@@ -1,0 +1,3 @@
+## 2026-04-20 - Added Skip-to-Content Link
+**Learning:** Adding a visually hidden, keyboard-focusable 'skip to content' link as the first interactive element in the `<body>` significantly improves keyboard and screen reader accessibility by allowing users to bypass repetitive navigation headers. The Tailwind utility pattern `sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-emerald-900 focus:text-white` works perfectly to implement this without requiring custom CSS.
+**Action:** Always include this pattern in the root layout file of new Next.js projects to ensure a baseline level of accessibility.
