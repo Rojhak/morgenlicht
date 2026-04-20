@@ -17,7 +17,6 @@ const pricingCards = [
       'Wir rechnen direkt mit der Kasse ab',
       'In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos',
       'Ihr Pflegegeld wird dadurch nicht gekürzt',
-      'Ca. 3,5 bis 4 Stunden Unterstützung pro Monat',
     ],
     color: 'from-[#E8F5E9]/50 to-[#C8E6C9]/20',
     iconBg: 'bg-[#E8F5E9]',
