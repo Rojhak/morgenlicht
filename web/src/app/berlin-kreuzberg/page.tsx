@@ -24,7 +24,7 @@ export default function KreuzbergPage() {
         kicker: 'Ihre Alltagshilfe im Kiez',
         h1: 'Alltagshilfe in Berlin-Kreuzberg',
         intro:
-          'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin-Kreuzberg – vom Graefekiez über die Bergmannstraße bis zum Landwehrkanal. Wir begleiten Sie durch Ihren Alltag mit Zeit, Respekt und einer festen Ansprechpartnerin.',
+          'Morgenlicht ist Ihre herzliche Alltagshilfe direkt in Berlin-Kreuzberg. Ob Haushaltshilfe rund um den Graefekiez, Einkaufsbegleitung am Maybachufer oder ein Spaziergang am Landwehrkanal – wir sind in Ihrem Kiez zuhause.',
         kiezParagraph:
           'Kreuzberg ist laut, lebendig und vielfältig – und für viele Seniorinnen und Senioren vor allem eines: ihr Zuhause seit Jahrzehnten. Wir kennen die kurzen Wege im Graefekiez, die Apotheken in der Bergmannstraße und die ruhigen Bänke am Landwehrkanal. So können Sie so lange wie möglich selbstbestimmt in Ihrer vertrauten Umgebung leben.',
         landmarks: [
