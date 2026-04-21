@@ -24,7 +24,7 @@ export default function NeukoellnPage() {
         kicker: 'Ihre Alltagshilfe in Neukölln',
         h1: 'Alltagshilfe in Berlin-Neukölln',
         intro:
-          'Morgenlicht unterstützt Seniorinnen und Senioren in ganz Neukölln – vom Reuterkiez über den Richardplatz bis hinauf in die Gropiusstadt. Wir nehmen uns Zeit, hören zu und helfen herzlich und verlässlich im Alltag.',
+          'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin-Neukölln – vom Reuterkiez über den Richardplatz bis in die Gropiusstadt. Wir begleiten Sie durch Ihren Alltag mit Zeit, Respekt und einer festen Ansprechpartnerin.',
         kiezParagraph:
           'Neukölln hat viele Gesichter: die gewachsene Nachbarschaft in Rixdorf, das bunte Leben rund um die Hermannstraße, die ruhigen Gartenkolonien und die großen Wohnanlagen der Gropiusstadt. Gerade in einem so vielfältigen Bezirk ist interkulturelle Sensibilität kein Zusatz, sondern Grundvoraussetzung – und genau dafür steht Morgenlicht.',
         landmarks: [
