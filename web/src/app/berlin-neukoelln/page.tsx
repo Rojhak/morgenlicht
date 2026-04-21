@@ -4,13 +4,12 @@ import { DistrictPage } from '../components/sections/DistrictPage'
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
 export const metadata: Metadata = {
-  title: 'Alltagshilfe Berlin-Neukölln | Haushaltshilfe & Seniorenbetreuung',
-  description:
-    'Ihre Alltagshilfe in Berlin-Neukölln: Haushaltshilfe, Einkauf, Begleitung – 100 % kostenlos ab Pflegegrad 1 über den 131 € Entlastungsbetrag. Beratung auf Deutsch, Türkisch & Englisch. ☎ 030 235 930 28.',
+  title: 'Morgenlicht | Berlin-Neukölln | Alltagsbegleitung & Haushaltshilfe',
+  description: 'Wir unterstützen Senioren in Berlin-Neukölln bei Haushalt & Alltag. 0€ Kosten für Sie im Rahmen des 131€-Pflegebudgets (ab Pflegegrad 1).',
   alternates: { canonical: '/berlin-neukoelln' },
   openGraph: {
-    title: 'Alltagshilfe Berlin-Neukölln – Morgenlicht',
-    description: 'Herzliche Alltagshilfe in Neukölln: Schillerkiez, Richardplatz, Hermannstraße. 100 % über die Pflegekasse.',
+    title: 'Morgenlicht | Berlin-Neukölln | Alltagsbegleitung & Haushaltshilfe',
+    description: 'Wir unterstützen Senioren in Berlin-Neukölln bei Haushalt & Alltag. 0€ Kosten für Sie im Rahmen des 131€-Pflegebudgets (ab Pflegegrad 1).',
     url: `${SITE_URL}/berlin-neukoelln`,
   },
 }
