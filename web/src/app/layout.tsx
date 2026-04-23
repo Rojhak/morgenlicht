@@ -24,10 +24,10 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Morgenlicht | Alltagsbegleitung & Haushaltshilfe Senioren in Berlin',
+    default: 'Morgenlicht | Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
-  description: 'Wir unterstützen Senioren in Kreuzberg, Neukölln & Mitte bei Haushalt & Alltag. 0€ Kosten für Sie im Rahmen des 131€-Pflegebudgets (ab Pflegegrad 1).',
+  description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
   keywords: [
     'Alltagshilfe Berlin', 'Haushaltshilfe Berlin', 'Haushaltshilfe Pflegekasse Berlin',
     'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln',
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Morgenlicht | Alltagsbegleitung & Haushaltshilfe Senioren in Berlin',
-    description: 'Wir unterstützen Senioren in Kreuzberg, Neukölln & Mitte bei Haushalt & Alltag. 0€ Kosten für Sie im Rahmen des 131€-Pflegebudgets (ab Pflegegrad 1).',
+    title: 'Morgenlicht | Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
+    description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
     type: 'website',
     locale: 'de_DE',
     url: `${SITE_URL}/`,
@@ -82,8 +82,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Morgenlicht | Alltagsbegleitung & Haushaltshilfe Senioren in Berlin',
-    description: 'Wir unterstützen Senioren in Kreuzberg, Neukölln & Mitte bei Haushalt & Alltag. 0€ Kosten für Sie im Rahmen des 131€-Pflegebudgets (ab Pflegegrad 1).',
+    title: 'Morgenlicht | Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
+    description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
     images: ['/images/hero_helping_hand.png'],
   },
 }
@@ -97,7 +97,7 @@ const structuredData = {
       name: 'Morgenlicht Alltagshilfe Berlin',
       alternateName: ['Morgenlicht Alltagshilfe', 'Morgenlicht Berlin'],
       description:
-        'Staatlich anerkannte Alltagshilfe für Senioren in Berlin Kreuzberg, Neukölln und Mitte. Haushaltshilfe, Einkaufshilfe, Begleitung und Alltagsbetreuung – 0€ Kosten für Sie im Rahmen des 131€-Pflegebudgets (ab Pflegegrad 1). Beratung auf Deutsch, Türkisch und Englisch.',
+        'Staatlich anerkannte Alltagshilfe für Senioren in Berlin. Herzliche Hauswirtschaft, Seniorenbetreuung und Begleitung – 0€ Kosten über Ihr 131€-Pflegebudget (ab Pflegegrad 1). Beratung auf Deutsch, Türkisch und Englisch.',
       url: SITE_URL,
       telephone: '+493023593028',
       email: 'info@morgenlicht-alltagshilfe.de',
