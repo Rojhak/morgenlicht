@@ -2,3 +2,8 @@
 **Vulnerability:** Found multiple vulnerabilities in `next@15.1.9` including Denial of Service via server components, SSRF due to middleware redirect handling, and Cache Key Confusion.
 **Learning:** Outdated frameworks, especially in SSR/SSG apps like Next.js, can expose critical infrastructure vulnerabilities (like DoS and SSRF) that aren't specific to application logic but rather framework behavior.
 **Prevention:** Regularly audit (`pnpm audit`) and update core framework dependencies (e.g., Next.js) to patched versions, especially when new minor/patch versions are available.
+
+## 2024-05-24 - API Type Injection (DoS via Unhandled TypeError)
+**Vulnerability:** The `/api/inquiry` route explicitly verified that `data` was an object and handled mass assignment by explicitly re-declaring variables, but the `validateInquiry` and `sanitizeInput` functions assumed certain properties were specifically `strings`. By injecting arrays into properties like `message`, the payload bypassed `typeof` and string length checks but then caused `TypeError: input.replace is not a function` unhandled exceptions in the server runtime when `sanitizeInput` executed, causing the API endpoint to return a 500.
+**Learning:** Checking property existence (`data.message`) or verifying length directly on an untrusted payload property is insufficient if the type isn't verified first, because an array can satisfy truthiness and bypass expected string boundaries but will fail on string-specific operations.
+**Prevention:** Always explicitly check the scalar type of an input field (e.g. `typeof data.message === 'string'`) in validation routines prior to interacting with length or passing the value down to sanitizers. Add explicit type guards to sanitization libraries.
