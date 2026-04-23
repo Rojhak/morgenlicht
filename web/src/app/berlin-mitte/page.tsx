@@ -4,13 +4,16 @@ import { DistrictPage } from '../components/sections/DistrictPage'
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
 export const metadata: Metadata = {
-  title: 'Alltagshilfe Berlin-Mitte | Haushaltshilfe & Seniorenbetreuung',
+  title: {
+    absolute: 'Morgenlicht | Alltagshilfe Berlin-Mitte | Haushaltshilfe für Senioren',
+  },
   description:
-    'Ihre Alltagshilfe in Berlin-Mitte: Haushaltshilfe, Einkauf, Begleitung – 100 % kostenlos ab Pflegegrad 1 über den 131 € Entlastungsbetrag. Beratung auf Deutsch, Türkisch & Englisch. ☎ 030 235 930 28.',
+    'Ihre herzliche Alltagshilfe in Berlin-Mitte. Seniorenbetreuung & Haushaltshilfe ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
   alternates: { canonical: '/berlin-mitte' },
   openGraph: {
-    title: 'Alltagshilfe Berlin-Mitte – Morgenlicht',
-    description: 'Herzliche Alltagshilfe in Berlin-Mitte: Wedding, Moabit, Tiergarten. 100 % über die Pflegekasse.',
+    title: 'Morgenlicht | Alltagshilfe Berlin-Mitte | Seniorenbetreuung',
+    description:
+      'Herzliche Alltagshilfe in Berlin-Mitte: Wedding, Moabit, Tiergarten. 0€ Kosten ab Pflegegrad 1 über Ihr 131€-Pflegebudget.',
     url: `${SITE_URL}/berlin-mitte`,
   },
 }
