@@ -24,7 +24,7 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Morgenlicht | Alltagsbegleitung & Haushaltshilfe für Senioren in Berlin',
+    default: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
   description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
