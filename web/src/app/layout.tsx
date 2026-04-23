@@ -24,7 +24,7 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
+    default: 'Morgenlicht Alltagshilfe Berlin | Kreuzberg, Neukölln & Mitte',
     template: '%s | Morgenlicht Alltagshilfe Berlin',
   },
   description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
+    title: 'Morgenlicht Alltagshilfe Berlin | Kreuzberg, Neukölln & Mitte',
     description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
     type: 'website',
     locale: 'de_DE',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Morgenlicht Alltagshilfe | Berlin Kreuzberg, Neukölln & Mitte',
+    title: 'Morgenlicht Alltagshilfe Berlin | Kreuzberg, Neukölln & Mitte',
     description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
     images: ['/images/hero_helping_hand.png'],
   },
