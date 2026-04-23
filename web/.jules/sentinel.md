@@ -2,3 +2,8 @@
 **Vulnerability:** Found multiple vulnerabilities in `next@15.1.9` including Denial of Service via server components, SSRF due to middleware redirect handling, and Cache Key Confusion.
 **Learning:** Outdated frameworks, especially in SSR/SSG apps like Next.js, can expose critical infrastructure vulnerabilities (like DoS and SSRF) that aren't specific to application logic but rather framework behavior.
 **Prevention:** Regularly audit (`pnpm audit`) and update core framework dependencies (e.g., Next.js) to patched versions, especially when new minor/patch versions are available.
+
+## 2025-04-23 - [Unhandled TypeError / 500 in Inquiry API via Non-String Payload]
+**Vulnerability:** The API endpoint `/api/inquiry` and its supporting sanitization functions (`sanitizeInput`, `sanitizeForSubject`) assumed that incoming data parsed from JSON would strictly adhere to the expected TypeScript string types. Passing non-string objects (e.g., arrays or objects) directly into string methods like `.replace` caused an unhandled `TypeError` (e.g. `input.replace is not a function`), leading to a 500 Internal Server Error. If intentionally triggered repeatedly, this unhandled exception acts as a low-effort DoS vector and can crash the request lifecycle unpredictably.
+**Learning:** TypeScript type assertions only exist at compile time and do not enforce types on raw request payloads at runtime. Therefore, utilities acting on untrusted inputs must implement defensive runtime type checks, even when they seem trivial.
+**Prevention:** Always implement defensive type checking (e.g., `if (typeof input !== 'string')`) in helper functions handling untrusted input as a defense-in-depth layer, and do not rely solely on upstream schema validation.
