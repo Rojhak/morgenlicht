@@ -1,0 +1,3 @@
+## 2023-10-27 - Added Missing Skip-to-Content Link
+**Learning:** Found that the "Skip to main content" link intended to ensure keyboard accessibility was missing or removed in `web/src/app/layout.tsx`. Without it, keyboard users must tab through the entire navigation on every single page load to reach the main content.
+**Action:** Re-implemented the `Zum Hauptinhalt springen` skip link directly at the top of the `<body>`, ensuring it receives focus, becomes visible (`focus:not-sr-only`), and has high contrast styling (`bg-[#134E4A]`, `focus:ring-[#FBBF24]`). Also ensured the `<main id="main-content">` element accepts focus via `tabIndex={-1}` and hides the default outline so that once skipped, the focus cleanly shifts without an ugly highlight box.
