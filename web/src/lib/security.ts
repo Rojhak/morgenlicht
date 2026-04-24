@@ -32,16 +32,21 @@ export function validateInquiry(data: { name?: string; phone?: string; pflegegra
     return 'Ungültige Telefonnummer.'
   }
 
-  if (data.pflegegrad) {
+  if (data.pflegegrad !== undefined) {
     const validPflegegrad = ['Keiner', '1', '2', '3', '4', '5', 'Unbekannt']
-    if (!validPflegegrad.includes(data.pflegegrad)) {
+    if (typeof data.pflegegrad !== 'string' || !validPflegegrad.includes(data.pflegegrad)) {
       return 'Ungültiger Pflegegrad.'
     }
   }
 
-  // Security: Enforce max length to prevent DoS via large payloads
-  if (data.message && typeof data.message === 'string' && data.message.length > 2000) {
-    return 'Nachricht darf maximal 2000 Zeichen lang sein.'
+  // Security: Enforce strict type checking and max length to prevent payload manipulation and DoS
+  if (data.message !== undefined) {
+    if (typeof data.message !== 'string') {
+      return 'Ungültiges Nachrichtenformat.'
+    }
+    if (data.message.length > 2000) {
+      return 'Nachricht darf maximal 2000 Zeichen lang sein.'
+    }
   }
 
   return null
