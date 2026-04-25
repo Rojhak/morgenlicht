@@ -35,12 +35,12 @@ export default function ImpressumPage() {
           <ScrollRevealSection delay={100}>
             <GlassCard className="p-8 md:p-12 bg-white/80 backdrop-blur-md border border-[#144E41]/10 shadow-xl overflow-hidden">
               <div className="space-y-12 text-[#455A64]">
-              {/* 1. Angaben gemäß § 5 TMG */}
+              {/* 1. Angaben gemäß § 5 DDG */}
               <div className="space-y-10">
                 <div className="space-y-8">
                   {/* Main Headline */}
                   <h2 className="text-2xl font-bold font-heading text-[#144E41]">
-                    Angaben gemäß § 5 TMG
+                    Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)
                   </h2>
 
                   {/* Company Name as Sub-Headline */}
@@ -127,7 +127,7 @@ export default function ImpressumPage() {
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold font-heading text-[#144E41]">Haftung für Inhalte</h3>
                   <p className="text-lg font-body leading-relaxed">
-                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
                   </p>
                 </div>
 
