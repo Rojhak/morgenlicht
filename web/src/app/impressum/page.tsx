@@ -88,6 +88,7 @@ export default function ImpressumPage() {
                   <p>Registergericht: Amtsgericht Charlottenburg</p>
                   <p>Sitz der Gesellschaft: Berlin</p>
                   <p>Registernummer: HRB 283117 B</p>
+                  <p>Institutionskennzeichen (IK): 461144697</p>
                 </div>
               </div>
 
