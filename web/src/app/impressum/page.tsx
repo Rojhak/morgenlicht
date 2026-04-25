@@ -40,7 +40,7 @@ export default function ImpressumPage() {
                 <div className="space-y-8">
                   {/* Main Headline */}
                   <h2 className="text-2xl font-bold font-heading text-[#144E41]">
-                    Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)
+                    Angaben gemäß § 5 DDG
                   </h2>
 
                   {/* Company Name as Sub-Headline */}
