@@ -81,21 +81,13 @@ export default function ImpressumPage() {
                 </div>
               </div>
 
-              {/* 3. Register & Steuer */}
-              <div className="grid md:grid-cols-2 gap-12 border-t border-[#144E41]/10 pt-12">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold font-heading text-[#144E41]">Registereintrag</h3>
-                  <div className="text-lg font-body space-y-2">
-                    <p>Registergericht: Amtsgericht Charlottenburg</p>
-                    <p>Sitz der Gesellschaft: Berlin</p>
-                    <p>Registernummer: HRB 283117 B</p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-xl font-bold font-heading text-[#144E41]">Steuernummer</h3>
-                  <div className="text-lg font-body">
-                    <p>Steuernummer: <span className="font-bold">37/447/00936</span></p>
-                  </div>
+              {/* 3. Register */}
+              <div className="space-y-4 border-t border-[#144E41]/10 pt-12">
+                <h3 className="text-xl font-bold font-heading text-[#144E41]">Registereintrag</h3>
+                <div className="text-lg font-body space-y-2">
+                  <p>Registergericht: Amtsgericht Charlottenburg</p>
+                  <p>Sitz der Gesellschaft: Berlin</p>
+                  <p>Registernummer: HRB 283117 B</p>
                 </div>
               </div>
 
