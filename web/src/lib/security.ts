@@ -1,4 +1,5 @@
 export function sanitizeInput(input: string): string {
+  if (typeof input !== 'string') return ''
   if (!input) return ''
   return input
     .replace(/&/g, '&amp;')
@@ -9,6 +10,7 @@ export function sanitizeInput(input: string): string {
 }
 
 export function sanitizeForSubject(input: string): string {
+  if (typeof input !== 'string') return ''
   if (!input) return ''
   // Remove newlines to prevent header injection
   return input.replace(/[\r\n]+/g, ' ').trim()
