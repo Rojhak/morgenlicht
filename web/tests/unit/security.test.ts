@@ -1,4 +1,4 @@
-import { validateInquiry } from '../../src/lib/security';
+import { validateInquiry } from '../../src/lib/security.ts';
 import test from 'node:test';
 import assert from 'node:assert';
 
