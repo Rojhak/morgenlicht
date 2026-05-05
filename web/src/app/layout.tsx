@@ -269,8 +269,14 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen antialiased font-body text-lg text-[#1F2937] leading-relaxed bg-[#FAF9F6]">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:p-4 focus:bg-white focus:text-[#134E4A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A]"
+        >
+          Zum Hauptinhalt springen
+        </a>
         <Navbar />
-        <main id="main-content" className="flex-grow">
+        <main id="main-content" tabIndex={-1} className="flex-grow focus:outline-none">
           {children}
         </main>
         <Footer />
