@@ -1,0 +1,3 @@
+## 2024-05-18 - App-wide Skip Link Pattern
+**Learning:** Implementing a "Skip to main content" link across Next.js app layouts requires giving the `<main>` tag a `tabIndex={-1}` and `focus:outline-none` so it can properly receive programmatic focus without displaying an awkward focus ring, while utilizing `sr-only focus:not-sr-only focus:fixed focus:z-50 focus:p-4 focus:bg-[#134E4A] focus:text-white` for a smooth, high-contrast, visually prominent skip link target.
+**Action:** Always include this pattern in the root `layout.tsx` for new Next.js projects to ensure keyboard users can bypass repetitive navigation headers.
