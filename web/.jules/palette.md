@@ -1,0 +1,4 @@
+
+## 2024-05-24 - [Next.js App Layout Skip Link for Keyboard Accessibility]
+**Learning:** React/Next.js Single Page Applications (SPAs) often lack native keyboard navigation flow between major layout sections. Keyboard users need a way to bypass repetitive navigation links (like the Navbar) and jump directly to the main content. The main content container needs `tabIndex={-1}` and `focus:outline-none` so it can receive programmatic focus when the skip link is activated without showing an ugly default focus ring.
+**Action:** Always include a "Skip to main content" (`Zum Hauptinhalt springen`) link hidden with `sr-only focus:not-sr-only` at the start of the `<body>` in root layouts (`app/layout.tsx`). The `<main>` container must have an `id` that matches the skip link's `href`, along with `tabIndex={-1}` to allow focus shifting.
