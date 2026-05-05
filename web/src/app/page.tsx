@@ -39,10 +39,10 @@ export default function HomePage() {
                 {/* Primary Button */}
                 <Link
                   href="/kontakt"
-                  className="bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center"
+                  className="bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center group"
                 >
                   Jetzt kostenfrei beraten lassen
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                 </Link>
 
                 {/* Phone Number */}
@@ -234,9 +234,9 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <Link
               href="/leistungen"
-              className="inline-flex items-center justify-center bg-[#144E41] text-white px-8 py-3 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm"
+              className="inline-flex items-center justify-center bg-[#144E41] text-white px-8 py-3 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm group"
             >
-              Alle Leistungen ansehen <ArrowRight className="w-4 h-4 ml-2" />
+              Alle Leistungen ansehen <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
         </div>
@@ -362,10 +362,10 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
               <Link
                 href="/kontakt"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all hover:-translate-y-0.5"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all hover:-translate-y-0.5 group"
               >
                 Jetzt anfragen
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
                 href="tel:03023593028"

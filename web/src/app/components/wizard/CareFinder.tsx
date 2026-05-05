@@ -220,10 +220,10 @@ export function CareFinder() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/kontakt"
-              className="flex-1 bg-[#FBBF24] text-[#1F2937] hover:bg-[#F59E0B] font-bold py-4 px-6 rounded-xl shadow-md text-center flex items-center justify-center gap-2 transition-colors"
+              className="flex-1 bg-[#FBBF24] text-[#1F2937] hover:bg-[#F59E0B] font-bold py-4 px-6 rounded-xl shadow-md text-center flex items-center justify-center gap-2 transition-colors group"
             >
               Kostenlos anfragen
-              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Link>
             <button
               onClick={handleReset}

@@ -221,10 +221,10 @@ export default function LeistungenPage() {
               <div className="text-center md:text-left">
                 <Link
                   href="/kontakt"
-                  className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3.5 md:py-3 bg-[#134E4A] text-white font-heading font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
+                  className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3.5 md:py-3 bg-[#134E4A] text-white font-heading font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md group"
                 >
                   Jetzt für {service.ctaLabel} anfragen
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
@@ -245,10 +245,10 @@ export default function LeistungenPage() {
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
+              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all group"
             >
               Jetzt anfragen
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
               href="tel:03023593028"
