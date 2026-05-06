@@ -1,5 +1,8 @@
+const PHONE_REGEX = /^[\d\s+\-()/.]{6,30}$/
+const VALID_PFLEGEGRADE = new Set(['Keiner', '1', '2', '3', '4', '5', 'Unbekannt'])
+
 export function sanitizeInput(input: string): string {
-  if (!input) return ''
+  if (!input || typeof input !== 'string') return ''
   return input
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -9,7 +12,7 @@ export function sanitizeInput(input: string): string {
 }
 
 export function sanitizeForSubject(input: string): string {
-  if (!input) return ''
+  if (!input || typeof input !== 'string') return ''
   // Remove newlines to prevent header injection
   return input.replace(/[\r\n]+/g, ' ').trim()
 }
@@ -23,18 +26,16 @@ export function validateInquiry(data: { name?: string; phone?: string; pflegegra
     return 'Name muss zwischen 2 und 100 Zeichen lang sein.'
   }
 
-  if (!data.phone || typeof data.phone !== 'string') {
-    return 'Telefonnummer ist erforderlich.'
+  if (!data.phone || typeof data.phone !== 'string' || data.phone.length > 50) {
+    return 'Telefonnummer ist erforderlich und darf maximal 50 Zeichen lang sein.'
   }
 
-  const phoneRegex = /^[\d\s+\-()/.]{6,30}$/
-  if (!phoneRegex.test(data.phone)) {
+  if (!PHONE_REGEX.test(data.phone)) {
     return 'Ungültige Telefonnummer.'
   }
 
   if (data.pflegegrad !== undefined) {
-    const validPflegegrad = ['Keiner', '1', '2', '3', '4', '5', 'Unbekannt']
-    if (typeof data.pflegegrad !== 'string' || !validPflegegrad.includes(data.pflegegrad)) {
+    if (typeof data.pflegegrad !== 'string' || !VALID_PFLEGEGRADE.has(data.pflegegrad)) {
       return 'Ungültiger Pflegegrad.'
     }
   }
