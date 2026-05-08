@@ -1,16 +1,31 @@
-'use client'
-
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Calendar, Tag, ArrowRight } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
 
+export const metadata: Metadata = {
+  title: 'Blog: Pflegegrad, Entlastungsbetrag & Alltagshilfe',
+  description:
+    'Ratgeber von Morgenlicht Alltagshilfe Berlin zu Pflegegrad, Entlastungsbetrag, Haushaltshilfe, Pflegekasse und Unterstützung im Alltag.',
+  alternates: {
+    canonical: '/blog',
+  },
+}
 
 // Sample blog posts - in production, these would come from MDX files
 const blogPosts = [
   {
+    slug: 'alltagshilfe-pflegegrad-entlastungsbetrag',
+    title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
+    excerpt:
+      'Viele Menschen mit Pflegegrad nutzen den Entlastungsbetrag nicht, obwohl ihnen monatlich 131 € für Alltagshilfe zustehen. Einfach erklärt: Anspruch, Leistungen und Abrechnung mit der Pflegekasse.',
+    date: '2026-05-06',
+    tags: ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse'],
+  },
+  {
     slug: 'entlastungsbetrag-richtig-nutzen',
     title: 'Entlastungsbetrag richtig nutzen: So holen Sie das Maximum heraus',
-    excerpt: 'Der Entlastungsbetrag von 125€ monatlich steht jedem Pflegebedürftigen zu. Wir zeigen Ihnen, wie Sie ihn optimal einsetzen.',
+    excerpt: 'Der Entlastungsbetrag von 131 € monatlich steht Menschen mit Pflegegrad zu. Wir zeigen, wie Sie ihn im Alltag sinnvoll einsetzen.',
     date: '2026-01-10',
     tags: ['rechtliches', 'pflege-tipps'],
   },
@@ -30,7 +45,7 @@ const blogPosts = [
   },
 ]
 
-const allTags = ['pflege-tipps', 'rechtliches', 'alltagshilfe']
+const allTags = ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse', 'pflege-tipps', 'rechtliches']
 
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString('de-DE', {
