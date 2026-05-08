@@ -1,0 +1,1 @@
+export default function Loading() { return <div className="py-12 text-center text-[#78909C]">Wird geladen...</div> }
