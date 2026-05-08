@@ -15,6 +15,30 @@ export const metadata: Metadata = {
 // Sample blog posts - in production, these would come from MDX files
 const blogPosts = [
   {
+    slug: 'haushaltshilfe-pflegegrad-pflegekasse',
+    title: 'Haushaltshilfe bei Pflegegrad: Was zahlt die Pflegekasse?',
+    excerpt:
+      'Viele Familien wissen nicht, welche Hilfe im Haushalt über Pflegeleistungen möglich ist. Der Beitrag erklärt Entlastungsbetrag, anerkannte Anbieter und direkte Abrechnung.',
+    date: '2026-05-08',
+    tags: ['haushaltshilfe', 'pflegekasse', 'pflegegrad'],
+  },
+  {
+    slug: 'pflegegrad-1-hilfe-leistungen',
+    title: 'Pflegegrad 1: Welche Hilfe steht Ihnen zu?',
+    excerpt:
+      'Auch mit Pflegegrad 1 gibt es bereits Unterstützung. Einfach erklärt: Entlastungsbetrag, Beratung, Alltagshilfe und wichtige nächste Schritte.',
+    date: '2026-05-08',
+    tags: ['pflegegrad-1', 'entlastungsbetrag', 'alltagshilfe'],
+  },
+  {
+    slug: 'direktabrechnung-pflegekasse-ohne-vorkasse',
+    title: 'Direktabrechnung mit der Pflegekasse: Alltagshilfe ohne Vorkasse',
+    excerpt:
+      'So funktioniert die Abrechnung direkt mit der Pflegekasse: weniger Papierkram, keine Vorkasse und klare Schritte für Angehörige.',
+    date: '2026-05-08',
+    tags: ['direktabrechnung', 'pflegekasse', 'alltagshilfe'],
+  },
+  {
     slug: 'alltagshilfe-pflegegrad-entlastungsbetrag',
     title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
     excerpt:
@@ -45,7 +69,7 @@ const blogPosts = [
   },
 ]
 
-const allTags = ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse', 'pflege-tipps', 'rechtliches']
+const allTags = ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse', 'pflegegrad', 'haushaltshilfe', 'pflege-tipps', 'rechtliches']
 
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString('de-DE', {
