@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, Phone, Check, MapPin, Heart, Home, ShoppingBag, Footprints, FileText, Handshake } from 'lucide-react'
+import { serializeJsonLd } from '@/lib/security'
 
 export interface DistrictContent {
   slug: string
@@ -50,7 +51,7 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
 
       {/* Hero */}
       <section className="relative pt-20 md:pt-28 pb-12 md:pb-20 px-4 bg-white">
