@@ -7,3 +7,8 @@
 **Vulnerability:** Next.js `request.json()` parses payload arrays for optional string fields (like `message: ["bad"]`). If validation fails to strictly check `typeof data.message === 'string'` and incorrectly skips validation (e.g. `if (data.message && typeof data.message === 'string' && data.message.length > 2000)` doesn't throw if it is an array), downstream string operations like `.replace()` in sanitization functions will crash (`TypeError: input.replace is not a function`), causing an unhandled rejection, possible trace leakage, and a DoS vector for the endpoint.
 **Learning:** In TypeScript, interfaces do not exist at runtime. Even with mass assignment prevention (`data = { message: rawData?.message }`), the assigned value can still be of the wrong type (like an Array or Object) if provided via JSON.
 **Prevention:** Always explicitly check `typeof value === 'string'` for all expected string inputs before accepting them or passing them to string sanitization methods, even for optional fields (check `!== undefined` first).
+
+## 2026-05-09 - [XSS Vulnerability in JSON-LD Script Tags]
+**Vulnerability:** Rendering JSON inside `<script>` tags via `JSON.stringify()` without escaping the `<` character allows attackers to prematurely close the script tag via `</script>` injection and execute arbitrary JavaScript.
+**Learning:** Default `JSON.stringify()` does not encode HTML entities, making it unsafe for direct inline interpolation in HTML script tags.
+**Prevention:** Always serialize JSON for HTML script tags using a utility function that explicitly escapes `<` characters, such as replacing `</g` with `\u003c`.

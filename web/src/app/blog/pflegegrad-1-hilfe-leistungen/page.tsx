@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Calendar, CheckCircle, ClipboardList, Euro, HelpCircle, Home } from 'lucide-react'
+import { serializeJsonLd } from '@/lib/security'
 
 export const metadata: Metadata = {
   title: 'Pflegegrad 1: Welche Hilfe steht Ihnen zu?',
@@ -73,8 +74,8 @@ const articleTextClass =
 export default function PflegegradEinsPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }} />
 
       <article className="bg-white">
         <header className="px-4 pt-10 pb-10 md:pt-14 md:pb-12 bg-[#F7F6F3]">

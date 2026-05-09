@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Navbar, Footer } from './components/layout'
+import { serializeJsonLd } from '@/lib/security'
 
 // Montserrat - Modern, geometrische Schrift für Überschriften und Logo
 const montserrat = Montserrat({
@@ -265,7 +266,7 @@ export default function RootLayout({
         <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
         />
       </head>
       <body className="flex flex-col min-h-screen antialiased font-body text-lg text-[#1F2937] leading-relaxed bg-[#FAF9F6]">
