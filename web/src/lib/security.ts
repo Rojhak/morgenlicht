@@ -8,6 +8,12 @@ export function sanitizeInput(input: string): string {
     .replace(/'/g, '&#x27;')
 }
 
+export function serializeJsonLd(data: unknown): string {
+  if (data === undefined) return ''
+  const json = JSON.stringify(data)
+  return json ? json.replace(/</g, '\\u003c') : ''
+}
+
 export function sanitizeForSubject(input: string): string {
   if (!input || typeof input !== 'string') return ''
   // Remove newlines to prevent header injection

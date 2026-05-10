@@ -11,6 +11,7 @@ import {
   Phone,
   ShieldCheck,
 } from 'lucide-react'
+import { serializeJsonLd } from '@/lib/security'
 
 export const metadata: Metadata = {
   title: 'Pflegegrad beantragen: Schritt für Schritt zum Erfolg',
@@ -118,11 +119,11 @@ export default function PflegegradBeantragenPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
 
       <article className="bg-white">

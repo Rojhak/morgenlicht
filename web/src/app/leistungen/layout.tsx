@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { serializeJsonLd } from '@/lib/security'
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
@@ -47,7 +48,7 @@ const schema = {
 export default function LeistungenLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
       {children}
     </>
   )
