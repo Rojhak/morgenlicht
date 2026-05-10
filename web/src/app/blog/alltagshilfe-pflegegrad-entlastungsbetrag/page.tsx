@@ -12,6 +12,7 @@ import {
   ShoppingBag,
   Users,
 } from 'lucide-react'
+import { serializeJsonLd } from '@/lib/security'
 
 export const metadata: Metadata = {
   title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
@@ -120,11 +121,11 @@ export default function EntlastungsbetragBlogPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
 
       <article className="bg-white">
