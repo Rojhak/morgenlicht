@@ -187,14 +187,16 @@ export function CareFinder() {
           <details className="bg-gray-50 rounded-xl border border-gray-200">
             <summary
               onClick={(e) => { e.preventDefault(); setShowDetails(!showDetails) }}
-              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none"
+              className="flex items-center justify-between w-full p-4 cursor-pointer hover:bg-gray-100 rounded-xl transition-colors select-none focus:outline-none focus:ring-4 focus:ring-[#FBBF24]"
+              aria-expanded={showDetails}
+              aria-controls="budget-details"
             >
               <span className="font-semibold text-[#1F2937]">Details zum Budget</span>
               <span className={`text-[#4B5563] transition-transform ${showDetails ? 'rotate-180' : ''}`}>▼</span>
             </summary>
 
             {showDetails && (
-              <div className="p-4 pt-2 space-y-3 border-t border-gray-200">
+              <div id="budget-details" className="p-4 pt-2 space-y-3 border-t border-gray-200">
                 <div className="flex justify-between items-center text-sm">
                   <span className="text-[#4B5563]">Entlastungsbetrag</span>
                   <span className="font-bold text-[#1F2937]">{formatCurrency(budget.base)}</span>
