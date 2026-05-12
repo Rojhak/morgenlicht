@@ -358,8 +358,8 @@ export default function SucheePage() {
                   {filteredServices.length} {filteredServices.length === 1 ? 'Ergebnis' : 'Ergebnisse'}
                 </h2>
                 <div className="flex items-center gap-2 text-sm text-[#455A64]">
-                  <span>Sortieren:</span>
-                  <select className="bg-white/60 border border-white/50 rounded-lg px-3 py-2 text-[#37474F] focus:outline-none focus:ring-4 focus:ring-[#FFD54F]">
+                  <label htmlFor="sort-results">Sortieren:</label>
+                  <select id="sort-results" className="bg-white/60 border border-white/50 rounded-lg px-3 py-2 text-[#37474F] focus:outline-none focus:ring-4 focus:ring-[#FFD54F]">
                     <option>Relevanz</option>
                     <option>Bewertung</option>
                     <option>Standort</option>
