@@ -177,7 +177,7 @@ export default function SucheePage() {
 
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
-            <GlassCard className="p-2 flex items-center gap-2">
+            <GlassCard className="p-2 flex items-center gap-2 transition-all duration-200 focus-within:ring-4 focus-within:ring-[#FFD54F] focus-within:ring-offset-2">
               <Search className="w-5 h-5 text-[#455A64] ml-3 flex-shrink-0" aria-hidden="true" />
               <input
                 type="search"
@@ -190,10 +190,10 @@ export default function SucheePage() {
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="p-2 hover:bg-black/5 rounded-full transition-colors"
+                  className="p-2 hover:bg-black/5 rounded-full transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
                   aria-label="Suche löschen"
                 >
-                  <X className="w-5 h-5 text-[#455A64]" />
+                  <X className="w-5 h-5 text-[#455A64]" aria-hidden="true" />
                 </button>
               )}
             </GlassCard>
