@@ -25,7 +25,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
         <div className="max-w-[1440px] mx-auto px-6 md:px-16 h-20 md:h-28 flex items-center justify-between">
 
           {/* 1. Säule (Links): Logo - BOOSTED */}
-          <Link href="/" className="flex-none flex items-center gap-x-2 md:gap-x-4 group">
+          <Link href="/" className="flex-none flex items-center gap-x-2 md:gap-x-4 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2 rounded-lg p-1">
             <div className="w-[40px] md:w-[64px] h-[40px] md:h-[64px] flex-shrink-0">
               <img src="/trans_logo.svg" alt="Morgenlicht" className="w-full h-full object-contain" />
             </div>
@@ -45,7 +45,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[#1F2937] hover:text-[#134E4A] font-medium font-body text-base transition-colors antialiased
+                className={`text-[#1F2937] hover:text-[#134E4A] font-medium font-body text-base transition-colors antialiased focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2 rounded-lg px-2 py-1
                   ${link.label === 'Über uns' ? 'whitespace-nowrap' : ''}
                 `}
               >
@@ -59,7 +59,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
              {/* Text: "Kontakt", Green (#134E4A), px-10 py-3 (Premium), rounded-[12px] */}
             <Link
               href="/kontakt"
-              className="bg-[#134E4A] text-white px-10 py-3 rounded-[12px] font-semibold font-body hover:bg-[#0e3a37] transition-all shadow-sm flex items-center whitespace-nowrap antialiased"
+              className="bg-[#134E4A] text-white px-10 py-3 rounded-[12px] font-semibold font-body hover:bg-[#0e3a37] transition-all shadow-sm flex items-center whitespace-nowrap antialiased focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2"
             >
               Kontakt
             </Link>
@@ -69,7 +69,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
           <div className="flex items-center lg:hidden ml-auto gap-x-4">
              <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-gray-600 hover:text-[#134E4A] transition-colors"
+              className="p-2 text-gray-600 hover:text-[#134E4A] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2 rounded-lg"
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
               aria-controls="mobile-menu"
@@ -89,7 +89,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-xl font-medium text-[#1F2937] hover:text-[#134E4A] py-3 border-b border-gray-50 font-body"
+                  className="block text-xl font-medium text-[#1F2937] hover:text-[#134E4A] py-3 border-b border-gray-50 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2 rounded-lg px-2"
                 >
                   {link.label}
                 </Link>
@@ -97,7 +97,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
                <Link
                   href="/kontakt"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full bg-[#134E4A] text-white text-center font-bold text-lg px-6 py-4 rounded-xl shadow-sm mt-6 font-body"
+                  className="block w-full bg-[#134E4A] text-white text-center font-bold text-lg px-6 py-4 rounded-xl shadow-sm mt-6 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2"
                 >
                   Kontakt
                 </Link>
