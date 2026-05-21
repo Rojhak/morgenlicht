@@ -242,6 +242,7 @@ export default function SucheePage() {
                   onClick={() => setShowFilters(!showFilters)}
                   className="lg:hidden w-full flex items-center justify-between p-4 glass rounded-xl mb-4"
                   aria-expanded={showFilters}
+                  aria-controls="filter-menu"
                 >
                   <div className="flex items-center gap-3 text-[#37474F] font-semibold">
                     <SlidersHorizontal className="w-5 h-5" />
@@ -256,7 +257,7 @@ export default function SucheePage() {
                 </button>
 
                 {/* Filter Card */}
-                <GlassCard className={`p-6 ${showFilters ? 'block' : 'hidden lg:block'}`}>
+                <GlassCard id="filter-menu" className={`p-6 ${showFilters ? 'block' : 'hidden lg:block'}`}>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-[#E0F2F1] rounded-xl flex items-center justify-center">
                       <SlidersHorizontal className="w-5 h-5 text-[#0D6E64]" />
@@ -292,6 +293,7 @@ export default function SucheePage() {
                                 : 'bg-white/40 text-[#37474F] hover:bg-white/60'
                               }
                             `}
+                            aria-pressed={activeFilters.includes(`avail-${option}`)}
                           >
                             <div className={`
                               w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
@@ -328,6 +330,7 @@ export default function SucheePage() {
                                 : 'bg-white/40 text-[#37474F] hover:bg-white/60'
                               }
                             `}
+                            aria-pressed={activeFilters.includes(`loc-${option}`)}
                           >
                             <div className={`
                               w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
