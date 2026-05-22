@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
+const isDev = process.env.NODE_ENV === 'development';
+const cspScriptSrc = isDev ? "'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io" : "'self' 'unsafe-inline' https://plausible.io";
+
 const nextConfig = {
+  poweredByHeader: false,
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -31,7 +35,7 @@ const nextConfig = {
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io;",
+            value: `default-src 'self'; script-src ${cspScriptSrc}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://plausible.io;`,
           },
           {
             key: 'Permissions-Policy',
