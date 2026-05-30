@@ -111,7 +111,7 @@ const structuredData = {
       telephone: '+493023593028',
       email: 'info@morgenlicht-alltagshilfe.de',
       image: `${SITE_URL}/images/hero_helping_hand.png`,
-      logo: `${SITE_URL}/morgen.png`,
+      logo: `${SITE_URL}/trans_logo.svg`,
       priceRange: '0€ über Pflegekasse · 35,50€/Std. privat',
       slogan: 'Herzlich. Würdevoll. Verlässlich.',
       address: {
