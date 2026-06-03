@@ -116,6 +116,7 @@ export function CareFinder() {
               }`}
             onClick={handleNext}
             disabled={selectedGrad === null}
+            title={selectedGrad === null ? "Bitte wählen Sie zuerst einen Pflegegrad aus" : undefined}
           >
             Weiter
             <ArrowRight className="w-5 h-5" aria-hidden="true" />
