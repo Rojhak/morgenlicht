@@ -10,3 +10,8 @@
 **Vulnerability:** The `X-XSS-Protection` header was set to `1; mode=block`, which can introduce XS-Search vulnerabilities on modern browsers.
 **Learning:** Modern security best practices recommend disabling the legacy XSS auditor by setting the header to `0`, as modern browsers no longer support it and it can be exploited to bypass other security mechanisms.
 **Prevention:** Always set `X-XSS-Protection` to `0` instead of `1; mode=block` and rely on Content-Security-Policy (CSP) for XSS protection.
+
+## 2024-06-09 - [Secure CSP & Header Configuration]
+**Vulnerability:** The Content-Security-Policy allowed `'unsafe-eval'` in all environments, and the `X-Powered-By` header was enabled by default.
+**Learning:** In Next.js applications, mitigate information disclosure and XSS risks by setting `poweredByHeader: false` in `next.config.js` and conditionally applying `'unsafe-eval'` to the `Content-Security-Policy` (`script-src`) only when `process.env.NODE_ENV === 'development'`, as it is required for Fast Refresh but unsafe in production.
+**Prevention:** Always verify that `'unsafe-eval'` is restricted to development environments and explicit headers identifying the server framework are removed.
