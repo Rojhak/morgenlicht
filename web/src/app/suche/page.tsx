@@ -292,6 +292,7 @@ export default function SucheePage() {
                                 : 'bg-white/40 text-[#37474F] hover:bg-white/60'
                               }
                             `}
+                            aria-pressed={activeFilters.includes(`avail-${option}`)}
                           >
                             <div className={`
                               w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
@@ -328,6 +329,7 @@ export default function SucheePage() {
                                 : 'bg-white/40 text-[#37474F] hover:bg-white/60'
                               }
                             `}
+                            aria-pressed={activeFilters.includes(`loc-${option}`)}
                           >
                             <div className={`
                               w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
