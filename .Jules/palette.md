@@ -4,3 +4,6 @@
 ## 2025-05-13 - Missing focus-visible states on custom search inputs
 **Learning:** When removing default borders from inputs (`border-0 outline-none`) inside custom wrappers like `GlassCard`, the native focus ring is lost. Keyboard users lose track of focus.
 **Action:** Always apply `focus-within:ring-*` to the parent wrapper of borderless inputs to maintain WCAG compliant focus indicators.
+## 2026-05-13 - Focus Visibility in Global Navigation
+**Learning:** Interactive elements in fixed or global navigation bars often rely on default browser focus rings which can be subtle or cut off by container bounds.
+**Action:** Always apply explicit `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2 rounded-lg` to all header and navigation links to ensure high-visibility, WCAG-compliant keyboard navigation.
