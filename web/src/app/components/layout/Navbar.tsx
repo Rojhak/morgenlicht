@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 
 
@@ -18,6 +19,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 
   export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const pathname = usePathname()
 
     return (
       <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -41,17 +43,22 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
           {/* 2. Säule (Mitte): Navigation */}
           {/* gap-x-10, Inter Medium 16px (Unchanged) */}
           <nav className="hidden lg:flex items-center gap-x-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-[#1F2937] hover:text-[#134E4A] font-medium font-body text-base transition-colors antialiased
-                  ${link.label === 'Über uns' ? 'whitespace-nowrap' : ''}
-                `}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`text-[#1F2937] hover:text-[#134E4A] font-body text-base transition-colors antialiased
+                    ${isActive ? 'font-bold text-[#134E4A]' : 'font-medium'}
+                    ${link.label === 'Über uns' ? 'whitespace-nowrap' : ''}
+                  `}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* 3. Säule (Rechts): Button */}
@@ -84,16 +91,22 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
         {mobileMenuOpen && (
           <div id="mobile-menu" className="fixed inset-0 top-[80px] md:top-[112px] z-40 bg-white border-t border-gray-100 lg:hidden overflow-y-auto">
             <div className="p-6 space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-xl font-medium text-[#1F2937] hover:text-[#134E4A] py-3 border-b border-gray-50 font-body"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={isActive ? 'page' : undefined}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block text-xl text-[#1F2937] hover:text-[#134E4A] py-3 border-b border-gray-50 font-body ${
+                      isActive ? 'font-bold text-[#134E4A]' : 'font-medium'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
                <Link
                   href="/kontakt"
                   onClick={() => setMobileMenuOpen(false)}
