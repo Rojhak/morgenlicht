@@ -4,3 +4,6 @@
 ## 2025-05-13 - Missing focus-visible states on custom search inputs
 **Learning:** When removing default borders from inputs (`border-0 outline-none`) inside custom wrappers like `GlassCard`, the native focus ring is lost. Keyboard users lose track of focus.
 **Action:** Always apply `focus-within:ring-*` to the parent wrapper of borderless inputs to maintain WCAG compliant focus indicators.
+## 2026-05-14 - Active State Context in Navigation Links
+**Learning:** Adding visual active states (bold, colored text) to navigation links without an underlying semantic `aria-current="page"` attribute leaves screen reader users without crucial navigational context regarding their current location in the application.
+**Action:** When implementing or updating active visual states for navigation links, always ensure the `aria-current="page"` attribute is conditionally applied alongside the styling using the current route.
