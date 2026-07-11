@@ -5,15 +5,15 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Morgenlicht | Alltagshilfe Berlin-Neukölln | Haushaltshilfe für Senioren',
+    absolute: 'Haushaltshilfe Neukölln | Pflegekasse & Seniorenhilfe',
   },
   description:
-    'Ihre herzliche Alltagshilfe in Berlin-Neukölln. Seniorenbetreuung & Haushaltshilfe ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
+    'Haushaltshilfe in Berlin-Neukölln für Senioren und Menschen mit Pflegegrad. Anerkannte Alltagshilfe, Einkauf und Begleitung über die Pflegekasse.',
   alternates: { canonical: '/berlin-neukoelln' },
   openGraph: {
-    title: 'Morgenlicht | Alltagshilfe Berlin-Neukölln | Seniorenbetreuung',
+    title: 'Haushaltshilfe und Alltagshilfe in Berlin-Neukölln',
     description:
-      'Herzliche Alltagshilfe in Neukölln: Schillerkiez, Richardplatz, Hermannstraße. 0€ Kosten ab Pflegegrad 1 über Ihr 131€-Pflegebudget.',
+      'Anerkannte Haushaltshilfe, Einkaufshilfe und Begleitung in Neukölln. Finanzierung über den Entlastungsbetrag ab Pflegegrad 1 möglich.',
     url: `${SITE_URL}/berlin-neukoelln`,
   },
 }
@@ -24,10 +24,10 @@ export default function NeukoellnPage() {
       content={{
         slug: 'berlin-neukoelln',
         district: 'Neukölln',
-        kicker: 'Ihre Alltagshilfe in Neukölln',
-        h1: 'Alltagshilfe in Berlin-Neukölln',
+        kicker: 'Haushaltshilfe in Neukölln',
+        h1: 'Haushaltshilfe und Alltagshilfe in Berlin-Neukölln',
         intro:
-          'Morgenlicht unterstützt Seniorinnen und Senioren in ganz Neukölln – vom Reuterkiez über den Richardplatz bis hinauf in die Gropiusstadt. Wir nehmen uns Zeit, hören zu und helfen herzlich und verlässlich im Alltag.',
+          'Morgenlicht bietet anerkannte Haushaltshilfe, Seniorenhilfe und Alltagshilfe in Berlin-Neukölln. Vom Reuterkiez über den Richardplatz bis zur Gropiusstadt unterstützen wir bei Haushalt, Einkauf, Begleitung und Alltagsorganisation.',
         kiezParagraph:
           'Neukölln hat viele Gesichter: die gewachsene Nachbarschaft in Rixdorf, das bunte Leben rund um die Hermannstraße, die ruhigen Gartenkolonien und die großen Wohnanlagen der Gropiusstadt. Gerade in einem so vielfältigen Bezirk ist interkulturelle Sensibilität kein Zusatz, sondern Grundvoraussetzung – und genau dafür steht Morgenlicht.',
         landmarks: [
@@ -39,7 +39,7 @@ export default function NeukoellnPage() {
           'Türkischsprachige Betreuung für unsere Nachbarschaft',
         ],
         localPhrase:
-          'Neukölln\'de yaşayan yaşlılar için Türkçe günlük yaşam yardımı – bakım sigortası üzerinden %100 ücretsiz.',
+          'Neukölln\'de yaşayan yaşlılar için Türkçe günlük yaşam desteği – mevcut bakım sigortası bütçesi üzerinden karşılanabilir.',
         neighboringDistricts: ['Kreuzberg', 'Mitte'],
       }}
     />

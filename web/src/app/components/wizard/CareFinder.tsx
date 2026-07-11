@@ -245,7 +245,7 @@ export function CareFinder() {
               Pflegegrad 1
             </p>
             <p className="text-[#4B5563] mb-4">
-              Ihnen stehen 125 € Entlastungsbetrag zu. Lassen Sie uns besprechen, wie wir das für Sie nutzen können.
+              Ihnen stehen 131 € Entlastungsbetrag zu. Lassen Sie uns besprechen, wie wir das für Sie nutzen können.
             </p>
             <a
               href={`tel:${PHONE.replace(/\s/g, '')}`}

@@ -24,20 +24,37 @@ const services = [
 
 export function DistrictPage({ content }: { content: DistrictContent }) {
   const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
+  const faqItems = [
+    {
+      question: `Zahlt die Pflegekasse eine Haushaltshilfe in ${content.district}?`,
+      answer: `Menschen mit Pflegegrad 1 bis 5 können den Entlastungsbetrag für anerkannte Unterstützung im Alltag nutzen. In Berlin können dazu je nach Angebot auch Hilfen bei der Haushaltsführung gehören.`,
+    },
+    {
+      question: `Welche Aufgaben übernimmt eine Haushaltshilfe in ${content.district}?`,
+      answer: 'Typische Aufgaben sind Reinigung, Wäschepflege, Bettwäsche wechseln, einfache Mahlzeiten, Einkauf und Apothekengänge. Der genaue Umfang wird persönlich vereinbart.',
+    },
+    {
+      question: 'Muss ich bei Morgenlicht in Vorkasse gehen?',
+      answer: 'Wenn ein Pflegegrad, verfügbares Budget und die nötigen Unterlagen vorliegen, kann eine Direktabrechnung mit der Pflegekasse vereinbart werden. Die Voraussetzungen klären wir vor Beginn transparent.',
+    },
+    {
+      question: `Bietet Morgenlicht auch türkischsprachige Seniorenhilfe in ${content.district} an?`,
+      answer: 'Ja. Morgenlicht berät und unterstützt auf Deutsch, Türkisch und Englisch. Sprache und persönliche Gewohnheiten werden bei der Planung berücksichtigt.',
+    },
+  ]
 
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'LocalBusiness',
-        '@id': `${SITE_URL}/${content.slug}#business-${content.slug}`,
-        name: `Morgenlicht Alltagshilfe ${content.district}`,
+        '@type': 'Service',
+        '@id': `${SITE_URL}/${content.slug}#service`,
+        name: `Haushaltshilfe und Alltagshilfe in Berlin-${content.district}`,
         description: content.intro,
         url: `${SITE_URL}/${content.slug}`,
-        telephone: '+493023593028',
-        parentOrganization: { '@id': `${SITE_URL}/#business` },
+        serviceType: ['Haushaltshilfe', 'Alltagshilfe', 'Seniorenhilfe', 'Unterstützung im Alltag'],
+        provider: { '@id': `${SITE_URL}/#business` },
         areaServed: { '@type': 'AdministrativeArea', name: `Berlin-${content.district}` },
-        availableLanguage: ['German', 'Turkish', 'English'],
       },
       {
         '@type': 'BreadcrumbList',
@@ -45,6 +62,14 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
           { '@type': 'ListItem', position: 1, name: 'Startseite', item: `${SITE_URL}/` },
           { '@type': 'ListItem', position: 2, name: `Berlin-${content.district}`, item: `${SITE_URL}/${content.slug}` },
         ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: { '@type': 'Answer', text: item.answer },
+        })),
       },
     ],
   }
@@ -109,7 +134,7 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
       <section className="bg-white py-16 md:py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-10 text-center">
-            Unsere Leistungen in {content.district}
+            Haushaltshilfe und Seniorenhilfe in {content.district}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
@@ -135,11 +160,11 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
         <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 text-center shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
           <Heart className="w-10 h-10 text-[#144E41] mx-auto mb-4" />
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-4">
-            100 % kostenlos ab Pflegegrad 1
+            Über die Pflegekasse finanzierbar ab Pflegegrad 1
           </h2>
           <p className="font-body text-[#4B5563] text-lg leading-relaxed mb-6">
-            Nutzen Sie Ihren monatlichen Entlastungsbetrag von 131 € nach § 45b SGB XI für unsere Alltagshilfe in {content.district}.
-            Wir rechnen direkt mit Ihrer Pflegekasse ab – ohne Papierkram, ohne Vorkasse.
+            Nutzen Sie Ihren monatlichen Entlastungsbetrag von 131 € nach § 45b SGB XI für anerkannte Alltagshilfe in {content.district}.
+            Im Rahmen des verfügbaren Budgets ist eine Direktabrechnung mit der Pflegekasse möglich.
           </p>
           <Link
             href="/kosten"
@@ -147,6 +172,49 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
           >
             Alles zu Kosten & Pflegekasse <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
+        </div>
+      </section>
+
+      {/* Local FAQ */}
+      <section className="bg-white px-6 py-16 md:py-20" aria-labelledby={`${content.slug}-faq-heading`}>
+        <div className="mx-auto max-w-3xl">
+          <h2 id={`${content.slug}-faq-heading`} className="mb-8 text-center font-heading text-2xl font-bold text-[#134E4A] md:text-3xl">
+            Häufige Fragen zur Haushaltshilfe in {content.district}
+          </h2>
+          <div className="divide-y divide-[#144E41]/15 border-y border-[#144E41]/15">
+            {faqItems.map((item) => (
+              <div key={item.question} className="py-6">
+                <h3 className="font-heading text-lg font-bold text-[#134E4A]">{item.question}</h3>
+                <p className="mt-3 leading-relaxed text-[#4B5563]">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related guide */}
+      <section className="bg-[#F7F6F3] px-6 py-14">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-heading text-2xl font-bold text-[#134E4A]">Ratgeber zu Haushaltshilfe und Pflegekasse</h2>
+          <p className="mt-3 leading-relaxed text-[#4B5563]">
+            Lesen Sie, welche Unterstützung möglich ist, wie die Pflegekasse beteiligt werden kann und worauf Familien bei der Auswahl achten sollten.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <Link
+              href="/blog/haushaltshilfe-kreuzberg-neukoelln"
+              className="inline-flex min-h-12 items-center justify-between gap-3 border border-[#144E41]/15 bg-white px-4 py-3 font-semibold text-[#134E4A] hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+            >
+              Haushaltshilfe in Kreuzberg & Neukölln
+              <ArrowRight className="h-4 w-4 flex-none" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/blog/alltagshilfe-oder-haushaltshilfe-unterschied"
+              className="inline-flex min-h-12 items-center justify-between gap-3 border border-[#144E41]/15 bg-white px-4 py-3 font-semibold text-[#134E4A] hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+            >
+              Alltagshilfe oder Haushaltshilfe?
+              <ArrowRight className="h-4 w-4 flex-none" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -176,7 +244,7 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
                 href={`/berlin-${d.toLowerCase().replace('ö', 'oe').replace('ü', 'ue').replace('ä', 'ae')}`}
                 className="px-4 py-2 bg-white border border-[#144E41]/20 rounded-full text-sm font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-colors"
               >
-                Alltagshilfe {d}
+                Haushaltshilfe & Alltagshilfe {d}
               </Link>
             ))}
           </div>

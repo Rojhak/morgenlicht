@@ -24,9 +24,9 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <h1 className="font-heading font-bold text-[#134E4A] text-3xl sm:text-5xl lg:text-[48px] leading-[1.2] mb-8 tracking-tighter">
-                  Herzlich & Würdevoll: <br className="hidden lg:block"/>
-                  Ihre Alltagshilfe in Berlin
+                <h1 className="font-heading font-bold text-[#134E4A] text-3xl sm:text-5xl lg:text-[48px] leading-[1.2] mb-8 tracking-normal">
+                  Haushaltshilfe & Alltagshilfe <br className="hidden lg:block"/>
+                  in Berlin
                 </h1>
 
                 <p className="font-body font-medium text-[#4B5563] text-lg sm:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
@@ -58,10 +58,10 @@ export default function HomePage() {
                    </div>
                     <div className="flex flex-col">
                       <span className="font-heading font-bold text-[#134E4A] text-base">
-                        Kostenfreie Hilfe ab Pflegegrad 1
+                        Über die Pflegekasse finanzierbar
                       </span>
                       <span className="font-body text-[#4B5563] text-sm">
-                        Direkte Abrechnung über Ihr 131€-Budget der Pflegekasse. Für Sie entstehen 0 € Kosten.
+                        Direkte Abrechnung ist im verfügbaren 131-€-Budget ab Pflegegrad 1 möglich.
                       </span>
                     </div>
                 </div>
@@ -250,7 +250,7 @@ export default function HomePage() {
               Wichtig zu wissen
             </span>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-8">
-              Ihr 131 € Pflege-Budget: Für Sie komplett kostenlos.
+              Ihr 131 € Entlastungsbetrag für anerkannte Hilfe
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 text-left mb-12">
@@ -261,7 +261,7 @@ export default function HomePage() {
                 },
                 {
                   q: "Kostet mich das etwas?",
-                  a: "Nein. Wenn wir im Rahmen dieses Budgets bleiben, zahlen Sie für unsere Hilfe 0 €."
+                  a: "Im Rahmen des verfügbaren Budgets kann die Hilfe ohne Eigenanteil genutzt werden. Zusätzliche Leistungen besprechen wir vorher."
                 },
                 {
                   q: "Wird mein Pflegegeld gekürzt?",
@@ -269,7 +269,7 @@ export default function HomePage() {
                 },
                 {
                   q: "Muss ich in Vorkasse gehen?",
-                  a: "Nein. Wir erledigen den gesamten Papierkram und rechnen direkt mit Ihrer Pflegekasse ab."
+                  a: "Wenn die Voraussetzungen vorliegen, rechnen wir direkt mit Ihrer Pflegekasse ab."
                 }
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
@@ -419,7 +419,7 @@ export default function HomePage() {
             Wir sind für Sie vor Ort
           </span>
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-            Ihre Alltagshilfe in Ihrem Berliner Kiez
+            Haushaltshilfe & Alltagshilfe in Ihrem Berliner Kiez
           </h2>
           <p className="font-body text-[#4B5563] mb-8 max-w-2xl mx-auto leading-relaxed">
             Wir arbeiten wohnortnah und mit festen Bezugspersonen. Wählen Sie Ihren Bezirk – wir sind in der Nähe.
@@ -430,21 +430,21 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
             >
               <MapPin className="w-4 h-4" />
-              Alltagshilfe Kreuzberg
+              Haushaltshilfe Kreuzberg
             </Link>
             <Link
               href="/berlin-neukoelln"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
             >
               <MapPin className="w-4 h-4" />
-              Alltagshilfe Neukölln
+              Haushaltshilfe Neukölln
             </Link>
             <Link
               href="/berlin-mitte"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
             >
               <MapPin className="w-4 h-4" />
-              Alltagshilfe Mitte
+              Haushaltshilfe Mitte
             </Link>
           </div>
         </div>

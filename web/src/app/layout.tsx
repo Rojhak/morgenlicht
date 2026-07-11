@@ -25,15 +25,15 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Morgenlicht Alltagshilfe Berlin | Kreuzberg, Neukölln & Mitte',
-    template: '%s | Morgenlicht Alltagshilfe Berlin',
+    default: 'Haushaltshilfe Berlin | Kreuzberg, Neukölln & Mitte',
+    template: '%s | Morgenlicht Berlin',
   },
-  description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
+  description: 'Anerkannte Haushaltshilfe und Alltagshilfe in Berlin für Senioren und Menschen mit Pflegegrad. Unterstützung in Kreuzberg, Neukölln und Mitte.',
   keywords: [
     'Alltagshilfe Berlin', 'Haushaltshilfe Berlin', 'Haushaltshilfe Pflegekasse Berlin',
     'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln',
     'Alltagshilfe Mitte', 'Alltagshilfe Neukölln', 'Alltagshilfe Kreuzberg',
-    'Entlastungsbetrag Berlin', '131 Euro Entlastungsbetrag', '125 Euro Haushaltshilfe',
+    'Entlastungsbetrag Berlin', '131 Euro Entlastungsbetrag',
     'Pflegegrad 1 Haushaltshilfe', 'Pflegegrad Kostenübernahme', '§ 45a SGB XI Berlin',
     'Angebote zur Unterstützung im Alltag Berlin', 'anerkannte Alltagshilfe Berlin',
     'Alltagshilfe türkisch Berlin', 'Haushaltshilfe türkisch Berlin',
@@ -74,8 +74,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Morgenlicht Alltagshilfe Berlin | Kreuzberg, Neukölln & Mitte',
-    description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
+    title: 'Haushaltshilfe und Alltagshilfe Berlin | Morgenlicht',
+    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg, Neukölln und Mitte.',
     type: 'website',
     locale: 'de_DE',
     url: `${SITE_URL}/`,
@@ -91,8 +91,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Morgenlicht Alltagshilfe Berlin | Kreuzberg, Neukölln & Mitte',
-    description: 'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin. Wir unterstützen Senioren & Pflegebedürftige bei Haushalt & Alltag ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
+    title: 'Haushaltshilfe und Alltagshilfe Berlin | Morgenlicht',
+    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg, Neukölln und Mitte.',
     images: ['/images/hero_helping_hand.png'],
   },
 }
@@ -106,7 +106,7 @@ const structuredData = {
       name: 'Morgenlicht Alltagshilfe Berlin',
       alternateName: ['Morgenlicht Alltagshilfe', 'Morgenlicht Berlin'],
       description:
-        'Staatlich anerkannte Alltagshilfe für Senioren in Berlin. Herzliche Hauswirtschaft, Seniorenbetreuung und Begleitung – 0€ Kosten über Ihr 131€-Pflegebudget (ab Pflegegrad 1). Beratung auf Deutsch, Türkisch und Englisch.',
+        'Anerkannte Alltagshilfe und Haushaltshilfe für Senioren in Berlin. Unterstützung bei Haushalt, Einkauf, Begleitung und Alltagsorganisation. Beratung auf Deutsch, Türkisch und Englisch.',
       url: SITE_URL,
       telephone: '+493023593028',
       email: 'info@morgenlicht-alltagshilfe.de',
@@ -206,7 +206,7 @@ const structuredData = {
           name: 'Was kostet die Alltagshilfe von Morgenlicht?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Ab Pflegegrad 1 ist unsere Hilfe für Sie komplett kostenlos. Sie nutzen Ihren monatlichen Entlastungsbetrag von 131 € – wir rechnen direkt mit Ihrer Pflegekasse ab. Ohne Pflegegrad beträgt unser Stundensatz 35,50 €.',
+            text: 'Ab Pflegegrad 1 können anerkannte Leistungen im Rahmen des verfügbaren Entlastungsbetrags von 131 € monatlich finanziert werden. Eine Direktabrechnung mit der Pflegekasse ist möglich, wenn die Voraussetzungen vorliegen. Ohne Pflegegrad können Leistungen privat vereinbart werden.',
           },
         },
         {
@@ -246,7 +246,7 @@ const structuredData = {
           name: 'Muss ich in Vorkasse gehen?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Nein. Wir erledigen den gesamten Papierkram und rechnen direkt mit Ihrer Pflegekasse ab. Für Sie entstehen keine Kosten.',
+            text: 'Wenn Pflegegrad, verfügbares Budget und die erforderlichen Unterlagen vorliegen, kann Morgenlicht direkt mit der Pflegekasse abrechnen. Mögliche Kosten außerhalb des Budgets werden vor Beginn besprochen.',
           },
         },
         {

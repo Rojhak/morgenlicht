@@ -5,15 +5,15 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'Morgenlicht | Alltagshilfe Berlin-Kreuzberg | Haushaltshilfe für Senioren',
+    absolute: 'Haushaltshilfe Kreuzberg | Pflegekasse & Seniorenhilfe',
   },
   description:
-    'Ihre herzliche Alltagshilfe in Berlin-Kreuzberg. Seniorenbetreuung & Haushaltshilfe ab Pflegegrad 1. 0€ Kosten über Ihr 131€-Pflegebudget.',
+    'Haushaltshilfe in Berlin-Kreuzberg für Senioren und Menschen mit Pflegegrad. Anerkannte Alltagshilfe, Einkauf und Begleitung über die Pflegekasse.',
   alternates: { canonical: '/berlin-kreuzberg' },
   openGraph: {
-    title: 'Morgenlicht | Alltagshilfe Berlin-Kreuzberg | Seniorenbetreuung',
+    title: 'Haushaltshilfe und Alltagshilfe in Berlin-Kreuzberg',
     description:
-      'Herzliche Alltagshilfe direkt im Kiez: Graefekiez, Bergmannstraße, Landwehrkanal. 0€ Kosten ab Pflegegrad 1 über Ihr 131€-Pflegebudget.',
+      'Anerkannte Haushaltshilfe, Einkaufshilfe und Begleitung in Kreuzberg. Finanzierung über den Entlastungsbetrag ab Pflegegrad 1 möglich.',
     url: `${SITE_URL}/berlin-kreuzberg`,
   },
 }
@@ -24,10 +24,10 @@ export default function KreuzbergPage() {
       content={{
         slug: 'berlin-kreuzberg',
         district: 'Kreuzberg',
-        kicker: 'Ihre Alltagshilfe im Kiez',
-        h1: 'Alltagshilfe in Berlin-Kreuzberg',
+        kicker: 'Haushaltshilfe direkt im Kiez',
+        h1: 'Haushaltshilfe und Alltagshilfe in Berlin-Kreuzberg',
         intro:
-          'Morgenlicht ist Ihre herzliche Alltagshilfe direkt in Berlin-Kreuzberg. Ob Haushaltshilfe rund um den Graefekiez, Einkaufsbegleitung am Maybachufer oder ein Spaziergang am Landwehrkanal – wir sind in Ihrem Kiez zuhause.',
+          'Morgenlicht bietet anerkannte Haushaltshilfe, Seniorenhilfe und Alltagshilfe in Berlin-Kreuzberg. Ob Reinigung im Graefekiez, Einkaufsbegleitung am Maybachufer oder ein Spaziergang am Landwehrkanal: Wir unterstützen Sie persönlich ab Pflegegrad 1.',
         kiezParagraph:
           'Kreuzberg ist laut, lebendig und vielfältig – und für viele Seniorinnen und Senioren vor allem eines: ihr Zuhause seit Jahrzehnten. Wir kennen die kurzen Wege im Graefekiez, die Apotheken in der Bergmannstraße und die ruhigen Bänke am Landwehrkanal. So können Sie so lange wie möglich selbstbestimmt in Ihrer vertrauten Umgebung leben.',
         landmarks: [
@@ -39,7 +39,7 @@ export default function KreuzbergPage() {
           'Kulturbegleitung ins Tempodrom oder HAU',
         ],
         localPhrase:
-          'Kreuzberg\'de yaşayan yaşlılar için Türkçe günlük yaşam yardımı – bakım sigortası üzerinden %100 ücretsiz.',
+          'Kreuzberg\'de yaşayan yaşlılar için Türkçe günlük yaşam desteği – mevcut bakım sigortası bütçesi üzerinden karşılanabilir.',
         neighboringDistricts: ['Neukölln', 'Mitte'],
       }}
     />

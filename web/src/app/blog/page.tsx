@@ -2,74 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Calendar, Tag, ArrowRight } from 'lucide-react'
 import { GlassCard, GlassButton } from '../components/glass'
+import { blogPosts, blogTags } from '@/config/blogPosts'
 
 export const metadata: Metadata = {
-  title: 'Blog: Pflegegrad, Entlastungsbetrag & Alltagshilfe',
+  title: 'Ratgeber: Haushaltshilfe, Pflegegrad & Pflegekasse',
   description:
-    'Ratgeber von Morgenlicht Alltagshilfe Berlin zu Pflegegrad, Entlastungsbetrag, Haushaltshilfe, Pflegekasse und Unterstützung im Alltag.',
+    'Ratgeber zu Haushaltshilfe und Alltagshilfe in Berlin, Pflegegrad, Entlastungsbetrag und Pflegekasse – mit Informationen für Kreuzberg und Neukölln.',
   alternates: {
     canonical: '/blog',
   },
 }
-
-// Sample blog posts - in production, these would come from MDX files
-const blogPosts = [
-  {
-    slug: 'haushaltshilfe-pflegegrad-pflegekasse',
-    title: 'Haushaltshilfe bei Pflegegrad: Was zahlt die Pflegekasse?',
-    excerpt:
-      'Viele Familien wissen nicht, welche Hilfe im Haushalt über Pflegeleistungen möglich ist. Der Beitrag erklärt Entlastungsbetrag, anerkannte Anbieter und direkte Abrechnung.',
-    date: '2026-05-08',
-    tags: ['haushaltshilfe', 'pflegekasse', 'pflegegrad'],
-  },
-  {
-    slug: 'pflegegrad-1-hilfe-leistungen',
-    title: 'Pflegegrad 1: Welche Hilfe steht Ihnen zu?',
-    excerpt:
-      'Auch mit Pflegegrad 1 gibt es bereits Unterstützung. Einfach erklärt: Entlastungsbetrag, Beratung, Alltagshilfe und wichtige nächste Schritte.',
-    date: '2026-05-08',
-    tags: ['pflegegrad-1', 'entlastungsbetrag', 'alltagshilfe'],
-  },
-  {
-    slug: 'direktabrechnung-pflegekasse-ohne-vorkasse',
-    title: 'Direktabrechnung mit der Pflegekasse: Alltagshilfe ohne Vorkasse',
-    excerpt:
-      'So funktioniert die Abrechnung direkt mit der Pflegekasse: weniger Papierkram, keine Vorkasse und klare Schritte für Angehörige.',
-    date: '2026-05-08',
-    tags: ['direktabrechnung', 'pflegekasse', 'alltagshilfe'],
-  },
-  {
-    slug: 'alltagshilfe-pflegegrad-entlastungsbetrag',
-    title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
-    excerpt:
-      'Viele Menschen mit Pflegegrad nutzen den Entlastungsbetrag nicht, obwohl ihnen monatlich 131 € für Alltagshilfe zustehen. Einfach erklärt: Anspruch, Leistungen und Abrechnung mit der Pflegekasse.',
-    date: '2026-05-06',
-    tags: ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse'],
-  },
-  {
-    slug: 'entlastungsbetrag-richtig-nutzen',
-    title: 'Entlastungsbetrag richtig nutzen: So holen Sie das Maximum heraus',
-    excerpt: 'Der Entlastungsbetrag von 131 € monatlich steht Menschen mit Pflegegrad zu. Wir zeigen, wie Sie ihn im Alltag sinnvoll einsetzen.',
-    date: '2026-01-10',
-    tags: ['rechtliches', 'pflege-tipps'],
-  },
-  {
-    slug: 'pflegegrad-beantragen-schritt-fuer-schritt',
-    title: 'Pflegegrad beantragen: Schritt für Schritt zum Erfolg',
-    excerpt: 'Der Weg zum Pflegegrad kann kompliziert erscheinen. Mit unserer Anleitung meistern Sie den Antrag problemlos.',
-    date: '2026-01-05',
-    tags: ['rechtliches', 'pflege-tipps'],
-  },
-  {
-    slug: 'sturzpraevention-im-alltag',
-    title: 'Sturzprävention im Alltag: 7 einfache Tipps für mehr Sicherheit',
-    excerpt: 'Stürze sind eine der häufigsten Unfallursachen im Alter. Mit diesen Tipps machen Sie Ihr Zuhause sicherer.',
-    date: '2025-12-28',
-    tags: ['pflege-tipps', 'alltagshilfe'],
-  },
-]
-
-const allTags = ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse', 'pflegegrad', 'haushaltshilfe', 'pflege-tipps', 'rechtliches']
 
 function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString('de-DE', {
@@ -86,16 +28,16 @@ export default function BlogPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold text-[#37474F] mb-4">
-            Blog
+            Ratgeber für Haushaltshilfe in Berlin
           </h1>
           <p className="text-lg text-[#455A64] max-w-2xl mx-auto">
-            Tipps, Informationen und Neuigkeiten rund um Pflege und Alltagshilfe
+            Verständliche Informationen zu Haushaltshilfe, Alltagshilfe, Pflegegrad und Pflegekasse in Kreuzberg, Neukölln und Mitte.
           </p>
         </div>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 justify-center mb-8">
-          {allTags.map((tag) => (
+          {blogTags.map((tag) => (
             <span
               key={tag}
               className="inline-flex items-center gap-1 px-3 py-1 bg-white/50 rounded-full text-sm text-[#455A64]"
