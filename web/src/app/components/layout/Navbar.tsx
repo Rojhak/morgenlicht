@@ -38,7 +38,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
             </div>
           </Link>
 
-          {/* 2. Säule (Mitte): Navigation */}
+          {/* Navigation */}
           {/* gap-x-10, Inter Medium 16px (Unchanged) */}
           <nav className="hidden lg:flex items-center gap-x-10">
             {navLinks.map((link) => (

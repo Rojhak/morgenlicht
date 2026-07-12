@@ -31,7 +31,7 @@ export default function BlogPage() {
             Ratgeber für Haushaltshilfe in Berlin
           </h1>
           <p className="text-lg text-[#455A64] max-w-2xl mx-auto">
-            Verständliche Informationen zu Haushaltshilfe, Alltagshilfe, Pflegegrad und Pflegekasse in Kreuzberg, Neukölln und Mitte.
+            Verständliche Informationen zu Haushaltshilfe, Alltagshilfe, Pflegegrad und Pflegekasse in Kreuzberg und Neukölln.
           </p>
         </div>
 

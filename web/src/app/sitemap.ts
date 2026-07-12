@@ -14,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/kontakt`, lastModified: '2026-07-11', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/berlin-kreuzberg`, lastModified: '2026-07-11', changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/berlin-neukoelln`, lastModified: '2026-07-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/berlin-mitte`, lastModified: '2026-05-08', changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/blog`, lastModified: '2026-07-11', changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/barrierefreiheit`, lastModified: '2026-05-08', changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/impressum`, lastModified: '2026-05-08', changeFrequency: 'yearly', priority: 0.2 },

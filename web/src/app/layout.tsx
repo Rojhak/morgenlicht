@@ -25,14 +25,14 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Haushaltshilfe Berlin | Kreuzberg, Neukölln & Mitte',
+    default: 'Haushaltshilfe Berlin | Kreuzberg & Neukölln',
     template: '%s | Morgenlicht Berlin',
   },
-  description: 'Anerkannte Haushaltshilfe und Alltagshilfe in Berlin für Senioren und Menschen mit Pflegegrad. Unterstützung in Kreuzberg, Neukölln und Mitte.',
+  description: 'Anerkannte Haushaltshilfe und Alltagshilfe in Berlin für Senioren und Menschen mit Pflegegrad. Unterstützung in Kreuzberg und Neukölln.',
   keywords: [
     'Alltagshilfe Berlin', 'Haushaltshilfe Berlin', 'Haushaltshilfe Pflegekasse Berlin',
     'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln',
-    'Alltagshilfe Mitte', 'Alltagshilfe Neukölln', 'Alltagshilfe Kreuzberg',
+    'Alltagshilfe Neukölln', 'Alltagshilfe Kreuzberg',
     'Entlastungsbetrag Berlin', '131 Euro Entlastungsbetrag',
     'Pflegegrad 1 Haushaltshilfe', 'Pflegegrad Kostenübernahme', '§ 45a SGB XI Berlin',
     'Angebote zur Unterstützung im Alltag Berlin', 'anerkannte Alltagshilfe Berlin',
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Haushaltshilfe und Alltagshilfe Berlin | Morgenlicht',
-    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg, Neukölln und Mitte.',
+    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg und Neukölln.',
     type: 'website',
     locale: 'de_DE',
     url: `${SITE_URL}/`,
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Haushaltshilfe und Alltagshilfe Berlin | Morgenlicht',
-    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg, Neukölln und Mitte.',
+    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg und Neukölln.',
     images: ['/images/hero_helping_hand.png'],
   },
 }
@@ -124,7 +124,6 @@ const structuredData = {
         { '@type': 'City', name: 'Berlin' },
         { '@type': 'AdministrativeArea', name: 'Berlin-Kreuzberg' },
         { '@type': 'AdministrativeArea', name: 'Berlin-Neukölln' },
-        { '@type': 'AdministrativeArea', name: 'Berlin-Mitte' },
       ],
       knowsLanguage: ['de', 'tr', 'en'],
       availableLanguage: ['German', 'Turkish', 'English'],
@@ -238,7 +237,7 @@ const structuredData = {
           name: 'In welchen Berliner Bezirken ist Morgenlicht tätig?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Unser Schwerpunkt liegt auf Berlin-Kreuzberg, Neukölln und Mitte. Wir prüfen gerne, ob wir auch in angrenzenden Bezirken für Sie da sein können.',
+            text: 'Unser Schwerpunkt liegt auf Berlin-Kreuzberg und Neukölln. Wir prüfen gerne, ob wir auch in angrenzenden Bezirken für Sie da sein können.',
           },
         },
         {

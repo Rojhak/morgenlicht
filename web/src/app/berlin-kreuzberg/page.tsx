@@ -40,7 +40,7 @@ export default function KreuzbergPage() {
         ],
         localPhrase:
           'Kreuzberg\'de yaşayan yaşlılar için Türkçe günlük yaşam desteği – mevcut bakım sigortası bütçesi üzerinden karşılanabilir.',
-        neighboringDistricts: ['Neukölln', 'Mitte'],
+        neighboringDistricts: ['Neukölln'],
       }}
     />
   )

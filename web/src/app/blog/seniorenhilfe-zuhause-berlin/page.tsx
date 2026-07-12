@@ -124,7 +124,7 @@ export default function SeniorenhilfeZuhauseBerlinPage() {
 
       <h2>Seniorenhilfe in Kreuzberg und Neukölln</h2>
       <p>
-        Morgenlicht unterstützt ältere und pflegebedürftige Menschen insbesondere in <Link href="/berlin-kreuzberg">Berlin-Kreuzberg</Link>, <Link href="/berlin-neukoelln">Berlin-Neukölln</Link> und Mitte. Beratung und Begleitung sind auf Deutsch, Türkisch und Englisch möglich. Ob aktuell ein Einsatz an Ihrer Adresse möglich ist, wird im persönlichen Gespräch geprüft.
+        Morgenlicht unterstützt ältere und pflegebedürftige Menschen insbesondere in <Link href="/berlin-kreuzberg">Berlin-Kreuzberg</Link> und <Link href="/berlin-neukoelln">Berlin-Neukölln</Link>. Beratung und Begleitung sind auf Deutsch, Türkisch und Englisch möglich. Ob aktuell ein Einsatz an Ihrer Adresse möglich ist, wird im persönlichen Gespräch geprüft.
       </p>
 
       <h2>Ein guter Start: klein, konkret und regelmäßig</h2>

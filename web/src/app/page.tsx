@@ -402,11 +402,11 @@ export default function HomePage() {
             </div>
             <div className="bg-[#F7F6F3] rounded-xl p-5" lang="tr">
               <div className="font-heading font-bold text-[#144E41] mb-1">Türkçe</div>
-              <p className="font-body text-sm text-[#4B5563]">Kreuzberg, Neukölln ve Mitte&apos;de yaşayan yaşlılar için Türkçe günlük yaşam yardımı. Bakım sigortası üzerinden %100 ücretsiz.</p>
+              <p className="font-body text-sm text-[#4B5563]">Kreuzberg ve Neukölln&apos;de yaşayan yaşlılar için Türkçe günlük yaşam desteği. Bakım sigortasının mevcut bütçesi üzerinden destek alınabilir.</p>
             </div>
             <div className="bg-[#F7F6F3] rounded-xl p-5" lang="en">
               <div className="font-heading font-bold text-[#144E41] mb-1">English</div>
-              <p className="font-body text-sm text-[#4B5563]">Daily living support for seniors in Berlin Kreuzberg, Neukölln &amp; Mitte. 100% covered by German care insurance.</p>
+              <p className="font-body text-sm text-[#4B5563]">Daily living support for seniors in Berlin-Kreuzberg and Neukölln. Funding through the available care-insurance budget may be possible.</p>
             </div>
           </div>
         </div>
@@ -438,13 +438,6 @@ export default function HomePage() {
             >
               <MapPin className="w-4 h-4" />
               Haushaltshilfe Neukölln
-            </Link>
-            <Link
-              href="/berlin-mitte"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
-            >
-              <MapPin className="w-4 h-4" />
-              Haushaltshilfe Mitte
             </Link>
           </div>
         </div>

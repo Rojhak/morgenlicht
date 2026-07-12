@@ -22,7 +22,7 @@ const SERVICES = [
     title: 'Einkaufshilfe & Begleitung',
     description: 'Gemeinsam einkaufen und schwere Taschen tragen. Wir begleiten Sie gerne zum Supermarkt, zur Apotheke oder zu anderen Besorgungen.',
     category: 'shopping',
-    location: 'Berlin-Mitte',
+    location: 'Berlin-Neukölln',
     availability: 'Flexibel',
     rating: 4.9,
     reviews: 127,
@@ -317,7 +317,7 @@ export default function SucheePage() {
                         Standort
                       </h3>
                       <div className="space-y-2">
-                        {['Berlin-Mitte', 'Berlin-Kreuzberg', 'Berlin-Neukölln', 'Berlin-Friedrichshain', 'Prenzlauer Berg', 'Charlottenburg'].map((option) => (
+                        {['Berlin-Kreuzberg', 'Berlin-Neukölln', 'Berlin-Friedrichshain', 'Prenzlauer Berg', 'Charlottenburg'].map((option) => (
                           <button
                             key={option}
                             onClick={() => toggleFilter(`loc-${option}`)}

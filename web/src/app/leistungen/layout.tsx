@@ -6,11 +6,11 @@ const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 export const metadata: Metadata = {
   title: 'Leistungen: Haushaltshilfe, Einkauf, Begleitung & Alltag in Berlin',
   description:
-    '5 Leistungsbereiche für Senioren: Haushaltshilfe, Einkauf, Begleitung zu Ärzten, Alltagsorganisation und Freizeitbegleitung in Berlin Kreuzberg, Neukölln & Mitte. 100 % kostenlos über Ihre Pflegekasse ab Pflegegrad 1.',
+    '5 Leistungsbereiche für Senioren: Haushaltshilfe, Einkauf, Begleitung zu Ärzten, Alltagsorganisation und Freizeitbegleitung in Berlin-Kreuzberg und Neukölln. Finanzierung über die Pflegekasse ab Pflegegrad 1 möglich.',
   alternates: { canonical: '/leistungen' },
   openGraph: {
     title: 'Leistungen der Morgenlicht Alltagshilfe Berlin',
-    description: 'Haushaltshilfe, Einkauf, Begleitung, Alltagsstruktur und Freizeit – herzlich, würdevoll und kostenlos über die Pflegekasse.',
+    description: 'Haushaltshilfe, Einkauf, Begleitung, Alltagsstruktur und Freizeit in Kreuzberg und Neukölln – persönlich und verlässlich.',
     url: `${SITE_URL}/leistungen`,
   },
 }
@@ -30,9 +30,7 @@ const schema = {
       },
       offers: {
         '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'EUR',
-        description: '100 % kostenlos über den Entlastungsbetrag ab Pflegegrad 1',
+        description: 'Anerkannte Unterstützung im Alltag. Finanzierung über das verfügbare Pflegekassen-Budget ab Pflegegrad 1 möglich.',
       },
     },
     {
