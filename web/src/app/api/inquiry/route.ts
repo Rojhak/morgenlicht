@@ -42,9 +42,10 @@ export async function POST(request: NextRequest) {
 
     const apiKey = process.env.RESEND_API_KEY
     if (!apiKey) {
+      // 🛡️ Security: Don't leak missing configuration details to the client
       console.error('RESEND_API_KEY is not configured')
       return NextResponse.json(
-        { error: 'E-Mail-Service nicht konfiguriert' },
+        { error: 'Interner Serverfehler' },
         { status: 500 }
       )
     }
