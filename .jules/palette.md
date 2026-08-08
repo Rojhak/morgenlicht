@@ -5,3 +5,6 @@
 ## 2024-06-05 - [Accordion ARIA `useId` Linkage]
 **Learning:** The shared `Accordion` component in `web/src/app/components/ui/Accordion.tsx` lacked proper ARIA attributes (`aria-controls`, `aria-labelledby`, and `role="region"`). Since accordion items are repeated, generating static IDs is problematic.
 **Action:** When creating reusable components with ARIA linkage (like Accordions or Tabs), use React's `useId()` hook to generate unique IDs for the interactive element (header button) and its controlled content panel, then apply `aria-controls` to the button and `aria-labelledby` to the panel.
+## 2026-05-14 - [Aria-Pressed for Custom Toggles]
+**Learning:** Custom toggle buttons acting as checkboxes (like the availability and location filters in the search interface) often use visual styling to indicate state, but without `aria-pressed`, screen readers don't announce whether the filter is active or inactive.
+**Action:** Always add the `aria-pressed` attribute to `<button>` elements used as custom toggleable filters or checkboxes, binding it directly to the active state variable.
