@@ -4,3 +4,6 @@
 ## 2025-05-13 - Missing focus-visible states on custom search inputs
 **Learning:** When removing default borders from inputs (`border-0 outline-none`) inside custom wrappers like `GlassCard`, the native focus ring is lost. Keyboard users lose track of focus.
 **Action:** Always apply `focus-within:ring-*` to the parent wrapper of borderless inputs to maintain WCAG compliant focus indicators.
+## 2025-06-07 - Add aria-pressed to custom toggle buttons
+**Learning:** When using `<button>` elements for custom toggleable filters, screen readers may not announce their active state reliably.
+**Action:** Always apply the `aria-pressed` attribute, bound to the component's state, to custom toggle buttons.
