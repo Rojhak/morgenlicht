@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, ArrowRight, Phone } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 
   /* Update navLinks to match snippet: no 'Fragen', use /pflegekasse */
@@ -18,6 +19,7 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 
   export function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const pathname = usePathname()
 
     return (
       <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -45,7 +47,9 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[#1F2937] hover:text-[#134E4A] font-medium font-body text-base transition-colors antialiased
+                aria-current={pathname === link.href ? 'page' : undefined}
+                className={`font-medium font-body text-base transition-colors antialiased
+                  ${pathname === link.href ? 'text-[#134E4A] font-semibold' : 'text-[#1F2937] hover:text-[#134E4A]'}
                   ${link.label === 'Über uns' ? 'whitespace-nowrap' : ''}
                 `}
               >
@@ -89,7 +93,10 @@ import { Menu, X, ArrowRight, Phone } from 'lucide-react'
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-xl font-medium text-[#1F2937] hover:text-[#134E4A] py-3 border-b border-gray-50 font-body"
+                  aria-current={pathname === link.href ? 'page' : undefined}
+                  className={`block text-xl font-medium py-3 border-b border-gray-50 font-body ${
+                    pathname === link.href ? 'text-[#134E4A] font-semibold' : 'text-[#1F2937] hover:text-[#134E4A]'
+                  }`}
                 >
                   {link.label}
                 </Link>
