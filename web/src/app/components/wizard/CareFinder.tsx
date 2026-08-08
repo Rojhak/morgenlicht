@@ -138,6 +138,7 @@ export function CareFinder() {
           <div className="grid grid-cols-2 gap-5">
             <button
               onClick={() => handleSachleistungAnswer(false)}
+              aria-pressed={usesSachleistungen === false}
               className="p-8 rounded-xl bg-[#F0FDF4] hover:bg-[#DCFCE7] border-2 border-transparent hover:border-[#134E4A]
                          transition-all duration-200 shadow-sm hover:shadow-md text-left group
                          focus:outline-none focus:ring-4 focus:ring-[#FBBF24]"
@@ -147,6 +148,7 @@ export function CareFinder() {
             </button>
             <button
               onClick={() => handleSachleistungAnswer(true)}
+              aria-pressed={usesSachleistungen === true}
               className="p-8 rounded-xl bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-[#4B5563]
                          transition-all duration-200 shadow-sm hover:shadow-md text-left
                          focus:outline-none focus:ring-4 focus:ring-[#FBBF24]"
