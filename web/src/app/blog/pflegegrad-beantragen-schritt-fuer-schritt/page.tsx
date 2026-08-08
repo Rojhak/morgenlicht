@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { serializeJsonLd } from '@/lib/security'
 import {
   ArrowRight,
   Calendar,

@@ -1,3 +1,8 @@
+export function serializeJsonLd(data: unknown): string {
+  if (data === undefined) return ''
+  return JSON.stringify(data).replace(/</g, '\\u003c')
+}
+
 export function sanitizeInput(input: string): string {
   if (!input || typeof input !== 'string') return ''
   return input
