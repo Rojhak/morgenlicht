@@ -286,12 +286,13 @@ export default function SucheePage() {
                             key={option}
                             onClick={() => toggleFilter(`avail-${option}`)}
                             className={`
-                              w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all
+                              w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2
                               ${activeFilters.includes(`avail-${option}`)
                                 ? 'bg-[#E0F2F1] text-[#0D6E64]'
                                 : 'bg-white/40 text-[#37474F] hover:bg-white/60'
                               }
                             `}
+                            aria-pressed={activeFilters.includes(`avail-${option}`)}
                           >
                             <div className={`
                               w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
@@ -322,12 +323,13 @@ export default function SucheePage() {
                             key={option}
                             onClick={() => toggleFilter(`loc-${option}`)}
                             className={`
-                              w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all
+                              w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#134E4A] focus-visible:ring-offset-2
                               ${activeFilters.includes(`loc-${option}`)
                                 ? 'bg-[#FFF8E1] text-[#B8472A]'
                                 : 'bg-white/40 text-[#37474F] hover:bg-white/60'
                               }
                             `}
+                            aria-pressed={activeFilters.includes(`loc-${option}`)}
                           >
                             <div className={`
                               w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors
