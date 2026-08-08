@@ -285,6 +285,7 @@ export default function SucheePage() {
                           <button
                             key={option}
                             onClick={() => toggleFilter(`avail-${option}`)}
+                            aria-pressed={activeFilters.includes(`avail-${option}`)}
                             className={`
                               w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all
                               ${activeFilters.includes(`avail-${option}`)
@@ -321,6 +322,7 @@ export default function SucheePage() {
                           <button
                             key={option}
                             onClick={() => toggleFilter(`loc-${option}`)}
+                            aria-pressed={activeFilters.includes(`loc-${option}`)}
                             className={`
                               w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all
                               ${activeFilters.includes(`loc-${option}`)
