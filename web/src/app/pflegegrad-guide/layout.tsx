@@ -1,19 +1,14 @@
-import type { Metadata } from 'next'
 import { serializeJsonLd } from '@/lib/security'
+import { createPageMetadata } from '@/lib/seo'
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
-export const metadata: Metadata = {
-  title: 'Pflegegrad-Ratgeber Berlin: Antrag, Einstufung & Leistungen 2026',
+export const metadata = createPageMetadata({
+  title: 'Pflegegrad beantragen & nutzen | Morgenlicht',
   description:
-    'Pflegegrad verstehen, beantragen und nutzen: So bekommen Sie Pflegegrad 1–5, was der MDK prüft und welche Leistungen Ihnen in Berlin zustehen. Schritt-für-Schritt erklärt.',
-  alternates: { canonical: '/pflegegrad-guide' },
-  openGraph: {
-    title: 'Pflegegrad-Ratgeber – Morgenlicht Berlin',
-    description: 'Alles zu Pflegegrad-Antrag, Einstufung, MDK-Begutachtung und Leistungen in Berlin.',
-    url: `${SITE_URL}/pflegegrad-guide`,
-  },
-}
+    'Pflegegrad-Antrag, Begutachtung, Entscheidung und Leistungen verständlich erklärt – inklusive Entlastungsbetrag und Alltagshilfe.',
+  path: '/pflegegrad-guide',
+})
 
 const schema = {
   '@context': 'https://schema.org',

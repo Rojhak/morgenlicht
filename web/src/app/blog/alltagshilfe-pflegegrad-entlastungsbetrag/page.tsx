@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -17,7 +18,7 @@ import { serializeJsonLd } from '@/lib/security'
 export const metadata: Metadata = {
   title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
   description:
-    'Ab Pflegegrad 1 stehen monatlich 131 € für Alltagshilfe, Haushalt, Einkauf und Begleitung zur Verfügung. Einfach erklärt für Pflegebedürftige und Angehörige.',
+    'Ab Pflegegrad 1 stehen monatlich bis zu 131 € für Alltagshilfe, Haushalt, Einkauf und Begleitung zur Verfügung. Einfach erklärt für Pflegebedürftige und Angehörige.',
   keywords: [
     'Entlastungsbetrag',
     'Alltagshilfe Pflegegrad',
@@ -86,7 +87,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
   description:
-    'Ab Pflegegrad 1 stehen monatlich 131 € für Alltagshilfe, Haushalt, Einkauf und Begleitung zur Verfügung.',
+    'Ab Pflegegrad 1 stehen monatlich bis zu 131 € für Alltagshilfe, Haushalt, Einkauf und Begleitung zur Verfügung.',
   datePublished: '2026-05-06',
   dateModified: '2026-05-06',
   author: {
@@ -160,17 +161,19 @@ export default function EntlastungsbetragBlogPage() {
         <div className="px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto grid lg:grid-cols-[1fr_280px] gap-10">
             <div className="min-w-0">
-              <div className="rounded-2xl overflow-hidden mb-10 bg-[#134E4A]">
-                <img
-                  src="/images/hero_daily_moments.png"
-                  alt="Seniorin erhält Alltagshilfe im Haushalt über den Entlastungsbetrag bei Pflegegrad"
-                  className="w-full h-64 md:h-96 object-cover opacity-95"
+              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-10 bg-[#134E4A]">
+                <Image
+                  src="/images/hero_daily_moments.jpg"
+                  alt="Illustration: Alltagshilfe im Haushalt"
+                  fill
+                  sizes="(max-width: 1023px) calc(100vw - 2rem), 760px"
+                  className="object-cover opacity-95"
                 />
               </div>
 
               <div className={articleTextClass}>
                 <p>
-                  Im Jahr 2026 beträgt der Entlastungsbetrag <strong>131 € pro Monat</strong>, also bis zu <strong>1.572 € im Jahr</strong>. Er steht bereits ab Pflegegrad 1 zur Verfügung und wird zusätzlich zu anderen Pflegeleistungen gewährt.
+                  Im Jahr 2026 beträgt der Entlastungsbetrag <strong>bis zu 131 € pro Monat</strong>, also bis zu <strong>1.572 € im Jahr</strong>. Er steht bereits ab Pflegegrad 1 zur Verfügung und wird zusätzlich zu anderen Pflegeleistungen gewährt.
                 </p>
 
                 <p>
@@ -302,7 +305,7 @@ export default function EntlastungsbetragBlogPage() {
               <div className={articleTextClass}>
                 <h2>Fazit</h2>
                 <p>
-                  Der Entlastungsbetrag ist eine wichtige, aber oft übersehene Leistung der Pflegeversicherung. Ab Pflegegrad 1 stehen monatlich 131 € für Unterstützung im Alltag zur Verfügung. Damit können Haushaltshilfe, Einkauf, Begleitung, Alltagsorganisation und soziale Teilhabe finanziert werden, sofern der Anbieter anerkannt ist.
+                  Der Entlastungsbetrag ist eine wichtige, aber oft übersehene Leistung der Pflegeversicherung. Ab Pflegegrad 1 stehen monatlich bis zu 131 € für Unterstützung im Alltag zur Verfügung. Damit können Haushaltshilfe, Einkauf, Begleitung, Alltagsorganisation und soziale Teilhabe finanziert werden, sofern der Anbieter anerkannt ist.
                 </p>
                 <p>
                   Für viele Familien bedeutet das: weniger Belastung, mehr Sicherheit und mehr Lebensqualität im Alltag. Wer bereits einen Pflegegrad hat, sollte den Entlastungsbetrag nicht ungenutzt lassen.
@@ -335,7 +338,7 @@ export default function EntlastungsbetragBlogPage() {
                 <ul className="space-y-3 text-sm text-[#455A64]">
                   <li className="flex gap-2">
                     <CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    131 € monatlich ab Pflegegrad 1
+                    Bis zu 131 € monatlich ab Pflegegrad 1
                   </li>
                   <li className="flex gap-2">
                     <CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" />

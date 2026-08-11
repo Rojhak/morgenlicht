@@ -1,8 +1,7 @@
-// SGB XI care rates for Germany (2025)
-// Updated January 2025
+// SGB XI care rates used by the public calculator (checked July 2026)
 export const CARE_RATES = {
-  hourlyRate: 38.50,        // Morgenlicht hourly rate (€)
-  entlastungsbetrag: 131,   // Monthly §45b allowance (€) - same for all Pflegegrade (2025)
+  hourlyRate: 35.50,        // Morgenlicht hourly rate (€)
+  entlastungsbetrag: 131,   // Monthly §45b allowance (€) for Pflegegrad 1-5
   currency: 'EUR'
 } as const
 
@@ -21,10 +20,12 @@ export const getPflegesachleistung = (pflegegrad: number): number => {
   return PFLEGESACHLEISTUNGEN[pflegegrad] || 0
 }
 
-// Calculate monthly budget based on whether user already uses Pflegesachleistungen
+// Public calculations intentionally include only the §45b allowance.
+// A possible §45a conversion depends on actual §36 use and can affect Pflegegeld;
+// it must therefore be checked individually instead of calculated here.
 export const getMonthlyBudget = (
   pflegegrad: number,
-  usesSachleistungen: boolean = false
+  _usesSachleistungen: boolean = false
 ): { base: number; max: number; convertible: number; sachleistung: number } => {
   if (pflegegrad < 1 || pflegegrad > 5) {
     return { base: 0, max: 0, convertible: 0, sachleistung: 0 }
@@ -33,9 +34,8 @@ export const getMonthlyBudget = (
   const base = CARE_RATES.entlastungsbetrag
   const sachleistung = PFLEGESACHLEISTUNGEN[pflegegrad] || 0
 
-  // If user already uses Sachleistungen for nursing care, they can't convert
-  const convertible = usesSachleistungen ? 0 : Math.floor(sachleistung * 0.4)
-  const max = base + convertible
+  const convertible = 0
+  const max = base
 
   return { base, max, convertible, sachleistung }
 }
@@ -46,9 +46,9 @@ export const calculateCoveredHours = (pflegegrad: number): number => {
   return Math.floor((budget.base / CARE_RATES.hourlyRate) * 10) / 10
 }
 
-// Calculate maximum possible hours (when not using Sachleistungen)
+// Kept for API compatibility: no unverified conversion amount is added.
 export const calculateMaxHours = (pflegegrad: number): number => {
-  const budget = getMonthlyBudget(pflegegrad, false) // Full potential
+  const budget = getMonthlyBudget(pflegegrad, true)
   return Math.floor((budget.max / CARE_RATES.hourlyRate) * 10) / 10
 }
 
@@ -61,7 +61,7 @@ export const formatCurrency = (amount: number): string => {
 
 export const formatHours = (hours: number): string => {
   return new Intl.NumberFormat('de-DE', {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
   }).format(hours)
 }

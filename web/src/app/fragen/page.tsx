@@ -11,7 +11,7 @@ const faqCategories = [
     questions: [
       {
         q: 'Was ist Morgenlicht Alltagshilfe?',
-        a: 'Morgenlicht ist Ihre herzliche und zuverlässige Alltagshilfe in Berlin. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. Als staatlich anerkannter Anbieter können wir dabei direkt mit der Pflegekasse abrechnen.',
+        a: 'Morgenlicht ist Ihre herzliche und zuverlässige Alltagshilfe in Berlin. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. Wenn Pflegegrad, Budget und Unterlagen vorliegen, kann eine Direktabrechnung mit der Pflegekasse vereinbart werden.',
       },
       {
         q: 'Wie schnell kann ich einen Termin bekommen?',
@@ -33,23 +33,23 @@ const faqCategories = [
     questions: [
       {
         q: 'Was kostet die Alltagshilfe?',
-        a: 'Unser transparenter Stundensatz für die Alltagshilfe beträgt 35,50 €. Wenn Sie einen Pflegegrad (1 bis 5) haben, ist unsere Unterstützung für Sie jedoch in der Regel komplett kostenlos, da wir direkt mit der Pflegekasse abrechnen (z. B. über den Entlastungsbetrag). In unserem Stundensatz ist bereits alles enthalten – von der Anfahrt bis zur gesamten Bürokratie. Auch Privatzahler ohne Pflegegrad können uns zum exakt selben Preis buchen.',
+        a: 'Unser transparenter Stundensatz für die Alltagshilfe beträgt 35,50 €. Mit Pflegegrad 1 bis 5 können anerkannte Leistungen im Rahmen des verfügbaren Entlastungsbetrags ohne Eigenanteil möglich sein. Die Voraussetzungen und mögliche Kosten außerhalb des Budgets klären wir vor Beginn. Im Stundensatz sind Anfahrt und Administration enthalten. Auch Privatzahler ohne Pflegegrad können Leistungen zum selben Stundensatz vereinbaren.',
       },
       {
         q: 'Was ist der Entlastungsbetrag (131 €)?',
-        a: 'Jeder Mensch mit einem anerkannten Pflegegrad (1 bis 5) hat Anspruch auf einen monatlichen Entlastungsbetrag von 131 €. Dieser ist speziell für Dienstleistungen wie unsere Haushaltshilfe und Alltagsbegleitung gedacht. Da wir staatlich anerkannt sind, rechnen wir diesen Betrag direkt mit der Pflegekasse ab. Für Sie entstehen dabei 0 € Kosten. Ihr reguläres Pflegegeld wird dadurch nicht gekürzt.',
+        a: 'Pflegebedürftige mit Pflegegrad 1 bis 5 haben Anspruch auf einen Entlastungsbetrag von bis zu 131 € monatlich. Dieser kann für anerkannte Leistungen wie Haushaltshilfe und Alltagsbegleitung eingesetzt werden. Wenn Budget und Unterlagen vorliegen, kann eine Direktabrechnung vereinbart werden. Im verfügbaren Budget kann die Hilfe ohne Eigenanteil genutzt werden. Ihr reguläres Pflegegeld wird durch den Entlastungsbetrag nicht gekürzt.',
       },
       {
         q: 'Was ist, wenn ich mehr Hilfe benötige, als die 131 € abdecken?',
-        a: 'Ab Pflegegrad 2 gibt es zusätzliche Fördertöpfe der Pflegekasse, die viele gar nicht kennen. Wenn Sie beispielsweise keinen Pflegedienst für die Körperpflege nutzen, können wir einen Teil Ihres ungenutzten Pflegebudgets für mehr Haushaltshilfe einsetzen. So stehen Ihnen oft hunderte Euro zusätzlich im Monat zur Verfügung.',
+        a: 'Beim Umwandlungsanspruch nach § 45a SGB XI können Pflegebedürftige mit Pflegegrad 2 bis 5 bis zu 40 % des nicht genutzten Anspruchs auf ambulante Pflegesachleistungen nach § 36 SGB XI für nach Landesrecht anerkannte Angebote zur Unterstützung im Alltag einsetzen. Die Pflegekasse rechnet zunächst die tatsächlich genutzten Pflegesachleistungen ab. Die Nutzung des Umwandlungsanspruchs kann sich auf die Höhe des anteiligen Pflegegeldes auswirken. Ob und in welcher Höhe ein Betrag verfügbar ist, muss individuell mit der Pflegekasse geklärt werden.',
       },
       {
         q: 'Gibt es Hilfe, wenn meine pflegenden Angehörigen krank oder im Urlaub sind?',
-        a: 'Ja. Ab Pflegegrad 2 stellt die Pflegekasse ein Extra-Budget (die sogenannte Verhinderungspflege) zur Verfügung. Wenn Ihre Angehörigen im Urlaub, krank oder anderweitig verhindert sind, können wir dieses Budget nutzen, um stundenweise als Vertretung im Alltag einzuspringen.',
+        a: 'Bei Pflegegrad 2 bis 5 kann Verhinderungspflege in Betracht kommen, wenn die private Pflegeperson wegen Urlaub, Krankheit oder aus einem anderen Grund an der Pflege gehindert ist. Sie ist kein frei verfügbares monatliches Zusatzbudget. Ob die Voraussetzungen erfüllt sind, welcher Betrag verfügbar ist und wie abgerechnet werden kann, ist individuell mit der Pflegekasse zu klären.',
       },
       {
         q: 'Kann ich die Kosten von der Steuer absetzen?',
-        a: 'Ja! Als Privatzahler können Sie 20 % unserer Rechnung (maximal 600 € pro Jahr) von der Steuer absetzen. Das Finanzamt erstattet Ihnen somit einen Teil der Kosten zurück.',
+        a: 'Eine steuerliche Berücksichtigung als haushaltsnahe Dienstleistung kann möglich sein. Ob und in welcher Höhe das für Sie gilt, klären Sie bitte mit Ihrer Steuerberatung oder dem Finanzamt.',
       },
       {
         q: 'Was ist, wenn ich keinen Pflegegrad habe?',
@@ -63,7 +63,7 @@ const faqCategories = [
     questions: [
       {
         q: 'Wie bekomme ich einen Pflegegrad?',
-        a: 'Der Antrag wird bei der Pflegekasse gestellt – telefonisch oder schriftlich. Die Kasse beauftragt dann den Medizinischen Dienst (MDK) mit einem Begutachtungstermin in Ihrer Wohnung. Wir unterstützen Sie gerne beim gesamten Prozess.',
+        a: 'Der Antrag wird bei der Pflegekasse gestellt – telefonisch oder schriftlich. Die Kasse beauftragt dann den Medizinischen Dienst (MD) mit einem Begutachtungstermin. Wir unterstützen Sie gerne beim gesamten Ablauf.',
       },
       {
         q: 'Können Sie mir beim Antrag helfen?',
@@ -71,11 +71,11 @@ const faqCategories = [
       },
       {
         q: 'Wann lohnt sich ein Antrag?',
-        a: 'Ein Antrag lohnt sich immer, wenn Sie dauerhaft Unterstützung im Alltag benötigen. Schon ab Pflegegrad 1 erhalten Sie jeden Monat 131 € Entlastungsbetrag. Ab Pflegegrad 2 stehen Ihnen sogar noch deutlich größere Extra-Budgets zur Verfügung, die Sie für unsere Haushaltshilfe und Betreuung nutzen können.',
+        a: 'Ein Antrag kann sinnvoll sein, wenn Sie dauerhaft Unterstützung im Alltag benötigen. Bei Pflegegrad 1 bis 5 besteht in häuslicher Pflege Anspruch auf den Entlastungsbetrag von bis zu 131 € monatlich. Welche weiteren Leistungen ab Pflegegrad 2 möglich sind, hängt von Ihrer persönlichen Pflegesituation und den jeweiligen Voraussetzungen ab.',
       },
       {
         q: 'Wie lange dauert es, bis ich den Bescheid bekomme?',
-        a: 'In der Regel erhalten Sie innerhalb von 4-6 Wochen nach dem Begutachtungstermin den schriftlichen Bescheid von der Pflegekasse.',
+        a: 'Für die Bearbeitung gilt grundsätzlich eine Frist von 25 Arbeitstagen ab Eingang des Antrags bei der Pflegekasse. Die Frist betrifft die Entscheidung über den Antrag; der Begutachtungstermin wird individuell vereinbart. In bestimmten Fällen gelten kürzere Fristen.',
       },
     ],
   },

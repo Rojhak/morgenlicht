@@ -1,19 +1,14 @@
-import type { Metadata } from 'next'
 import { serializeJsonLd } from '@/lib/security'
+import { createPageMetadata } from '@/lib/seo'
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
-export const metadata: Metadata = {
-  title: 'Kosten & Pflegekasse: 131 € Entlastungsbetrag | 0 € für Sie',
+export const metadata = createPageMetadata({
+  title: '131 € Entlastungsbetrag & Kosten | Morgenlicht',
   description:
-    'Transparente Preise: 35,50 €/Std., aber für Sie 0 € dank Entlastungsbetrag (131 €/Monat) nach § 45b SGB XI. Ab Pflegegrad 2 bis zu 10 Std./Monat möglich. Wir rechnen direkt mit Ihrer Pflegekasse ab.',
-  alternates: { canonical: '/kosten' },
-  openGraph: {
-    title: 'Kosten & 131 € Entlastungsbetrag – Morgenlicht Alltagshilfe Berlin',
-    description: 'Für Sie 0 € über den Entlastungsbetrag. Ab Pflegegrad 1 voll erstattet durch die Pflegekasse.',
-    url: `${SITE_URL}/kosten`,
-  },
-}
+    '35,50 € pro Stunde, bis zu 131 € Entlastungsbetrag und mögliche Direktabrechnung: Kosten der Alltagshilfe verständlich erklärt.',
+  path: '/kosten',
+})
 
 const schema = {
   '@context': 'https://schema.org',

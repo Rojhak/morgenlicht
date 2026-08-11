@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Calendar, CheckCircle, FileText, HelpCircle, ReceiptText, ShieldCheck } from 'lucide-react'
 import { serializeJsonLd } from '@/lib/security'
 
 export const metadata: Metadata = {
-  title: 'Direktabrechnung mit der Pflegekasse: Alltagshilfe ohne Vorkasse',
+  title: { absolute: 'Direktabrechnung mit der Pflegekasse | Morgenlicht' },
   description:
-    'Direktabrechnung mit der Pflegekasse einfach erklärt: Alltagshilfe nutzen, keine Vorkasse leisten und Papierkram reduzieren.',
+    'Direktabrechnung mit der Pflegekasse verständlich erklärt: Voraussetzungen, verfügbares Budget und notwendige Unterlagen prüfen.',
   keywords: [
     'Direktabrechnung Pflegekasse',
     'Alltagshilfe ohne Vorkasse',
@@ -31,7 +32,7 @@ const faqItems = [
   {
     question: 'Muss ich bei Direktabrechnung Geld vorstrecken?',
     answer:
-      'In der Regel nicht, wenn die Abtretungserklärung vorliegt und das Budget bei der Pflegekasse verfügbar ist.',
+      'Wenn eine Direktabrechnung wirksam vereinbart wurde, die erforderlichen Unterlagen vorliegen und das Budget verfügbar ist, muss für die darüber abgerechneten Leistungen üblicherweise keine Vorkasse geleistet werden.',
   },
   {
     question: 'Was ist eine Abtretungserklärung?',
@@ -106,11 +107,13 @@ export default function DirektabrechnungPage() {
         <div className="px-4 py-10 md:py-14">
           <div className="max-w-4xl mx-auto grid lg:grid-cols-[1fr_280px] gap-10">
             <div className="min-w-0">
-              <div className="rounded-2xl overflow-hidden mb-8 bg-[#134E4A] shadow-sm">
-                <img
-                  src="/images/hero_support.png"
-                  alt="Alltagshilfe rechnet Leistungen direkt mit der Pflegekasse ab"
-                  className="w-full h-56 md:h-80 object-cover opacity-95"
+              <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-8 bg-[#134E4A] shadow-sm">
+                <Image
+                  src="/images/hero_helping_hand.jpg"
+                  alt="Illustration einer persönlichen Unterstützung im Alltag"
+                  fill
+                  sizes="(max-width: 1023px) calc(100vw - 2rem), 760px"
+                  className="object-cover opacity-95"
                 />
               </div>
 
@@ -121,7 +124,7 @@ export default function DirektabrechnungPage() {
 
                 <h2>Was bedeutet Direktabrechnung?</h2>
                 <p>
-                  Direktabrechnung heißt: Die Alltagshilfe wird erbracht, der Anbieter erstellt die Abrechnung und reicht sie bei der Pflegekasse ein. Die pflegebedürftige Person muss im Rahmen des verfügbaren Budgets normalerweise keine Vorkasse leisten.
+                  Direktabrechnung heißt: Die Alltagshilfe wird erbracht, der Anbieter erstellt die Abrechnung und reicht sie bei der Pflegekasse ein. Wenn Abrechnung, Unterlagen und Budget vorher geklärt sind, kann die pflegebedürftige Person für die darüber abgerechneten Leistungen eine Vorkasse vermeiden.
                 </p>
 
                 <h2>Was braucht man dafür?</h2>
@@ -160,7 +163,7 @@ export default function DirektabrechnungPage() {
                 <div className="rounded-xl border border-[#144E41]/10 bg-[#F7F6F3] p-5">
                   <ShieldCheck className="w-8 h-8 text-[#134E4A] mb-4" aria-hidden="true" />
                   <h2 className="font-heading text-lg font-bold text-[#134E4A] mb-2">2. Zustimmung</h2>
-                  <p className="text-base text-[#455A64] leading-relaxed">Die Abtretungserklärung erlaubt die direkte Abrechnung.</p>
+                  <p className="text-base text-[#455A64] leading-relaxed">Die erforderliche Vereinbarung ermöglicht die direkte Abrechnung.</p>
                 </div>
                 <div className="rounded-xl border border-[#144E41]/10 bg-[#F7F6F3] p-5">
                   <ReceiptText className="w-8 h-8 text-[#134E4A] mb-4" aria-hidden="true" />
@@ -189,8 +192,8 @@ export default function DirektabrechnungPage() {
                 <p className="text-white/90 mb-6 leading-relaxed">
                   Wir erklären Ihnen die nächsten Schritte und welche Unterlagen für die Pflegekasse gebraucht werden.
                 </p>
-                <Link href="/kontakt" className="inline-flex items-center justify-center gap-2 bg-white text-[#134E4A] px-6 py-3 rounded-xl font-bold hover:bg-[#FFFBEB] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F]">
-                  Kontakt aufnehmen
+                <Link href="/kontakt#rueckruf" className="inline-flex items-center justify-center gap-2 bg-white text-[#134E4A] px-6 py-3 rounded-xl font-bold hover:bg-[#FFFBEB] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F]">
+                  Rückruf anfragen
                   <ArrowRight className="w-5 h-5" aria-hidden="true" />
                 </Link>
               </section>
@@ -200,7 +203,7 @@ export default function DirektabrechnungPage() {
               <h2 className="font-heading text-lg font-bold text-[#134E4A] mb-3">Kurz erklärt</h2>
               <ul className="space-y-3 text-sm text-[#455A64]">
                 <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" /> Weniger Papierkram für Angehörige.</li>
-                <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" /> Keine Vorkasse im verfügbaren Budget.</li>
+                <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" /> Vorkasse kann bei vereinbarter Direktabrechnung vermieden werden.</li>
                 <li className="flex gap-2"><CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" /> Voraussetzung: Pflegegrad und anerkannter Anbieter.</li>
               </ul>
             </aside>

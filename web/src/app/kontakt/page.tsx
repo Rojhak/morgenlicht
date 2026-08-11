@@ -1,95 +1,162 @@
-'use client'
+import { CheckCircle, Mail, MessageCircle, Phone } from 'lucide-react'
+import { InquiryForm } from '@/app/components/forms/InquiryForm'
 
-import { Phone, Mail, CheckCircle } from 'lucide-react'
-
+const PHONE_LABEL = '030 235 930 28'
 const PHONE_HREF = '03023593028'
+const MOBILE_LABEL = '0151 560 573 65'
+const WHATSAPP_HREF = 'https://wa.me/4915156057365'
+const EMAIL = 'info@morgenlicht-alltagshilfe.de'
 
 export default function KontaktPage() {
-  return (
-    <div className="min-h-screen bg-white text-[#144E41]">
-      {/* Hero Section */}
-      <section className="pt-20 md:pt-32 pb-8 md:pb-12 px-4 text-center bg-white">
-        <div className="relative max-w-4xl mx-auto text-center px-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
-            <Phone className="w-4 h-4 text-[#144E41]" />
-            <span>Wir sind für Sie da</span>
-          </div>
+  const inquiryFormEnabled = Boolean(
+    process.env.RESEND_API_KEY && process.env.EMAIL_TO && process.env.EMAIL_FROM,
+  )
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
-            Anfrage & Kontakt
+  return (
+    <div className="min-h-screen bg-white text-[#1F2937]">
+      <section className="bg-[#F7F6F3] px-6 py-16 text-center md:py-24">
+        <div className="mx-auto max-w-4xl">
+          <span className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[#144E41]/15 bg-white px-5 text-base font-semibold text-[#144E41] shadow-sm">
+            <Phone className="h-5 w-5" aria-hidden="true" />
+            Persönlicher Erstkontakt
+          </span>
+
+          <h1 className="mt-7 font-heading text-3xl font-bold tracking-tight text-[#134E4A] sm:text-4xl md:text-5xl">
+            Alltagshilfe in Berlin persönlich anfragen
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-            Gerne beraten wir Sie persönlich und barrierefrei auf Deutsch, Türkisch oder Englisch.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#4B5563] md:text-xl">
+            Sagen Sie uns kurz, wobei Sie Unterstützung wünschen. Wir beraten Sie auf Deutsch,
+            Türkisch oder Englisch und klären gemeinsam die nächsten Schritte.
           </p>
+
+          <div className="mt-9 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
+            <a
+              href="#rueckruf"
+              className="plausible-event-name=Rueckrufklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-7 text-lg font-bold text-white shadow-lg transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+            >
+              Rückruf anfragen
+            </a>
+            <a
+              href={`tel:${PHONE_HREF}`}
+              className="plausible-event-name=Telefonklick inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border-2 border-[#134E4A]/25 bg-white px-7 text-lg font-bold text-[#134E4A] transition hover:border-[#134E4A] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+            >
+              <Phone className="h-5 w-5" aria-hidden="true" />
+              {PHONE_LABEL}
+            </a>
+          </div>
         </div>
       </section>
 
-      <div className="max-w-3xl mx-auto px-6 pb-24">
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#134E4A] mb-12 font-heading text-center">
-            Unsere Erreichbarkeit
-          </h2>
+      <section id="rueckruf" aria-labelledby="rueckruf-title" className="scroll-mt-28 px-6 py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
+          <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_12px_40px_rgba(0,0,0,0.07)] sm:p-8 md:p-10">
+            <h2 id="rueckruf-title" className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl">
+              Kostenfreien Rückruf anfragen
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-[#4B5563] md:text-lg">
+              Name und Telefonnummer genügen für den ersten Kontakt. Weitere Angaben sind
+              freiwillig und helfen uns bei der Vorbereitung.
+            </p>
 
-          <div className="flex flex-col gap-10 max-w-md mx-auto">
-            <div className="flex gap-5 items-start focus-within:ring-2 focus-within:ring-[#144E41]/20 rounded-xl p-1 -m-1 transition-all">
-              <a href={`tel:${PHONE_HREF}`} className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0 hover:bg-[#DCFCE7] transition-colors" aria-label="Anrufen">
-                <Phone className="w-6 h-6 text-[#144E41]" />
-              </a>
-              <div>
-                <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">Zentrale</h3>
-                <a href={`tel:${PHONE_HREF}`} className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block">
-                  030 235 930 28
-                </a>
-                <p className="text-gray-500 text-sm italic mt-1">Mo–Fr: 09:00 – 16:00 Uhr</p>
-              </div>
-            </div>
-
-            <div className="flex gap-5 items-start focus-within:ring-2 focus-within:ring-[#144E41]/20 rounded-xl p-1 -m-1 transition-all">
-              <a href="https://wa.me/4915156057365" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0 hover:bg-[#DCFCE7] transition-colors" aria-label="WhatsApp Nachricht schreiben">
-                 <svg viewBox="0 0 24 24" className="w-6 h-6 fill-[#144E41]" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                  </svg>
-              </a>
-              <div>
-                <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">WhatsApp & Mobil</h3>
-                <a href="tel:015156057365" className="text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors block">
-                  0151 560 573 65
-                </a>
-                <p className="text-gray-500 text-sm italic mt-1">(Schnell & unkompliziert)</p>
-              </div>
-            </div>
-
-            <div className="flex gap-5 items-start focus-within:ring-2 focus-within:ring-[#144E41]/20 rounded-xl p-1 -m-1 transition-all">
-              <a href="mailto:info@morgenlicht-alltagshilfe.de" className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0 hover:bg-[#DCFCE7] transition-colors" aria-label="E-Mail schreiben">
-                <Mail className="w-6 h-6 text-[#144E41]" />
-              </a>
-              <div>
-                <h3 className="font-heading font-bold text-lg text-[#134E4A] mb-1">E-Mail</h3>
-                <a href="mailto:info@morgenlicht-alltagshilfe.de" className="text-lg sm:text-xl font-bold text-[#134E4A] hover:text-[#0F3F3C] transition-colors break-words block">
-                  info@morgenlicht-alltagshilfe.de
-                </a>
-              </div>
+            <div className="mt-8">
+              {inquiryFormEnabled ? (
+                <InquiryForm />
+              ) : (
+                <div className="rounded-2xl border border-[#134E4A]/15 bg-[#F0FDF4] p-6 sm:p-8">
+                  <h3 className="font-heading text-xl font-bold text-[#134E4A]">
+                    Rückruf direkt vereinbaren
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-[#4B5563]">
+                    Rufen Sie uns an oder senden Sie uns per WhatsApp Ihren Namen und das Wort
+                    „Rückruf“. Bitte schicken Sie keine Diagnosen oder anderen Gesundheitsdaten.
+                  </p>
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href={`tel:${PHONE_HREF}`}
+                      className="plausible-event-name=Telefonklick inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-[#134E4A] px-5 font-bold text-white transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+                    >
+                      <Phone className="h-5 w-5" aria-hidden="true" />
+                      Jetzt anrufen
+                    </a>
+                    <a
+                      href={WHATSAPP_HREF}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="plausible-event-name=WhatsAppklick inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl border-2 border-[#134E4A]/20 bg-white px-5 font-bold text-[#134E4A] transition hover:border-[#134E4A] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+                    >
+                      <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                      Rückruf per WhatsApp
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
-          <div className="mt-16 pt-10 border-t border-gray-100">
-            <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start text-center sm:text-left">
-              <div className="w-12 h-12 bg-[#F0FDF4] rounded-xl flex items-center justify-center shrink-0">
-                <CheckCircle className="w-6 h-6 text-[#144E41]" />
+          <aside aria-labelledby="direktkontakt-title" className="space-y-6">
+            <div className="rounded-2xl bg-[#134E4A] p-6 text-white shadow-lg sm:p-8">
+              <h2 id="direktkontakt-title" className="font-heading text-2xl font-bold text-white">
+                Lieber direkt Kontakt aufnehmen?
+              </h2>
+              <p className="mt-3 leading-relaxed text-white/90">
+                Wählen Sie den Weg, der für Sie am einfachsten ist.
+              </p>
+
+              <div className="mt-7 space-y-4">
+                <a
+                  href={`tel:${PHONE_HREF}`}
+                  className="plausible-event-name=Telefonklick flex min-h-16 items-center gap-4 rounded-xl bg-white px-5 text-[#134E4A] transition hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 focus:ring-offset-[#134E4A]"
+                >
+                  <Phone className="h-6 w-6 flex-none" aria-hidden="true" />
+                  <span>
+                    <span className="block text-sm font-semibold">Telefon</span>
+                    <span className="block text-lg font-bold">{PHONE_LABEL}</span>
+                  </span>
+                </a>
+
+                <a
+                  href={WHATSAPP_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="plausible-event-name=WhatsAppklick flex min-h-16 items-center gap-4 rounded-xl bg-white px-5 text-[#134E4A] transition hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 focus:ring-offset-[#134E4A]"
+                >
+                  <MessageCircle className="h-6 w-6 flex-none" aria-hidden="true" />
+                  <span>
+                    <span className="block text-sm font-semibold">WhatsApp</span>
+                    <span className="block text-lg font-bold">{MOBILE_LABEL}</span>
+                  </span>
+                </a>
+
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="plausible-event-name=E-Mail-Klick flex min-h-16 items-center gap-4 rounded-xl bg-white px-5 text-[#134E4A] transition hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 focus:ring-offset-[#134E4A]"
+                >
+                  <Mail className="h-6 w-6 flex-none" aria-hidden="true" />
+                  <span className="min-w-0">
+                    <span className="block text-sm font-semibold">E-Mail</span>
+                    <span className="block break-all text-base font-bold">{EMAIL}</span>
+                  </span>
+                </a>
               </div>
-              <div className="text-[#144E41]">
-                <h3 className="font-heading font-bold text-lg mb-2">
-                  Anerkannter Anbieter <span className="font-normal text-gray-400 text-sm italic">nach § 45a SGB XI</span>
-                </h3>
-                <p className="text-base leading-relaxed max-w-md">
-                  <span className="font-bold">Kostenlos</span> ab Pflegegrad 1 durch direkte Abrechnung mit Ihrer Pflegekasse.
-                </p>
-              </div>
+
+              <p className="mt-6 text-base text-white/90">Telefonisch erreichbar: Mo–Fr, 09:00–16:00 Uhr</p>
             </div>
-          </div>
+
+            <div className="rounded-2xl border border-[#134E4A]/15 bg-[#F0FDF4] p-6 sm:p-8">
+              <CheckCircle className="h-9 w-9 text-[#134E4A]" aria-hidden="true" />
+              <h2 className="mt-4 font-heading text-xl font-bold text-[#134E4A]">
+                Anerkannter Anbieter nach § 45a SGB XI
+              </h2>
+              <p className="mt-3 leading-relaxed text-[#4B5563]">
+                Ab Pflegegrad 1 kann die Hilfe im verfügbaren Budget{' '}
+                <strong className="text-[#134E4A]">ohne Eigenanteil</strong> möglich sein.
+                Voraussetzungen und mögliche Zusatzkosten klären wir vor Beginn.
+              </p>
+            </div>
+          </aside>
         </div>
-      </div>
+      </section>
     </div>
   )
 }

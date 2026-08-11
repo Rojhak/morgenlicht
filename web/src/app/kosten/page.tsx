@@ -12,10 +12,10 @@ const pricingCards = [
     subtitle: 'Der Entlastungsbetrag',
     amount: '131 €',
     period: '/Monat',
-    description: 'Jeder Mensch mit einem Pflegegrad hat Anspruch auf einen monatlichen Entlastungsbetrag.',
+    description: 'Pflegebedürftige mit Pflegegrad 1 bis 5 in häuslicher Pflege haben Anspruch auf den Entlastungsbetrag von bis zu 131 € monatlich.',
     features: [
-      'Wir rechnen direkt mit der Kasse ab',
-      'In diesem Rahmen ist unsere Hilfe für Sie völlig kostenlos',
+      'Direktabrechnung ist bei vorliegenden Voraussetzungen möglich',
+      'Im verfügbaren Budget kann die Hilfe ohne Eigenanteil genutzt werden',
       'Ihr Pflegegeld wird dadurch nicht gekürzt',
     ],
     color: 'from-[#E8F5E9]/50 to-[#C8E6C9]/20',
@@ -25,15 +25,15 @@ const pricingCards = [
   {
     id: 'pg2',
     title: 'Ab Pflegegrad 2',
-    subtitle: 'Zusätzliche Fördertöpfe',
-    amount: 'bis zu 10 Std.',
-    period: '/Monat',
-    description: 'Für alle, die sich mehr regelmäßige Entlastung im Alltag wünschen.',
+    subtitle: 'Umwandlung & Vertretung',
+    amount: 'individuell',
+    period: 'je nach Anspruch',
+    description: 'Umwandlungsanspruch und Verhinderungspflege sind unterschiedliche Leistungen mit jeweils eigenen Voraussetzungen.',
     features: [
-      'Ungenutztes Pflegebudget für mehr Haushaltshilfe einsetzen',
-      'Extra-Geldtopf für Urlaubsvertretung oder stundenweise Entlastung pflegender Angehöriger',
-      'Ideal für regelmäßige, wöchentliche Hilfe',
-      'Jeder Pflegefall ist individuell. Wir prüfen Ihre persönliche Situation und holen das maximale Budget für Sie heraus.',
+      'Umwandlungsanspruch nach § 45a SGB XI: Bei Pflegegrad 2 bis 5 können bis zu 40 % der nicht genutzten Pflegesachleistungen nach § 36 SGB XI eingesetzt werden',
+      'Die Pflegekasse rechnet zuerst die tatsächlich genutzten Pflegesachleistungen ab',
+      'Der Umwandlungsanspruch kann die Höhe des anteiligen Pflegegeldes beeinflussen',
+      'Verhinderungspflege kommt nur in Betracht, wenn die private Pflegeperson an der Pflege gehindert ist',
     ],
     color: 'from-[#E0F2F1]/60 to-[#B2DFDB]/20',
     iconBg: 'bg-[#E0F2F1]',
@@ -47,10 +47,10 @@ const pricingCards = [
     period: '/Stunde',
     description: 'Wenn Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen.',
     features: [
-      '20 % direkt von der Steuer absetzbar',
+      'Steuerliche Berücksichtigung kann möglich sein',
       'Kein Pflegegrad erforderlich',
       'Flexible Buchung',
-      'Finanzamt erstattet einen Teil der Kosten',
+      'Individuelle Voraussetzungen bitte steuerlich klären',
     ],
     color: 'from-[#FFF8E1]/60 to-[#FFECB3]/20',
     iconBg: 'bg-[#FFF8E1]',
@@ -75,7 +75,7 @@ export default function KostenPage() {
             "Transparenz ist uns wichtig. Wir erklären Ihnen alles."
           </p>
           <p className="text-base sm:text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
-            Gute Hilfe muss nicht teuer sein. Wir zeigen Ihnen, wie Sie Ihr Budget bei der Pflegekasse am besten nutzen.
+            Gute Hilfe muss nicht teuer sein. Wir zeigen Ihnen, welche Möglichkeiten Ihr Budget bei der Pflegekasse bietet.
           </p>
         </div>
       </section>
@@ -92,8 +92,8 @@ export default function KostenPage() {
                 </h2>
               </div>
               <p className="text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
-                In diesem Preis ist bereits alles enthalten: von der Anfahrt über die Administration bis hin zur direkten Abrechnung mit Ihrer Kasse.
-                <strong className="text-[#37474F]"> Es kommen keine weiteren Gebühren auf Sie zu.</strong>
+                Anfahrt und Administration sind im Stundensatz enthalten.
+                <strong className="text-[#37474F]"> Die Abrechnungsform und mögliche Kosten außerhalb eines Pflegekassenbudgets klären wir vor Beginn.</strong>
               </p>
             </div>
           </div>
@@ -158,12 +158,12 @@ export default function KostenPage() {
             </h2>
             <div className="bg-white/10 rounded-xl p-6 mb-6 text-center">
               <p className="text-lg text-white leading-relaxed">
-                Über Ihren gesetzlichen Entlastungsbetrag (131 €) organisieren wir für Sie regelmäßige, verlässliche Hilfe im Alltag – ganz nach Ihren Wünschen. Wir kommen zum Beispiel für die gründliche Wohnungsreinigung zu Ihnen, übernehmen den gemeinsamen Wocheneinkauf oder begleiten Sie sicher zu Arztterminen.
-                <span className="block mt-4 text-[#FFD54F] font-bold">Wir rechnen direkt mit der Kasse ab. Für Sie entstehen dabei keine Kosten.</span>
+                Über Ihren gesetzlichen Entlastungsbetrag von bis zu 131 € monatlich organisieren wir für Sie regelmäßige, verlässliche Hilfe im Alltag – ganz nach Ihren Wünschen. Wir kommen zum Beispiel für die gründliche Wohnungsreinigung zu Ihnen, übernehmen den gemeinsamen Wocheneinkauf oder begleiten Sie sicher zu Arztterminen.
+                <span className="block mt-4 text-[#FFD54F] font-bold">Wenn Budget und Unterlagen vorliegen, ist eine Direktabrechnung möglich. Im verfügbaren Budget kann die Hilfe ohne Eigenanteil genutzt werden.</span>
               </p>
             </div>
             <p className="text-sm text-white/80 text-center max-w-2xl mx-auto">
-              Gut zu wissen: Auch bei vorübergehendem Hilfebedarf (z. B. nach einem Krankenhausaufenthalt oder in besonderen Lebenslagen) gibt es oft Möglichkeiten der Kostenübernahme durch die Krankenkasse.
+              Gut zu wissen: Bei vorübergehendem Hilfebedarf kann unter bestimmten Voraussetzungen eine andere Leistung, etwa Haushaltshilfe der Krankenkasse, in Betracht kommen. Ob ein Anspruch besteht, entscheidet der zuständige Kostenträger im Einzelfall.
             </p>
           </div>
         </div>
@@ -183,8 +183,8 @@ export default function KostenPage() {
               <div className="w-12 h-12 bg-[#144E41]/5 rounded-full flex items-center justify-center mb-6">
                 <FileCheck className="w-6 h-6 text-[#144E41]" />
               </div>
-              <h3 className="text-lg font-bold text-[#134E4A] mb-3">Wir übernehmen den Papierkram</h3>
-              <p className="text-sm font-body text-[#455A64] leading-relaxed">Wir rechnen direkt mit der Pflegekasse ab. Sie müssen kein Geld vorstrecken.</p>
+              <h3 className="text-lg font-bold text-[#134E4A] mb-3">Unterstützung bei der Abrechnung</h3>
+              <p className="text-sm font-body text-[#455A64] leading-relaxed">Wenn die Voraussetzungen vorliegen, vereinbaren wir eine Direktabrechnung. Dann müssen Sie für die anerkannten Leistungen im verfügbaren Budget nicht in Vorkasse gehen.</p>
             </div>
 
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
@@ -192,7 +192,7 @@ export default function KostenPage() {
                 <Calculator className="w-6 h-6 text-[#144E41]" />
               </div>
               <h3 className="text-lg font-bold text-[#134E4A] mb-3">Budget-Beratung</h3>
-              <p className="text-sm font-body text-[#455A64] leading-relaxed">Wir schauen gemeinsam, wie viel Geld Ihnen zusteht und wie wir das Beste herausholen.</p>
+              <p className="text-sm font-body text-[#455A64] leading-relaxed">Wir schauen gemeinsam, welches Budget vorhanden ist und welche Unterstützung damit realistisch möglich ist.</p>
             </div>
 
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     publishedTime: '2026-07-11',
     modifiedTime: '2026-07-11',
     url: '/blog/alltagshilfe-oder-haushaltshilfe-unterschied',
-    images: [{ url: '/images/hero_helping_hand.png', alt: 'Alltagshilfe unterstützt eine ältere Person zu Hause' }],
+    images: [{ url: '/images/hero_helping_hand.jpg', alt: 'Alltagshilfe unterstützt eine ältere Person zu Hause' }],
   },
 }
 
@@ -56,7 +56,7 @@ export default function AlltagshilfeOderHaushaltshilfePage() {
       dateModified="2026-07-11"
       dateLabel="11. Juli 2026"
       readingTime="Lesedauer: ca. 6 Minuten"
-      imageSrc="/images/hero_helping_hand.png"
+      imageSrc="/images/hero_helping_hand.jpg"
       imageAlt="Alltagshilfe unterstützt eine Seniorin zu Hause"
       quickFacts={[
         'Haushaltshilfe: Schwerpunkt Wohnung und Wäsche',
@@ -130,7 +130,7 @@ export default function AlltagshilfeOderHaushaltshilfePage() {
 
       <h2>Wie kann die Pflegekasse helfen?</h2>
       <p>
-        Für Menschen mit Pflegegrad 1 bis 5 steht bei häuslicher Pflege der Entlastungsbetrag von 131 Euro monatlich zur Verfügung. Das Budget kann für anerkannte Angebote eingesetzt werden. In Berlin gehören dazu je nach Angebot auch haushaltsnahe Dienstleistungen und weitere Unterstützung im Alltag.
+        Für Menschen mit Pflegegrad 1 bis 5 steht bei häuslicher Pflege der Entlastungsbetrag von bis zu 131 Euro monatlich zur Verfügung. Das Budget kann für anerkannte Angebote eingesetzt werden. In Berlin gehören dazu je nach Angebot auch haushaltsnahe Dienstleistungen und weitere Unterstützung im Alltag.
       </p>
       <p>
         Wichtig ist nicht nur die Bezeichnung „Haushaltshilfe“, sondern ob der Anbieter anerkannt ist und die konkrete Leistung über die Pflegekasse abgerechnet werden kann. Unsere Seite zu <Link href="/kosten">Kosten und Pflegekasse</Link> erklärt den Ablauf.

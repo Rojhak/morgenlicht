@@ -1,19 +1,14 @@
-import type { Metadata } from 'next'
 import { serializeJsonLd } from '@/lib/security'
+import { createPageMetadata } from '@/lib/seo'
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
-export const metadata: Metadata = {
-  title: 'Leistungen: Haushaltshilfe, Einkauf, Begleitung & Alltag in Berlin',
+export const metadata = createPageMetadata({
+  title: 'Alltagshilfe in Berlin: Leistungen | Morgenlicht',
   description:
-    '5 Leistungsbereiche für Senioren: Haushaltshilfe, Einkauf, Begleitung zu Ärzten, Alltagsorganisation und Freizeitbegleitung in Berlin-Kreuzberg und Neukölln. Finanzierung über die Pflegekasse ab Pflegegrad 1 möglich.',
-  alternates: { canonical: '/leistungen' },
-  openGraph: {
-    title: 'Leistungen der Morgenlicht Alltagshilfe Berlin',
-    description: 'Haushaltshilfe, Einkauf, Begleitung, Alltagsstruktur und Freizeit in Kreuzberg und Neukölln – persönlich und verlässlich.',
-    url: `${SITE_URL}/leistungen`,
-  },
-}
+    'Haushaltshilfe, Einkauf, Arztbegleitung, Alltagsorganisation und soziale Begleitung in Berlin-Kreuzberg und Neukölln.',
+  path: '/leistungen',
+})
 
 const schema = {
   '@context': 'https://schema.org',
@@ -22,7 +17,10 @@ const schema = {
       '@type': 'Service',
       serviceType: 'Alltagshilfe und Haushaltshilfe für Senioren',
       provider: { '@id': `${SITE_URL}/#business` },
-      areaServed: 'Berlin',
+      areaServed: [
+        { '@type': 'AdministrativeArea', name: 'Berlin-Kreuzberg' },
+        { '@type': 'AdministrativeArea', name: 'Berlin-Neukölln' },
+      ],
       availableChannel: {
         '@type': 'ServiceChannel',
         serviceUrl: `${SITE_URL}/kontakt`,

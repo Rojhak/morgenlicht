@@ -13,7 +13,7 @@ const PFLEGEGRADE = [
   { value: 5, label: '5', description: 'Schwerste mit Anforderungen' },
 ]
 
-const PHONE = '069 12345678'
+const PHONE = '030 235 930 28'
 
 type Step = 'select' | 'sachleistung' | 'result'
 
@@ -30,12 +30,10 @@ export function CareFinder() {
   const handleNext = () => {
     if (selectedGrad === null) return
 
-    if (selectedGrad === 1) {
-      setUsesSachleistungen(false)
-      setStep('result')
-    } else {
-      setStep('sachleistung')
-    }
+    // Der öffentlich belastbare Rechner zeigt nur den Entlastungsbetrag.
+    // Weitere Budgets müssen individuell mit der Pflegekasse geprüft werden.
+    setUsesSachleistungen(true)
+    setStep('result')
   }
 
   const handleSachleistungAnswer = (uses: boolean) => {
@@ -179,7 +177,7 @@ export function CareFinder() {
               Stunden pro Monat
             </p>
             <p className="text-white/70 mt-4 text-sm bg-white/10 inline-block px-4 py-1 rounded-full">
-              100% kostenfrei über die Pflegekasse
+              Rechnerischer Umfang im verfügbaren Pflegekassen-Budget
             </p>
           </div>
 
@@ -221,10 +219,10 @@ export function CareFinder() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/kontakt"
+              href="/kontakt#rueckruf"
               className="flex-1 bg-[#FBBF24] text-[#1F2937] hover:bg-[#F59E0B] font-bold py-4 px-6 rounded-xl shadow-md text-center flex items-center justify-center gap-2 transition-colors"
             >
-              Kostenlos anfragen
+              Kostenfreien Rückruf anfragen
               <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </Link>
             <button
@@ -245,7 +243,7 @@ export function CareFinder() {
               Pflegegrad 1
             </p>
             <p className="text-[#4B5563] mb-4">
-              Ihnen stehen 131 € Entlastungsbetrag zu. Lassen Sie uns besprechen, wie wir das für Sie nutzen können.
+              Ihnen stehen bis zu 131 € Entlastungsbetrag zu. Lassen Sie uns besprechen, wie wir das für Sie nutzen können.
             </p>
             <a
               href={`tel:${PHONE.replace(/\s/g, '')}`}

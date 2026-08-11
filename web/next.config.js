@@ -1,8 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  outputFileTracingRoot: __dirname,
   images: {
     formats: ['image/avif', 'image/webp'],
+  },
+  async redirects() {
+    return [
+      {
+        source: '/blog/entlastungsbetrag-richtig-nutzen',
+        destination: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag',
+        permanent: true,
+      },
+    ];
   },
   async headers() {
     return [

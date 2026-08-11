@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Ratgeber für Haushaltshilfe und Pflegekasse',
+export const metadata = createPageMetadata({
+  title: 'Ratgeber zu Pflegegrad & Alltagshilfe | Morgenlicht',
   description:
     'Ratgeber zu Haushaltshilfe, Alltagshilfe, Pflegegrad und Pflegekasse in Berlin – verständlich für Senioren und Angehörige.',
-  alternates: { canonical: '/blog' },
-}
+  path: '/blog',
+})
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>

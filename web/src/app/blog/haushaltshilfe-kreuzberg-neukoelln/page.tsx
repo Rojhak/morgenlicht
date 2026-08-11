@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     publishedTime: '2026-07-11',
     modifiedTime: '2026-07-11',
     url: '/blog/haushaltshilfe-kreuzberg-neukoelln',
-    images: [{ url: '/images/hero_daily_moments.png', alt: 'Haushaltshilfe für eine Seniorin in Berlin' }],
+    images: [{ url: '/images/hero_daily_moments.jpg', alt: 'Haushaltshilfe für eine Seniorin in Berlin' }],
   },
 }
 
@@ -56,7 +56,7 @@ export default function HaushaltshilfeKreuzbergNeukoellnPage() {
       dateModified="2026-07-11"
       dateLabel="11. Juli 2026"
       readingTime="Lesedauer: ca. 7 Minuten"
-      imageSrc="/images/hero_daily_moments.png"
+      imageSrc="/images/hero_daily_moments.jpg"
       imageAlt="Seniorin erhält Haushaltshilfe in Kreuzberg und Neukölln"
       quickFacts={[
         'Entlastungsbetrag ab Pflegegrad 1',
@@ -113,7 +113,7 @@ export default function HaushaltshilfeKreuzbergNeukoellnPage() {
 
       <h2>Was übernimmt die Pflegekasse?</h2>
       <p>
-        Pflegebedürftige Menschen mit Pflegegrad 1 bis 5, die zu Hause leben, haben Anspruch auf den monatlichen Entlastungsbetrag von 131 Euro. Das Budget ist zweckgebunden. Es wird nicht wie Pflegegeld frei ausgezahlt, sondern für anerkannte Leistungen verwendet.
+        Pflegebedürftige Menschen mit Pflegegrad 1 bis 5, die zu Hause leben, haben Anspruch auf den monatlichen Entlastungsbetrag von bis zu 131 Euro. Das Budget ist zweckgebunden. Es wird nicht wie Pflegegeld frei ausgezahlt, sondern für anerkannte Leistungen verwendet.
       </p>
       <p>
         In Berlin können anerkannte Angebote zur Unterstützung im Alltag auch bei der Haushaltsführung helfen. Entscheidend ist, dass der Anbieter nach den Berliner Vorgaben anerkannt ist. Morgenlicht ist ein anerkanntes Angebot nach § 45a SGB XI. Einzelheiten zu Budget und Abrechnung finden Sie unter <Link href="/kosten">Kosten und Pflegekasse</Link>.

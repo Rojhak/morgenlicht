@@ -1,109 +1,134 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X, ArrowRight, Phone } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { Menu, X } from 'lucide-react'
 
+const navLinks = [
+  { href: '/', label: 'Startseite' },
+  { href: '/leistungen', label: 'Leistungen' },
+  { href: '/kosten', label: 'Kosten' },
+  { href: '/blog', label: 'Ratgeber' },
+  { href: '/ueber-uns', label: 'Über uns' },
+  { href: '/fragen', label: 'Fragen' },
+]
 
-  /* Update navLinks to match snippet: no 'Fragen', use /pflegekasse */
-  /* Update navLinks: Restore 'Fragen' between 'Über uns' and 'Blog' */
-  const navLinks = [
-    { href: '/', label: 'Startseite' },
-    { href: '/leistungen', label: 'Leistungen' },
-    { href: '/kosten', label: 'Kosten & Pflegekasse' },
-    { href: '/ueber-uns', label: 'Über uns' },
-    { href: '/fragen', label: 'Fragen' },
-    // { href: '/blog', label: 'Blog' },
-  ]
+const focusClass =
+  'focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD54F] focus-visible:ring-offset-2'
 
-  export function Navbar() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+export function Navbar() {
+  const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null)
 
-    return (
-      <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
-        {/* Container: px-6 (mobile) / px-16 (desktop) - Strict 3-Column Layout */}
-        <div className="max-w-[1440px] mx-auto px-6 md:px-16 h-20 md:h-28 flex items-center justify-between">
+  useEffect(() => {
+    if (!mobileMenuOpen) return
 
-          {/* 1. Säule (Links): Logo - BOOSTED */}
-          <Link href="/" className="flex-none flex items-center gap-x-2 md:gap-x-4 group">
-            <div className="w-[40px] md:w-[64px] h-[40px] md:h-[64px] flex-shrink-0">
-              <img src="/trans_logo.svg" alt="Morgenlicht" className="w-full h-full object-contain" />
-            </div>
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    firstMobileLinkRef.current?.focus()
 
-            <div className="flex flex-col justify-center items-center">
-              {/* MORGENLICHT: Montserrat Bold, 20px (mobile) / 28px (desktop) */}
-              <span className="text-[#1F2937] text-[20px] md:text-[28px] font-bold font-heading leading-none tracking-tight">MORGENLICHT</span>
-              {/* Slogan: Montserrat Medium, Proportional Grow, CENTERED */}
-              <span className="text-[#1F2937] text-[8px] md:text-[11px] font-medium font-heading tracking-[0.12em] md:tracking-[0.15em] mt-1 md:mt-1.5 leading-none uppercase text-center w-full">ALLTAGSHILFE BERLIN</span>
-            </div>
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [mobileMenuOpen])
+
+  const isCurrent = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
+
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-[#134E4A]/10 bg-white/95 backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className={`flex min-h-12 flex-none items-center rounded-lg ${focusClass}`}
+          aria-label="Morgenlicht Alltagshilfe – Startseite"
+        >
+          <Image
+            src="/morgen.png"
+            alt="Morgenlicht Alltagshilfe Berlin"
+            width={229}
+            height={80}
+            priority
+            className="h-auto w-[170px] sm:w-[205px]"
+          />
+        </Link>
+
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Hauptnavigation">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={isCurrent(link.href) ? 'page' : undefined}
+              className={`min-h-12 rounded-lg px-3 py-3 text-[15px] font-semibold text-[#374151] transition hover:bg-[#F7F6F3] hover:text-[#134E4A] aria-[current=page]:bg-[#F7F6F3] aria-[current=page]:text-[#134E4A] ${focusClass}`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden flex-none xl:block">
+          <Link
+            href="/kontakt#rueckruf"
+            className={`plausible-event-name=Rueckrufklick inline-flex min-h-12 items-center rounded-xl bg-[#134E4A] px-6 font-bold text-white transition hover:bg-[#0F3F3C] ${focusClass}`}
+          >
+            Rückruf anfragen
           </Link>
+        </div>
 
-          {/* Navigation */}
-          {/* gap-x-10, Inter Medium 16px (Unchanged) */}
-          <nav className="hidden lg:flex items-center gap-x-10">
-            {navLinks.map((link) => (
+        <button
+          ref={menuButtonRef}
+          type="button"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          className={`flex min-h-12 min-w-12 items-center justify-center rounded-lg text-[#134E4A] transition hover:bg-[#F7F6F3] xl:hidden ${focusClass}`}
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
+          aria-controls="mobile-menu"
+        >
+          {mobileMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+        </button>
+      </div>
+
+      {mobileMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto border-t border-[#134E4A]/10 bg-white xl:hidden"
+        >
+          <nav className="mx-auto max-w-2xl space-y-1 p-5" aria-label="Mobile Navigation">
+            {navLinks.map((link, index) => (
               <Link
                 key={link.href}
+                ref={index === 0 ? firstMobileLinkRef : undefined}
                 href={link.href}
-                className={`text-[#1F2937] hover:text-[#134E4A] font-medium font-body text-base transition-colors antialiased
-                  ${link.label === 'Über uns' ? 'whitespace-nowrap' : ''}
-                `}
+                aria-current={isCurrent(link.href) ? 'page' : undefined}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block min-h-14 rounded-xl border-b border-[#134E4A]/10 px-4 py-4 text-lg font-semibold text-[#1F2937] transition hover:bg-[#F7F6F3] aria-[current=page]:bg-[#F7F6F3] aria-[current=page]:text-[#134E4A] ${focusClass}`}
               >
                 {link.label}
               </Link>
             ))}
-          </nav>
-
-          {/* 3. Säule (Rechts): Button */}
-          <div className="hidden lg:flex items-center flex-none">
-             {/* Text: "Kontakt", Green (#134E4A), px-10 py-3 (Premium), rounded-[12px] */}
             <Link
-              href="/kontakt"
-              className="bg-[#134E4A] text-white px-10 py-3 rounded-[12px] font-semibold font-body hover:bg-[#0e3a37] transition-all shadow-sm flex items-center whitespace-nowrap antialiased"
+              href="/kontakt#rueckruf"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`plausible-event-name=Rueckrufklick mt-5 flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-6 text-lg font-bold text-white ${focusClass}`}
             >
-              Kontakt
+              Kostenfreien Rückruf anfragen
             </Link>
-          </div>
-
-          {/* Mobile Menu Toggle (Visible below LG) */}
-          <div className="flex items-center lg:hidden ml-auto gap-x-4">
-             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-gray-600 hover:text-[#134E4A] transition-colors"
-              aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
-              aria-controls="mobile-menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
+          </nav>
         </div>
-
-        {/* Mobile Menu Overlay */}
-        {mobileMenuOpen && (
-          <div id="mobile-menu" className="fixed inset-0 top-[80px] md:top-[112px] z-40 bg-white border-t border-gray-100 lg:hidden overflow-y-auto">
-            <div className="p-6 space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-xl font-medium text-[#1F2937] hover:text-[#134E4A] py-3 border-b border-gray-50 font-body"
-                >
-                  {link.label}
-                </Link>
-              ))}
-               <Link
-                  href="/kontakt"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full bg-[#134E4A] text-white text-center font-bold text-lg px-6 py-4 rounded-xl shadow-sm mt-6 font-body"
-                >
-                  Kontakt
-                </Link>
-            </div>
-          </div>
-        )}
-      </header>
-    )
-  }
+      )}
+    </header>
+  )
+}

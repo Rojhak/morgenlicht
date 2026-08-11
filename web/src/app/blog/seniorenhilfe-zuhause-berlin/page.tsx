@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     publishedTime: '2026-07-11',
     modifiedTime: '2026-07-11',
     url: '/blog/seniorenhilfe-zuhause-berlin',
-    images: [{ url: '/images/hero_active_senior.png', alt: 'Seniorin lebt mit Unterstützung selbstständig zu Hause' }],
+    images: [{ url: '/images/hero_active_senior.jpg', alt: 'Seniorin lebt mit Unterstützung selbstständig zu Hause' }],
   },
 }
 
@@ -56,7 +56,7 @@ export default function SeniorenhilfeZuhauseBerlinPage() {
       dateModified="2026-07-11"
       dateLabel="11. Juli 2026"
       readingTime="Lesedauer: ca. 6 Minuten"
-      imageSrc="/images/hero_active_senior.png"
+      imageSrc="/images/hero_active_senior.jpg"
       imageAlt="Ältere Frau lebt mit Seniorenhilfe selbstständig zu Hause in Berlin"
       quickFacts={[
         'Hilfe ist auch ohne Pflegegrad privat möglich',

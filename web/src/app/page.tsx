@@ -1,445 +1,442 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { Heart, Shield, Users, ArrowRight, Phone, Award, Quote, HandHeart, Home, ShoppingBag, Stethoscope, FileText, Handshake, Star, CheckCircle, Check, Sparkles, MapPin, Footprints } from 'lucide-react'
+import {
+  ArrowRight,
+  CalendarCheck,
+  Check,
+  CheckCircle,
+  FileText,
+  Footprints,
+  HandHeart,
+  Heart,
+  Home,
+  Languages,
+  MapPin,
+  Phone,
+  ShoppingBag,
+  Users,
+} from 'lucide-react'
 import { FAQSection } from '@/app/components/sections/FAQSection'
-import { ScrollRevealSection } from '@/app/components/animations/ScrollReveal'
+import { homeFaqs } from '@/content/homeFaqs'
+import { createPageMetadata } from '@/lib/seo'
+import { serializeJsonLd } from '@/lib/security'
+
+const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
+
+export const metadata = createPageMetadata({
+  title: 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht',
+  description:
+    'Persönliche Alltagshilfe und Haushaltshilfe in Berlin-Kreuzberg und Neukölln. Für Menschen mit Pflegegrad, auf Deutsch, Türkisch und Englisch.',
+  path: '/',
+  languages: {
+    'de-DE': `${SITE_URL}/`,
+    'x-default': `${SITE_URL}/`,
+  },
+})
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${SITE_URL}/#faq`,
+  mainEntity: homeFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
+const focusClass =
+  'focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD54F] focus-visible:ring-offset-2'
+
+const services = [
+  {
+    title: 'Haushaltshilfe mit Pflegegrad',
+    description:
+      'Unterstützung bei Reinigung, Wäsche und einfachen Aufgaben im Haushalt – klar vereinbart und persönlich.',
+    href: '/haushaltshilfe-pflegegrad-berlin',
+    icon: Home,
+  },
+  {
+    title: 'Einkauf und Erledigungen',
+    description:
+      'Gemeinsam einkaufen oder Besorgungen übernehmen, damit der Alltag übersichtlich und gut versorgt bleibt.',
+    href: '/leistungen',
+    icon: ShoppingBag,
+  },
+  {
+    title: 'Begleitung zu Arztterminen',
+    description:
+      'Praktische Unterstützung auf dem Weg, beim Warten und bei der Organisation rund um einen Termin.',
+    href: '/arztbegleitung-senioren-berlin',
+    icon: CalendarCheck,
+  },
+  {
+    title: 'Soziale Begleitung',
+    description:
+      'Gespräche, Spaziergänge und gemeinsame Aktivitäten nach den persönlichen Wünschen der Kundin oder des Kunden.',
+    href: '/soziale-begleitung-senioren-berlin',
+    icon: Users,
+  },
+  {
+    title: 'Alltag und Struktur',
+    description:
+      'Hilfe beim Ordnen von Post, Terminen und alltäglichen Aufgaben – ohne Entscheidungen abzunehmen.',
+    href: '/leistungen',
+    icon: FileText,
+  },
+]
 
 export default function HomePage() {
   return (
     <>
-      <ScrollRevealSection className="relative flex items-center bg-white pt-10 md:pt-32 pb-16 md:pb-24 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="text-center lg:text-left z-10 space-y-8">
-              {/* Kicker & Headline Group */}
-              <div>
-                <div className="flex flex-wrap items-center lg:items-start justify-center lg:justify-start gap-3 mb-10">
-                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
-                    <Check className="w-3.5 h-3.5 text-[#144E41] stroke-[1.5]" />
-                    <span className="font-inter text-xs sm:text-sm font-semibold text-[#144E41] tracking-wider whitespace-nowrap">Anerkannt nach § 45a SGB XI</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-white rounded-full shadow-sm border border-[#144E41]/10 h-[34px]">
-                    <Heart className="w-3.5 h-3.5 text-[#144E41] stroke-[1.5]" />
-                    <span className="font-inter text-xs sm:text-sm font-semibold text-[#144E41] tracking-wider whitespace-nowrap">Alltagshilfe für Senioren</span>
-                  </div>
-                </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
+      />
 
-                <h1 className="font-heading font-bold text-[#134E4A] text-3xl sm:text-5xl lg:text-[48px] leading-[1.2] mb-8 tracking-normal">
-                  Haushaltshilfe & Alltagshilfe <br className="hidden lg:block"/>
-                  in Berlin
-                </h1>
-
-                <p className="font-body font-medium text-[#4B5563] text-lg sm:text-[18px] leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-                  Selbstbestimmt leben im eigenen Zuhause. Wir entlasten Sie im Haushalt und im Alltag – herzlich, zuverlässig und unkompliziert.
-                </p>
-              </div>
-
-              {/* Action Block - Vertical Layout */}
-              <div className="mt-10 flex flex-col items-center lg:items-start">
-                {/* Primary Button */}
-                <Link
-                  href="/kontakt"
-                  className="bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center"
-                >
-                  Jetzt kostenfrei beraten lassen
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-
-                {/* Phone Number */}
-                <a href="tel:03023593028" className="mt-5 flex items-center gap-2 hover:opacity-80 transition-opacity">
-                   <Phone className="w-5 h-5 text-[#FBBF24]" />
-                   <span><span className="text-[#6B7280]">Oder rufen Sie uns direkt an: </span><span className="font-bold text-[#144E41] whitespace-nowrap">030 235 930 28</span></span>
-                </a>
-
-                {/* 0€ Benefit Box - Foundation element */}
-                <div className="mt-8 bg-[#F7F6F3] border border-[#134E4A]/20 rounded-xl px-6 py-3 max-w-xl flex items-center">
-                   <div className="w-8 h-8 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 mr-4">
-                     <CheckCircle className="w-5 h-5 text-white" />
-                   </div>
-                    <div className="flex flex-col">
-                      <span className="font-heading font-bold text-[#134E4A] text-base">
-                        Über die Pflegekasse finanzierbar
-                      </span>
-                      <span className="font-body text-[#4B5563] text-sm">
-                        Direkte Abrechnung ist im verfügbaren 131-€-Budget ab Pflegegrad 1 möglich.
-                      </span>
-                    </div>
-                </div>
-              </div>
-
-              {/* Trust Bar - Pill Badges */}
-              <div className="mt-8 py-8">
-                 <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                   {[
-                     "Staatlich anerkannt",
-                     "Alle Pflegekassen",
-                     "Feste Bezugsperson",
-                     "Wir übernehmen alle Formalitäten"
-                   ].map((text, i) => (
-                     <div key={i} className="inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full border border-[#144E41]/10 shadow-sm">
-                       <CheckCircle className="w-4 h-4 text-[#134E4A]" />
-                       <span className="font-body font-semibold text-sm text-[#134E4A] tracking-wider">{text}</span>
-                     </div>
-                   ))}
-                 </div>
-              </div>
-            </div>
-
-            {/* Right Image/Card (Multi-Image Layout) */}
-            {/* Right Image/Card (Collage Layout) */}
-             <div className="relative mt-8 lg:mt-0 lg:h-full flex items-center justify-center lg:justify-end px-4 lg:px-0">
-                <div className="flex gap-3 md:gap-4 items-start">
-
-                  {/* Left Column (Img 1 & 3) */}
-                  <div className="flex flex-col gap-4">
-                     {/* Image 1: Top Left */}
-                     <div className="w-36 h-48 md:w-56 md:h-72 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
-                       <img
-                         src="/images/hero_helping_hand.png"
-                         alt="Alltagshelferin hält die Hand einer Seniorin in Berlin – Morgenlicht Alltagshilfe"
-                         className="w-full h-full object-cover"
-                       />
-                     </div>
-
-                     {/* Image 3: Bottom Left (+ Asiye Badge) */}
-                     <div className="relative w-36 h-48 md:w-52 md:h-64">
-                        <div className="w-full h-full rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
-                          <img
-                            src="/images/hero_daily_moments.png"
-                            alt="Seniorin und Alltagshelferin beim gemeinsamen Kochen in Berlin-Kreuzberg"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        {/* Asiye Badge (Overlapping Bottom Left) */}
-                         <Link
-                           href="/ueber-uns"
-                           className="absolute -bottom-6 -left-2 md:bottom-4 md:left-4 bg-white/95 backdrop-blur-sm rounded-full py-2 pl-2 pr-4 md:pr-6 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-3 md:gap-4 border border-gray-100/50 z-50 group min-w-[200px] md:min-w-[240px]"
-                         >
-                          <img
-                            src="/images/asiye-duman.jpeg"
-                            alt="Asiye Duman – Ihre persönliche Ansprechpartnerin bei Morgenlicht Alltagshilfe Berlin"
-                            className="w-10 h-10 rounded-full object-cover border border-gray-100 shadow-sm ml-1"
-                          />
-                          <div className="flex flex-col text-left">
-                             <span className="font-inter text-xs font-medium text-slate-800 tracking-wide leading-tight">
-                               Ihre persönliche Ansprechpartnerin
-                             </span>
-                             <span className="font-inter text-[13px] font-bold text-[#144E41] tracking-wide leading-tight group-hover:text-[#134E4A] transition-colors">
-                               Asiye Duman
-                             </span>
-                          </div>
-                        </Link>
-                     </div>
-                  </div>
-
-                  {/* Right Column (Img 2) */}
-                  <div className="flex flex-col gap-4 pt-16">
-                     {/* Image 2: Top Right (Offset) */}
-                     <div className="w-40 h-60 md:w-64 md:h-80 rounded-[24px] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.05)] border-4 border-white transform transition-transform hover:scale-[1.02]">
-                        <img
-                          src="/images/hero_active_senior.png"
-                          alt="Aktiver Senior beim Spaziergang mit Begleitung in Berlin-Neukölln"
-                          className="w-full h-full object-cover"
-                        />
-                     </div>
-                  </div>
-
-               </div>
-
-                <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-[#F7F6F3] rounded-full blur-3xl opacity-60 mix-blend-multiply pointer-events-none"></div>
-            </div>
-          </div>
-        </div>
-      </ScrollRevealSection>
-
-      {/* Empathy Section - Compact & Modern */}
-      <section className="relative w-full py-16 md:py-24 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero_helping_hand.png"
-            alt="Helfende Hände – Morgenlicht Alltagshilfe in Berlin"
-            className="w-full h-full object-cover opacity-90"
-          />
-        </div>
-
-        {/* Dark Green Overlay - Stronger for text focus */}
-        <div className="absolute inset-0 bg-[#144E41]/90 z-10"></div>
-
-        {/* Content Container */}
-        <div className="relative z-20 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center">
-          <h2 className="font-heading font-bold text-2xl md:text-3xl leading-tight mb-4 max-w-2xl mx-auto" style={{ color: '#FFFBEB' }}>
-            Sie sind nicht allein – wir sind an Ihrer Seite.
-          </h2>
-
-          <p className="font-body text-base md:text-lg leading-relaxed max-w-xl mx-auto mt-4" style={{ color: '#F3F4F6', opacity: 0.9 }}>
-            Wir wissen, wie schwer es sein kann, Hilfe anzunehmen.
-            Morgenlicht ist die Hand, die hilft, und das offene Ohr, das zuhört –
-            damit wieder Raum für die schönen Momente bleibt.
-          </p>
-
-          <p className="font-body text-sm italic mt-8 max-w-lg mx-auto" style={{ color: '#E5E7EB', opacity: 0.7 }}>
-            Professioneller als Nachbarschaftshilfe, herzlicher als anonyme Plattformen.
-          </p>
-        </div>
-      </section>
-
-      {/* Sektion 2: Leistungen - Ganzheitliche Unterstützung */}
-      <section className="bg-white py-16 md:py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
-              Ganzheitliche Unterstützung für Ihr Zuhause
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-8">
-            {[
-              {
-                title: 'Haushaltshilfe & Reinigung',
-                desc: 'Zuverlässige Unterstützung beim Putzen, Kochen und der Wäschepflege – für ein Zuhause, in dem Sie sich rundum wohlfühlen.',
-                icon: Home
-              },
-              {
-                title: 'Einkauf & Erledigungen',
-                desc: 'Wir übernehmen den Wocheneinkauf, Besorgungen in der Apotheke oder den Gang zur Post.',
-                icon: ShoppingBag
-              },
-              {
-                title: 'Begleitung & Mobilität',
-                desc: 'Sichere Begleitung zu Ärzten, Behörden, zum Friseur oder zu Ihren Terminen im Kiez.',
-                icon: Footprints
-              },
-              {
-                title: 'Alltag & Struktur',
-                desc: 'Hilfe bei der Organisation von Post, Terminen und Telefonaten – wir behalten für Sie den Überblick.',
-                icon: FileText
-              },
-              {
-                title: 'Soziale Teilhabe & Freizeit',
-                desc: 'Gemeinsame Spaziergänge, gemeinsames Einkaufen oder Begleitung zu kulturellen Veranstaltungen.',
-                icon: Handshake
-              },
-            ].map((service, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-8 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-2rem)] flex flex-col">
-                <div className="w-12 h-12 rounded-full bg-[#134E4A] flex items-center justify-center mb-6 group-hover:bg-[#FBBF24] transition-colors shadow-md">
-                  <service.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-heading text-xl font-semibold text-[#134E4A] mb-3">{service.title}</h3>
-                <p className="font-body text-gray-600 font-normal leading-relaxed text-left">{service.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/leistungen"
-              className="inline-flex items-center justify-center bg-[#144E41] text-white px-8 py-3 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm"
-            >
-              Alle Leistungen ansehen <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Sektion 3: Was Ihnen zusteht - Yellow Background */}
-      <ScrollRevealSection className="py-16 md:py-24 px-4 bg-[#F7F6F3]">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-[24px] p-10 md:p-14 text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
-            <span className="inline-block bg-white text-[#144E41] px-4 py-1.5 border border-[#144E41]/10 rounded-full text-sm font-body font-semibold tracking-wider mb-6">
-              Wichtig zu wissen
-            </span>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-8">
-              Ihr 131 € Entlastungsbetrag für anerkannte Hilfe
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 text-left mb-12">
-              {[
-                {
-                  q: "Sie haben Pflegegrad 1 bis 5?",
-                  a: "Die Pflegekasse stellt Ihnen jeden Monat ein festes Budget von mindestens 131 € für Ihre Entlastung zur Verfügung."
-                },
-                {
-                  q: "Kostet mich das etwas?",
-                  a: "Im Rahmen des verfügbaren Budgets kann die Hilfe ohne Eigenanteil genutzt werden. Zusätzliche Leistungen besprechen wir vorher."
-                },
-                {
-                  q: "Wird mein Pflegegeld gekürzt?",
-                  a: "Nein. Dieses Budget ist eine zusätzliche Leistung. Ihr reguläres Pflegegeld bleibt unangetastet."
-                },
-                {
-                  q: "Muss ich in Vorkasse gehen?",
-                  a: "Wenn die Voraussetzungen vorliegen, rechnen wir direkt mit Ihrer Pflegekasse ab."
-                }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#144E41]/10 flex items-center justify-center mt-1">
-                    <Check className="w-4 h-4 text-[#144E41] stroke-[3]" />
-                  </div>
-                  <div className="space-y-1">
-                    <p className="font-heading font-bold text-[#134E4A] leading-snug">
-                      {item.q}
-                    </p>
-                    <p className="font-body text-gray-600 text-[15px] leading-relaxed">
-                      {item.a}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center justify-center bg-[#144E41] text-white px-8 py-4 rounded-[12px] font-bold font-body text-lg hover:bg-[#0e3a37] hover:scale-[1.02] transition-all shadow-sm group"
-              >
-                Jetzt Anspruch prüfen lassen
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <span className="text-xs font-body text-gray-500 opacity-60 font-medium mt-2">
-                Unverbindlich & Kostenfrei
+      <section className="overflow-hidden bg-white px-6 pb-16 pt-12 md:pb-24 md:pt-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+          <div>
+            <div className="flex flex-wrap gap-3">
+              <span className="inline-flex min-h-9 items-center gap-2 rounded-full border border-[#134E4A]/15 bg-[#F7F6F3] px-4 py-1.5 text-sm font-bold text-[#134E4A]">
+                <Check className="h-4 w-4" aria-hidden="true" />
+                Anerkannt nach § 45a SGB XI
+              </span>
+              <span className="inline-flex min-h-9 items-center gap-2 rounded-full border border-[#134E4A]/15 bg-[#F7F6F3] px-4 py-1.5 text-sm font-bold text-[#134E4A]">
+                <MapPin className="h-4 w-4" aria-hidden="true" />
+                Kreuzberg und Neukölln
               </span>
             </div>
-          </div>
-        </div>
-      </ScrollRevealSection>
 
+            <h1 className="mt-8 max-w-3xl break-words font-heading text-[2.05rem] font-bold leading-[1.18] text-[#134E4A] sm:text-5xl sm:leading-tight lg:text-[3.5rem]">
+              Persönliche Alltagshilfe in Berlin mit möglichst festen Bezugspersonen
+            </h1>
 
-      {/* Sektion 4: In 3 Schritten zur Entlastung - Mint-Grey Background */}
-      <section className="bg-white py-16 md:py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
-              In 3 Schritten zur Entlastung
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            {[
-              {
-                step: '01',
-                title: 'Erstkontakt',
-                desc: 'Ein kurzes Telefonat oder eine Nachricht genügt. Wir besprechen unverbindlich Ihre Situation.'
-              },
-              {
-                step: '02',
-                title: 'Kennenlernen',
-                desc: 'Ob persönlich vor Ort oder flexibel per Telefon – wir nehmen uns Zeit für Ihre Fragen und Wünsche.'
-              },
-              {
-                step: '03',
-                title: 'Sorglos starten',
-                desc: 'Wir kümmern uns um die Abrechnung mit der Kasse. Sie genießen die Entlastung.'
-              }
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-[24px] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-transparent hover:border-[#134E4A]/10 transition-all duration-300 relative group">
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-[#134E4A] text-white rounded-full flex items-center justify-center font-heading font-bold text-lg border-4 border-white group-hover:scale-110 transition-transform">
-                  {item.step}
-                </div>
-                <h3 className="font-heading text-xl font-bold text-[#134E4A] mt-6 mb-3">{item.title}</h3>
-                <p className="font-body text-gray-600 leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Sektion 5: Häufige Fragen */}
-      <FAQSection />
-
-      {/* Sektion 6: Kontakt Abschluss - White Background for rhythm after Beige FAQ */}
-      <section className="bg-white py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-white rounded-[24px] p-10 md:p-14 shadow-[0_10px_40px_rgba(0,0,0,0.08)] border border-gray-100/50">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 tracking-tighter">
-              Noch Fragen offen? Lassen Sie uns unverbindlich sprechen.
-            </h2>
-            <p className="font-body text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Wir nehmen uns Zeit für Ihre Situation und beraten Sie kostenlos zu Ihren Ansprüchen.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#4B5563] md:text-xl">
+              Morgenlicht unterstützt ältere und pflegebedürftige Menschen bei Haushalt,
+              Einkauf, Terminen und sozialer Teilhabe – in Kreuzberg und Neukölln sowie auf
+              Deutsch, Türkisch oder Englisch.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Link
-                href="/kontakt"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all hover:-translate-y-0.5"
+                href="/kontakt#rueckruf"
+                className={`plausible-event-name=Rueckrufklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-8 text-lg font-bold text-white shadow-lg transition hover:bg-[#0F3F3C] ${focusClass}`}
               >
-                Jetzt anfragen
-                <ArrowRight className="w-5 h-5 ml-2" />
+                Kostenfreien Rückruf anfragen
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>
               <a
                 href="tel:03023593028"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
+                className={`plausible-event-name=Telefonklick inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[#134E4A]/20 bg-white px-7 text-lg font-bold text-[#134E4A] transition hover:border-[#134E4A]/50 ${focusClass}`}
               >
-                <Phone className="w-5 h-5 mr-3 text-[#144E41]" />
+                <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
                 030 235 930 28
               </a>
             </div>
 
-            <p className="font-body text-[#6B7280] text-sm mt-8 opacity-70">
-              Mo–Fr: 09:00 – 16:00 Uhr
-            </p>
+            <div className="mt-8 flex max-w-2xl items-start gap-4 rounded-2xl border border-[#134E4A]/15 bg-[#F7F6F3] p-5">
+              <CheckCircle className="mt-0.5 h-6 w-6 flex-none text-[#134E4A]" aria-hidden="true" />
+              <p className="text-base leading-relaxed text-[#4B5563]">
+                <strong className="text-[#134E4A]">Über Pflegekassen-Budget finanzierbar:</strong>{' '}
+                Bei Pflegegrad 1 bis 5 können bis zu 131 € Entlastungsbetrag monatlich genutzt
+                werden. Eine Direktabrechnung ist bei erfüllten Voraussetzungen möglich.
+              </p>
+            </div>
+
+            <ul className="mt-7 grid gap-3 text-base text-[#37474F] sm:grid-cols-2">
+              {[
+                'Persönliches Erstgespräch',
+                'Möglichst feste Bezugsperson',
+                'Kosten vor Beginn transparent',
+                'Hilfe nur nach Ihrer Zustimmung',
+              ].map((point) => (
+                <li key={point} className="flex items-center gap-2">
+                  <Check className="h-5 w-5 flex-none text-[#134E4A]" aria-hidden="true" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] border-4 border-white bg-[#F7F6F3] shadow-[0_25px_60px_-20px_rgba(19,78,74,0.35)]">
+              <Image
+                src="/images/hero_daily_moments.jpg"
+                alt="Illustration einer unterstützenden Alltagssituation zu Hause"
+                fill
+                priority
+                sizes="(max-width: 1023px) 92vw, 42vw"
+                className="object-cover"
+              />
+              <span className="absolute bottom-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-[#4B5563] backdrop-blur-sm">
+                Illustrative Darstellung
+              </span>
+            </div>
+            <Link
+              href="/ueber-uns"
+              className={`absolute -bottom-7 left-4 flex min-h-16 items-center gap-3 rounded-2xl border border-[#134E4A]/10 bg-white p-3 pr-5 shadow-xl transition hover:-translate-y-0.5 sm:left-8 ${focusClass}`}
+            >
+              <Image
+                src="/images/asiye-duman.jpeg"
+                alt="Asiye Duman, Ansprechpartnerin bei Morgenlicht"
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-xl object-cover"
+              />
+              <span className="text-left">
+                <span className="block text-xs font-medium text-[#6B7280]">Ihre Ansprechpartnerin</span>
+                <span className="block font-heading font-bold text-[#134E4A]">Asiye Duman</span>
+              </span>
+            </Link>
           </div>
         </div>
       </section>
-      {/* Sektion 7: Beratung in Ihrer Sprache – Multilingual SEO + Trust */}
-      <section className="bg-white py-16 md:py-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm">
-            <Heart className="w-4 h-4 text-[#144E41]" />
-            <span>Beratung in Ihrer Sprache</span>
-          </span>
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-            Wir verstehen Sie – auf Deutsch, Türkisch und Englisch
-          </h2>
-          <p className="font-body text-lg text-[#4B5563] leading-relaxed mb-6">
-            Interkulturelle Alltagshilfe ist für uns selbstverständlich. Wir beraten und unterstützen Sie in Ihrer Sprache – mit Respekt für Ihre Kultur, Ihre Gewohnheiten und Ihre Geschichte.
-          </p>
-          <div className="grid md:grid-cols-3 gap-4 mt-8">
-            <div className="bg-[#F7F6F3] rounded-xl p-5">
-              <div className="font-heading font-bold text-[#144E41] mb-1">Deutsch</div>
-              <p className="font-body text-sm text-[#4B5563]">Wir nehmen uns Zeit, hören zu und begleiten Sie verlässlich durch Ihren Alltag in Berlin.</p>
-            </div>
-            <div className="bg-[#F7F6F3] rounded-xl p-5" lang="tr">
-              <div className="font-heading font-bold text-[#144E41] mb-1">Türkçe</div>
-              <p className="font-body text-sm text-[#4B5563]">Kreuzberg ve Neukölln&apos;de yaşayan yaşlılar için Türkçe günlük yaşam desteği. Bakım sigortasının mevcut bütçesi üzerinden destek alınabilir.</p>
-            </div>
-            <div className="bg-[#F7F6F3] rounded-xl p-5" lang="en">
-              <div className="font-heading font-bold text-[#144E41] mb-1">English</div>
-              <p className="font-body text-sm text-[#4B5563]">Daily living support for seniors in Berlin-Kreuzberg and Neukölln. Funding through the available care-insurance budget may be possible.</p>
+
+      <section className="bg-[#134E4A] px-6 py-16 text-white md:py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#FFD54F]">So arbeiten wir</p>
+            <h2 className="mt-4 font-heading text-3xl font-bold text-white md:text-4xl">
+              Konkrete Absprachen statt großer Versprechen
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/90">
+              Vor dem ersten Einsatz klären wir Bedarf, Aufgaben, Bezugsperson, Finanzierung
+              und Grenzen. So wissen Kundinnen, Kunden und Angehörige, was vereinbart ist.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {[
+              {
+                title: 'Persönlich kennenlernen',
+                text: 'Wir hören zu und fragen nach Gewohnheiten, Sprache und gewünschter Unterstützung.',
+                icon: Heart,
+              },
+              {
+                title: 'Transparent vereinbaren',
+                text: 'Leistungsumfang, Termine, vorhandenes Budget und mögliche Zusatzkosten werden vorher besprochen.',
+                icon: HandHeart,
+              },
+              {
+                title: 'Gemeinsam anpassen',
+                text: 'Was nicht passt, wird angesprochen. Entscheidungen bleiben bei der unterstützten Person.',
+                icon: Footprints,
+              },
+            ].map((standard) => (
+              <article key={standard.title} className="rounded-2xl border border-white/15 bg-white/10 p-7">
+                <standard.icon className="h-8 w-8 text-[#FFD54F]" aria-hidden="true" />
+                <h3 className="mt-5 font-heading text-xl font-bold text-white">{standard.title}</h3>
+                <p className="mt-3 leading-relaxed text-white/85">{standard.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#134E4A]">Leistungen</p>
+            <h2 className="mt-4 font-heading text-3xl font-bold text-[#134E4A] md:text-4xl">
+              Unterstützung, die zu Ihrem Alltag passt
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-[#4B5563]">
+              Wählen Sie das Thema, zu dem Sie konkrete Informationen suchen.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <Link
+                key={service.title}
+                href={service.href}
+                className={`group flex min-h-64 flex-col rounded-2xl border border-[#134E4A]/10 bg-white p-7 shadow-[0_10px_35px_rgba(0,0,0,0.07)] transition hover:-translate-y-1 hover:border-[#134E4A]/30 ${focusClass}`}
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#134E4A] text-white transition group-hover:bg-[#FBBF24]">
+                  <service.icon className="h-6 w-6" aria-hidden="true" />
+                </span>
+                <h3 className="mt-6 font-heading text-xl font-bold text-[#134E4A]">{service.title}</h3>
+                <p className="mt-3 flex-grow leading-relaxed text-[#4B5563]">{service.description}</p>
+                <span className="mt-6 inline-flex items-center font-bold text-[#134E4A]">
+                  Mehr erfahren <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#F7F6F3] px-6 py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
+          <div className="rounded-3xl bg-white p-8 shadow-[0_10px_40px_rgba(0,0,0,0.07)] md:p-10">
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#134E4A]">Pflegekasse</p>
+            <h2 className="mt-4 font-heading text-3xl font-bold text-[#134E4A]">
+              Bis zu 131 € Entlastungsbetrag pro Monat
+            </h2>
+            <p className="mt-5 leading-relaxed text-[#4B5563]">
+              Pflegebedürftige mit Pflegegrad 1 bis 5 in häuslicher Pflege können den
+              Entlastungsbetrag für anerkannte Angebote zur Unterstützung im Alltag einsetzen.
+              Bei 35,50 € pro Stunde entsprechen 131 € rechnerisch rund 3,6 Stunden.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-[#4B5563]">
+              Maßgeblich sind das tatsächlich verfügbare Budget, die anerkannte Leistung und
+              der vereinbarte Abrechnungsweg. Zusätzliche Kosten werden vor Beginn besprochen.
+            </p>
+            <Link
+              href="/kosten"
+              className={`mt-7 inline-flex min-h-12 items-center font-bold text-[#134E4A] underline decoration-2 underline-offset-4 ${focusClass}`}
+            >
+              Kosten und Finanzierung verständlich erklärt
+              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div>
+            <h2 className="font-heading text-3xl font-bold text-[#134E4A]">In drei Schritten starten</h2>
+            <ol className="mt-8 space-y-5">
+              {[
+                ['1', 'Rückruf anfragen', 'Name und Telefonnummer genügen. Weitere Angaben sind freiwillig.'],
+                ['2', 'Bedarf und Budget klären', 'Wir besprechen Wohnort, Aufgaben, Sprache, Häufigkeit und vorhandene Unterlagen.'],
+                ['3', 'Unterstützung vereinbaren', 'Erst nach einer klaren Absprache zu Umfang, Termin und Kosten wird der Einsatz geplant.'],
+              ].map(([number, title, text]) => (
+                <li key={number} className="flex gap-4 rounded-2xl bg-white p-5">
+                  <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[#134E4A] font-bold text-white">
+                    {number}
+                  </span>
+                  <span>
+                    <strong className="block font-heading text-lg text-[#134E4A]">{title}</strong>
+                    <span className="mt-1 block text-base leading-relaxed text-[#4B5563]">{text}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-3xl bg-[#F7F6F3]">
+            <Image
+              src="/images/asiye-duman.jpeg"
+              alt="Asiye Duman, Ansprechpartnerin bei Morgenlicht Alltagshilfe"
+              fill
+              sizes="(max-width: 1023px) 80vw, 30vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#134E4A]">Persönlicher Kontakt</p>
+            <h2 className="mt-4 font-heading text-3xl font-bold text-[#134E4A] md:text-4xl">
+              Eine Ansprechpartnerin, die Ihre Situation kennt
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-[#4B5563]">
+              Asiye Duman ist Ihre Ansprechpartnerin bei Morgenlicht. Im Erstgespräch klärt sie,
+              welche Unterstützung gewünscht ist, ob der Wohnort im Einsatzgebiet liegt und wie
+              die Finanzierung aussehen kann.
+            </p>
+            <div className="mt-7 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/ueber-uns"
+                className={`inline-flex min-h-12 items-center font-bold text-[#134E4A] underline decoration-2 underline-offset-4 ${focusClass}`}
+              >
+                Morgenlicht kennenlernen
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+              </Link>
+              <a
+                href="https://www.hilfelotse-berlin.de/detail/morgenlicht-alltagshilfe-berlin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex min-h-12 items-center font-bold text-[#134E4A] underline decoration-2 underline-offset-4 ${focusClass}`}
+              >
+                Eintrag beim Berliner Hilfelotsen
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sektion 8: Local Presence – Verlinkte Bezirke (Local SEO) */}
-      <section className="bg-[#F7F6F3] py-16 md:py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="font-heading font-bold text-[#144E41] text-xs uppercase tracking-[0.1em] mb-3 block">
-            Wir sind für Sie vor Ort
-          </span>
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-            Haushaltshilfe & Alltagshilfe in Ihrem Berliner Kiez
+      <section className="bg-[#F7F6F3] px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-5xl text-center">
+          <Languages className="mx-auto h-9 w-9 text-[#134E4A]" aria-hidden="true" />
+          <h2 className="mt-5 font-heading text-3xl font-bold text-[#134E4A]">
+            Beratung auf Deutsch, Türkisch und Englisch
           </h2>
-          <p className="font-body text-[#4B5563] mb-8 max-w-2xl mx-auto leading-relaxed">
-            Wir arbeiten wohnortnah und mit festen Bezugspersonen. Wählen Sie Ihren Bezirk – wir sind in der Nähe.
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+            Sprache, Gewohnheiten und persönliche Grenzen gehören zu einer guten Unterstützung.
+            Welche Sprach- und Terminkapazität verfügbar ist, prüfen wir bei Ihrer Anfrage.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <Link
+            href="/tuerkischsprachige-alltagshilfe-berlin"
+            className={`mt-7 inline-flex min-h-12 items-center font-bold text-[#134E4A] underline decoration-2 underline-offset-4 ${focusClass}`}
+          >
+            Türkischsprachige Alltagshilfe in Berlin
+            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.15em] text-[#134E4A]">Vor Ort</p>
+          <h2 className="mt-4 font-heading text-3xl font-bold text-[#134E4A]">
+            Alltagshilfe in Kreuzberg und Neukölln
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-[#4B5563]">
+            Kurze Wege erleichtern verlässliche Einsätze. Ob die konkrete Adresse und der
+            gewünschte Termin möglich sind, klären wir persönlich.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/berlin-kreuzberg"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
+              className={`inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[#134E4A]/20 px-7 font-bold text-[#134E4A] transition hover:bg-[#F7F6F3] ${focusClass}`}
             >
-              <MapPin className="w-4 h-4" />
-              Haushaltshilfe Kreuzberg
+              <MapPin className="mr-2 h-5 w-5" aria-hidden="true" />
+              Alltagshilfe in Kreuzberg
             </Link>
             <Link
               href="/berlin-neukoelln"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-[#144E41]/20 rounded-xl font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-all shadow-sm"
+              className={`inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[#134E4A]/20 px-7 font-bold text-[#134E4A] transition hover:bg-[#F7F6F3] ${focusClass}`}
             >
-              <MapPin className="w-4 h-4" />
-              Haushaltshilfe Neukölln
+              <MapPin className="mr-2 h-5 w-5" aria-hidden="true" />
+              Alltagshilfe in Neukölln
             </Link>
           </div>
+        </div>
+      </section>
+
+      <FAQSection />
+
+      <section className="bg-white px-6 py-20 md:py-24">
+        <div className="mx-auto max-w-4xl rounded-3xl bg-[#134E4A] p-8 text-center text-white shadow-xl md:p-14">
+          <HandHeart className="mx-auto h-10 w-10 text-[#FFD54F]" aria-hidden="true" />
+          <h2 className="mt-5 font-heading text-3xl font-bold text-white md:text-4xl">
+            Welche Hilfe würde Ihren Alltag erleichtern?
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
+            Eine kurze Rückrufanfrage genügt. Wir klären Einsatzgebiet, gewünschte Unterstützung
+            und mögliche Finanzierung Schritt für Schritt.
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/kontakt#rueckruf"
+              className={`plausible-event-name=Rueckrufklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#FFD54F] px-8 text-lg font-bold text-[#134E4A] transition hover:bg-[#FFE082] ${focusClass}`}
+            >
+              Kostenfreien Rückruf anfragen
+              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+            </Link>
+            <a
+              href="tel:03023593028"
+              className="plausible-event-name=Telefonklick inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-white/40 px-8 text-lg font-bold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD54F] focus-visible:ring-offset-2 focus-visible:ring-offset-[#134E4A]"
+            >
+              <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
+              030 235 930 28
+            </a>
+          </div>
+          <p className="mt-6 text-base text-white/80">Mo–Fr: 09:00–16:00 Uhr</p>
         </div>
       </section>
     </>

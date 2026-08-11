@@ -1,19 +1,14 @@
-import type { Metadata } from 'next'
 import { serializeJsonLd } from '@/lib/security'
+import { createPageMetadata } from '@/lib/seo'
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
-export const metadata: Metadata = {
-  title: 'Kontakt: Kostenlose Beratung zur Alltagshilfe Berlin | ☎ 030 235 930 28',
+export const metadata = createPageMetadata({
+  title: 'Alltagshilfe Berlin: Rückruf anfragen | Morgenlicht',
   description:
-    'Jetzt unverbindlich anfragen: Kostenlose Beratung zu Alltagshilfe, Haushaltshilfe und Entlastungsbetrag in Berlin. Auf Deutsch, Türkisch und Englisch. Mo–Fr 09:00–16:00 Uhr.',
-  alternates: { canonical: '/kontakt' },
-  openGraph: {
-    title: 'Kontakt – Morgenlicht Alltagshilfe Berlin',
-    description: 'Kostenlose, unverbindliche Beratung auf Deutsch, Türkisch und Englisch. ☎ 030 235 930 28.',
-    url: `${SITE_URL}/kontakt`,
-  },
-}
+    'Rückruf zur Alltagshilfe in Kreuzberg und Neukölln anfragen. Name und Telefon genügen; Beratung auf Deutsch, Türkisch oder Englisch.',
+  path: '/kontakt',
+})
 
 const schema = {
   '@context': 'https://schema.org',

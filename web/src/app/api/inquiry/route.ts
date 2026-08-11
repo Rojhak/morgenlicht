@@ -4,60 +4,151 @@ import { sanitizeInput, sanitizeForSubject, validateInquiry } from '@/lib/securi
 
 const EMAIL_TO = process.env.EMAIL_TO || 'info@morgenlicht-alltagshilfe.de'
 const EMAIL_FROM = process.env.EMAIL_FROM || 'noreply@morgenlicht-alltagshilfe.de'
+const MAX_BODY_BYTES = 12_000
 
 interface InquiryData {
   name: string
   phone: string
   pflegegrad?: string
   message?: string
+  privacy: boolean
+  website?: string
+}
+
+function isJsonRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function hasInvalidStringField(
+  data: Record<string, unknown>,
+  field: string,
+  required = false,
+): boolean {
+  const value = data[field]
+  if (value === undefined || value === null) return required
+  return typeof value !== 'string'
 }
 
 export async function POST(request: NextRequest) {
+  const contentType = request.headers.get('content-type')?.toLowerCase() ?? ''
+  if (!contentType.includes('application/json')) {
+    return NextResponse.json(
+      { error: 'Die Anfrage muss als JSON gesendet werden.' },
+      { status: 415 },
+    )
+  }
+
+  const contentLength = request.headers.get('content-length')
+  if (contentLength) {
+    const declaredBytes = Number(contentLength)
+    if (Number.isFinite(declaredBytes) && declaredBytes > MAX_BODY_BYTES) {
+      return NextResponse.json(
+        { error: 'Die Anfrage ist zu groß.' },
+        { status: 413 },
+      )
+    }
+  }
+
+  let rawBody: string
   try {
-    const rawData = await request.json()
+    rawBody = await request.text()
+  } catch {
+    return NextResponse.json(
+      { error: 'Die Anfrage konnte nicht gelesen werden.' },
+      { status: 400 },
+    )
+  }
 
-    // 🛡️ Security: Strict Input Filtering (Mass Assignment Prevention)
-    // Only extract expected fields, discarding any injected properties
-    const data: InquiryData = {
-      name: rawData?.name,
-      phone: rawData?.phone,
-      pflegegrad: rawData?.pflegegrad,
-      message: rawData?.message
-    }
+  if (!rawBody || new TextEncoder().encode(rawBody).byteLength > MAX_BODY_BYTES) {
+    return NextResponse.json(
+      { error: rawBody ? 'Die Anfrage ist zu groß.' : 'Die Anfrage ist leer.' },
+      { status: rawBody ? 413 : 400 },
+    )
+  }
 
-    // Validate inputs
-    const validationError = validateInquiry(data)
-    if (validationError) {
-      return NextResponse.json(
-        { error: validationError },
-        { status: 400 }
-      )
-    }
+  let parsedBody: unknown
+  try {
+    parsedBody = JSON.parse(rawBody)
+  } catch {
+    return NextResponse.json(
+      { error: 'Ungültige JSON-Daten.' },
+      { status: 400 },
+    )
+  }
 
-    const sanitizedName = sanitizeInput(data.name)
-    const sanitizedPhone = sanitizeInput(data.phone)
-    const sanitizedPflegegrad = data.pflegegrad ? sanitizeInput(data.pflegegrad) : undefined
-    const sanitizedMessage = data.message ? sanitizeInput(data.message) : undefined
-    const subjectName = sanitizeForSubject(data.name)
+  if (!isJsonRecord(parsedBody)) {
+    return NextResponse.json(
+      { error: 'Ungültige Anfragedaten.' },
+      { status: 400 },
+    )
+  }
 
-    const apiKey = process.env.RESEND_API_KEY
-    if (!apiKey) {
-      console.error('RESEND_API_KEY is not configured')
-      return NextResponse.json(
-        { error: 'E-Mail-Service nicht konfiguriert' },
-        { status: 500 }
-      )
-    }
+  if (
+    hasInvalidStringField(parsedBody, 'name', true) ||
+    hasInvalidStringField(parsedBody, 'phone', true) ||
+    hasInvalidStringField(parsedBody, 'pflegegrad') ||
+    hasInvalidStringField(parsedBody, 'message') ||
+    hasInvalidStringField(parsedBody, 'website')
+  ) {
+    return NextResponse.json(
+      { error: 'Ungültige Feldwerte.' },
+      { status: 400 },
+    )
+  }
 
-    const resend = new Resend(apiKey)
+  const data: InquiryData = {
+    name: parsedBody.name as string,
+    phone: parsedBody.phone as string,
+    pflegegrad: parsedBody.pflegegrad as string | undefined,
+    message: parsedBody.message as string | undefined,
+    privacy: parsedBody.privacy === true,
+    website: parsedBody.website as string | undefined,
+  }
 
-    const timestamp = new Date().toLocaleString('de-DE', {
-      dateStyle: 'full',
-      timeStyle: 'short',
-    })
+  // Bots sollen keinen Hinweis erhalten, dass das Honeypot-Feld gegriffen hat.
+  if (data.website?.trim()) {
+    return NextResponse.json({ success: true })
+  }
 
-    // Send notification email to staff
-    await resend.emails.send({
+  if (!data.privacy) {
+    return NextResponse.json(
+      { error: 'Bitte bestätigen Sie den Datenschutzhinweis.' },
+      { status: 400 },
+    )
+  }
+
+  const validationError = validateInquiry(data)
+  if (validationError) {
+    return NextResponse.json(
+      { error: validationError },
+      { status: 400 },
+    )
+  }
+
+  const sanitizedName = sanitizeInput(data.name)
+  const sanitizedPhone = sanitizeInput(data.phone)
+  const sanitizedPflegegrad = data.pflegegrad ? sanitizeInput(data.pflegegrad) : undefined
+  const sanitizedMessage = data.message ? sanitizeInput(data.message) : undefined
+  const subjectName = sanitizeForSubject(data.name)
+
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    console.error('RESEND_API_KEY is not configured')
+    return NextResponse.json(
+      { error: 'Der Anfrageservice ist derzeit nicht verfügbar.' },
+      { status: 503 },
+    )
+  }
+
+  const resend = new Resend(apiKey)
+  const timestamp = new Date().toLocaleString('de-DE', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+    timeZone: 'Europe/Berlin',
+  })
+
+  try {
+    const result = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       subject: `Neue Anfrage von ${subjectName}`,
@@ -80,7 +171,7 @@ export async function POST(request: NextRequest) {
           ` : ''}
           ${sanitizedMessage ? `
           <tr>
-            <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; vertical-align: top;">Nachricht:</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; vertical-align: top;">Anliegen:</td>
             <td style="padding: 8px; border-bottom: 1px solid #eee; white-space: pre-wrap;">${sanitizedMessage}</td>
           </tr>
           ` : ''}
@@ -92,12 +183,20 @@ export async function POST(request: NextRequest) {
       `,
     })
 
-    return NextResponse.json({ success: true })
+    if (result.error) {
+      console.error('Resend rejected inquiry email', result.error)
+      return NextResponse.json(
+        { error: 'Ihre Anfrage konnte gerade nicht gesendet werden.' },
+        { status: 502 },
+      )
+    }
   } catch (error) {
-    console.error('Error sending inquiry email:', error)
+    console.error('Resend inquiry email failed', error)
     return NextResponse.json(
-      { error: 'Fehler beim Senden der Anfrage' },
-      { status: 500 }
+      { error: 'Ihre Anfrage konnte gerade nicht gesendet werden.' },
+      { status: 502 },
     )
   }
+
+  return NextResponse.json({ success: true })
 }

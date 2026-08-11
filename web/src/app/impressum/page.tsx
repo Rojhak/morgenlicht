@@ -7,7 +7,7 @@ import { Scale, MapPin, Mail, Phone, FileText, ShieldAlert } from 'lucide-react'
 
 export default function ImpressumPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-20 pb-10 px-4 bg-white overflow-hidden">
         {/* Decorative elements */}
@@ -59,7 +59,11 @@ export default function ImpressumPage() {
                     {/* Location Row */}
                     <div className="flex items-start">
                       <div className="text-lg text-[#333333] font-body -mt-0.5">
-                        <p>Urbanstraße 71, 10967 Berlin</p>
+                        <p>
+                          <span className="font-bold text-[#144E41] mr-1">Geschäftsanschrift:</span>
+                          Urbanstraße 71, 10967 Berlin
+                        </p>
+                        <p className="mt-1">Kein Kundenempfang</p>
                       </div>
                     </div>
 
@@ -70,7 +74,7 @@ export default function ImpressumPage() {
                           <span className="font-bold text-[#144E41] mr-1">Telefon:</span> 030 235 930 28
                         </p>
                         <p>
-                          <span className="font-bold text-[#144E41] mr-1">Fax:</span> 030 544 533 139
+                          <span className="font-bold text-[#144E41] mr-1">Fax:</span> 030 530 59 389
                         </p>
                         <p>
                           <span className="font-bold text-[#144E41] mr-1">E-Mail:</span> info@morgenlicht-alltagshilfe.de
@@ -151,6 +155,6 @@ export default function ImpressumPage() {
           </ScrollRevealSection>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

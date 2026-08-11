@@ -72,15 +72,6 @@ export const blogPosts: BlogPostSummary[] = [
     tags: ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse'],
   },
   {
-    slug: 'entlastungsbetrag-richtig-nutzen',
-    title: 'Entlastungsbetrag richtig nutzen: So holen Sie das Maximum heraus',
-    excerpt:
-      'Der Entlastungsbetrag von 131 € monatlich steht Menschen mit Pflegegrad zu. Wir zeigen, wie Sie ihn im Alltag sinnvoll einsetzen.',
-    date: '2026-01-10',
-    modified: '2026-05-08',
-    tags: ['rechtliches', 'pflege-tipps'],
-  },
-  {
     slug: 'pflegegrad-beantragen-schritt-fuer-schritt',
     title: 'Pflegegrad beantragen: Schritt für Schritt zum Erfolg',
     excerpt:

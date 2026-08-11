@@ -15,10 +15,10 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
-    "next": "15.5.12",
+    "next": "16.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "resend": "^6.7.0",
+    "resend": "^6.19.0",
     "tailwind-merge": "^3.4.0",
     "zustand": "^5.0.10"
   },
@@ -30,7 +30,7 @@
     "@types/react-dom": "^18",
     "axe-playwright": "^2.2.2",
     "eslint": "^9",
-    "eslint-config-next": "15.1.9",
+    "eslint-config-next": "16.3.0",
     "puppeteer": "^24.35.0",
     "tailwindcss": "^4",
     "typescript": "^5"

@@ -6,7 +6,7 @@ import { Accessibility, Phone, Mail, Heart } from 'lucide-react'
 
 export default function BarrierefreiheitPage() {
   return (
-    <main className="min-h-screen bg-[#F7F6F3]">
+    <div className="min-h-screen bg-[#F7F6F3]">
       {/* Hero Section */}
       <section className="relative pt-16 pb-8 px-4 bg-white overflow-hidden border-b border-[#144E41]/5">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -83,6 +83,6 @@ export default function BarrierefreiheitPage() {
           </ScrollRevealSection>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

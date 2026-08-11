@@ -1,19 +1,14 @@
-import type { Metadata } from 'next'
 import { serializeJsonLd } from '@/lib/security'
+import { createPageMetadata } from '@/lib/seo'
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
-export const metadata: Metadata = {
-  title: 'Über Morgenlicht: Interkulturelle Alltagshilfe Berlin | § 45a SGB XI',
+export const metadata = createPageMetadata({
+  title: 'Über Morgenlicht Alltagshilfe Berlin',
   description:
-    'Morgenlicht ist Ihre herzliche Alltagshilfe in Berlin-Kreuzberg. Anerkannt nach § 45a SGB XI, interkulturell, mehrsprachig (Deutsch, Türkisch, Englisch). Ihre Ansprechpartnerin: Asiye Duman.',
-  alternates: { canonical: '/ueber-uns' },
-  openGraph: {
-    title: 'Über Morgenlicht – Herzliche Alltagshilfe in Berlin',
-    description: 'Eine feste Ansprechpartnerin, interkulturell sensibel, mehrsprachig. Lernen Sie das Team hinter Morgenlicht kennen.',
-    url: `${SITE_URL}/ueber-uns`,
-  },
-}
+    'Morgenlicht und Ansprechpartnerin Asiye Duman kennenlernen: anerkannte Alltagshilfe in Kreuzberg und Neukölln, mehrsprachig und persönlich.',
+  path: '/ueber-uns',
+})
 
 const schema = {
   '@context': 'https://schema.org',

@@ -12,7 +12,7 @@ const steps = [
     title: 'Was ist ein Pflegegrad?',
     content: `Der Pflegegrad bestimmt, welche Leistungen Ihnen von der Pflegekasse zustehen. Es gibt fünf Pflegegrade (1-5), die den Grad der Beeinträchtigung der Selbstständigkeit widerspiegeln.
 
-Je höher der Pflegegrad, desto mehr Unterstützung erhalten Sie. Bereits ab Pflegegrad 1 haben Sie Anspruch auf den Entlastungsbetrag von 125€ monatlich.`,
+Je höher der Pflegegrad, desto mehr Unterstützung erhalten Sie. Bereits ab Pflegegrad 1 haben Sie Anspruch auf den Entlastungsbetrag von bis zu 131 € monatlich.`,
     tips: [
       'Pflegegrad 1: Geringe Beeinträchtigung',
       'Pflegegrad 2-3: Erhebliche bis schwere Beeinträchtigung',
@@ -33,7 +33,7 @@ Je höher der Pflegegrad, desto mehr Unterstützung erhalten Sie. Bereits ab Pfl
 • Gestaltung des Alltagslebens`,
     tips: [
       'Der Gutachter kommt zu Ihnen nach Hause',
-      'Die Begutachtung dauert ca. 1 Stunde',
+      'Die Dauer richtet sich nach Ihrer individuellen Situation',
       'Angehörige können dabei sein',
     ]
   },
@@ -41,7 +41,7 @@ Je höher der Pflegegrad, desto mehr Unterstützung erhalten Sie. Bereits ab Pfl
     id: 'expect',
     icon: Calendar,
     title: 'Was Sie erwartet',
-    content: `Nach Ihrem Antrag bei der Pflegekasse wird innerhalb von 25 Arbeitstagen ein Termin für die Begutachtung vereinbart. Der Gutachter stellt Fragen zu Ihrem Alltag und beobachtet, wie selbstständig Sie verschiedene Aktivitäten durchführen können.
+    content: `Nach Eingang Ihres Antrags gilt für die Pflegekasse grundsätzlich eine Bearbeitungsfrist von 25 Arbeitstagen. Diese Frist betrifft die Entscheidung über den Antrag, nicht die Terminvergabe. Der Begutachtungstermin wird individuell vereinbart. In bestimmten Fällen gelten kürzere Fristen. Der Gutachter stellt Fragen zu Ihrem Alltag und beobachtet, wie selbstständig Sie verschiedene Aktivitäten durchführen können.
 
 Seien Sie ehrlich über Ihre Einschränkungen – der Gutachter ist dafür ausgebildet, Ihre Situation fair zu bewerten.`,
     tips: [
@@ -78,7 +78,7 @@ Notieren Sie auch typische Schwierigkeiten im Alltag und wann Sie Hilfe benötig
 • Wir helfen beim Ausfüllen des Antrags
 • Wir bereiten Sie auf den Gutachterbesuch vor
 • Wir begleiten Sie auf Wunsch beim Termin
-• Nach der Einstufung übernehmen wir die Abrechnung mit Ihrer Pflegekasse
+• Nach der Einstufung klären wir mit Ihnen, ob eine Direktabrechnung mit Ihrer Pflegekasse vereinbart werden kann
 
 Selbst wenn Sie noch keinen Pflegegrad haben, können wir gemeinsam herausfinden, ob ein Antrag für Sie sinnvoll ist.`,
     tips: [

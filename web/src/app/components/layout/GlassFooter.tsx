@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Heart, ArrowUp, Clock } from 'lucide-react'
 
-const PHONE = '069 12345678'
+const PHONE = '030 235 930 28'
 const EMAIL = 'info@morgenlicht-alltagshilfe.de'
 const SERVICE_AREA = 'Berlin'
 
@@ -40,12 +40,12 @@ export function GlassFooter() {
           {/* Brand Column */}
           <div className="flex flex-col items-start">
             <Link href="/" className="inline-flex items-center gap-4 mb-6 group focus:outline-none focus:ring-4 focus:ring-[#FBBF24] rounded-lg p-1">
-              <img
-                src="/trans_logo.svg"
+              <Image
+                src="/morgen.png"
                 alt="Morgenlicht Logo"
                 className="w-12 h-12 flex-shrink-0 bg-white/10 rounded-full p-1"
-                width="48"
-                height="48"
+                width={48}
+                height={48}
               />
               <div className="flex flex-col justify-center">
                 <span className="text-2xl font-bold font-heading uppercase tracking-wide text-white leading-none mb-0.5">

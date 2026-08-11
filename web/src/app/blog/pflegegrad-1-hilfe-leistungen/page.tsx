@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Calendar, CheckCircle, ClipboardList, Euro, HelpCircle, Home } from 'lucide-react'
 import { serializeJsonLd } from '@/lib/security'
@@ -106,11 +107,13 @@ export default function PflegegradEinsPage() {
         <div className="px-4 py-10 md:py-14">
           <div className="max-w-4xl mx-auto grid lg:grid-cols-[1fr_280px] gap-10">
             <div className="min-w-0">
-              <div className="rounded-2xl overflow-hidden mb-8 bg-[#134E4A] shadow-sm">
-                <img
-                  src="/images/hero_helping_hand.png"
-                  alt="Seniorin erhält Unterstützung im Alltag bei Pflegegrad 1"
-                  className="w-full h-56 md:h-80 object-cover opacity-95"
+              <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-8 bg-[#134E4A] shadow-sm">
+                <Image
+                  src="/images/hero_helping_hand.jpg"
+                  alt="Illustration: persönliche Unterstützung im Alltag"
+                  fill
+                  sizes="(max-width: 1023px) calc(100vw - 2rem), 760px"
+                  className="object-cover opacity-95"
                 />
               </div>
 

@@ -80,19 +80,19 @@ export default function UeberUnsPage() {
 
               <div className="space-y-6 text-gray-600 font-body leading-relaxed">
                 <p>
-                  Hinter der Gründung von Morgenlicht steht meine <strong className="text-[#134E4A]">langjährige Erfahrung im sozialen Bereich</strong>. Über viele Jahre hinweg habe ich Menschen in unterschiedlichsten Lebenslagen beraten und unterstützt.
+                  Mit Morgenlicht möchte ich ältere und pflegebedürftige Menschen dabei unterstützen, ihren Alltag zu Hause möglichst selbstbestimmt zu gestalten.
                 </p>
 
                 <p>
-                  Dabei habe ich eines gelernt: <strong className="text-[#134E4A]">Der Mensch muss immer im Mittelpunkt stehen.</strong>
+                  Dabei gilt für mich: <strong className="text-[#134E4A]">Der Mensch muss im Mittelpunkt stehen.</strong>
                 </p>
 
                 <p>
-                  Den Impuls für die Gründung gaben Beobachtungen aus meinem eigenen Alltag im Kiez. Ich habe gesehen, wie schwer es für meine Nachbarin war, die schweren Einkaufstaschen allein bis in den 4. Stock zu tragen. Ich habe erlebt, wie hilflos man sich nach einer Operation fühlen kann, wenn man plötzlich Hilfe bei der einfachsten Essenszubereitung braucht.
+                  Oft sind es ganz praktische Dinge, die plötzlich schwerfallen: Einkäufe tragen, die Wohnung in Ordnung halten oder einen Termin allein bewältigen. Angehörige möchten helfen, stoßen aber selbst an zeitliche Grenzen.
                 </p>
 
                 <p>
-                  Oft möchten die Angehörigen helfen, stoßen aber selbst an ihre Grenzen. Genau hier setzen wir an. Mein Ziel war es, eine Unterstützung zu schaffen, die nicht nur eine "Dienstleistung" ist, sondern eine <strong className="text-[#134E4A]">würdevolle Begleitung auf Augenhöhe</strong>.
+                  Genau hier setzt Morgenlicht an: mit klar vereinbarter Unterstützung und einer <strong className="text-[#134E4A]">würdevollen Begleitung auf Augenhöhe</strong>.
                 </p>
               </div>
             </div>
@@ -136,17 +136,17 @@ export default function UeberUnsPage() {
               {
                 icon: Heart,
                 title: 'Individuelle Hilfe',
-                text: 'Wir schauen genau hin: Was erleichtert Ihren Alltag wirklich? Bei uns gibt es keine Lösungen von der Stange, sondern Unterstützung, die exakt zu Ihrem Leben passt.'
+                text: 'Wir fragen nach: Was erleichtert Ihren Alltag? Aufgaben, Wünsche und Grenzen werden im Erstgespräch gemeinsam vereinbart.'
               },
               {
                 icon: ShieldCheck,
                 title: 'Professionalität & Respekt',
-                text: 'Würde und Respekt sind unser Fundament. Als anerkannter Anbieter nach § 45a SGB XI garantieren wir Ihnen höchste Professionalität, absolute Zuverlässigkeit und eine Begleitung auf Augenhöhe.'
+                text: 'Morgenlicht ist als Angebot nach § 45a SGB XI anerkannt. Würde, Respekt, transparente Absprachen und die Zustimmung der unterstützten Person sind unser Maßstab.'
               },
               {
                 icon: Zap,
-                title: 'Kostenlos & Einfach',
-                text: 'Wir übernehmen die gesamte Bürokratie für Sie und rechnen direkt mit der Pflegekasse ab. So bleibt unsere Hilfe für Sie mit Pflegegrad 100% kostenlos.'
+                title: 'Transparent & Einfach',
+                text: 'Wir unterstützen bei den notwendigen Unterlagen. Wenn Pflegegrad, Budget und Unterlagen vorliegen, kann eine Direktabrechnung vereinbart und die Hilfe im verfügbaren Budget ohne Eigenanteil genutzt werden.'
               }
             ].map((promise, idx) => {
               const Icon = promise.icon
@@ -172,10 +172,10 @@ export default function UeberUnsPage() {
 
           <ScrollRevealSection delay={500} className="max-w-3xl mx-auto mt-16">
             <p className="text-base md:text-lg text-gray-600 font-body leading-relaxed mb-6">
-              Bei Morgenlicht kombinieren wir fachliche Erfahrung aus der sozialen Arbeit mit echter, <span className="text-[#134E4A] font-semibold">menschlicher Wärme</span>. Wir wissen aus Erfahrung: Es kostet oft Überwindung, Hilfe anzunehmen und jemanden Fremden in die eigene Wohnung zu lassen.
+              Bei Morgenlicht verbinden wir klare Absprachen mit <span className="text-[#134E4A] font-semibold">menschlicher Wärme</span>. Wir wissen: Es kann Überwindung kosten, Hilfe anzunehmen und eine zunächst fremde Person in die eigene Wohnung zu lassen.
             </p>
             <p className="text-base md:text-lg text-gray-600 font-body leading-relaxed">
-              Genau deshalb setzen wir auf <span className="text-[#134E4A] font-semibold">feste, verlässliche Bezugspersonen</span>. Wir nehmen uns die Zeit, Vertrauen aufzubauen, zuzuhören und uns ganz auf Ihre persönlichen Bedürfnisse einzustellen. Wir sind nicht nur eine Hilfe im Haushalt – wir sind Menschen, die gerne für Sie da sind.
+              Genau deshalb planen wir mit <span className="text-[#134E4A] font-semibold">möglichst festen Bezugspersonen</span>. Wir nehmen uns Zeit, zuzuhören und die vereinbarte Unterstützung an Ihre persönlichen Bedürfnisse anzupassen.
             </p>
           </ScrollRevealSection>
         </div>
@@ -192,7 +192,7 @@ export default function UeberUnsPage() {
               Anerkannter Anbieter nach § 45a SGB XI
             </h3>
             <p className="text-base font-body text-gray-600 max-w-lg mx-auto leading-relaxed">
-              Morgenlicht Alltagshilfe ist als anerkannter Anbieter zugelassen. Ihre Pflegekasse übernimmt die Kosten im Rahmen des Entlastungsbetrags – <span className="font-bold text-[#134E4A]">100% für Sie kostenlos</span>.
+              Morgenlicht Alltagshilfe ist als Anbieter nach § 45a SGB XI anerkannt. Der Entlastungsbetrag kann für unsere anerkannten Leistungen eingesetzt werden. <span className="font-bold text-[#134E4A]">Die Voraussetzungen und mögliche Kosten außerhalb des Budgets klären wir vor Beginn.</span>
             </p>
           </div>
         </div>

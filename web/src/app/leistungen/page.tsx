@@ -116,7 +116,7 @@ export default function LeistungenPage() {
             Unsere 5 Leistungen
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Individuelle Unterstützung für Ihren Alltag – <span className="font-semibold text-[#134E4A]">100% kostenfrei</span> im Rahmen Ihres 131€-Budgets.
+            Individuelle Unterstützung für Ihren Alltag – im verfügbaren 131-€-Budget kann die Hilfe <span className="font-semibold text-[#134E4A]">ohne Eigenanteil</span> möglich sein.
           </p>
         </div>
       </section>
@@ -239,15 +239,15 @@ export default function LeistungenPage() {
             Fragen zu unseren Leistungen?
           </h2>
           <p className="text-xl font-body text-[#6B7280] mb-10 max-w-2xl mx-auto leading-relaxed">
-            Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
+            Im kostenfreien Erstkontakt klären wir unverbindlich, welche Unterstützung und Finanzierung zu Ihrer Situation passen könnten.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
-              href="/kontakt"
+              href="/kontakt#rueckruf"
               className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
             >
-              Jetzt anfragen
+              Kostenfreien Rückruf anfragen
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <a

@@ -1,19 +1,14 @@
-import type { Metadata } from 'next'
 import { serializeJsonLd } from '@/lib/security'
+import { createPageMetadata } from '@/lib/seo'
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
-export const metadata: Metadata = {
-  title: 'Häufige Fragen zur Alltagshilfe: Kosten, Pflegegrad & Ablauf',
+export const metadata = createPageMetadata({
+  title: 'Fragen zu Alltagshilfe & Pflegekasse | Morgenlicht',
   description:
-    'Antworten auf Ihre Fragen: Was kostet die Alltagshilfe? Wie funktioniert der 131 € Entlastungsbetrag? In welchen Bezirken ist Morgenlicht tätig? Alles Wichtige auf einen Blick.',
-  alternates: { canonical: '/fragen' },
-  openGraph: {
-    title: 'FAQ – Morgenlicht Alltagshilfe Berlin',
-    description: 'Alle Antworten zu Kosten, Pflegegrad, Entlastungsbetrag und Ablauf der Alltagshilfe in Berlin.',
-    url: `${SITE_URL}/fragen`,
-  },
-}
+    'Antworten zu Pflegegrad, 131 € Entlastungsbetrag, Kosten, Abrechnung und Ablauf der Alltagshilfe in Berlin.',
+  path: '/fragen',
+})
 
 const schema = {
   '@context': 'https://schema.org',

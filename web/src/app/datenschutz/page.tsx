@@ -7,7 +7,7 @@ import { ShieldCheck } from 'lucide-react'
 
 export default function DatenschutzPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-20 pb-10 px-4 bg-white overflow-hidden">
         {/* Decorative elements */}
@@ -117,10 +117,11 @@ export default function DatenschutzPage() {
                     <div className="bg-[#FAF9F6] p-8 rounded-xl border border-[#144E41]/10 shadow-sm text-[#144E41]">
                       <p className="text-xl font-bold mb-3 font-heading">Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)</p>
                       <p className="text-lg font-body">3. Hof, Aufgang links, 1. OG</p>
-                      <p className="text-lg font-body">Urbanstraße 71, 10967 Berlin</p>
+                      <p className="text-lg font-body">Geschäftsanschrift: Urbanstraße 71, 10967 Berlin</p>
+                      <p className="text-lg font-body">Kein Kundenempfang</p>
                       <div className="mt-6 pt-6 border-t border-[#144E41]/10 flex flex-col gap-2 text-base font-medium">
                         <p><span className="font-bold">Telefon:</span> 030 235 930 28</p>
-                        <p><span className="font-bold">Fax:</span> 030 544 533 139</p>
+                        <p><span className="font-bold">Fax:</span> 030 530 59 389</p>
                         <p><span className="font-bold">E-Mail:</span> info@morgenlicht-alltagshilfe.de</p>
                       </div>
                     </div>
@@ -139,6 +140,23 @@ export default function DatenschutzPage() {
                       <p className="text-lg font-body leading-relaxed italic border-l-4 border-[#144E41]/20 pl-4">
                         Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist.
                       </p>
+
+                      <div className="space-y-3">
+                        <h4 className="text-lg font-bold text-[#144E41] font-heading">Technischer E-Mail-Versand über Resend</h4>
+                        <p className="text-lg font-body leading-relaxed">
+                          Für den technischen Versand Ihrer Formularanfrage an Morgenlicht nutzen wir den Dienst Resend der Plus Five Five, Inc., 2261 Market Street #5039, San Francisco, CA 94114, USA. Dabei werden Name, Telefonnummer und der freiwillige Nachrichtentext an Resend übermittelt, damit die Anfrage als E-Mail zugestellt werden kann. Eine Verarbeitung in den USA ist möglich. Resend stellt ein Data Processing Addendum mit Standardvertragsklauseln bereit und verweist auf seine Teilnahme am EU-US Data Privacy Framework.
+                        </p>
+                        <p className="text-base font-body leading-relaxed">
+                          Weitere Informationen:{' '}
+                          <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="font-bold text-[#144E41] underline underline-offset-2">
+                            Datenschutzerklärung von Resend
+                          </a>{' '}
+                          und{' '}
+                          <a href="https://resend.com/legal/dpa" target="_blank" rel="noopener noreferrer" className="font-bold text-[#144E41] underline underline-offset-2">
+                            Data Processing Addendum
+                          </a>.
+                        </p>
+                      </div>
 
                       <div className="bg-[#FAF9F6] p-8 rounded-xl border border-[#144E41]/10">
                         <p className="text-lg font-bold text-[#144E41] mb-4 font-heading">Welche Daten werden erfasst?</p>
@@ -194,7 +212,7 @@ export default function DatenschutzPage() {
                   <div className="space-y-4">
                     <h3 className="text-xl font-bold font-heading text-[#144E41]">Plausible Analytics</h3>
                     <p className="text-lg font-body leading-relaxed">
-                      Diese Website nutzt Plausible Analytics, einen datenschutzfreundlichen Webanalysedienst. Plausible verwendet keine Cookies und speichert keine personenbezogenen Daten. Die Analyse erfolgt vollständig anonymisiert.
+                      Sofern die Analysefunktion aktiviert ist, nutzt diese Website Plausible Analytics. Plausible verwendet keine Cookies. Morgenlicht erfasst dabei nur zusammengefasste Seitenaufrufe sowie nicht personenbezogene Ereignisse wie Telefon-, WhatsApp- oder Formular-Klicks; Namen, Telefonnummern und Nachrichtentexte werden nicht an Plausible übermittelt.
                     </p>
                     <p className="text-lg font-body leading-relaxed border-l-4 border-[#144E41]/20 pl-4 italic">
                       Weitere Informationen finden Sie in der Datenschutzerklärung von Plausible:
@@ -252,6 +270,6 @@ export default function DatenschutzPage() {
           </ScrollRevealSection>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

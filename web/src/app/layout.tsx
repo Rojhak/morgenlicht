@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Navbar, Footer } from './components/layout'
+import { MobileContactBar } from './components/layout/MobileContactBar'
+import { PlausibleAnalytics } from './components/analytics/PlausibleAnalytics'
 import { serializeJsonLd } from '@/lib/security'
 
-// Montserrat - Modern, geometrische Schrift für Überschriften und Logo
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
@@ -12,7 +13,6 @@ const montserrat = Montserrat({
   weight: ['400', '500', '600', '700'],
 })
 
-// Inter - Maximale Lesbarkeit für Fließtext
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -21,31 +21,16 @@ const inter = Inter({
 })
 
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
+const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Haushaltshilfe Berlin | Kreuzberg & Neukölln',
-    template: '%s | Morgenlicht Berlin',
+    default: 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht',
+    template: '%s | Morgenlicht',
   },
-  description: 'Anerkannte Haushaltshilfe und Alltagshilfe in Berlin für Senioren und Menschen mit Pflegegrad. Unterstützung in Kreuzberg und Neukölln.',
-  keywords: [
-    'Alltagshilfe Berlin', 'Haushaltshilfe Berlin', 'Haushaltshilfe Pflegekasse Berlin',
-    'Seniorenbetreuung Berlin', 'Haushaltshilfe Kreuzberg', 'Haushaltshilfe Neukölln',
-    'Alltagshilfe Neukölln', 'Alltagshilfe Kreuzberg',
-    'Entlastungsbetrag Berlin', '131 Euro Entlastungsbetrag',
-    'Pflegegrad 1 Haushaltshilfe', 'Pflegegrad Kostenübernahme', '§ 45a SGB XI Berlin',
-    'Angebote zur Unterstützung im Alltag Berlin', 'anerkannte Alltagshilfe Berlin',
-    'Alltagshilfe türkisch Berlin', 'Haushaltshilfe türkisch Berlin',
-    'türkischsprachige Seniorenbetreuung', 'interkulturelle Alltagshilfe Berlin',
-    'Yaşlı bakım Berlin', 'Ev yardımı Berlin', 'Türkçe bakım danışmanlığı Berlin',
-    'Entlastung pflegende Angehörige', 'Betreuungsdienst Berlin',
-    'Hauswirtschaftshilfe Berlin', 'Seniorenhilfe Berlin', 'Einkaufshilfe Senioren Berlin',
-    'Begleitung Arzttermin Berlin', 'Demenzbetreuung Berlin',
-    'würdevolle Seniorenbetreuung Berlin', 'persönliche Alltagshilfe Berlin',
-    'Verhinderungspflege Berlin', 'Pflegesachleistung umwandeln',
-    'Morgenlicht Alltagshilfe',
-  ],
+  description:
+    'Anerkannte Alltagshilfe und Haushaltshilfe mit Pflegegrad in Berlin-Kreuzberg und Neukölln. Persönlich auf Deutsch, Türkisch und Englisch.',
   authors: [{ name: 'Morgenlicht Alltagshilfe' }],
   icons: {
     icon: [
@@ -54,13 +39,6 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/apple-icon.png', type: 'image/png', sizes: '180x180' }],
     shortcut: ['/favicon.ico'],
-  },
-  alternates: {
-    canonical: '/',
-    languages: {
-      'de-DE': SITE_URL,
-      'x-default': SITE_URL,
-    },
   },
   robots: {
     index: true,
@@ -74,27 +52,31 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Haushaltshilfe und Alltagshilfe Berlin | Morgenlicht',
-    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg und Neukölln.',
+    title: 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht',
+    description:
+      'Persönliche Unterstützung bei Haushalt, Einkauf und Begleitung in Kreuzberg und Neukölln.',
     type: 'website',
     locale: 'de_DE',
-    url: `${SITE_URL}/`,
     siteName: 'Morgenlicht Alltagshilfe',
     images: [
       {
-        url: '/images/hero_helping_hand.png',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Morgenlicht Alltagshilfe Berlin – Alltagshelferin hält die Hand einer Seniorin',
+        alt: 'Morgenlicht Alltagshilfe Berlin',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Haushaltshilfe und Alltagshilfe Berlin | Morgenlicht',
-    description: 'Anerkannte Unterstützung bei Haushalt, Einkauf, Begleitung und Alltag in Kreuzberg und Neukölln.',
-    images: ['/images/hero_helping_hand.png'],
+    title: 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht',
+    description:
+      'Persönliche Unterstützung bei Haushalt, Einkauf und Begleitung in Kreuzberg und Neukölln.',
+    images: ['/opengraph-image'],
   },
+  verification: GOOGLE_SITE_VERIFICATION
+    ? { google: GOOGLE_SITE_VERIFICATION }
+    : undefined,
 }
 
 const structuredData = {
@@ -104,80 +86,53 @@ const structuredData = {
       '@type': 'LocalBusiness',
       '@id': `${SITE_URL}/#business`,
       name: 'Morgenlicht Alltagshilfe Berlin',
-      alternateName: ['Morgenlicht Alltagshilfe', 'Morgenlicht Berlin'],
+      legalName: 'Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)',
       description:
-        'Anerkannte Alltagshilfe und Haushaltshilfe für Senioren in Berlin. Unterstützung bei Haushalt, Einkauf, Begleitung und Alltagsorganisation. Beratung auf Deutsch, Türkisch und Englisch.',
+        'Nach Berliner Landesrecht anerkanntes Angebot zur Unterstützung im Alltag. Mobiler Service in Berlin-Kreuzberg und Neukölln auf Deutsch, Türkisch und Englisch; kein Kundenempfang an der Geschäftsanschrift.',
       url: SITE_URL,
       telephone: '+493023593028',
+      faxNumber: '+493053059389',
       email: 'info@morgenlicht-alltagshilfe.de',
-      image: `${SITE_URL}/images/hero_helping_hand.png`,
-      logo: `${SITE_URL}/trans_logo.svg`,
-      priceRange: '0€ über Pflegekasse · 35,50€/Std. privat',
-      slogan: 'Herzlich. Würdevoll. Verlässlich.',
+      image: `${SITE_URL}/images/hero_helping_hand.jpg`,
+      logo: `${SITE_URL}/morgen.png`,
+      priceRange: '35,50 €/Std.',
       address: {
         '@type': 'PostalAddress',
+        streetAddress: 'Urbanstraße 71',
+        postalCode: '10967',
         addressLocality: 'Berlin',
         addressRegion: 'Berlin',
         addressCountry: 'DE',
       },
       areaServed: [
-        { '@type': 'City', name: 'Berlin' },
         { '@type': 'AdministrativeArea', name: 'Berlin-Kreuzberg' },
         { '@type': 'AdministrativeArea', name: 'Berlin-Neukölln' },
       ],
       knowsLanguage: ['de', 'tr', 'en'],
-      availableLanguage: ['German', 'Turkish', 'English'],
-      openingHoursSpecification: [{
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '16:00',
-      }],
+      sameAs: [
+        'https://www.hilfelotse-berlin.de/detail/morgenlicht-alltagshilfe-berlin',
+      ],
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '16:00',
+        },
+      ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Alltagshilfe-Leistungen',
+        name: 'Angebote zur Unterstützung im Alltag',
         itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Haushaltshilfe für Senioren',
-              description: 'Zuverlässige Reinigung, Wäschepflege und Haushaltsführung für Senioren in Berlin.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Einkaufshilfe & Erledigungen',
-              description: 'Wocheneinkauf, Apothekengang, Behördenbesuch – wir erledigen alles.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Begleitung & Mobilität',
-              description: 'Sichere Begleitung zu Ärzten, Behörden und Freizeitterminen im Kiez.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Alltag & Struktur',
-              description: 'Hilfe bei Post, Terminen, Telefonaten und digitaler Teilhabe.',
-            },
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Soziale Teilhabe & Freizeitbegleitung',
-              description: 'Gemeinsame Spaziergänge, Kulturbegleitung, Gesellschaft gegen Einsamkeit.',
-            },
-          },
-        ],
+          'Haushaltshilfe',
+          'Einkaufshilfe',
+          'Begleitung zu Terminen',
+          'Alltagsorganisation',
+          'Soziale Begleitung',
+        ].map((name) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name },
+        })),
       },
     },
     {
@@ -185,78 +140,8 @@ const structuredData = {
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
       name: 'Morgenlicht Alltagshilfe Berlin',
-      inLanguage: 'de-DE',
+      inLanguage: ['de-DE', 'tr-TR'],
       publisher: { '@id': `${SITE_URL}/#business` },
-    },
-    {
-      '@type': 'FAQPage',
-      '@id': `${SITE_URL}/#faq`,
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Was ist Morgenlicht Alltagshilfe?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Morgenlicht ist Ihre herzliche und zuverlässige Alltagshilfe in Berlin. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Als staatlich anerkannter Anbieter nach § 45a SGB XI rechnen wir direkt mit der Pflegekasse ab.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Was kostet die Alltagshilfe von Morgenlicht?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Ab Pflegegrad 1 können anerkannte Leistungen im Rahmen des verfügbaren Entlastungsbetrags von 131 € monatlich finanziert werden. Eine Direktabrechnung mit der Pflegekasse ist möglich, wenn die Voraussetzungen vorliegen. Ohne Pflegegrad können Leistungen privat vereinbart werden.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'In welchen Sprachen bietet Morgenlicht Beratung an?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Wir beraten und unterstützen Sie auf Deutsch, Türkisch und Englisch. Interkulturelle Sensibilität ist uns besonders wichtig.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Wird mein Pflegegeld durch den Entlastungsbetrag gekürzt?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Nein. Der Entlastungsbetrag von 131 € monatlich ist eine zusätzliche Leistung. Ihr reguläres Pflegegeld bleibt vollständig unangetastet.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Gibt es neben den 131 € noch weitere Budgets?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Ja, ab Pflegegrad 2 können Sie bis zu 40 % Ihrer ungenutzten Pflegesachleistungen für unsere Unterstützung umwandeln. So stehen Ihnen bis zu 10 Stunden Hilfe pro Monat zur Verfügung.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'In welchen Berliner Bezirken ist Morgenlicht tätig?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Unser Schwerpunkt liegt auf Berlin-Kreuzberg und Neukölln. Wir prüfen gerne, ob wir auch in angrenzenden Bezirken für Sie da sein können.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Muss ich in Vorkasse gehen?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Wenn Pflegegrad, verfügbares Budget und die erforderlichen Unterlagen vorliegen, kann Morgenlicht direkt mit der Pflegekasse abrechnen. Mögliche Kosten außerhalb des Budgets werden vor Beginn besprochen.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Wie starte ich mit Morgenlicht?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'In 3 Schritten: 1. Kurzes Telefonat oder Nachricht an uns. 2. Kennenlerngespräch vor Ort oder per Telefon. 3. Wir kümmern uns um alles Weitere und Sie genießen die Entlastung.',
-          },
-        },
-      ],
     },
   ],
 }
@@ -268,26 +153,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${montserrat.variable} ${inter.variable}`}>
-      <head>
-        <link rel="alternate" hrefLang="de" href={SITE_URL} />
-        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
+      <body className="flex min-h-screen flex-col bg-[#FAF9F6] pb-14 font-body text-lg leading-relaxed text-[#1F2937] antialiased md:pb-0">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-[#134E4A] focus:px-5 focus:py-3 focus:text-white focus:ring-4 focus:ring-[#FFD54F]"
+        >
+          Zum Hauptinhalt springen
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
         />
-      </head>
-      <body className="flex flex-col min-h-screen antialiased font-body text-lg text-[#1F2937] leading-relaxed bg-[#FAF9F6]">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-emerald-900 focus:text-white"
-        >
-          Zum Hauptinhalt springen
-        </a>
+        <PlausibleAnalytics />
         <Navbar />
-        <main id="main-content" className="flex-grow">
+        <main id="main-content" className="flex-grow" tabIndex={-1}>
           {children}
         </main>
         <Footer />
+        <MobileContactBar />
       </body>
     </html>
   )

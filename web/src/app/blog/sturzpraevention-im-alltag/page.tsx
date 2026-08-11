@@ -116,7 +116,7 @@ export default function SturzpraeventionPage() {
             <p className="font-semibold text-[#37474F] mb-2">Professionelle Beratung:</p>
             <p className="text-[#455A64]">
               Wenn Sie unsicher sind, welche Maßnahmen für Ihre Wohnsituation geeignet sind, suchen Sie eine
-              Beratungsstelle auf. Der Pflegestützpunkt oder der Medizinische Dienst der Krankenversicherung (MDK)
+              Beratungsstelle auf. Der Pflegestützpunkt oder der Medizinische Dienst (MD)
               beraten Sie kostenlos.
             </p>
           </div>

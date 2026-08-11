@@ -163,7 +163,7 @@ export function DistrictPage({ content }: { content: DistrictContent }) {
             Über die Pflegekasse finanzierbar ab Pflegegrad 1
           </h2>
           <p className="font-body text-[#4B5563] text-lg leading-relaxed mb-6">
-            Nutzen Sie Ihren monatlichen Entlastungsbetrag von 131 € nach § 45b SGB XI für anerkannte Alltagshilfe in {content.district}.
+            Nutzen Sie Ihren monatlichen Entlastungsbetrag von bis zu 131 € nach § 45b SGB XI für anerkannte Alltagshilfe in {content.district}.
             Im Rahmen des verfügbaren Budgets ist eine Direktabrechnung mit der Pflegekasse möglich.
           </p>
           <Link
