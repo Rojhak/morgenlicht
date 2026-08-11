@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ScrollRevealSection } from '../components/animations/ScrollReveal'
 import { ArrowRight, Phone, Home, ShoppingBag, Footprints, FileText, Handshake, Sparkles, Bath, UtensilsCrossed, Shirt, Wind, Trash2, ShoppingCart, Building2, Pill, Package, Users, Stethoscope, Scissors, Landmark, CalendarCheck, Smartphone, MapPin, Mail, ClipboardList, Clock, Monitor, PhoneCall, Compass, BookOpen, TreePine, Ticket, Coffee, Search } from 'lucide-react'
@@ -15,6 +15,8 @@ const services = [
     subtitle: 'Ein sauberes Zuhause zum Wohlfühlen',
     description: 'Wir sorgen für ein gepflegtes Zuhause, in dem Sie sich rundum wohlfühlen. Von der gründlichen Reinigung bis zur Wäschepflege – wir kümmern uns um alles.',
     ctaLabel: 'Haushaltshilfe',
+    imageSrc: '/images/hero_active_senior.jpg',
+    imageAlt: 'Eine Alltagshilfe und eine ältere Frau bereiten gemeinsam eine Mahlzeit zu',
     items: [
       { title: 'Wohnungsreinigung', desc: 'Staubsaugen und Wischen aller Wohnräume sowie Staubwischen auf allen Oberflächen.', icon: Sparkles },
       { title: 'Küche & Bad', desc: 'Gründliche Reinigung der Arbeitsflächen und Sanitäranlagen für optimale Hygiene.', icon: Bath },
@@ -31,6 +33,8 @@ const services = [
     subtitle: 'Wir nehmen Ihnen die schweren Wege ab',
     description: 'Ob Wocheneinkauf, Apothekengang oder Behördenbesuch – wir erledigen das für Sie oder begleiten Sie gerne dabei.',
     ctaLabel: 'Einkaufshilfe',
+    imageSrc: '/images/hero_helping_hand.jpg',
+    imageAlt: 'Eine Begleitperson unterstützt eine ältere Person beim Einkauf auf dem Markt',
     items: [
       { title: 'Wocheneinkauf', desc: 'Planung, Einkauf der Lebensmittel und Einräumen der Vorräte.', icon: ShoppingCart },
       { title: 'Botengänge', desc: 'Erledigungen bei der Post, Behörde, Bank oder bei anderen Dienstleistern in Ihrem Kiez.', icon: Building2 },
@@ -46,6 +50,8 @@ const services = [
     subtitle: 'Sicherheit und Unterstützung außer Haus',
     description: 'Wir begleiten Sie sicher und zuverlässig zu allen wichtigen Terminen – ob Arzt, Behörde oder Freizeit.',
     ctaLabel: 'Begleitung',
+    imageSrc: '/images/hero_daily_moments.jpg',
+    imageAlt: 'Eine Begleitperson betrachtet gemeinsam mit einem älteren Mann ein Fotoalbum',
     items: [
       { title: 'Begleitung zum Arzt', desc: 'Wir begleiten Sie zu Ihren Terminen beim Arzt, zur Physiotherapie oder zu anderen Behandlungen.', icon: Stethoscope },
       { title: 'Begleitung zu Dienstleistern', desc: 'Wir begleiten Sie zur Bank, zum Friseur, zur Fußpflege oder zu anderen Dienstleistern.', icon: Scissors },
@@ -62,6 +68,8 @@ const services = [
     subtitle: 'Kein Stress mehr mit der Alltags-Organisation',
     description: 'Wir behalten für Sie den Überblick – von der Post über Anträge bis hin zur digitalen Teilhabe.',
     ctaLabel: 'Alltagshilfe',
+    imageSrc: null,
+    imageAlt: '',
     items: [
       { title: 'Post & Dokumente', desc: 'Gemeinsames Öffnen, Sichten und Sortieren der täglichen Post sowie Organisation wichtiger Dokumente.', icon: Mail },
       { title: 'Schriftverkehr', desc: 'Unterstützung beim Verfassen einfacher Briefe oder E-Mails sowie Hilfe beim Haushaltsbuch.', icon: ClipboardList },
@@ -81,6 +89,8 @@ const services = [
     subtitle: 'Gesellschaft & Aktivierung',
     description: 'Gemeinsam gegen Einsamkeit – wir bringen Freude und Abwechslung in Ihren Alltag.',
     ctaLabel: 'Freizeitbegleitung',
+    imageSrc: '/images/seniors_hero.jpg',
+    imageAlt: 'Ältere Menschen verbringen gemeinsam Zeit im Wohnzimmer',
     items: [
       { title: 'Gesellschaft', desc: 'Gemeinsames Zeitungslesen, Vorlesen von Büchern oder unterhaltsame Gesellschaftsspiele.', icon: BookOpen },
       { title: 'Raus an die Luft', desc: 'Gemütliche Spaziergänge oder Wanderungen in Ihrem Kiez für Mobilität und Wohlbefinden.', icon: TreePine },
@@ -161,15 +171,27 @@ export default function LeistungenPage() {
             delay={sectionIndex * 100}
           >
             <div className="max-w-6xl mx-auto">
-              {/* Zig-Zag Header: Image + Text */}
+              {/* Zig-Zag Header: Photo or editorial number + text */}
               <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-16 items-center mb-4 md:mb-14`}>
-                {/* Image Placeholder (Icon + Gradient) */}
-                <div className="hidden md:block w-full md:w-2/5 flex-shrink-0">
-                  <div className="aspect-[16/9] md:aspect-[4/3] rounded-[24px] bg-gradient-to-br from-[#134E4A]/10 to-[#FBBF24]/10 flex items-center justify-center shadow-sm border border-gray-100">
-                    <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-[#FFFBEB] flex items-center justify-center shadow-lg border border-[#FBBF24]/20">
-                      <SectionIcon className="w-10 h-10 md:w-14 md:h-14 text-[#FBBF24]" />
+                <div className="mb-8 w-full flex-shrink-0 md:mb-0 md:w-2/5">
+                  {service.imageSrc ? (
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[#F0F7F3]">
+                      <Image
+                        src={service.imageSrc}
+                        alt={service.imageAlt}
+                        fill
+                        sizes="(max-width: 767px) calc(100vw - 2rem), 40vw"
+                        className="object-cover"
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    <div className="flex min-h-40 items-center gap-6 border-y border-[#134E4A]/20 py-8 text-[#134E4A] md:min-h-64">
+                      <span className="font-heading text-6xl font-bold leading-none md:text-8xl" aria-hidden="true">
+                        04
+                      </span>
+                      <span className="h-px flex-1 bg-[#134E4A]/25" aria-hidden="true" />
+                    </div>
+                  )}
                 </div>
 
                 <div className="w-full md:w-3/5">

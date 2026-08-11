@@ -110,7 +110,7 @@ export default function HaushaltshilfePflegegradPage() {
               <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-8 bg-[#134E4A] shadow-sm">
                 <Image
                   src="/images/hero_daily_moments.jpg"
-                  alt="Illustration: Unterstützung einer Seniorin im Haushalt"
+                  alt="Eine Begleitperson betrachtet gemeinsam mit einem älteren Mann ein Fotoalbum"
                   fill
                   sizes="(max-width: 1023px) calc(100vw - 2rem), 760px"
                   className="object-cover opacity-95"

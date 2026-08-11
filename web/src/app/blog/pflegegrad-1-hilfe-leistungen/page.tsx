@@ -110,7 +110,7 @@ export default function PflegegradEinsPage() {
               <div className="relative h-56 md:h-80 rounded-2xl overflow-hidden mb-8 bg-[#134E4A] shadow-sm">
                 <Image
                   src="/images/hero_helping_hand.jpg"
-                  alt="Illustration: persönliche Unterstützung im Alltag"
+                  alt="Eine Begleitperson unterstützt eine ältere Person beim Einkauf auf dem Markt"
                   fill
                   sizes="(max-width: 1023px) calc(100vw - 2rem), 760px"
                   className="object-cover opacity-95"

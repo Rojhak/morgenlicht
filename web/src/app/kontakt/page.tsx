@@ -1,4 +1,13 @@
-import { CheckCircle, Mail, MessageCircle, Phone } from 'lucide-react'
+import {
+  CheckCircle,
+  Clock3,
+  Languages,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+} from 'lucide-react'
 import { InquiryForm } from '@/app/components/forms/InquiryForm'
 
 const PHONE_LABEL = '030 235 930 28'
@@ -7,6 +16,32 @@ const MOBILE_LABEL = '0151 560 573 65'
 const WHATSAPP_HREF = 'https://wa.me/4915156057365'
 const EMAIL = 'info@morgenlicht-alltagshilfe.de'
 
+const focusClass =
+  'focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD54F] focus-visible:ring-offset-2'
+
+const trustFacts = [
+  {
+    title: 'Anerkannter Anbieter',
+    text: 'Anerkannt nach § 45a SGB XI',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Pflegekassen-Budget',
+    text: 'Direktabrechnung ist bei erfüllten Voraussetzungen möglich',
+    icon: CheckCircle,
+  },
+  {
+    title: 'Beratung in drei Sprachen',
+    text: 'Deutsch, Türkisch und Englisch',
+    icon: Languages,
+  },
+  {
+    title: 'Einsatzgebiet',
+    text: 'Berlin mit Schwerpunkt Kreuzberg und Neukölln',
+    icon: MapPin,
+  },
+]
+
 export default function KontaktPage() {
   const inquiryFormEnabled = Boolean(
     process.env.RESEND_API_KEY && process.env.EMAIL_TO && process.env.EMAIL_FROM,
@@ -14,147 +49,146 @@ export default function KontaktPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#1F2937]">
-      <section className="bg-[#F7F6F3] px-6 py-16 text-center md:py-24">
-        <div className="mx-auto max-w-4xl">
-          <span className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[#144E41]/15 bg-white px-5 text-base font-semibold text-[#144E41] shadow-sm">
-            <Phone className="h-5 w-5" aria-hidden="true" />
-            Persönlicher Erstkontakt
-          </span>
-
-          <h1 className="mt-7 font-heading text-3xl font-bold tracking-tight text-[#134E4A] sm:text-4xl md:text-5xl">
-            Alltagshilfe in Berlin persönlich anfragen
+      <header className="bg-[#F7F6F3] px-6 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl">
+          <h1 className="max-w-3xl font-heading text-3xl font-bold leading-tight text-[#134E4A] sm:text-4xl md:text-5xl">
+            Persönliche Beratung zur Alltagshilfe
           </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#4B5563] md:text-xl">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#4B5563] md:text-xl">
             Sagen Sie uns kurz, wobei Sie Unterstützung wünschen. Wir beraten Sie auf Deutsch,
             Türkisch oder Englisch und klären gemeinsam die nächsten Schritte.
           </p>
+        </div>
+      </header>
 
-          <div className="mt-9 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center">
-            <a
-              href="#rueckruf"
-              className="plausible-event-name=Rueckrufklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-7 text-lg font-bold text-white shadow-lg transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
-            >
-              Rückruf anfragen
-            </a>
-            <a
-              href={`tel:${PHONE_HREF}`}
-              className="plausible-event-name=Telefonklick inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border-2 border-[#134E4A]/25 bg-white px-7 text-lg font-bold text-[#134E4A] transition hover:border-[#134E4A] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
-            >
-              <Phone className="h-5 w-5" aria-hidden="true" />
-              {PHONE_LABEL}
-            </a>
+      <section
+        id="rueckruf"
+        aria-labelledby="kontaktwege-title"
+        className="scroll-mt-28 px-6 py-14 md:py-20"
+      >
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(18rem,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+          <aside aria-labelledby="kontaktwege-title">
+            <h2 id="kontaktwege-title" className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl">
+              Direkt Kontakt aufnehmen
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-[#4B5563]">
+              Wählen Sie den Kontaktweg, der für Sie am einfachsten ist.
+            </p>
+
+            <div className="mt-7 divide-y divide-[#134E4A]/15 border-y border-[#134E4A]/15">
+              <a
+                href={`tel:${PHONE_HREF}`}
+                className={`plausible-event-name=Telefonklick flex min-h-20 items-center gap-4 px-2 py-4 text-[#134E4A] transition hover:bg-[#F7F6F3] ${focusClass}`}
+              >
+                <Phone className="h-6 w-6 flex-none" aria-hidden="true" />
+                <span>
+                  <span className="block text-base font-semibold text-[#4B5563]">Telefon</span>
+                  <span className="block text-xl font-bold">{PHONE_LABEL}</span>
+                </span>
+              </a>
+
+              <a
+                href={WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`plausible-event-name=WhatsAppklick flex min-h-20 items-center gap-4 px-2 py-4 text-[#134E4A] transition hover:bg-[#F7F6F3] ${focusClass}`}
+              >
+                <MessageCircle className="h-6 w-6 flex-none" aria-hidden="true" />
+                <span>
+                  <span className="block text-base font-semibold text-[#4B5563]">WhatsApp</span>
+                  <span className="block text-xl font-bold">{MOBILE_LABEL}</span>
+                </span>
+              </a>
+
+              <a
+                href={`mailto:${EMAIL}`}
+                className={`plausible-event-name=E-Mail-Klick flex min-h-20 items-center gap-4 px-2 py-4 text-[#134E4A] transition hover:bg-[#F7F6F3] ${focusClass}`}
+              >
+                <Mail className="h-6 w-6 flex-none" aria-hidden="true" />
+                <span className="min-w-0">
+                  <span className="block text-base font-semibold text-[#4B5563]">E-Mail</span>
+                  <span className="block break-all text-base font-bold sm:text-lg">{EMAIL}</span>
+                </span>
+              </a>
+
+              <div className="flex min-h-20 items-center gap-4 px-2 py-4">
+                <Clock3 className="h-6 w-6 flex-none text-[#134E4A]" aria-hidden="true" />
+                <span>
+                  <span className="block text-base font-semibold text-[#4B5563]">Erreichbarkeit</span>
+                  <span className="block text-lg font-bold text-[#1F2937]">Mo–Fr, 09:00–16:00 Uhr</span>
+                </span>
+              </div>
+            </div>
+
+            <p className="mt-6 text-base leading-relaxed text-[#4B5563]">
+              Für den ersten Kontakt genügen Ihr Name und eine Rückrufmöglichkeit. Bitte senden
+              Sie keine Diagnosen oder anderen Gesundheitsdaten.
+            </p>
+          </aside>
+
+          <div className="border-t border-[#134E4A]/15 pt-10 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
+            {inquiryFormEnabled ? (
+              <section aria-labelledby="rueckruf-title">
+                <h2 id="rueckruf-title" className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl">
+                  Rückruf anfragen
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-[#4B5563]">
+                  Name und Telefonnummer genügen. Weitere Angaben sind freiwillig und helfen uns
+                  bei der Vorbereitung.
+                </p>
+                <div className="mt-8">
+                  <InquiryForm />
+                </div>
+              </section>
+            ) : (
+              <section aria-labelledby="direkter-rueckruf-title">
+                <h2
+                  id="direkter-rueckruf-title"
+                  className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl"
+                >
+                  So geht es weiter
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-[#4B5563]">
+                  Rufen Sie uns an oder schreiben Sie per WhatsApp oder E-Mail. Wir klären dann
+                  gemeinsam, welche Unterstützung zu Ihrer Situation passt.
+                </p>
+                <div className="mt-8 border-l-4 border-[#134E4A] pl-6">
+                  <h3 className="font-heading text-xl font-bold text-[#134E4A]">
+                    Für den ersten Kontakt
+                  </h3>
+                  <ol className="mt-4 space-y-3 text-lg leading-relaxed text-[#4B5563]">
+                    <li>1. Telefon, WhatsApp oder E-Mail auswählen.</li>
+                    <li>2. Ihren Namen und den gewünschten Rückruf nennen.</li>
+                    <li>3. Keine Diagnosen oder anderen Gesundheitsdaten senden.</li>
+                  </ol>
+                </div>
+              </section>
+            )}
           </div>
         </div>
       </section>
 
-      <section id="rueckruf" aria-labelledby="rueckruf-title" className="scroll-mt-28 px-6 py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
-          <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_12px_40px_rgba(0,0,0,0.07)] sm:p-8 md:p-10">
-            <h2 id="rueckruf-title" className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl">
-              Kostenfreien Rückruf anfragen
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-[#4B5563] md:text-lg">
-              Name und Telefonnummer genügen für den ersten Kontakt. Weitere Angaben sind
-              freiwillig und helfen uns bei der Vorbereitung.
-            </p>
-
-            <div className="mt-8">
-              {inquiryFormEnabled ? (
-                <InquiryForm />
-              ) : (
-                <div className="rounded-2xl border border-[#134E4A]/15 bg-[#F0FDF4] p-6 sm:p-8">
-                  <h3 className="font-heading text-xl font-bold text-[#134E4A]">
-                    Rückruf direkt vereinbaren
-                  </h3>
-                  <p className="mt-3 leading-relaxed text-[#4B5563]">
-                    Rufen Sie uns an oder senden Sie uns per WhatsApp Ihren Namen und das Wort
-                    „Rückruf“. Bitte schicken Sie keine Diagnosen oder anderen Gesundheitsdaten.
-                  </p>
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <a
-                      href={`tel:${PHONE_HREF}`}
-                      className="plausible-event-name=Telefonklick inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-[#134E4A] px-5 font-bold text-white transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
-                    >
-                      <Phone className="h-5 w-5" aria-hidden="true" />
-                      Jetzt anrufen
-                    </a>
-                    <a
-                      href={WHATSAPP_HREF}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="plausible-event-name=WhatsAppklick inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl border-2 border-[#134E4A]/20 bg-white px-5 font-bold text-[#134E4A] transition hover:border-[#134E4A] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
-                    >
-                      <MessageCircle className="h-5 w-5" aria-hidden="true" />
-                      Rückruf per WhatsApp
-                    </a>
-                  </div>
+      <section aria-labelledby="vertrauen-title" className="bg-[#F0F7F3] px-6 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="vertrauen-title" className="font-heading text-2xl font-bold text-[#134E4A]">
+            Gut zu wissen
+          </h2>
+          <dl className="mt-7 grid gap-y-7 border-t border-[#134E4A]/15 pt-7 md:grid-cols-2 md:gap-x-10 lg:grid-cols-4">
+            {trustFacts.map((fact) => (
+              <div key={fact.title} className="flex gap-3">
+                <fact.icon className="mt-0.5 h-6 w-6 flex-none text-[#134E4A]" aria-hidden="true" />
+                <div>
+                  <dt className="font-heading font-bold text-[#134E4A]">{fact.title}</dt>
+                  <dd className="mt-1 text-base leading-relaxed text-[#4B5563]">{fact.text}</dd>
                 </div>
-              )}
-            </div>
-          </div>
-
-          <aside aria-labelledby="direktkontakt-title" className="space-y-6">
-            <div className="rounded-2xl bg-[#134E4A] p-6 text-white shadow-lg sm:p-8">
-              <h2 id="direktkontakt-title" className="font-heading text-2xl font-bold text-white">
-                Lieber direkt Kontakt aufnehmen?
-              </h2>
-              <p className="mt-3 leading-relaxed text-white/90">
-                Wählen Sie den Weg, der für Sie am einfachsten ist.
-              </p>
-
-              <div className="mt-7 space-y-4">
-                <a
-                  href={`tel:${PHONE_HREF}`}
-                  className="plausible-event-name=Telefonklick flex min-h-16 items-center gap-4 rounded-xl bg-white px-5 text-[#134E4A] transition hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 focus:ring-offset-[#134E4A]"
-                >
-                  <Phone className="h-6 w-6 flex-none" aria-hidden="true" />
-                  <span>
-                    <span className="block text-sm font-semibold">Telefon</span>
-                    <span className="block text-lg font-bold">{PHONE_LABEL}</span>
-                  </span>
-                </a>
-
-                <a
-                  href={WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="plausible-event-name=WhatsAppklick flex min-h-16 items-center gap-4 rounded-xl bg-white px-5 text-[#134E4A] transition hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 focus:ring-offset-[#134E4A]"
-                >
-                  <MessageCircle className="h-6 w-6 flex-none" aria-hidden="true" />
-                  <span>
-                    <span className="block text-sm font-semibold">WhatsApp</span>
-                    <span className="block text-lg font-bold">{MOBILE_LABEL}</span>
-                  </span>
-                </a>
-
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="plausible-event-name=E-Mail-Klick flex min-h-16 items-center gap-4 rounded-xl bg-white px-5 text-[#134E4A] transition hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2 focus:ring-offset-[#134E4A]"
-                >
-                  <Mail className="h-6 w-6 flex-none" aria-hidden="true" />
-                  <span className="min-w-0">
-                    <span className="block text-sm font-semibold">E-Mail</span>
-                    <span className="block break-all text-base font-bold">{EMAIL}</span>
-                  </span>
-                </a>
               </div>
-
-              <p className="mt-6 text-base text-white/90">Telefonisch erreichbar: Mo–Fr, 09:00–16:00 Uhr</p>
-            </div>
-
-            <div className="rounded-2xl border border-[#134E4A]/15 bg-[#F0FDF4] p-6 sm:p-8">
-              <CheckCircle className="h-9 w-9 text-[#134E4A]" aria-hidden="true" />
-              <h2 className="mt-4 font-heading text-xl font-bold text-[#134E4A]">
-                Anerkannter Anbieter nach § 45a SGB XI
-              </h2>
-              <p className="mt-3 leading-relaxed text-[#4B5563]">
-                Ab Pflegegrad 1 kann die Hilfe im verfügbaren Budget{' '}
-                <strong className="text-[#134E4A]">ohne Eigenanteil</strong> möglich sein.
-                Voraussetzungen und mögliche Zusatzkosten klären wir vor Beginn.
-              </p>
-            </div>
-          </aside>
+            ))}
+          </dl>
+          <p className="mt-8 max-w-3xl border-t border-[#134E4A]/15 pt-6 text-base leading-relaxed text-[#4B5563]">
+            Leistungen können ab Pflegegrad 1 im Rahmen des tatsächlich verfügbaren Budgets ohne
+            Eigenanteil möglich sein. Voraussetzungen und mögliche Zusatzkosten klären wir vor
+            Beginn.
+          </p>
         </div>
       </section>
     </div>

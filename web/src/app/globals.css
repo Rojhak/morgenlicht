@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
-/* ========================================
-   MORGENLICHT DESIGN SYSTEM 3.0
-   "Clean & Professional" Aesthetic
-   ======================================== */
+/* Morgenlicht: ruhig, redaktionell und gut lesbar */
 
 :root {
   /* ========================================
@@ -26,7 +23,7 @@
   --bg-main: #FAF9F6;    /* Warm Cream (Default) */
   --bg-white: #FFFFFF;   /* Pure White (Cards/Header) */
   --bg-sun: #FFFBEB;     /* Pale Sun (Budget) */
-  --bg-mint: #F0FDF4;    /* Soft Mint (Why Us) */
+  --bg-mint: #F0F7F3;    /* Soft Mint */
   --bg-footer: #134E4A;  /* Deep Forest Green */
 
   /* UI Elements */
@@ -89,8 +86,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  line-height: 1.7; /* User requirement */
-  margin-bottom: 1rem;
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* ========================================
@@ -143,5 +140,25 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
   border-color: var(--color-primary);
-  ring: 2px solid var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.45);
+}
+
+::selection {
+  background: #FDE68A;
+  color: #1F2937;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

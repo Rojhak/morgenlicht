@@ -13,6 +13,7 @@ const navLinks = [
   { href: '/blog', label: 'Ratgeber' },
   { href: '/ueber-uns', label: 'Über uns' },
   { href: '/fragen', label: 'Fragen' },
+  { href: '/kontakt', label: 'Kontakt' },
 ]
 
 const focusClass =
@@ -50,7 +51,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#134E4A]/10 bg-white/95 backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
           className={`flex min-h-12 flex-none items-center rounded-lg ${focusClass}`}
@@ -62,37 +63,28 @@ export function Navbar() {
             width={229}
             height={80}
             priority
-            className="h-auto w-[170px] sm:w-[205px]"
+            className="h-auto w-[158px] sm:w-[185px]"
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 xl:flex" aria-label="Hauptnavigation">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               aria-current={isCurrent(link.href) ? 'page' : undefined}
-              className={`min-h-12 rounded-lg px-3 py-3 text-[15px] font-semibold text-[#374151] transition hover:bg-[#F7F6F3] hover:text-[#134E4A] aria-[current=page]:bg-[#F7F6F3] aria-[current=page]:text-[#134E4A] ${focusClass}`}
+              className={`inline-flex min-h-12 items-center border-b-2 border-transparent px-2 py-3 text-sm font-semibold text-[#374151] transition hover:border-[#134E4A]/35 hover:text-[#134E4A] aria-[current=page]:border-[#134E4A] aria-[current=page]:text-[#134E4A] xl:px-3 xl:text-[15px] ${focusClass}`}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden flex-none xl:block">
-          <Link
-            href="/kontakt#rueckruf"
-            className={`plausible-event-name=Rueckrufklick inline-flex min-h-12 items-center rounded-xl bg-[#134E4A] px-6 font-bold text-white transition hover:bg-[#0F3F3C] ${focusClass}`}
-          >
-            Rückruf anfragen
-          </Link>
-        </div>
-
         <button
           ref={menuButtonRef}
           type="button"
           onClick={() => setMobileMenuOpen((open) => !open)}
-          className={`flex min-h-12 min-w-12 items-center justify-center rounded-lg text-[#134E4A] transition hover:bg-[#F7F6F3] xl:hidden ${focusClass}`}
+          className={`flex min-h-12 min-w-12 items-center justify-center rounded-lg text-[#134E4A] transition hover:bg-[#F7F6F3] lg:hidden ${focusClass}`}
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
           aria-controls="mobile-menu"
@@ -104,7 +96,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto border-t border-[#134E4A]/10 bg-white xl:hidden"
+          className="fixed inset-x-0 bottom-0 top-[72px] z-40 overflow-y-auto border-t border-[#134E4A]/10 bg-white lg:hidden"
         >
           <nav className="mx-auto max-w-2xl space-y-1 p-5" aria-label="Mobile Navigation">
             {navLinks.map((link, index) => (
@@ -119,13 +111,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/kontakt#rueckruf"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`plausible-event-name=Rueckrufklick mt-5 flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-6 text-lg font-bold text-white ${focusClass}`}
-            >
-              Kostenfreien Rückruf anfragen
-            </Link>
           </nav>
         </div>
       )}

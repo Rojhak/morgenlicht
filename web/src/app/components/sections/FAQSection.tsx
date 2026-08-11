@@ -9,54 +9,65 @@ export function FAQSection() {
   const baseId = useId()
 
   return (
-      <section className="bg-[#F7F6F3] py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-12 text-center">
+    <section className="bg-[#F7F6F3] px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-4xl">
+        <div className="max-w-2xl">
+          <h2 className="font-heading text-3xl font-bold text-[#134E4A] md:text-4xl">
             Häufige Fragen
           </h2>
+          <p className="mb-0 mt-4 text-lg leading-relaxed text-[#4B5563]">
+            Klare Antworten zu Leistungen, Pflegekasse und persönlicher Unterstützung.
+          </p>
+        </div>
 
-          {/* FAQ List */}
-          <div className="space-y-4">
-            {homeFaqs.map((faq, index) => (
-              <div
+        <div className="mt-10 border-y border-[#134E4A]/25">
+          {homeFaqs.map((faq, index) => {
+            const triggerId = `faq-trigger-${baseId}-${index}`
+            const contentId = `faq-content-${baseId}-${index}`
+            const isOpen = openIndex === index
+
+            return (
+              <article
                 key={faq.question}
-                className="bg-white border border-transparent rounded-[12px] overflow-hidden transition-all duration-300 shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-lg"
+                className="border-b border-[#134E4A]/20 last:border-b-0"
               >
-                <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full flex min-h-14 items-center justify-between p-6 bg-white text-left group focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD54F] focus-visible:ring-inset rounded-[12px]"
-                  aria-expanded={openIndex === index}
-                  aria-controls={`faq-content-${baseId}-${index}`}
-                >
-                  <span className="font-heading font-semibold text-lg text-[#144E41] pr-4">
-                    {faq.question}
-                  </span>
-                  <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-[#144E41] text-white rotate-180' : 'bg-gray-50 text-gray-400 group-hover:text-[#144E41]'}`}>
-                     {openIndex === index ? (
-                      <Minus className="w-4 h-4" aria-hidden="true" />
-                    ) : (
-                      <Plus className="w-4 h-4" aria-hidden="true" />
-                    )}
-                  </div>
-                </button>
+                <h3>
+                  <button
+                    id={triggerId}
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="group flex min-h-16 w-full items-center justify-between rounded-lg px-1 py-5 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD54F] focus-visible:ring-inset"
+                    aria-expanded={isOpen}
+                    aria-controls={contentId}
+                  >
+                    <span className="pr-5 font-heading text-lg font-semibold leading-snug text-[#134E4A] md:text-xl">
+                      {faq.question}
+                    </span>
+                    <span className="flex h-11 w-11 flex-none items-center justify-center text-[#134E4A] transition-colors group-hover:text-[#0F3F3C]">
+                      {isOpen ? (
+                        <Minus className="h-6 w-6" aria-hidden="true" />
+                      ) : (
+                        <Plus className="h-6 w-6" aria-hidden="true" />
+                      )}
+                    </span>
+                  </button>
+                </h3>
 
                 <div
-                  id={`faq-content-${baseId}-${index}`}
-                  hidden={openIndex !== index}
-                  className={`grid transition-all duration-300 ease-in-out ${
-                    openIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                  }`}
+                  id={contentId}
+                  role="region"
+                  aria-labelledby={triggerId}
+                  hidden={!isOpen}
                 >
-                  <div className="overflow-hidden">
-                    <div className="p-6 pt-0 text-gray-600 font-body leading-relaxed border-t border-gray-50">
-                      {faq.answer}
-                    </div>
-                  </div>
+                  <p className="mb-0 max-w-3xl pb-6 pr-12 text-lg leading-relaxed text-[#4B5563]">
+                    {faq.answer}
+                  </p>
                 </div>
-              </div>
-            ))}
-          </div>
+              </article>
+            )
+          })}
         </div>
-      </section>
+      </div>
+    </section>
   )
 }

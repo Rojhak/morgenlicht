@@ -153,7 +153,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${montserrat.variable} ${inter.variable}`}>
-      <body className="flex min-h-screen flex-col bg-[#FAF9F6] pb-14 font-body text-lg leading-relaxed text-[#1F2937] antialiased md:pb-0">
+      <body className="flex min-h-screen flex-col bg-[#FAF9F6] pb-[calc(3.5rem+env(safe-area-inset-bottom))] font-body text-lg leading-relaxed text-[#1F2937] antialiased md:pb-0">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-[#134E4A] focus:px-5 focus:py-3 focus:text-white focus:ring-4 focus:ring-[#FFD54F]"
