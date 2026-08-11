@@ -192,8 +192,8 @@ export default function DirektabrechnungPage() {
                 <p className="text-white/90 mb-6 leading-relaxed">
                   Wir erklären Ihnen die nächsten Schritte und welche Unterlagen für die Pflegekasse gebraucht werden.
                 </p>
-                <Link href="/kontakt#rueckruf" className="inline-flex items-center justify-center gap-2 bg-white text-[#134E4A] px-6 py-3 rounded-xl font-bold hover:bg-[#FFFBEB] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F]">
-                  Rückruf anfragen
+                <Link href="/kontakt" className="inline-flex items-center justify-center gap-2 bg-white text-[#134E4A] px-6 py-3 rounded-xl font-bold hover:bg-[#FFFBEB] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F]">
+                  Kontakt aufnehmen
                   <ArrowRight className="w-5 h-5" aria-hidden="true" />
                 </Link>
               </section>

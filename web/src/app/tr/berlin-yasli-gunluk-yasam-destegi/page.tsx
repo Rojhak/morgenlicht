@@ -73,8 +73,8 @@ export default function BerlinTurkceGunlukYasamDestegiPage() {
         processTitle: 'Destek talebi nasıl yapılır?',
         process: [
           {
-            title: 'Geri arama isteyin',
-            text: 'Adınız ve telefon numaranız yeterlidir. Mesaj alanına isteğe bağlı olarak “Türkçe” yazabilirsiniz.',
+            title: 'İletişime geçin',
+            text: 'Bizi arayın ya da WhatsApp veya e-posta yoluyla yazın. Türkçe hizmet istediğinizi belirtin.',
           },
           {
             title: 'İhtiyacı konuşalım',
@@ -115,12 +115,12 @@ export default function BerlinTurkceGunlukYasamDestegiPage() {
           { href: '/arztbegleitung-senioren-berlin', label: 'Doktor randevusuna refakat' },
           { href: '/berlin-kreuzberg', label: 'Kreuzberg hizmet bölgesi' },
           { href: '/berlin-neukoelln', label: 'Neukölln hizmet bölgesi' },
-          { href: '/kontakt#rueckruf', label: 'Türkçe geri arama isteyin' },
+          { href: '/kontakt', label: 'Türkçe iletişime geçin' },
         ],
-        ctaTitle: 'Türkçe geri aranmak ister misiniz?',
+        ctaTitle: 'Türkçe danışmanlık ister misiniz?',
         ctaText:
-          'Adınızı ve telefon numaranızı bırakın. Dil kapasitesini, hizmet bölgesini ve sonraki adımı kontrol edelim.',
-        ctaLabel: 'Türkçe geri arama isteyin',
+          'Bizi arayın ya da WhatsApp veya e-posta yoluyla yazın. Dil kapasitesini, hizmet bölgesini ve sonraki adımı birlikte değerlendirelim.',
+        ctaLabel: 'Türkçe iletişime geçin',
         phoneLabel: 'Telefon: 030 235 930 28',
       }}
     />

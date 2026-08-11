@@ -56,15 +56,15 @@ export default function HaushaltshilfePflegegradBerlinPage() {
           'Zusätzliche Stunden außerhalb des vorhandenen Budgets werden nicht ohne vorherige Zustimmung durchgeführt.',
           'Ob ein Einsatz an der konkreten Adresse möglich ist, wird im Erstgespräch geprüft.',
         ],
-        financeTitle: 'Bis zu 131 € Entlastungsbetrag: ungefähr 3,6 Stunden zum Stundensatz von 35,50 €',
+        financeTitle: 'Bis zu 131 € Entlastungsbetrag: etwa 3 Stunden und 41 Minuten Unterstützung',
         financeText:
-          'Pflegebedürftige in häuslicher Pflege können bis zu 131 € monatlich als Entlastungsbetrag nutzen. Rechnerisch entsprechen 131 € bei 35,50 € pro Stunde rund 3,6 Stunden. Entscheidend sind das tatsächlich verfügbare Budget, die anerkannten Leistungen und die vereinbarte Abrechnung.',
+          'Pflegebedürftige in häuslicher Pflege können bis zu 131 € monatlich als Entlastungsbetrag nutzen. Bei einem Stundensatz von 35,50 € entspricht der monatliche Entlastungsbetrag rechnerisch etwa 3 Stunden und 41 Minuten Unterstützung. Entscheidend sind das tatsächlich verfügbare Budget, die anerkannten Leistungen und die vereinbarte Abrechnung.',
         financeLinkLabel: 'Kosten und Pflegekassen-Abrechnung im Detail',
         processTitle: 'So starten Sie mit Morgenlicht',
         process: [
           {
-            title: 'Rückruf anfragen',
-            text: 'Name und Telefonnummer genügen. Angaben zu Pflegegrad und gewünschter Hilfe sind freiwillig.',
+            title: 'Kontakt aufnehmen',
+            text: 'Rufen Sie uns an oder schreiben Sie uns per WhatsApp oder E-Mail. Angaben zu Pflegegrad und gewünschter Hilfe sind freiwillig.',
           },
           {
             title: 'Bedarf und Budget klären',
@@ -105,12 +105,12 @@ export default function HaushaltshilfePflegegradBerlinPage() {
           { href: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag', label: '131 € Entlastungsbetrag verstehen' },
           { href: '/tuerkischsprachige-alltagshilfe-berlin', label: 'Türkischsprachige Alltagshilfe' },
           { href: '/leistungen', label: 'Alle Leistungen von Morgenlicht' },
-          { href: '/kontakt#rueckruf', label: 'Kostenfreien Rückruf anfragen' },
+          { href: '/kontakt', label: 'Kostenfrei beraten lassen' },
         ],
         ctaTitle: 'Passt die Haushaltshilfe zu Ihrer Situation?',
         ctaText:
           'Schildern Sie uns kurz, wo und wobei Unterstützung benötigt wird. Wir prüfen Einsatzgebiet, Budget und nächsten Schritt transparent.',
-        ctaLabel: 'Kostenfreien Rückruf anfragen',
+        ctaLabel: 'Kostenfrei beraten lassen',
       }}
     />
   )

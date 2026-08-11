@@ -105,12 +105,12 @@ export default function SozialeBegleitungSeniorenBerlinPage() {
           { href: '/tuerkischsprachige-alltagshilfe-berlin', label: 'Türkischsprachige Unterstützung' },
           { href: '/berlin-kreuzberg', label: 'Alltagshilfe in Kreuzberg' },
           { href: '/berlin-neukoelln', label: 'Alltagshilfe in Neukölln' },
-          { href: '/kontakt#rueckruf', label: 'Persönliche Begleitung anfragen' },
+          { href: '/kontakt', label: 'Persönliche Begleitung anfragen' },
         ],
         ctaTitle: 'Welche Begleitung würde Ihren Alltag erleichtern?',
         ctaText:
-          'Ein kurzer Rückruf genügt, um Wünsche, Einsatzgebiet und mögliche Finanzierung gemeinsam zu klären.',
-        ctaLabel: 'Kostenfreien Rückruf anfragen',
+          'Rufen Sie uns an oder schreiben Sie uns per WhatsApp oder E-Mail. Gemeinsam klären wir Wünsche, Einsatzgebiet und mögliche Finanzierung.',
+        ctaLabel: 'Kostenfrei beraten lassen',
       }}
     />
   )

@@ -110,8 +110,8 @@ export function IntentLandingPage({ content }: { content: IntentLandingContent }
 
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
-              href="/kontakt#rueckruf"
-              className="plausible-event-name=Rueckrufklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-8 text-lg font-bold text-white shadow-lg transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+              href="/kontakt"
+              className="plausible-event-name=Kontaktklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-8 text-lg font-bold text-white shadow-lg transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
             >
               {content.ctaLabel}
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
@@ -251,8 +251,8 @@ export function IntentLandingPage({ content }: { content: IntentLandingContent }
           <h2 className="font-heading text-3xl font-bold text-[#134E4A]">{content.ctaTitle}</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-[#4B5563]">{content.ctaText}</p>
           <Link
-            href="/kontakt#rueckruf"
-            className="plausible-event-name=Rueckrufklick mt-8 inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-9 text-lg font-bold text-white shadow-lg transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
+            href="/kontakt"
+            className="plausible-event-name=Kontaktklick mt-8 inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-9 text-lg font-bold text-white shadow-lg transition hover:bg-[#0F3F3C] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
           >
             {content.ctaLabel}
             <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />

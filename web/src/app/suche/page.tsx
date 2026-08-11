@@ -95,10 +95,10 @@ export default function SuchePage() {
           </p>
           <div className="mt-7 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
-              href="/kontakt#rueckruf"
+              href="/kontakt"
               className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#FFD54F] px-7 font-bold text-[#134E4A] focus:outline-none focus-visible:ring-4 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#134E4A]"
             >
-              Rückruf anfragen <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+              Kontakt aufnehmen <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Link>
             <a
               href="tel:03023593028"

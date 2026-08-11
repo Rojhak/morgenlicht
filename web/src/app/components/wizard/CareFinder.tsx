@@ -219,10 +219,10 @@ export function CareFinder() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/kontakt#rueckruf"
+              href="/kontakt"
               className="flex-1 bg-[#FBBF24] text-[#1F2937] hover:bg-[#F59E0B] font-bold py-4 px-6 rounded-xl shadow-md text-center flex items-center justify-center gap-2 transition-colors"
             >
-              Kostenfreien Rückruf anfragen
+              Kostenfrei beraten lassen
               <ArrowRight className="w-5 h-5" aria-hidden="true" />
             </Link>
             <button

@@ -8,7 +8,6 @@ import {
   Phone,
   ShieldCheck,
 } from 'lucide-react'
-import { InquiryForm } from '@/app/components/forms/InquiryForm'
 
 const PHONE_LABEL = '030 235 930 28'
 const PHONE_HREF = '03023593028'
@@ -43,10 +42,6 @@ const trustFacts = [
 ]
 
 export default function KontaktPage() {
-  const inquiryFormEnabled = Boolean(
-    process.env.RESEND_API_KEY && process.env.EMAIL_TO && process.env.EMAIL_FROM,
-  )
-
   return (
     <div className="min-h-screen bg-white text-[#1F2937]">
       <header className="bg-[#F7F6F3] px-6 py-12 md:py-16">
@@ -55,14 +50,14 @@ export default function KontaktPage() {
             Persönliche Beratung zur Alltagshilfe
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#4B5563] md:text-xl">
-            Sagen Sie uns kurz, wobei Sie Unterstützung wünschen. Wir beraten Sie auf Deutsch,
-            Türkisch oder Englisch und klären gemeinsam die nächsten Schritte.
+            Rufen Sie uns an oder schreiben Sie uns per WhatsApp oder E-Mail. Wir klären gemeinsam,
+            welche Unterstützung benötigt wird und welche Finanzierung möglich ist.
           </p>
         </div>
       </header>
 
       <section
-        id="rueckruf"
+        id="kontaktwege"
         aria-labelledby="kontaktwege-title"
         className="scroll-mt-28 px-6 py-14 md:py-20"
       >
@@ -121,49 +116,34 @@ export default function KontaktPage() {
             </div>
 
             <p className="mt-6 text-base leading-relaxed text-[#4B5563]">
-              Für den ersten Kontakt genügen Ihr Name und eine Rückrufmöglichkeit. Bitte senden
-              Sie keine Diagnosen oder anderen Gesundheitsdaten.
+              Für den ersten Kontakt genügen Ihr Name und Ihr Anliegen. Bitte senden Sie keine
+              Diagnosen oder anderen Gesundheitsdaten.
             </p>
           </aside>
 
           <div className="border-t border-[#134E4A]/15 pt-10 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
-            {inquiryFormEnabled ? (
-              <section aria-labelledby="rueckruf-title">
-                <h2 id="rueckruf-title" className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl">
-                  Rückruf anfragen
-                </h2>
-                <p className="mt-4 text-lg leading-relaxed text-[#4B5563]">
-                  Name und Telefonnummer genügen. Weitere Angaben sind freiwillig und helfen uns
-                  bei der Vorbereitung.
-                </p>
-                <div className="mt-8">
-                  <InquiryForm />
-                </div>
-              </section>
-            ) : (
-              <section aria-labelledby="direkter-rueckruf-title">
-                <h2
-                  id="direkter-rueckruf-title"
-                  className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl"
-                >
-                  So geht es weiter
-                </h2>
-                <p className="mt-4 text-lg leading-relaxed text-[#4B5563]">
-                  Rufen Sie uns an oder schreiben Sie per WhatsApp oder E-Mail. Wir klären dann
-                  gemeinsam, welche Unterstützung zu Ihrer Situation passt.
-                </p>
-                <div className="mt-8 border-l-4 border-[#134E4A] pl-6">
-                  <h3 className="font-heading text-xl font-bold text-[#134E4A]">
-                    Für den ersten Kontakt
-                  </h3>
-                  <ol className="mt-4 space-y-3 text-lg leading-relaxed text-[#4B5563]">
-                    <li>1. Telefon, WhatsApp oder E-Mail auswählen.</li>
-                    <li>2. Ihren Namen und den gewünschten Rückruf nennen.</li>
-                    <li>3. Keine Diagnosen oder anderen Gesundheitsdaten senden.</li>
-                  </ol>
-                </div>
-              </section>
-            )}
+            <section aria-labelledby="naechste-schritte-title">
+              <h2
+                id="naechste-schritte-title"
+                className="font-heading text-2xl font-bold text-[#134E4A] md:text-3xl"
+              >
+                So geht es weiter
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-[#4B5563]">
+                Wir besprechen, welche Hilfe im Alltag passt und ob eine Finanzierung über
+                vorhandenes Pflegekassen-Budget möglich ist.
+              </p>
+              <div className="mt-8 border-l-4 border-[#134E4A] pl-6">
+                <h3 className="font-heading text-xl font-bold text-[#134E4A]">
+                  Für den ersten Kontakt
+                </h3>
+                <ol className="mt-4 space-y-3 text-lg leading-relaxed text-[#4B5563]">
+                  <li>1. Telefon, WhatsApp oder E-Mail auswählen.</li>
+                  <li>2. Ihren Namen und Ihr Anliegen nennen.</li>
+                  <li>3. Keine Diagnosen oder anderen Gesundheitsdaten senden.</li>
+                </ol>
+              </div>
+            </section>
           </div>
         </div>
       </section>

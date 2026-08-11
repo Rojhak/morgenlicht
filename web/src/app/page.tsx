@@ -85,20 +85,19 @@ export default function HomePage() {
             </p>
 
             <h1 className="mt-6 max-w-3xl break-words font-heading text-[2.15rem] font-bold leading-[1.16] text-[#134E4A] sm:text-5xl lg:text-[3.45rem]">
-              Persönliche Alltagshilfe in Berlin mit möglichst festen Bezugspersonen
+              Persönliche Alltagshilfe in Berlin
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#4B5563] md:text-xl">
-              Morgenlicht unterstützt ältere und pflegebedürftige Menschen bei Haushalt,
-              Einkauf, Terminen und sozialer Teilhabe – auf Deutsch, Türkisch oder Englisch.
+              Wir planen Ihre Unterstützung möglichst mit derselben vertrauten Bezugsperson.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/kontakt#rueckruf"
-                className={`plausible-event-name=Rueckrufklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-7 text-lg font-bold text-white transition hover:bg-[#0F3F3C] ${focusClass}`}
+                href="/kontakt"
+                className={`plausible-event-name=Kontaktklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#134E4A] px-7 text-lg font-bold text-white transition hover:bg-[#0F3F3C] ${focusClass}`}
               >
-                Rückruf anfragen
+                Kontakt aufnehmen
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>
               <a
@@ -204,7 +203,7 @@ export default function HomePage() {
           <div>
             <p className="text-base font-bold text-[#FBBF24]">So arbeiten wir</p>
             <h2 className="mt-3 font-heading text-3xl font-bold text-white md:text-4xl">
-              Konkrete Absprachen statt großer Versprechen
+              Klare Absprachen von Anfang an
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/90">
               Vor dem ersten Einsatz klären wir Bedarf, Aufgaben, Bezugsperson, Finanzierung
@@ -284,7 +283,8 @@ export default function HomePage() {
             <p className="mt-5 leading-relaxed text-[#4B5563]">
               Pflegebedürftige mit Pflegegrad 1 bis 5 in häuslicher Pflege können den
               Entlastungsbetrag für anerkannte Angebote zur Unterstützung im Alltag einsetzen.
-              Bei 35,50 € pro Stunde entsprechen 131 € rechnerisch rund 3,6 Stunden.
+              Bei einem Stundensatz von 35,50 € entspricht der monatliche Entlastungsbetrag
+              rechnerisch etwa 3 Stunden und 41 Minuten Unterstützung.
             </p>
             <p className="mt-4 text-base leading-relaxed text-[#4B5563]">
               Maßgeblich sind das tatsächlich verfügbare Budget, die anerkannte Leistung und
@@ -303,7 +303,7 @@ export default function HomePage() {
             <h2 className="font-heading text-3xl font-bold text-[#134E4A]">In drei Schritten starten</h2>
             <ol className="mt-8 border-b border-[#134E4A]/20">
               {[
-                ['1', 'Rückruf anfragen', 'Name und Telefonnummer genügen. Weitere Angaben sind freiwillig.'],
+                ['1', 'Kontakt aufnehmen', 'Rufen Sie an oder schreiben Sie per WhatsApp oder E-Mail.'],
                 ['2', 'Bedarf und Budget klären', 'Wir besprechen Wohnort, Aufgaben, Sprache, Häufigkeit und vorhandene Unterlagen.'],
                 ['3', 'Unterstützung vereinbaren', 'Erst nach einer klaren Absprache zu Umfang, Termin und Kosten wird der Einsatz geplant.'],
               ].map(([number, title, text]) => (
@@ -414,16 +414,16 @@ export default function HomePage() {
               Welche Hilfe würde Ihren Alltag erleichtern?
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
-              Eine kurze Rückrufanfrage genügt. Wir klären Einsatzgebiet, gewünschte Unterstützung
-              und mögliche Finanzierung Schritt für Schritt.
+              Nehmen Sie telefonisch, per WhatsApp oder per E-Mail Kontakt mit uns auf. Wir klären
+              Einsatzgebiet, gewünschte Unterstützung und mögliche Finanzierung Schritt für Schritt.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <Link
-              href="/kontakt#rueckruf"
-              className={`plausible-event-name=Rueckrufklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#FBBF24] px-7 text-lg font-bold text-[#134E4A] transition hover:bg-[#FDE68A] ${focusClass}`}
+              href="/kontakt"
+              className={`plausible-event-name=Kontaktklick inline-flex min-h-14 items-center justify-center rounded-xl bg-[#FBBF24] px-7 text-lg font-bold text-[#134E4A] transition hover:bg-[#FDE68A] ${focusClass}`}
             >
-              Rückruf anfragen
+              Kontakt aufnehmen
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Link>
             <a

@@ -4,9 +4,9 @@ import { createPageMetadata } from '@/lib/seo'
 const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 
 export const metadata = createPageMetadata({
-  title: 'Alltagshilfe Berlin: Rückruf anfragen | Morgenlicht',
+  title: 'Kontakt und Beratung | Morgenlicht',
   description:
-    'Rückruf zur Alltagshilfe in Kreuzberg und Neukölln anfragen. Name und Telefon genügen; Beratung auf Deutsch, Türkisch oder Englisch.',
+    'Morgenlicht telefonisch, per WhatsApp oder E-Mail kontaktieren. Beratung zur Alltagshilfe auf Deutsch, Türkisch oder Englisch.',
   path: '/kontakt',
 })
 

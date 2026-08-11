@@ -266,10 +266,10 @@ export default function LeistungenPage() {
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
-              href="/kontakt#rueckruf"
+              href="/kontakt"
               className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
             >
-              Kostenfreien Rückruf anfragen
+              Kostenfrei beraten lassen
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <a

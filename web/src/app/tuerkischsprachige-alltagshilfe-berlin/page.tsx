@@ -71,8 +71,8 @@ export default function TuerkischsprachigeAlltagshilfeBerlinPage() {
         processTitle: 'So fragen Sie türkischsprachige Hilfe an',
         process: [
           {
-            title: 'Rückruf wünschen',
-            text: 'Name und Telefonnummer genügen. Schreiben Sie gern „Türkisch“ in das freiwillige Nachrichtenfeld.',
+            title: 'Kontakt aufnehmen',
+            text: 'Rufen Sie uns an oder schreiben Sie uns per WhatsApp oder E-Mail. Nennen Sie dabei gern Ihren Sprachwunsch „Türkisch“.',
           },
           {
             title: 'Situation besprechen',
@@ -113,12 +113,12 @@ export default function TuerkischsprachigeAlltagshilfeBerlinPage() {
           { href: '/arztbegleitung-senioren-berlin', label: 'Begleitung zu Arztterminen' },
           { href: '/berlin-kreuzberg', label: 'Alltagshilfe in Kreuzberg' },
           { href: '/berlin-neukoelln', label: 'Alltagshilfe in Neukölln' },
-          { href: '/kontakt#rueckruf', label: 'Türkischen Rückruf anfragen' },
+          { href: '/kontakt', label: 'Kontakt auf Türkisch aufnehmen' },
         ],
-        ctaTitle: 'Möchten Sie auf Türkisch zurückgerufen werden?',
+        ctaTitle: 'Möchten Sie sich auf Türkisch beraten lassen?',
         ctaText:
-          'Teilen Sie uns Name und Telefonnummer mit. Wir prüfen Sprachkapazität, Einsatzgebiet und den passenden nächsten Schritt.',
-        ctaLabel: 'Türkischen Rückruf anfragen',
+          'Rufen Sie uns an oder schreiben Sie uns per WhatsApp oder E-Mail. Wir prüfen Sprachkapazität, Einsatzgebiet und den passenden nächsten Schritt.',
+        ctaLabel: 'Kontakt auf Türkisch aufnehmen',
       }}
     />
   )
