@@ -358,17 +358,17 @@ export default function EntlastungsbetragBlogPage() {
                 </div>
                 <ul className="space-y-3 text-sm">
                   <li>
-                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://gesund.bund.de/entlastungsbetrag">
+                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://gesund.bund.de/entlastungsbetrag" target="_blank" rel="noopener noreferrer">
                       gesund.bund.de: Entlastungsbetrag
                     </a>
                   </li>
                   <li>
-                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://www.verbraucherzentrale-berlin.de/wissen/gesundheit-pflege/so-nutzen-pflegebeduerftige-den-entlastungsbetrag-richtig-113767">
+                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://www.verbraucherzentrale-berlin.de/wissen/gesundheit-pflege/so-nutzen-pflegebeduerftige-den-entlastungsbetrag-richtig-113767" target="_blank" rel="noopener noreferrer">
                       Verbraucherzentrale Berlin
                     </a>
                   </li>
                   <li>
-                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://www.berlin.de/sen/pflege/pflege-und-rehabilitation/pflege-zu-hause/angebote-zur-unterstuetzung-im-alltag/">
+                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://www.berlin.de/sen/pflege/pflege-und-rehabilitation/pflege-zu-hause/angebote-zur-unterstuetzung-im-alltag/" target="_blank" rel="noopener noreferrer">
                       Berlin.de: Angebote zur Unterstützung im Alltag
                     </a>
                   </li>
