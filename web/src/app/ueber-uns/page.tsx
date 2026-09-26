@@ -1,10 +1,10 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { ContactBand } from '../components/site/ContactBand'
 import { JsonLd } from '../components/site/JsonLd'
 import { Kicker } from '../components/site/Kicker'
 import { PageHero } from '../components/site/PageHero'
+import { SunPortrait } from '../components/site/SunPortrait'
 import { OFFICIAL_SOURCES, SITE, SITE_URL } from '@/config/site'
 import { BUSINESS_ID, graph } from '@/lib/schema'
 import { createPageMetadata } from '@/lib/seo'
@@ -86,19 +86,7 @@ export default function UeberUnsPage() {
 
       <section aria-labelledby="gruenderin-title" className="bg-white px-5 py-14 sm:px-6 md:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-          <div className="sun-arc mx-auto w-full max-w-sm pt-8">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-sand">
-              <Image
-                src="/images/asiye-duman.jpeg"
-                alt="Porträt von Asiye Duman, Gründerin und Geschäftsführerin von Morgenlicht"
-                fill
-                priority
-                sizes="(max-width: 1023px) 90vw, 380px"
-                className="object-cover"
-              />
-            </div>
-          </div>
-
+          <SunPortrait widthClass="max-w-sm" sizes="(max-width: 1023px) 90vw, 384px" priority />
           <div>
             <Kicker>{SITE.founderRole}</Kicker>
             <h2 id="gruenderin-title" className="mt-4 font-heading text-3xl font-bold text-forest md:text-4xl">

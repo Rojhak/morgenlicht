@@ -6,6 +6,7 @@ import { ContactActions } from '@/app/components/site/ContactActions'
 import { ContactBand } from '@/app/components/site/ContactBand'
 import { JsonLd } from '@/app/components/site/JsonLd'
 import { Kicker } from '@/app/components/site/Kicker'
+import { SunPortrait } from '@/app/components/site/SunPortrait'
 import { SITE, SITE_URL } from '@/config/site'
 import { homeFaqs } from '@/content/homeFaqs'
 import { faqSchema, graph } from '@/lib/schema'
@@ -275,17 +276,7 @@ export default function HomePage() {
 
       <section aria-labelledby="ansprechpartnerin-title" className="bg-white px-5 py-16 sm:px-6 md:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-16">
-          <div className="sun-arc mx-auto w-full max-w-xs pt-6">
-            <div className="relative aspect-square overflow-hidden rounded-full border-8 border-white bg-sand shadow-[0_12px_40px_rgba(19,78,74,0.15)]">
-              <Image
-                src="/images/asiye-duman.jpeg"
-                alt="Porträt von Asiye Duman, Gründerin und Geschäftsführerin von Morgenlicht"
-                fill
-                sizes="320px"
-                className="object-cover"
-              />
-            </div>
-          </div>
+          <SunPortrait sizes="320px" />
           <div>
             <Kicker>Persönlicher Kontakt</Kicker>
             <h2 id="ansprechpartnerin-title" className="mt-4 font-heading text-3xl font-bold text-forest md:text-4xl">
