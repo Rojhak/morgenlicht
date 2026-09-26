@@ -28,6 +28,8 @@ interface SeoBlogArticleProps {
   sources?: SourceLink[]
   ctaTitle?: string
   ctaText?: string
+  /** Optional lead block shown before the article text, outside the prose styles */
+  intro?: ReactNode
   children: ReactNode
   /** @deprecated kept for older call sites; dates are formatted automatically */
   dateLabel?: string
@@ -64,6 +66,7 @@ export function SeoBlogArticle({
   sources = [],
   ctaTitle = 'Unterstützung im Alltag anfragen',
   ctaText = 'Wir erklären Ihnen persönlich, welche Hilfe zu Ihrer Situation passt und wie die Abrechnung mit der Pflegekasse funktioniert.',
+  intro,
   children,
 }: SeoBlogArticleProps) {
   const pageUrl = `${SITE_URL}/blog/${slug}`
@@ -124,7 +127,7 @@ export function SeoBlogArticle({
 
         <div className="bg-white px-5 py-12 sm:px-6 md:py-16">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
-            <div className="h-fit rounded-2xl border-t-4 border-sun bg-cream p-5 lg:sticky lg:top-28 lg:order-2">
+            <div className={`h-fit rounded-2xl border-t-4 border-sun bg-cream p-5 lg:sticky lg:top-28 lg:order-2 ${intro ? 'order-2' : ''}`}>
               <h2 className="font-heading text-lg font-bold text-forest">Kurz erklärt</h2>
               <ul className="mt-3 space-y-3">
                 {quickFacts.map((fact) => (
@@ -141,7 +144,8 @@ export function SeoBlogArticle({
                 Fragen? {SITE.phone.label}
               </a>
             </div>
-            <div className="min-w-0 max-w-3xl lg:order-1">
+            <div className="order-1 min-w-0 max-w-3xl">
+              {intro && <div className="mb-12">{intro}</div>}
               <div className={articleBodyClass}>{children}</div>
 
               {faqItems.length > 0 && (

@@ -184,7 +184,7 @@ export default function KostenPage() {
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Link>
               <Link href="/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch" className="inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4">
-                Umwandlungsanspruch: Rechenbeispiel ab Pflegegrad 2
+                Ab Pflegegrad 2: doppelt so viele Stunden Haushaltshilfe
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </Link>
               <Link href="/blog/pflegegrad-beantragen-schritt-fuer-schritt" className="inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4">

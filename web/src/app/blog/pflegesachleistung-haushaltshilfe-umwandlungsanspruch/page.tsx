@@ -1,19 +1,21 @@
 import Link from 'next/link'
+import { Check } from 'lucide-react'
 import { SeoBlogArticle } from '../../components/sections/SeoBlogArticle'
+import { ContactActions } from '../../components/site/ContactActions'
 import { OFFICIAL_SOURCES, SITE } from '@/config/site'
 import { createPageMetadata } from '@/lib/seo'
 
 const slug = 'pflegesachleistung-haushaltshilfe-umwandlungsanspruch'
-const title = 'Pflegesachleistung für Haushaltshilfe: Pflegedienst oder Alltagshilfe?'
+const title = 'Doppelt so viel Haushaltshilfe aus Ihrem Pflegebudget'
 const description =
-  'Ab Pflegegrad 2 kann ein Teil der Pflegesachleistung für Haushaltshilfe genutzt werden. Ein Vergleich mit Berliner Preisen zeigt, warum Sie über eine anerkannte Alltagshilfe oft doppelt so viele Stunden bekommen – und was dabei mit dem Pflegegeld passiert.'
+  'Für Putzen, Wäsche und Einkaufen brauchen Sie keinen Pflegedienst. Mit einer anerkannten Alltagshilfe bekommen Sie aus demselben Teil Ihrer Pflegesachleistung etwa doppelt so viele Stunden Hilfe – und Ihr Pflegegeld wird dabei nicht stärker gekürzt.'
 const published = '2026-09-26'
 const modified = '2026-09-26'
 
 export const metadata = createPageMetadata({
-  title: 'Haushaltshilfe über Pflegesachleistung: Kosten im Vergleich',
+  title: 'Pflegesachleistung: doppelt so viele Stunden Haushaltshilfe',
   description:
-    'Pflegedienst oder Alltagshilfe? Mit Berliner Preisen gerechnet bringt derselbe Teil der Pflegesachleistung bei einer Alltagshilfe oft doppelt so viele Stunden.',
+    'Ab Pflegegrad 2: Nutzen Sie Ihre Pflegesachleistung für Haushaltshilfe über eine anerkannte Alltagshilfe – für dasselbe Budget etwa doppelt so viele Stunden.',
   path: `/blog/${slug}`,
   article: { publishedTime: published, modifiedTime: modified },
 })
@@ -55,17 +57,17 @@ export default function PflegesachleistungHaushaltshilfePage() {
     <SeoBlogArticle
       slug={slug}
       title={title}
-      shortTitle="Pflegesachleistung für Haushaltshilfe"
+      shortTitle="Doppelt so viel Haushaltshilfe"
       description={description}
-      eyebrow="Pflegegrad 2 bis 5"
+      eyebrow="Ab Pflegegrad 2"
       datePublished={published}
       dateModified={modified}
       readingTime="Lesedauer: ca. 7 Minuten"
       quickFacts={[
-        'Ab Pflegegrad 2: Sachleistung auch für Haushaltshilfe',
-        'Bis zu 40 % für anerkannte Alltagshilfe nutzbar',
-        'Berliner Pflegedienst-Beispiel: rund 73 € pro Stunde',
-        'Pflegegeld sinkt anteilig mit',
+        'Etwa doppelt so viele Stunden für dasselbe Budget',
+        `Alltagshilfe ${SITE.hourlyRate} statt rund 73 € pro Stunde`,
+        'Pflegegeld sinkt nicht stärker als beim Pflegedienst',
+        'Bis zu 40 % der Sachleistung nutzbar',
       ]}
       faqItems={faqItems}
       relatedLinks={[
@@ -82,18 +84,106 @@ export default function PflegesachleistungHaushaltshilfePage() {
         OFFICIAL_SOURCES.pflegestuetzpunkteIb36,
         OFFICIAL_SOURCES.berlinVerguetung,
       ]}
-      ctaTitle="Wie viele Stunden sind bei Ihnen möglich?"
-      ctaText="Wir rechnen mit Ihnen durch, welches Budget vorhanden ist, wie viele Stunden Alltagshilfe damit möglich sind und was das für Ihr Pflegegeld bedeutet."
+      intro={
+          <section aria-labelledby="vergleich-title" className="rounded-2xl border-t-4 border-sun bg-cream p-5 md:p-8">
+            <h2 id="vergleich-title" className="font-heading text-2xl font-bold leading-tight text-forest md:text-3xl">So viele Stunden Hilfe im Haushalt bekommen Sie im Monat</h2>
+            <p className="mt-2 text-base leading-relaxed text-muted">
+              Für 40 % der Pflegesachleistung, gerundet. Pflegedienst: Berliner Beispiel mit rund 73 € pro
+              Stunde. Morgenlicht: {SITE.hourlyRate} pro Stunde.
+            </p>
+            <div className="mt-6 grid gap-8 md:grid-cols-2">
+              {[
+                { grade: 'Pflegegrad 2', budget: '318,40 €', care: 'ca. 4 Std. 21 Min.', alltag: 'ca. 8 Std. 58 Min.' },
+                { grade: 'Pflegegrad 3', budget: '598,80 €', care: 'ca. 8 Std. 11 Min.', alltag: 'ca. 16 Std. 52 Min.' },
+              ].map((row) => (
+                <div key={row.grade}>
+                  <h3 className="font-heading text-lg font-bold text-forest">
+                    {row.grade} <span className="font-body text-base font-normal text-muted">· Budget {row.budget}</span>
+                  </h3>
+                  <dl className="mt-3 space-y-3">
+                    <div>
+                      <dt className="flex justify-between gap-3 text-base text-muted">
+                        <span>Pflegedienst</span>
+                        <span className="tabular-nums">{row.care}</span>
+                      </dt>
+                      <dd className="mt-1 h-4 rounded-full bg-white" aria-hidden="true">
+                        <span className="block h-4 w-[48.5%] rounded-full bg-muted/40" />
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="flex justify-between gap-3 text-base font-bold text-forest">
+                        <span>Morgenlicht</span>
+                        <span className="tabular-nums">{row.alltag}</span>
+                      </dt>
+                      <dd className="mt-1 h-4 rounded-full bg-white" aria-hidden="true">
+                        <span className="block h-4 w-full rounded-full bg-forest" />
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 font-heading text-xl font-bold leading-snug text-forest">
+              Gleiches Budget, gleiche Kürzung beim Pflegegeld – aber etwa doppelt so viel Hilfe.
+            </p>
+            <ContactActions className="mt-5" contactLinkLabel="Alle Kontaktwege" phoneLabel={`Jetzt ausrechnen lassen: ${SITE.phone.label}`} />
+          </section>
+      }
+      ctaTitle="Holen Sie mehr aus Ihrem Pflegebudget heraus"
+      ctaText="Rufen Sie uns an. Wir rechnen kostenfrei mit Ihnen aus, wie viele Stunden Haushaltshilfe mit Ihrem Budget möglich sind und was das für Ihr Pflegegeld bedeutet."
     >
+      <h2>Vier Gründe, warum sich das lohnt</h2>
+      <ul className="!list-none !space-y-5 !pl-0">
+        {[
+          {
+            title: 'Doppelt so viele Stunden',
+            text: `Eine Stunde Alltagshilfe kostet bei Morgenlicht ${SITE.hourlyRate}. Eine Stunde Reinigung mit Begleitung beim Pflegedienst kostet in Berlin nach den Orientierungswerten der Pflegestützpunkte rund 73 €. Aus demselben Geld wird so etwa die doppelte Zeit.`,
+          },
+          {
+            title: 'Kein Nachteil beim Pflegegeld',
+            text: 'Das Pflegegeld sinkt um denselben Anteil – egal, ob ein Pflegedienst oder eine anerkannte Alltagshilfe die Hilfe übernimmt. Der Unterschied liegt nur darin, wie viel Hilfe Sie dafür bekommen.',
+          },
+          {
+            title: 'Die richtige Hilfe für die richtige Aufgabe',
+            text: 'Putzen, Wäsche, Einkaufen und Begleitung sind keine Pflege. Dafür ist eine Alltagshilfe da. Braucht es zusätzlich Körperpflege, lässt sich beides kombinieren.',
+          },
+          {
+            title: 'Von der Pflegekasse bezahlt',
+            text: 'Morgenlicht ist nach § 45a SGB XI anerkannt. Die Pflegekasse erstattet die Kosten im Rahmen Ihres Anspruchs. Welche Unterlagen nötig sind, klären wir mit Ihnen.',
+          },
+        ].map((reason) => (
+          <li key={reason.title} className="!ml-0 flex gap-4">
+            <span className="mt-1 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-forest text-white">
+              <Check className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block font-heading text-xl font-bold text-forest">{reason.title}</span>
+              <span className="mt-1 block">{reason.text}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <h2>So einfach geht es</h2>
+      <ol>
+        <li><strong>Anrufen:</strong> Sie nennen uns Pflegegrad, Pflegekasse und wobei Sie Hilfe möchten.</li>
+        <li><strong>Ausrechnen:</strong> Wir rechnen gemeinsam aus, wie viele Stunden möglich sind und was das für Ihr Pflegegeld bedeutet.</li>
+        <li><strong>Loslegen:</strong> Ihre Alltagshilfe kommt zu Ihnen nach Hause – möglichst immer dieselbe Person.</li>
+      </ol>
       <p>
-        Ab Pflegegrad 2 zahlt die Pflegekasse jeden Monat einen Betrag für Pflegesachleistungen.
-        Viele Familien nutzen ihn ausschließlich über einen Pflegedienst – auch für Aufgaben wie
-        Putzen, Wäsche oder Einkaufen. Dabei gibt es einen zweiten Weg, der für Hilfe im Haushalt
-        oft deutlich mehr Stunden bringt: den Umwandlungsanspruch für anerkannte Angebote zur
-        Unterstützung im Alltag.
+        Wichtig: Für Körperpflege und medizinische Pflege bleibt der Pflegedienst die richtige Wahl.
+        Es geht um die Hilfe im Haushalt und im Alltag.
       </p>
 
-      <h2>Zwei Wege, die Pflegesachleistung für den Haushalt zu nutzen</h2>
+      <h2>Die Details: Woher der Unterschied kommt</h2>
+      <p>
+        Ab Pflegegrad 2 zahlt die Pflegekasse jeden Monat einen Betrag für Pflegesachleistungen.
+        Viele Familien nutzen ihn ausschließlich über einen Pflegedienst – auch für Putzen, Wäsche
+        oder Einkaufen. Für Hilfe im Haushalt gibt es aber einen zweiten Weg: den
+        Umwandlungsanspruch für anerkannte Angebote zur Unterstützung im Alltag.
+      </p>
+
+      <h3>Zwei Wege, die Pflegesachleistung für den Haushalt zu nutzen</h3>
       <p>
         <strong>Über einen Pflegedienst:</strong> Die Pflegesachleistung umfasst neben körperbezogener
         Pflege und Betreuung ausdrücklich auch Hilfen bei der Haushaltsführung (§ 36 SGB XI). Ein
@@ -136,7 +226,7 @@ export default function PflegesachleistungHaushaltshilfePage() {
         </table>
       </div>
 
-      <h2>Was Hilfe im Haushalt beim Pflegedienst in Berlin kostet</h2>
+      <h3>Was Hilfe im Haushalt beim Pflegedienst in Berlin kostet</h3>
       <p>
         Berliner Pflegedienste rechnen meist nach Leistungskomplexen ab, also mit einem festen Preis
         je Aufgabe, oder nach Zeiteinheiten von 5 Minuten. Die genauen Preise verhandelt jeder
@@ -193,7 +283,7 @@ export default function PflegesachleistungHaushaltshilfePage() {
         Preise in dem Konzept fest, mit dem sie anerkannt werden.
       </p>
 
-      <h2>Rechenbeispiel: Wie viele Stunden bringt derselbe Betrag?</h2>
+      <h3>Der Rechenweg im Detail</h3>
       <p>
         Angenommen, es werden 40 Prozent des Sachleistungsbetrags für Hilfe im Haushalt verwendet
         und sonst keine Sachleistungen. Dann sinkt das Pflegegeld in beiden Fällen gleich stark.
@@ -236,7 +326,7 @@ export default function PflegesachleistungHaushaltshilfePage() {
         und 41 Minuten.
       </p>
 
-      <h2>Der Haken: Das Pflegegeld wird anteilig gekürzt</h2>
+      <h2>Gut zu wissen: Das Pflegegeld wird anteilig gekürzt</h2>
       <p>
         Der umgewandelte Betrag zählt so, als hätten Sie in dieser Höhe Sachleistungen bezogen.
         Deshalb erhalten Sie nur noch ein anteiliges Pflegegeld: bei 40 Prozent Umwandlung noch 60

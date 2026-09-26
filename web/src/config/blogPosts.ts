@@ -10,9 +10,9 @@ export interface BlogPostSummary {
 export const blogPosts: BlogPostSummary[] = [
   {
     slug: 'pflegesachleistung-haushaltshilfe-umwandlungsanspruch',
-    title: 'Pflegesachleistung für Haushaltshilfe: Pflegedienst oder Alltagshilfe?',
+    title: 'Doppelt so viel Haushaltshilfe aus Ihrem Pflegebudget',
     excerpt:
-      'Mit Berliner Preisen gerechnet: Für denselben Teil der Pflegesachleistung bekommen Sie bei einer anerkannten Alltagshilfe oft doppelt so viele Stunden – mit Folgen für das Pflegegeld.',
+      'Ab Pflegegrad 2: Mit einer anerkannten Alltagshilfe statt eines Pflegedienstes bekommen Sie aus demselben Teil der Pflegesachleistung etwa doppelt so viele Stunden Hilfe im Haushalt.',
     date: '2026-09-26',
     modified: '2026-09-26',
     tags: ['pflegesachleistung', 'umwandlungsanspruch', 'haushaltshilfe'],
