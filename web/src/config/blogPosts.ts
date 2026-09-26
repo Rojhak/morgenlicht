@@ -10,11 +10,11 @@ export interface BlogPostSummary {
 export const blogPosts: BlogPostSummary[] = [
   {
     slug: 'pflegesachleistung-haushaltshilfe-umwandlungsanspruch',
-    title: 'Doppelt so viel Haushaltshilfe aus Ihrem Pflegebudget',
+    title: 'Pflegesachleistung: doppelt so viel Haushaltshilfe aus Ihrem Budget',
     excerpt:
       'Ab Pflegegrad 2: Mit einer anerkannten Alltagshilfe statt eines Pflegedienstes bekommen Sie aus demselben Teil der Pflegesachleistung etwa doppelt so viele Stunden Hilfe im Haushalt.',
     date: '2026-09-26',
-    modified: '2026-09-26',
+    modified: '2026-09-27',
     tags: ['pflegesachleistung', 'umwandlungsanspruch', 'haushaltshilfe'],
   },
   {

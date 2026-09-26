@@ -38,7 +38,14 @@ export function createPageMetadata({
       canonical: path,
       ...(languages ? { languages } : {}),
     },
-    ...(noindex ? { robots: { index: false, follow: true } } : {}),
+    // Set per page (not in the root layout) so the not-found page keeps only Next.js' own noindex.
+    robots: noindex
+      ? { index: false, follow: true }
+      : {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+        },
     openGraph: {
       title,
       description,

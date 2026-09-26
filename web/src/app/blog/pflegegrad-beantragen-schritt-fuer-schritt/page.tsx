@@ -10,9 +10,12 @@ const description =
 const published = '2026-01-05'
 const modified = '2026-09-26'
 
+const metaDescription =
+  'Pflegegrad beantragen: Antrag bei der Pflegekasse, Begutachtung vorbereiten, Bescheid prüfen – mit Fristen und Tipps für Angehörige.'
+
 export const metadata = createPageMetadata({
   title: 'Pflegegrad beantragen: Schritt für Schritt erklärt',
-  description,
+  description: metaDescription,
   path: `/blog/${slug}`,
   article: { publishedTime: published, modifiedTime: modified },
 })

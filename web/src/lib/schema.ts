@@ -40,10 +40,16 @@ export function faqSchema(items: QA[], id?: string) {
   }
 }
 
+const AREA_REFERENCE: Record<string, string> = {
+  Kreuzberg: 'https://de.wikipedia.org/wiki/Berlin-Kreuzberg',
+  Neukölln: 'https://de.wikipedia.org/wiki/Bezirk_Neuk%C3%B6lln',
+}
+
 export const areaServedSchema = SITE.areas.map((area) => ({
   '@type': 'AdministrativeArea',
   name: `Berlin-${area}`,
-  containedInPlace: { '@type': 'City', name: 'Berlin' },
+  ...(AREA_REFERENCE[area] ? { sameAs: AREA_REFERENCE[area] } : {}),
+  containedInPlace: { '@type': 'City', name: 'Berlin', sameAs: 'https://de.wikipedia.org/wiki/Berlin' },
 }))
 
 export function graph(...nodes: object[]) {

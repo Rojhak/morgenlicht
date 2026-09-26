@@ -74,7 +74,7 @@ export default function UeberUnsPage() {
       <PageHero
         crumbs={[{ name: 'Über uns', href: '/ueber-uns' }]}
         kicker="Über Morgenlicht"
-        title="Alltagshilfe aus Kreuzberg – persönlich und verlässlich"
+        title="Über Morgenlicht: Alltagshilfe aus Kreuzberg"
         lead={
           <p>
             Morgenlicht unterstützt ältere und pflegebedürftige Menschen dabei, ihren Alltag zu

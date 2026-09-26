@@ -16,6 +16,12 @@ const nextConfig = {
         destination: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag',
         permanent: true,
       },
+      {
+        // Former noindex "Leistungswegweiser" without inbound links; the overview lives on /leistungen
+        source: '/suche',
+        destination: '/leistungen',
+        permanent: true,
+      },
     ];
   },
   async headers() {

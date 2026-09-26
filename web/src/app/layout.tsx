@@ -52,17 +52,6 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-icon.png', type: 'image/png', sizes: '180x180' }],
     shortcut: ['/favicon.ico'],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
   openGraph: {
     title: DEFAULT_TITLE,
     description:
@@ -120,6 +109,14 @@ const structuredData = graph(
     },
     areaServed: areaServedSchema,
     knowsLanguage: SITE.languages.map((language) => language.code),
+    knowsAbout: [
+      'Angebote zur Unterstützung im Alltag nach § 45a SGB XI',
+      'Entlastungsbetrag nach § 45b SGB XI',
+      'Umwandlungsanspruch der Pflegesachleistung',
+      'Haushaltshilfe für Senioren',
+      'Begleitung zu Arztterminen',
+      'Pflegegrad',
+    ],
     founder: {
       '@type': 'Person',
       '@id': `${SITE_URL}/ueber-uns#asiye-duman`,

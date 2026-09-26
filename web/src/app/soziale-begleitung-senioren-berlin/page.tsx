@@ -17,7 +17,7 @@ export default function SozialeBegleitungSeniorenBerlinPage() {
         kicker: 'Zeit für Gespräche und gemeinsame Aktivitäten',
         h1: 'Soziale Begleitung für Senioren in Berlin',
         intro:
-          'Morgenlicht begleitet ältere Menschen in Kreuzberg und Neukölln bei Spaziergängen, kleinen Unternehmungen und alltäglichen Wegen. Im Mittelpunkt stehen persönliche Wünsche, vertraute Abläufe und Begegnung auf Augenhöhe.',
+          'Morgenlicht begleitet ältere Menschen in Kreuzberg und Neukölln bei Spaziergängen, kleinen Unternehmungen und alltäglichen Wegen – Seniorenbegleitung, die sich nach persönlichen Wünschen und vertrauten Abläufen richtet, auf Augenhöhe.',
         trustPoints: [
           'Aktivitäten nur nach persönlicher Zustimmung',
           'Möglichst bekannte Bezugsperson',
@@ -105,7 +105,7 @@ export default function SozialeBegleitungSeniorenBerlinPage() {
           { href: '/tuerkischsprachige-alltagshilfe-berlin', label: 'Türkischsprachige Unterstützung' },
           { href: '/berlin-kreuzberg', label: 'Alltagshilfe in Kreuzberg' },
           { href: '/berlin-neukoelln', label: 'Alltagshilfe in Neukölln' },
-          { href: '/kontakt', label: 'Persönliche Begleitung anfragen' },
+          { href: '/blog/sturzpraevention-im-alltag', label: 'Sturzprävention im Alltag' },
         ],
         ctaTitle: 'Welche Begleitung würde Ihren Alltag erleichtern?',
         ctaText:

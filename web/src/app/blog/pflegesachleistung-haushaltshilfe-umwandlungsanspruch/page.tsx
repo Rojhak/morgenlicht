@@ -6,11 +6,11 @@ import { OFFICIAL_SOURCES, SITE } from '@/config/site'
 import { createPageMetadata } from '@/lib/seo'
 
 const slug = 'pflegesachleistung-haushaltshilfe-umwandlungsanspruch'
-const title = 'Doppelt so viel Haushaltshilfe aus Ihrem Pflegebudget'
+const title = 'Pflegesachleistung: doppelt so viel Haushaltshilfe aus Ihrem Budget'
 const description =
   'Für Putzen, Wäsche und Einkaufen brauchen Sie keinen Pflegedienst. Mit einer anerkannten Alltagshilfe bekommen Sie aus demselben Teil Ihrer Pflegesachleistung etwa doppelt so viele Stunden Hilfe – und Ihr Pflegegeld wird dabei nicht stärker gekürzt.'
 const published = '2026-09-26'
-const modified = '2026-09-26'
+const modified = '2026-09-27'
 
 export const metadata = createPageMetadata({
   title: 'Pflegesachleistung: doppelt so viele Stunden Haushaltshilfe',

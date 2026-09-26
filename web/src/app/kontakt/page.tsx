@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Check, Clock3, Mail, MapPin, MessageCircle, Phone, Printer } from 'lucide-react'
 import { InquiryForm } from '@/app/components/forms/InquiryForm'
 import { JsonLd } from '../components/site/JsonLd'
@@ -49,7 +50,7 @@ export default function KontaktPage() {
       <PageHero
         crumbs={[{ name: 'Kontakt', href: '/kontakt' }]}
         kicker="Kostenfreie Erstberatung"
-        title="Kontakt und Beratung zur Alltagshilfe"
+        title="Kontakt zu Morgenlicht: Beratung zur Alltagshilfe"
         lead={
           <p>
             Rufen Sie uns an oder schreiben Sie per WhatsApp oder E-Mail. Wir klären gemeinsam,
@@ -155,6 +156,13 @@ export default function KontaktPage() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-6 text-lg leading-relaxed text-muted">
+                  Vorab informieren? Antworten zu Kosten, Pflegegrad und Ablauf finden Sie unter{' '}
+                  <Link href="/fragen" className="font-semibold text-forest underline underline-offset-4">
+                    Häufige Fragen
+                  </Link>
+                  .
+                </p>
                 <p className="mt-6 border-l-4 border-sun bg-cream p-4 text-base leading-relaxed text-ink">
                   <strong className="text-forest">Bitte schicken Sie uns keine Diagnosen oder Arztberichte</strong>{' '}
                   per WhatsApp oder E-Mail. Solche Fragen besprechen wir am Telefon oder persönlich.

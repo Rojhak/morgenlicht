@@ -58,7 +58,9 @@ npm run dev          # Start development server
 npm run build        # Build for production
 npm run start        # Start production server
 npm run lint         # ESLint (eslint-config-next core-web-vitals + typescript) on src/**/*.{ts,tsx}
-npm run test:ui      # Run Playwright tests
+npm run test:ui      # Playwright quality suite (tests/e2e/site-quality.spec.ts): every sitemap URL for
+                     # title/description length, canonical, single H1, JSON-LD, axe WCAG 2.1 AA,
+                     # mobile overflow, plus menu, skip link and no-JS checks. Builds and starts the app itself.
 ```
 
 ## Morgenlicht Skills

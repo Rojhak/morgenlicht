@@ -160,7 +160,7 @@ export default function LeistungenPage() {
       <PageHero
         crumbs={[{ name: 'Leistungen', href: '/leistungen' }]}
         kicker="Anerkannte Unterstützung im Alltag nach § 45a SGB XI"
-        title="Leistungen: Hilfe im Haushalt, unterwegs und im Alltag"
+        title="Leistungen der Alltagshilfe: Haushalt, Einkauf, Begleitung"
         lead={
           <p>
             Morgenlicht unterstützt ältere und pflegebedürftige Menschen in Kreuzberg und Neukölln
@@ -266,6 +266,32 @@ export default function LeistungenPage() {
           </div>
         </section>
       ))}
+
+      <section aria-labelledby="leistungen-ratgeber" className="border-t border-line bg-white px-5 py-12 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="leistungen-ratgeber" className="font-heading text-2xl font-bold text-forest">
+            Ratgeber zu Finanzierung und Alltag
+          </h2>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { href: '/blog/haushaltshilfe-pflegegrad-pflegekasse', label: 'Haushaltshilfe bei Pflegegrad: Was zahlt die Pflegekasse?' },
+              { href: '/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch', label: 'Ab Pflegegrad 2: doppelt so viel Haushaltshilfe' },
+              { href: '/blog/seniorenhilfe-zuhause-berlin', label: 'Seniorenhilfe zu Hause: Welche Unterstützung passt?' },
+              { href: '/blog/sturzpraevention-im-alltag', label: 'Sturzprävention: 7 Tipps für mehr Sicherheit' },
+            ].map((guide) => (
+              <li key={guide.href}>
+                <Link
+                  href={guide.href}
+                  className="flex h-full min-h-14 items-center justify-between gap-3 rounded-xl border border-line px-4 py-3 text-lg font-semibold leading-snug text-forest transition hover:border-forest hover:bg-cream"
+                >
+                  {guide.label}
+                  <ArrowRight className="h-5 w-5 flex-none" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <section aria-labelledby="grenzen-title" className="bg-sun-soft px-5 py-14 sm:px-6 md:py-20">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">

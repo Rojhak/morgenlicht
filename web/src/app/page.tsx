@@ -65,6 +65,29 @@ const services = [
   },
 ]
 
+const guides = [
+  {
+    href: '/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch',
+    kicker: 'Ab Pflegegrad 2',
+    title: 'Doppelt so viel Haushaltshilfe aus der Pflegesachleistung',
+  },
+  {
+    href: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag',
+    kicker: 'Ab Pflegegrad 1',
+    title: '131 € Entlastungsbetrag richtig nutzen',
+  },
+  {
+    href: '/pflegegrad-guide',
+    kicker: 'Pflegegrad',
+    title: 'Begutachtung vorbereiten: Ablauf und Checkliste',
+  },
+  {
+    href: '/blog/alltagshilfe-oder-haushaltshilfe-unterschied',
+    kicker: 'Begriffe',
+    title: 'Alltagshilfe, Haushaltshilfe oder Pflegedienst?',
+  },
+]
+
 const steps = [
   ['Anrufen oder schreiben', `Telefon ${SITE.phone.label} oder WhatsApp. Name und Anliegen genügen für den Anfang.`],
   ['Bedarf und Budget klären', 'Wir besprechen Wohnort, Aufgaben, Sprache, Häufigkeit und ob ein Pflegegrad vorliegt.'],
@@ -82,7 +105,7 @@ export default function HomePage() {
             <Kicker>Anerkannt nach § 45a SGB XI · Kreuzberg und Neukölln</Kicker>
 
             <h1 id="hero-title" className="mt-5 max-w-3xl font-heading text-[2.1rem] font-bold leading-[1.12] text-forest sm:text-5xl lg:text-[3.4rem]">
-              Alltagshilfe zu Hause in Kreuzberg und Neukölln
+              Alltagshilfe zu Hause in <span className="whitespace-nowrap">Berlin-Kreuzberg</span> und Neukölln
             </h1>
 
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink md:text-xl">
@@ -212,7 +235,15 @@ export default function HomePage() {
                 </div>
               ))}
             </dl>
-            <Link href="/kosten" className={`mt-7 ${textLink}`}>
+            <p className="mt-6 border-l-4 border-sun bg-white p-4 text-lg leading-relaxed text-ink">
+              <strong className="text-forest">Ab Pflegegrad 2 geht noch mehr:</strong> Mit einem Teil
+              der Pflegesachleistung bekommen Sie bei einer anerkannten Alltagshilfe etwa doppelt so
+              viele Stunden Haushaltshilfe wie beim Pflegedienst.{' '}
+              <Link href="/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch" className="font-semibold text-forest underline underline-offset-4">
+                So funktioniert es
+              </Link>
+            </p>
+            <Link href="/kosten" className={`mt-5 ${textLink}`}>
               Kosten und Abrechnung verständlich erklärt
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </Link>
@@ -360,7 +391,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      <FAQSection items={homeFaqs} />
+      <section aria-labelledby="ratgeber-title" className="border-t border-line bg-white px-5 py-16 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <Kicker>Ratgeber</Kicker>
+              <h2 id="ratgeber-title" className="mt-4 font-heading text-3xl font-bold text-forest md:text-4xl">
+                Pflegekasse und Pflegegrad verständlich erklärt
+              </h2>
+            </div>
+            <Link href="/blog" className={textLink}>
+              Alle Ratgeber
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </Link>
+          </div>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {guides.map((guide) => (
+              <li key={guide.href}>
+                <Link
+                  href={guide.href}
+                  className="flex h-full flex-col rounded-2xl border border-line bg-cream p-5 transition hover:border-forest"
+                >
+                  <span className="text-base font-semibold text-muted">{guide.kicker}</span>
+                  <span className="mt-2 flex-grow font-heading text-lg font-bold leading-snug text-forest">{guide.title}</span>
+                  <ArrowRight className="mt-4 h-5 w-5 text-forest" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <FAQSection items={homeFaqs} moreLink={{ href: '/fragen', label: 'Alle Fragen und Antworten' }} />
 
       <ContactBand title="Welche Hilfe würde Ihren Alltag erleichtern?" />
     </>

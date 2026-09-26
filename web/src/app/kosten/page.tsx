@@ -9,13 +9,21 @@ import { BUSINESS_ID, faqSchema, graph, type QA } from '@/lib/schema'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata = createPageMetadata({
-  title: 'Alltagshilfe Kosten & 131 € Entlastungsbetrag | Morgenlicht',
+  title: 'Kosten der Alltagshilfe & Pflegekasse | Morgenlicht',
   description:
     '35,50 € pro Stunde, ab Pflegegrad 1 bis zu 131 € im Monat über die Pflegekasse und Direktabrechnung ohne Vorkasse: So wird Alltagshilfe in Berlin bezahlt.',
   path: '/kosten',
 })
 
-const options = [
+const options: Array<{
+  label: string
+  title: string
+  amount: string
+  unit: string
+  text: string
+  points: string[]
+  link?: { href: string; label: string }
+}> = [
   {
     label: 'Pflegegrad 1 bis 5',
     title: 'Entlastungsbetrag',
@@ -39,6 +47,10 @@ const options = [
       'Ein anteiliges Pflegegeld kann sich verringern',
       'Höhe bitte vorab mit der Pflegekasse klären',
     ],
+    link: {
+      href: '/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch',
+      label: 'Etwa doppelt so viele Stunden wie beim Pflegedienst',
+    },
   },
   {
     label: 'Ohne Pflegegrad',
@@ -157,6 +169,15 @@ export default function KostenPage() {
                     </li>
                   ))}
                 </ul>
+                {option.link && (
+                  <Link
+                    href={option.link.href}
+                    className="mt-auto inline-flex min-h-12 items-center gap-2 pt-5 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4"
+                  >
+                    {option.link.label}
+                    <ArrowRight className="h-5 w-5 flex-none" aria-hidden="true" />
+                  </Link>
+                )}
               </article>
             ))}
           </div>
@@ -221,6 +242,10 @@ export default function KostenPage() {
           <div className="mt-8">
             <FAQList items={faqs} />
           </div>
+          <Link href="/fragen#kosten" className="mt-6 inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4">
+            Weitere Fragen zu Kosten und Pflegekasse
+            <ArrowRight className="h-5 w-5" aria-hidden="true" />
+          </Link>
           <div className="mt-10 border-l-4 border-sun bg-cream p-5">
             <h3 className="font-heading text-lg font-bold text-forest">Quellen und Stand</h3>
             <p className="mt-2 text-base leading-relaxed text-muted">

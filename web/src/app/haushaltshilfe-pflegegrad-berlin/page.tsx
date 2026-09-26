@@ -78,6 +78,11 @@ export default function HaushaltshilfePflegegradBerlinPage() {
         faqTitle: 'Häufige Fragen zur Haushaltshilfe mit Pflegegrad',
         faqs: [
           {
+            question: 'Ist das dasselbe wie eine Putzhilfe?',
+            answer:
+              'Die Aufgaben ähneln sich. Der Unterschied liegt in der Bezahlung: Die Pflegekasse erstattet nur Hilfe von nach Landesrecht anerkannten Angeboten zur Unterstützung im Alltag. Eine private Putzhilfe oder Reinigungsfirma ohne diese Anerkennung wird in der Regel nicht über den Entlastungsbetrag bezahlt. Morgenlicht ist nach § 45a SGB XI anerkannt.',
+          },
+          {
             question: 'Reicht Pflegegrad 1 für Haushaltshilfe über den Entlastungsbetrag?',
             answer:
               'Ja. Der Entlastungsbetrag steht Menschen mit Pflegegrad 1 bis 5 in häuslicher Pflege zur Verfügung. Er kann für nach Landesrecht anerkannte Angebote zur Unterstützung im Alltag genutzt werden.',

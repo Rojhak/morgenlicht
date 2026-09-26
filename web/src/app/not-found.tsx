@@ -4,9 +4,9 @@ import { ArrowRight } from 'lucide-react'
 import { ContactActions } from './components/site/ContactActions'
 import { Kicker } from './components/site/Kicker'
 
+// Next.js adds <meta name="robots" content="noindex"> to not-found responses itself.
 export const metadata: Metadata = {
   title: { absolute: 'Seite nicht gefunden | Morgenlicht' },
-  robots: { index: false, follow: true },
 }
 
 const links = [

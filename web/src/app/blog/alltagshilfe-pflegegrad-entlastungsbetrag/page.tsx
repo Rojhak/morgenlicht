@@ -11,7 +11,7 @@ const published = '2026-05-06'
 const modified = '2026-09-26'
 
 export const metadata = createPageMetadata({
-  title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
+  title: 'Entlastungsbetrag 131 €: Alltagshilfe mit Pflegegrad nutzen',
   description,
   path: `/blog/${slug}`,
   article: { publishedTime: published, modifiedTime: modified },

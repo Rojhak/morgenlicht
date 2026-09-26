@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { SITE } from '@/config/site'
 import { ContactActions } from './ContactActions'
 import { Kicker } from './Kicker'
@@ -57,7 +58,9 @@ export function ContactBand({
             />
             <p className="text-base leading-snug text-white/90">
               {copy.person}
-              <strong className="block font-heading text-lg text-white">{SITE.founder}</strong>
+              <Link href="/ueber-uns" className="block font-heading text-lg font-bold text-white underline decoration-sun decoration-2 underline-offset-4 hover:decoration-white">
+                {SITE.founder}
+              </Link>
             </p>
           </div>
         </div>

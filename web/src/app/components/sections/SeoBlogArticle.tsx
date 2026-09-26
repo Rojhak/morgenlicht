@@ -119,7 +119,12 @@ export function SeoBlogArticle({
                   </span>
                 )}
                 <span>{readingTime}</span>
-                <span>Herausgeber: {SITE.name}</span>
+                <span>
+                  Herausgeber:{' '}
+                  <Link href="/ueber-uns" className="underline decoration-forest/30 underline-offset-4 hover:text-forest">
+                    {SITE.name}
+                  </Link>
+                </span>
               </p>
             </div>
           </div>

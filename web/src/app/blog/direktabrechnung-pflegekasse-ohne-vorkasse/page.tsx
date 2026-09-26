@@ -10,9 +10,12 @@ const description =
 const published = '2026-05-08'
 const modified = '2026-09-26'
 
+const metaDescription =
+  'Direktabrechnung mit der Pflegekasse: Voraussetzungen, Abtretungserklärung und wann trotzdem Kosten entstehen – verständlich erklärt für Angehörige.'
+
 export const metadata = createPageMetadata({
   title: 'Direktabrechnung mit der Pflegekasse | Morgenlicht',
-  description,
+  description: metaDescription,
   path: `/blog/${slug}`,
   article: { publishedTime: published, modifiedTime: modified },
 })

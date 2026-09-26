@@ -10,9 +10,12 @@ const description =
 const published = '2026-05-08'
 const modified = '2026-09-26'
 
+const metaDescription =
+  'Pflegegrad 1: Welche Leistungen es gibt, vor allem bis zu 131 € Entlastungsbetrag im Monat für Alltagshilfe – einfach erklärt, mit den nächsten Schritten.'
+
 export const metadata = createPageMetadata({
   title: 'Pflegegrad 1 Leistungen: Welche Hilfe steht Ihnen zu?',
-  description,
+  description: metaDescription,
   path: `/blog/${slug}`,
   article: { publishedTime: published, modifiedTime: modified },
 })
