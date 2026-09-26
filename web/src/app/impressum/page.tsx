@@ -1,6 +1,6 @@
 import { PageHero } from '../components/site/PageHero'
 import { createPageMetadata } from '@/lib/seo'
-import { Scale, MapPin, Mail, Phone, FileText, ShieldAlert } from 'lucide-react'
+import { Scale, ShieldAlert } from 'lucide-react'
 
 
 export const metadata = createPageMetadata({
