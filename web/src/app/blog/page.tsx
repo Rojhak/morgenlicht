@@ -20,7 +20,7 @@ const topics = [
   {
     id: 'pflegekasse',
     title: 'Pflegekasse und Kosten',
-    slugs: ['alltagshilfe-pflegegrad-entlastungsbetrag', 'direktabrechnung-pflegekasse-ohne-vorkasse', 'haushaltshilfe-pflegegrad-pflegekasse'],
+    slugs: ['alltagshilfe-pflegegrad-entlastungsbetrag', 'pflegesachleistung-haushaltshilfe-umwandlungsanspruch', 'direktabrechnung-pflegekasse-ohne-vorkasse', 'haushaltshilfe-pflegegrad-pflegekasse'],
   },
   {
     id: 'pflegegrad',

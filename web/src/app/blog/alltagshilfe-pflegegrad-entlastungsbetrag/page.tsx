@@ -156,7 +156,8 @@ export default function EntlastungsbetragBlogPage() {
         Ab Pflegegrad 2 können unter bestimmten Voraussetzungen zusätzlich bis zu 40 % der nicht
         genutzten ambulanten Pflegesachleistungen für Angebote zur Unterstützung im Alltag
         eingesetzt werden (Umwandlungsanspruch). Das kann ein anteiliges Pflegegeld verringern und
-        sollte vorher mit der Pflegekasse geklärt werden.
+        sollte vorher mit der Pflegekasse geklärt werden. Wie viele Stunden das bringt, zeigt unser{' '}
+        <Link href="/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch">Rechenbeispiel zur Pflegesachleistung</Link>.
       </p>
 
       <h2>Warum Alltagshilfe oft zu spät genutzt wird</h2>

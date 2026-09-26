@@ -61,6 +61,26 @@ export const OFFICIAL_SOURCES = {
     href: 'https://www.gesetze-im-internet.de/sgb_11/__18c.html',
     label: '§ 18c SGB XI: Entscheidung über den Antrag, Fristen',
   },
+  sgb11Par36: {
+    href: 'https://www.gesetze-im-internet.de/sgb_11/__36.html',
+    label: '§ 36 SGB XI: Pflegesachleistung',
+  },
+  sgb11Par37: {
+    href: 'https://www.gesetze-im-internet.de/sgb_11/__37.html',
+    label: '§ 37 SGB XI: Pflegegeld',
+  },
+  sgb11Par45a: {
+    href: 'https://www.gesetze-im-internet.de/sgb_11/__45a.html',
+    label: '§ 45a SGB XI: Angebote zur Unterstützung im Alltag, Umwandlungsanspruch',
+  },
+  pflegestuetzpunkteIb36: {
+    href: 'https://www.pflegestuetzpunkteberlin.de/wp-content/uploads/2025/04/D-IB-36-Leistungskomplexe-Pflege-1.pdf',
+    label: 'Pflegestützpunkte Berlin: Informationsblatt Nr. 36, Vergütung in der ambulanten Versorgung 2026 (Stand 07/26)',
+  },
+  berlinVerguetung: {
+    href: 'https://www.berlin.de/sen/pflege/service/vertraege/ambulante-pflege/',
+    label: 'Berlin.de: Vergütungsformen in der ambulanten Pflege',
+  },
   hilfelotse: {
     href: 'https://www.hilfelotse-berlin.de/detail/morgenlicht-alltagshilfe-berlin',
     label: 'Hilfelotse Berlin: Eintrag Morgenlicht Alltagshilfe Berlin',

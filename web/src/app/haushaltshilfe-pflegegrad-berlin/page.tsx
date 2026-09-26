@@ -103,9 +103,9 @@ export default function HaushaltshilfePflegegradBerlinPage() {
           { href: '/berlin-kreuzberg', label: 'Haushaltshilfe in Kreuzberg' },
           { href: '/berlin-neukoelln', label: 'Haushaltshilfe in Neukölln' },
           { href: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag', label: '131 € Entlastungsbetrag verstehen' },
+          { href: '/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch', label: 'Ab Pflegegrad 2: Pflegesachleistung nutzen' },
           { href: '/tuerkischsprachige-alltagshilfe-berlin', label: 'Türkischsprachige Alltagshilfe' },
           { href: '/leistungen', label: 'Alle Leistungen von Morgenlicht' },
-          { href: '/kontakt', label: 'Kostenfrei beraten lassen' },
         ],
         ctaTitle: 'Passt die Haushaltshilfe zu Ihrer Situation?',
         ctaText:

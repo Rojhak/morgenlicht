@@ -9,6 +9,15 @@ export interface BlogPostSummary {
 
 export const blogPosts: BlogPostSummary[] = [
   {
+    slug: 'pflegesachleistung-haushaltshilfe-umwandlungsanspruch',
+    title: 'Pflegesachleistung für Haushaltshilfe: Pflegedienst oder Alltagshilfe?',
+    excerpt:
+      'Mit Berliner Preisen gerechnet: Für denselben Teil der Pflegesachleistung bekommen Sie bei einer anerkannten Alltagshilfe oft doppelt so viele Stunden – mit Folgen für das Pflegegeld.',
+    date: '2026-09-26',
+    modified: '2026-09-26',
+    tags: ['pflegesachleistung', 'umwandlungsanspruch', 'haushaltshilfe'],
+  },
+  {
     slug: 'haushaltshilfe-kreuzberg-neukoelln',
     title: 'Haushaltshilfe in Kreuzberg und Neukölln: Kosten, Pflegekasse und Leistungen',
     excerpt:
