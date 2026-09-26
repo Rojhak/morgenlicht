@@ -1,145 +1,129 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
-import {
-  ArrowRight,
-  Calendar,
-  Home,
-  Lightbulb,
-  Heart,
-} from 'lucide-react'
+import { SeoBlogArticle } from '../../components/sections/SeoBlogArticle'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Sturzprävention im Alltag: 7 einfache Tipps für mehr Sicherheit',
-  description:
-    'Stürze sind eine der häufigsten Unfallursachen im Alter. Erfahren Sie, wie Sie mit einfachen Maßnahmen Ihr Zuhause sicherer machen und Stürzen vorbeugen können.',
-  keywords: [
-    'Sturzprävention',
-    'Sturz im Alter',
-    'Wohnraumanpassung',
-    'Sicherheit zuhause',
-    'Pflege Berlin',
-    'Alltagshilfe',
-  ],
-  alternates: {
-    canonical: '/blog/sturzpraevention-im-alltag',
+const slug = 'sturzpraevention-im-alltag'
+const title = 'Sturzprävention im Alltag: 7 einfache Tipps für mehr Sicherheit zu Hause'
+const description =
+  'Mit einfachen Maßnahmen wird die Wohnung sicherer: Stolperfallen, Licht, Haltegriffe, Schuhe, Bewegung, Medikamente und Sehen – eine Checkliste.'
+const published = '2025-12-28'
+const modified = '2026-09-26'
+
+export const metadata = createPageMetadata({
+  title: 'Sturzprävention zu Hause: 7 Tipps für Senioren',
+  description,
+  path: `/blog/${slug}`,
+  article: { publishedTime: published, modifiedTime: modified },
+})
+
+const faqItems = [
+  {
+    question: 'Zahlt die Pflegekasse Haltegriffe oder einen Umbau im Bad?',
+    answer:
+      'Mit Pflegegrad kann die Pflegekasse Zuschüsse für wohnumfeldverbessernde Maßnahmen gewähren, zum Beispiel für Haltegriffe oder eine bodengleiche Dusche. Der Antrag sollte vor dem Umbau gestellt werden.',
   },
-  openGraph: {
-    title: 'Sturzprävention im Alltag: 7 einfache Tipps für mehr Sicherheit',
-    description:
-      'Stürze sind eine der häufigsten Unfallursachen im Alter. Mit einfachen Maßnahmen machen Sie Ihr Zuhause sicherer.',
+  {
+    question: 'Wer berät zur sicheren Wohnung?',
+    answer:
+      'Kostenfreie Beratung bieten die Pflegestützpunkte Berlin und die Pflegeberatung der Pflegekassen. Bei gesundheitlichen Ursachen von Unsicherheit ist die Hausarztpraxis die richtige Anlaufstelle.',
   },
-}
+  {
+    question: 'Kann eine Alltagshilfe beim Vorbeugen helfen?',
+    answer:
+      'Ja, im Alltag: Eine Alltagshilfe kann Wege abnehmen, beim Einkauf tragen, auf Spaziergängen begleiten und auf Stolperfallen in der Wohnung hinweisen. Medizinische Maßnahmen gehören nicht dazu.',
+  },
+]
 
 export default function SturzpraeventionPage() {
   return (
-    <div className="py-12 px-4">
-      <article className="max-w-3xl mx-auto">
-        {/* Back link */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-[#455A64] hover:text-[#37474F] mb-8 transition-colors"
-        >
-          <ArrowRight className="w-4 h-4 rotate-180" aria-hidden="true" />
-          Zurück zum Blog
-        </Link>
+    <SeoBlogArticle
+      slug={slug}
+      title={title}
+      shortTitle="Sturzprävention im Alltag"
+      description={description}
+      eyebrow="Sicher zu Hause"
+      datePublished={published}
+      dateModified={modified}
+      readingTime="Lesedauer: ca. 4 Minuten"
+      quickFacts={[
+        'Stolperfallen entfernen und für gutes Licht sorgen',
+        'Haltegriffe in Bad und Flur anbringen',
+        'Bewegung und Gleichgewicht trainieren',
+        'Medikamente, Augen und Ohren prüfen lassen',
+      ]}
+      faqItems={faqItems}
+      relatedLinks={[
+        { href: '/leistungen#begleitung', label: 'Begleitung und Mobilität' },
+        { href: '/soziale-begleitung-senioren-berlin', label: 'Spaziergänge und soziale Begleitung' },
+        { href: '/blog/seniorenhilfe-zuhause-berlin', label: 'Seniorenhilfe zu Hause in Berlin' },
+        { href: '/pflegegrad-guide', label: 'Pflegegrad-Begutachtung vorbereiten' },
+      ]}
+      ctaTitle="Mehr Sicherheit im Alltag"
+      ctaText="Wir begleiten zu Terminen, übernehmen Einkäufe und gehen mit Ihnen spazieren – damit anstrengende Wege nicht allein bewältigt werden müssen."
+    >
+      <p>
+        Mit zunehmendem Alter steigt das Risiko zu stürzen, und die Folgen wiegen oft schwerer.
+        Viele Stürze passieren in der eigenen Wohnung. Die gute Nachricht: Schon kleine
+        Veränderungen machen den Alltag deutlich sicherer.
+      </p>
 
-        {/* Date */}
-        <div className="flex items-center gap-2 text-sm text-[#78909C] mb-4">
-          <Calendar className="w-4 h-4" aria-hidden="true" />
-          <time dateTime="2026-05-08">8. Mai 2026</time>
-        </div>
+      <h2>1. Stolperfallen entfernen</h2>
+      <ul>
+        <li>Lose Teppiche mit rutschfesten Unterlagen sichern oder entfernen</li>
+        <li>Kabel an der Wand entlang führen und befestigen</li>
+        <li>Wege durch die Wohnung freihalten, besonders nachts zum Bad</li>
+      </ul>
 
-        {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold text-[#37474F] mb-6 leading-tight">
-          Sturzprävention im Alltag: 7 einfache Tipps für mehr Sicherheit zuhause
-        </h1>
+      <h2>2. Für gutes Licht sorgen</h2>
+      <ul>
+        <li>Nachtlichter in Flur und Bad</li>
+        <li>Bewegungsmelder in dunklen Ecken</li>
+        <li>Lichtschalter gut erreichbar, auch direkt am Bett</li>
+      </ul>
 
-        {/* Content */}
-        <div className="prose prose-gray max-w-none space-y-6 text-[#455A64] leading-relaxed">
-          <h2 className="text-2xl font-bold text-[#37474F] mt-10 mb-4">Warum ist Sturzprävention wichtig?</h2>
-          <p>
-            Jährlich erleiden Hunderttausende ältere Menschen in Deutschland einen Sturz mit schwerwiegenden Folgen.
-            Besonders in Berlin, wo viele Seniorinnen und Senioren allein leben, ist die Sturzprävention ein zentrales
-            Thema der Altenpflege und Gesundheitsvorsorge.
-          </p>
+      <h2>3. Haltegriffe und Hilfsmittel nutzen</h2>
+      <ul>
+        <li>Haltegriffe neben Toilette und Dusche</li>
+        <li>Duschhocker oder Duschstuhl</li>
+        <li>Erhöhter Toilettensitz, der das Aufstehen erleichtert</li>
+      </ul>
+      <p>
+        Mit Pflegegrad kann die Pflegekasse Umbauten wie Haltegriffe oder eine bodengleiche Dusche
+        bezuschussen. Fragen Sie vor dem Umbau nach.
+      </p>
 
-          <h2 className="text-2xl font-bold text-[#37474F] mt-10 mb-4">7 einfache Maßnahmen für mehr Sicherheit</h2>
+      <h2>4. Das richtige Schuhwerk</h2>
+      <ul>
+        <li>Feste Schuhe mit rutschfester Sohle, auch in der Wohnung</li>
+        <li>Keine offenen Hausschuhe ohne Halt an der Ferse</li>
+      </ul>
 
-          <h3 className="text-xl font-semibold text-[#37474F] mt-8 mb-3">1. Stolperfallen entfernen</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Lose Teppiche durch rutschfeste Unterlagen sichern oder ganz entfernen</li>
-            <li>Kabel ordentlich verlegen und mit Kabelbindern fixieren</li>
-            <li>Schwellen zwischen Räumen abbauen oder mit Rampen versehen</li>
-          </ul>
+      <h2>5. Bewegung und Gleichgewicht</h2>
+      <ul>
+        <li>Regelmäßige Gleichgewichtsübungen, zum Beispiel in Kursen oder mit Physiotherapie</li>
+        <li>Spaziergänge stärken Muskeln und Sicherheit beim Gehen</li>
+        <li>Krankenkassen unterstützen häufig Präventionskurse – fragen Sie dort nach</li>
+      </ul>
 
-          <h3 className="text-xl font-semibold text-[#37474F] mt-8 mb-3">2. Gute Beleuchtung</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Nachtlichter in Flur und Bad installieren</li>
-            <li>Bewegungsmelder für automatisches Licht in dunklen Ecken</li>
-            <li>Helle, blendfreie LED-Beleuchtung in Treppenhäusern</li>
-          </ul>
+      <h2>6. Medikamente überprüfen lassen</h2>
+      <p>
+        Manche Medikamente können Schwindel oder Benommenheit auslösen, vor allem in Kombination.
+        Lassen Sie Ihren Medikamentenplan regelmäßig in der Hausarztpraxis oder Apotheke prüfen.
+      </p>
 
-          <h3 className="text-xl font-semibold text-[#37474F] mt-8 mb-3">3. Haltegriffe und Hilfsmittel</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Haltegriffe neben Toilette und Dusche anbringen</li>
-            <li>Duschhocker oder Duschstuhl für mehr Stabilität</li>
-            <li>Erhöhter Toilettensitz erleichtert das Aufstehen</li>
-          </ul>
+      <h2>7. Augen und Ohren prüfen lassen</h2>
+      <p>
+        Wer schlecht sieht oder hört, übersieht Hindernisse leichter. Regelmäßige Kontrollen und
+        eine passende Brille oder ein Hörgerät helfen im Alltag.
+      </p>
 
-          <h3 className="text-xl font-semibold text-[#37474F] mt-8 mb-3">4. Das richtige Schuhwerk</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Festes, rutschfestes Schuhwerk mit dünner Sohle</li>
-            <li>Keine weichen Hausschuhe ohne Fersenfixierung</li>
-            <li>Orthopädische Einlagen bei Gangunsicherheit</li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-[#37474F] mt-8 mb-3">5. Bewegung und Gleichgewicht</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Regelmäßige Gleichgewichtsübungen (Tai Chi, Yoga, Physiotherapie)</li>
-            <li>Viele Krankenkassen bieten kostenlose Sturzpräventionskurse an</li>
-            <li>Spaziergänge an der frischen Luft stärken die Muskulatur</li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-[#37474F] mt-8 mb-3">6. Medikamenten-Check</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Lassen Sie Ihre Medikamente regelmäßig vom Arzt überprüfen</li>
-            <li>Einige Medikamente können Schwindel und Benommenheit auslösen</li>
-          </ul>
-
-          <h3 className="text-xl font-semibold text-[#37474F] mt-8 mb-3">7. Seh- und Hörtest</h3>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Regelmäßige Seh- und Hörtests beim Facharzt</li>
-            <li>Angepasste Brille oder Hörgerät reduziert Sturzrisiko erheblich</li>
-          </ul>
-
-          <div className="bg-[#FFF3E0] border border-[#FFCC80] rounded-lg p-6 mt-8">
-            <p className="font-semibold text-[#37474F] mb-2">Professionelle Beratung:</p>
-            <p className="text-[#455A64]">
-              Wenn Sie unsicher sind, welche Maßnahmen für Ihre Wohnsituation geeignet sind, suchen Sie eine
-              Beratungsstelle auf. Der Pflegestützpunkt oder der Medizinische Dienst (MD)
-              beraten Sie kostenlos.
-            </p>
-          </div>
-
-          <p className="text-sm text-[#78909C] mt-8">Stand: Mai 2026</p>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-12 bg-gradient-to-br from-[#E3F2FD] to-[#F3E5F5] rounded-2xl p-8 text-center">
-          <h3 className="text-xl font-bold text-[#37474F] mb-3">
-            Wir unterstützen Sie im Alltag
-          </h3>
-          <p className="text-[#455A64] mb-6">
-            Morgenlicht Alltagshilfe begleitet Sie im Alltag, hilft bei Besorgungen und sorgt für mehr Lebensqualität.
-          </p>
-          <Link
-            href="/leistungen"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#1565C0] text-white rounded-lg font-semibold hover:bg-[#1976D2] transition-colors"
-          >
-            Unsere Leistungen <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </article>
-    </div>
+      <h2>Wie Alltagshilfe unterstützen kann</h2>
+      <p>
+        Eine <Link href="/leistungen">Alltagshilfe</Link> nimmt anstrengende Wege ab, trägt Einkäufe,
+        begleitet zu Terminen und geht mit spazieren. Mit Pflegegrad kann dafür der{' '}
+        <Link href="/blog/alltagshilfe-pflegegrad-entlastungsbetrag">Entlastungsbetrag</Link> genutzt
+        werden.
+      </p>
+    </SeoBlogArticle>
   )
 }

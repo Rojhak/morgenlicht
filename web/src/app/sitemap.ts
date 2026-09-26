@@ -1,33 +1,37 @@
 import type { MetadataRoute } from 'next'
 import { blogPosts } from '@/config/blogPosts'
+import { SITE_URL } from '@/config/site'
 
-const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
+// lastModified reflects the last substantive content change of each page.
+const pages: Array<[path: string, lastModified: string]> = [
+  ['/', '2026-09-26'],
+  ['/leistungen', '2026-09-26'],
+  ['/kosten', '2026-09-26'],
+  ['/kontakt', '2026-09-26'],
+  ['/ueber-uns', '2026-09-26'],
+  ['/fragen', '2026-09-26'],
+  ['/pflegegrad-guide', '2026-09-26'],
+  ['/haushaltshilfe-pflegegrad-berlin', '2026-09-26'],
+  ['/arztbegleitung-senioren-berlin', '2026-09-26'],
+  ['/soziale-begleitung-senioren-berlin', '2026-09-26'],
+  ['/tuerkischsprachige-alltagshilfe-berlin', '2026-09-26'],
+  ['/tr/berlin-yasli-gunluk-yasam-destegi', '2026-09-26'],
+  ['/berlin-kreuzberg', '2026-09-26'],
+  ['/berlin-neukoelln', '2026-09-26'],
+  ['/blog', '2026-09-26'],
+  ['/barrierefreiheit', '2026-09-26'],
+  ['/impressum', '2026-09-26'],
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: SITE_URL, lastModified: '2026-08-11', changeFrequency: 'weekly', priority: 1 },
-    { url: `${SITE_URL}/leistungen`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/kosten`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/pflegegrad-guide`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/fragen`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/ueber-uns`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/kontakt`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/berlin-kreuzberg`, lastModified: '2026-07-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/berlin-neukoelln`, lastModified: '2026-07-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/haushaltshilfe-pflegegrad-berlin`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/arztbegleitung-senioren-berlin`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/soziale-begleitung-senioren-berlin`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/tuerkischsprachige-alltagshilfe-berlin`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/tr/berlin-yasli-gunluk-yasam-destegi`, lastModified: '2026-08-11', changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/blog`, lastModified: '2026-07-11', changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE_URL}/barrierefreiheit`, lastModified: '2026-05-08', changeFrequency: 'yearly', priority: 0.3 },
-  ]
+  const staticPages: MetadataRoute.Sitemap = pages.map(([path, lastModified]) => ({
+    url: `${SITE_URL}${path}`,
+    lastModified,
+  }))
 
   const articlePages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: post.modified,
-    changeFrequency: 'monthly',
-    priority: 0.8,
   }))
 
   return [...staticPages, ...articlePages]

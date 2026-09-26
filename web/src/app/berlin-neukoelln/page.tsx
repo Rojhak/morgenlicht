@@ -1,22 +1,12 @@
-import type { Metadata } from 'next'
 import { DistrictPage } from '../components/sections/DistrictPage'
+import { createPageMetadata } from '@/lib/seo'
 
-const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
-
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Haushaltshilfe Neukölln | Pflegekasse & Seniorenhilfe',
-  },
+export const metadata = createPageMetadata({
+  title: 'Haushaltshilfe Neukölln | Pflegekasse & Seniorenhilfe',
   description:
-    'Haushaltshilfe in Berlin-Neukölln für Senioren und Menschen mit Pflegegrad. Anerkannte Alltagshilfe, Einkauf und Begleitung über die Pflegekasse.',
-  alternates: { canonical: '/berlin-neukoelln' },
-  openGraph: {
-    title: 'Haushaltshilfe und Alltagshilfe in Berlin-Neukölln',
-    description:
-      'Anerkannte Haushaltshilfe, Einkaufshilfe und Begleitung in Neukölln. Finanzierung über den Entlastungsbetrag ab Pflegegrad 1 möglich.',
-    url: `${SITE_URL}/berlin-neukoelln`,
-  },
-}
+    'Haushaltshilfe und Alltagshilfe in Berlin-Neukölln für Senioren mit Pflegegrad: Reinigung, Einkauf, Begleitung. Anerkannt nach § 45a SGB XI, auch auf Türkisch.',
+  path: '/berlin-neukoelln',
+})
 
 export default function NeukoellnPage() {
   return (

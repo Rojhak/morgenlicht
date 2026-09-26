@@ -1,63 +1,21 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import {
-  ArrowRight,
-  Calendar,
-  CheckCircle,
-  Euro,
-  FileText,
-  HelpCircle,
-  Home,
-  Info,
-  ShoppingBag,
-  Users,
-} from 'lucide-react'
-import { serializeJsonLd } from '@/lib/security'
+import { SeoBlogArticle } from '../../components/sections/SeoBlogArticle'
+import { OFFICIAL_SOURCES } from '@/config/site'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+const slug = 'alltagshilfe-pflegegrad-entlastungsbetrag'
+const title = 'Alltagshilfe bei Pflegegrad: So nutzen Sie den Entlastungsbetrag richtig'
+const description =
+  'Ab Pflegegrad 1 gibt es bis zu 131 € im Monat für Alltagshilfe. Wer Anspruch hat, wofür das Geld genutzt werden kann und wie die Abrechnung funktioniert.'
+const published = '2026-05-06'
+const modified = '2026-09-26'
+
+export const metadata = createPageMetadata({
   title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
-  description:
-    'Ab Pflegegrad 1 stehen monatlich bis zu 131 € für Alltagshilfe, Haushalt, Einkauf und Begleitung zur Verfügung. Einfach erklärt für Pflegebedürftige und Angehörige.',
-  keywords: [
-    'Entlastungsbetrag',
-    'Alltagshilfe Pflegegrad',
-    'Haushaltshilfe Pflegegrad',
-    'Pflegekasse Alltagshilfe',
-    'Alltagshilfe Berlin',
-    '131 Euro Pflegegrad',
-    'Unterstützung im Alltag',
-  ],
-  alternates: {
-    canonical: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag',
-  },
-  openGraph: {
-    title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
-    description:
-      'Wer Anspruch hat, wofür der Entlastungsbetrag genutzt werden kann und wie die Abrechnung mit der Pflegekasse funktioniert.',
-    type: 'article',
-    locale: 'de_DE',
-    publishedTime: '2026-05-06',
-  },
-}
-
-const serviceExamples = [
-  {
-    title: 'Haushalt und Reinigung',
-    text: 'Wohnungsreinigung, Staubsaugen, Wischen, Küche und Bad reinigen, Wäsche waschen, Betten beziehen oder einfache Mahlzeiten vorbereiten.',
-    icon: Home,
-  },
-  {
-    title: 'Einkauf und Erledigungen',
-    text: 'Wocheneinkauf, Apothekengänge, Post, Bank, Drogerie oder andere notwendige Besorgungen.',
-    icon: ShoppingBag,
-  },
-  {
-    title: 'Begleitung außer Haus',
-    text: 'Begleitung zum Arzt, zur Behörde, zur Krankenkasse, zum Einkauf oder zu Freizeitangeboten.',
-    icon: Users,
-  },
-]
+  description,
+  path: `/blog/${slug}`,
+  article: { publishedTime: published, modifiedTime: modified },
+})
 
 const faqItems = [
   {
@@ -67,317 +25,165 @@ const faqItems = [
   },
   {
     question: 'Gibt es den Entlastungsbetrag schon ab Pflegegrad 1?',
-    answer:
-      'Ja. Menschen mit Pflegegrad 1 bis 5 haben Anspruch, wenn die Versorgung überwiegend zu Hause stattfindet.',
+    answer: 'Ja. Menschen mit Pflegegrad 1 bis 5 haben Anspruch, wenn sie zu Hause gepflegt oder betreut werden.',
   },
   {
     question: 'Kann ich damit eine Haushaltshilfe bezahlen?',
     answer:
-      'Ja, wenn die Haushaltshilfe über einen nach Landesrecht anerkannten Anbieter erfolgt. Typisch sind Reinigung, Wäsche, Einkauf und andere Hilfen im Alltag.',
+      'Ja, wenn die Haushaltshilfe über ein nach Landesrecht anerkanntes Angebot zur Unterstützung im Alltag erfolgt. Typisch sind Reinigung, Wäsche, Einkauf und andere Hilfen im Alltag.',
   },
   {
     question: 'Verfällt der Entlastungsbetrag?',
     answer:
-      'Nicht sofort. Nicht genutzte Beträge können angespart und bis zum 30. Juni des Folgejahres genutzt werden.',
+      'Nicht sofort. Nicht genutzte Beträge werden in die folgenden Monate übertragen. Was am Ende des Kalenderjahres übrig ist, kann bis zum 30. Juni des Folgejahres genutzt werden.',
   },
 ]
 
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
-  description:
-    'Ab Pflegegrad 1 stehen monatlich bis zu 131 € für Alltagshilfe, Haushalt, Einkauf und Begleitung zur Verfügung.',
-  datePublished: '2026-05-06',
-  dateModified: '2026-05-06',
-  author: {
-    '@type': 'Organization',
-    name: 'Morgenlicht Alltagshilfe Berlin',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Morgenlicht Alltagshilfe Berlin',
-  },
-  mainEntityOfPage: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag',
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqItems.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer,
-    },
-  })),
-}
-
-const articleTextClass =
-  'space-y-6 text-lg leading-relaxed text-[#374151] [&_h2]:pt-6 [&_h2]:text-2xl [&_h2]:md:text-3xl [&_h2]:font-bold [&_h2]:font-heading [&_h2]:text-[#134E4A] [&_h2]:leading-tight [&_a]:text-[#0D6E64] [&_a]:font-semibold [&_a]:underline-offset-4 [&_a:hover]:underline [&_ul]:space-y-3 [&_ul]:pl-6 [&_li]:list-disc'
-
 export default function EntlastungsbetragBlogPage() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
-      />
+    <SeoBlogArticle
+      slug={slug}
+      title={title}
+      shortTitle="Entlastungsbetrag richtig nutzen"
+      description={description}
+      eyebrow="Entlastungsbetrag ab Pflegegrad 1"
+      datePublished={published}
+      dateModified={modified}
+      readingTime="Lesedauer: ca. 7 Minuten"
+      quickFacts={[
+        'Bis zu 131 € im Monat, 1.572 € im Jahr',
+        'Ab Pflegegrad 1, bei Pflege zu Hause',
+        'Nur für anerkannte Angebote',
+        'Restbeträge bis 30. Juni des Folgejahres nutzbar',
+      ]}
+      faqItems={faqItems}
+      relatedLinks={[
+        { href: '/kosten', label: 'Kosten und Pflegekasse bei Morgenlicht' },
+        { href: '/blog/direktabrechnung-pflegekasse-ohne-vorkasse', label: 'Direktabrechnung ohne Vorkasse' },
+        { href: '/blog/pflegegrad-1-hilfe-leistungen', label: 'Pflegegrad 1: Welche Hilfe steht Ihnen zu?' },
+        { href: '/haushaltshilfe-pflegegrad-berlin', label: 'Haushaltshilfe mit Pflegegrad in Berlin' },
+      ]}
+      sources={[OFFICIAL_SOURCES.bmgEntlastung, OFFICIAL_SOURCES.gesundBund, OFFICIAL_SOURCES.vzBerlin, OFFICIAL_SOURCES.berlinAuA]}
+      ctaTitle="Entlastungsbetrag in Berlin nutzen"
+      ctaText="Wir prüfen mit Ihnen, welche Unterstützung passt und wie die Abrechnung mit der Pflegekasse funktioniert."
+    >
+      <p>
+        Im Jahr 2026 beträgt der Entlastungsbetrag <strong>bis zu 131 € pro Monat</strong>, also bis
+        zu <strong>1.572 € im Jahr</strong>. Er steht bereits ab Pflegegrad 1 zur Verfügung und
+        kommt zusätzlich zu anderen Pflegeleistungen.
+      </p>
+      <p>
+        Gerade diese Leistung bleibt oft ungenutzt. Viele Familien wissen nicht, dass sie Anspruch
+        haben, oder denken, das Geld werde automatisch ausgezahlt. Das stimmt nicht: Der
+        Entlastungsbetrag ist zweckgebunden und kann nur für bestimmte anerkannte Angebote verwendet
+        werden.
+      </p>
 
-      <article className="bg-white">
-        <header className="px-4 pt-16 pb-10 md:pt-24 md:pb-14 bg-[#F7F6F3]">
-          <div className="max-w-4xl mx-auto">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-sm font-semibold text-[#134E4A] hover:underline focus:outline-none focus:ring-4 focus:ring-[#FFD54F] rounded"
-            >
-              Blog
-            </Link>
-            <div className="mt-6 inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-sm font-semibold text-[#144E41] shadow-sm">
-              <Euro className="w-4 h-4" aria-hidden="true" />
-              Entlastungsbetrag ab Pflegegrad 1
-            </div>
-            <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#134E4A] leading-tight">
-              Alltagshilfe bei Pflegegrad: So nutzen Sie den Entlastungsbetrag richtig
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-[#455A64] leading-relaxed max-w-3xl">
-              Viele pflegebedürftige Menschen und Angehörige wissen nicht, dass ihnen neben Pflegegeld oder Pflegesachleistungen noch eine weitere Unterstützung zusteht: der Entlastungsbetrag.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#455A64]">
-              <span className="inline-flex items-center gap-2">
-                <Calendar className="w-4 h-4" aria-hidden="true" />
-                <time dateTime="2026-05-06">6. Mai 2026</time>
-              </span>
-              <span>Lesedauer: ca. 7 Minuten</span>
-            </div>
-          </div>
-        </header>
+      <h2>Was ist der Entlastungsbetrag?</h2>
+      <p>
+        Eine Leistung der Pflegeversicherung nach § 45b SGB XI für Menschen, die zu Hause gepflegt
+        oder betreut werden. Sie soll pflegebedürftige Menschen im Alltag unterstützen und pflegende
+        Angehörige entlasten. Das Geld wird nicht monatlich überwiesen, sondern für konkrete
+        Leistungen eingesetzt – zum Beispiel für eine anerkannte Alltagshilfe oder Haushaltshilfe.
+      </p>
 
-        <div className="px-4 py-12 md:py-16">
-          <div className="max-w-4xl mx-auto grid lg:grid-cols-[1fr_280px] gap-10">
-            <div className="min-w-0">
-              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-10 bg-[#134E4A]">
-                <Image
-                  src="/images/hero_daily_moments.jpg"
-                  alt="Eine Begleitperson betrachtet gemeinsam mit einem älteren Mann ein Fotoalbum"
-                  fill
-                  sizes="(max-width: 1023px) calc(100vw - 2rem), 760px"
-                  className="object-cover opacity-95"
-                />
-              </div>
+      <h2>Wer hat Anspruch?</h2>
+      <p>
+        Menschen mit Pflegegrad 1 bis 5, die zu Hause gepflegt oder betreut werden. Dabei spielt es
+        keine Rolle, ob die Pflege durch Angehörige, Freunde oder einen Pflegedienst organisiert
+        wird.
+      </p>
+      <p>
+        Die Leistung muss von einem Anbieter erbracht werden, der nach Landesrecht anerkannt ist.{' '}
+        <Link href="/ueber-uns">Morgenlicht Alltagshilfe Berlin</Link> ist als Angebot nach § 45a
+        SGB XI anerkannt und unterstützt in den Bereichen{' '}
+        <Link href="/leistungen">Haushalt, Einkauf, Begleitung, Alltag und Soziales</Link>.
+      </p>
 
-              <div className={articleTextClass}>
-                <p>
-                  Im Jahr 2026 beträgt der Entlastungsbetrag <strong>bis zu 131 € pro Monat</strong>, also bis zu <strong>1.572 € im Jahr</strong>. Er steht bereits ab Pflegegrad 1 zur Verfügung und wird zusätzlich zu anderen Pflegeleistungen gewährt.
-                </p>
+      <h2>Wofür kann der Entlastungsbetrag genutzt werden?</h2>
+      <h3>Haushalt und Reinigung</h3>
+      <p>
+        Wohnung reinigen, Küche und Bad putzen, Wäsche waschen, Betten beziehen oder einfache
+        Mahlzeiten vorbereiten.
+      </p>
+      <h3>Einkauf und Erledigungen</h3>
+      <p>Wocheneinkauf, Apothekengänge, Post, Bank, Drogerie oder andere notwendige Besorgungen.</p>
+      <h3>Begleitung außer Haus</h3>
+      <p>Begleitung zum Arzt, zur Behörde, zur Krankenkasse, zum Einkauf oder zu Freizeitangeboten.</p>
+      <h3>Alltagsorganisation und soziale Teilhabe</h3>
+      <p>
+        Post sortieren, Termine im Blick behalten, einfache Formulare ausfüllen – aber auch
+        Gespräche, Spaziergänge, Vorlesen oder die Begleitung zu Seniorentreffs. Gerade bei
+        Einsamkeit im Alter ist diese Unterstützung oft genauso wichtig wie Hilfe im Haushalt.
+      </p>
 
-                <p>
-                  Gerade diese Leistung bleibt oft ungenutzt. Viele Familien wissen nicht, dass sie Anspruch haben. Andere denken, das Geld werde automatisch ausgezahlt. Das stimmt nicht: Der Entlastungsbetrag ist zweckgebunden und kann nur für bestimmte anerkannte Unterstützungsangebote verwendet werden.
-                </p>
+      <h2>Was nicht über den Entlastungsbetrag bezahlt wird</h2>
+      <ul>
+        <li>medizinische Behandlungspflege, etwa Spritzen, Verbandswechsel oder Medikamentengabe durch Fachpflege</li>
+        <li>Leistungen von Anbietern ohne Anerkennung</li>
+        <li>frei ausgezahlte Geldleistungen ohne Rechnung</li>
+      </ul>
+      <p>
+        Bei Pflegegrad 2 bis 5 gilt außerdem: Hilfen eines Pflegedienstes bei der körperbezogenen
+        Selbstversorgung, etwa Waschen oder Anziehen, können nicht über den Entlastungsbetrag
+        abgerechnet werden. Bei Pflegegrad 1 ist das ausnahmsweise möglich.
+      </p>
 
-                <h2>Was ist der Entlastungsbetrag?</h2>
-                <p>
-                  Der Entlastungsbetrag ist eine Leistung der Pflegeversicherung für Menschen, die zu Hause gepflegt oder betreut werden. Er soll pflegebedürftige Menschen im Alltag unterstützen und pflegende Angehörige entlasten.
-                </p>
-                <p>
-                  Das Geld ist nicht als frei verfügbares Pflegegeld gedacht. Es wird also nicht einfach monatlich auf das Konto überwiesen. Stattdessen wird es für konkrete Leistungen eingesetzt, zum Beispiel für eine anerkannte Alltagshilfe, Haushaltshilfe oder Betreuung.
-                </p>
+      <h2>Wie funktioniert die Abrechnung?</h2>
+      <p>
+        Grundsätzlich gilt das Erstattungsprinzip: Die Leistung wird erbracht, es gibt eine Rechnung,
+        und diese wird bei der Pflegekasse eingereicht. Wer kein Geld vorstrecken möchte, kann mit
+        manchen anerkannten Anbietern eine{' '}
+        <Link href="/blog/direktabrechnung-pflegekasse-ohne-vorkasse">Direktabrechnung</Link>{' '}
+        vereinbaren. Dafür wird in der Regel eine Abtretungserklärung unterschrieben.
+      </p>
 
-                <h2>Wer hat Anspruch auf Alltagshilfe über den Entlastungsbetrag?</h2>
-                <p>
-                  Anspruch haben Menschen mit Pflegegrad 1 bis 5, wenn sie zu Hause gepflegt oder betreut werden. Dabei spielt es keine Rolle, ob die Pflege durch Angehörige, Freunde oder einen Pflegedienst organisiert wird.
-                </p>
-                <p>
-                  Wichtig ist: Die Leistung muss von einem Anbieter erbracht werden, der nach Landesrecht anerkannt ist. In Berlin bedeutet das, dass der Anbieter entsprechend zugelassen beziehungsweise zertifiziert sein muss.
-                </p>
-                <p>
-                  <Link href="/">Morgenlicht Alltagshilfe Berlin</Link> ist als Angebot nach § 45a SGB XI anerkannt und unterstützt in Bereichen wie <Link href="/leistungen">Haushalt, Einkauf, Begleitung, Alltag und Soziales</Link>.
-                </p>
+      <h2>Wird das Pflegegeld gekürzt?</h2>
+      <p>
+        Nein. Der Entlastungsbetrag kommt zusätzlich zum Pflegegeld. Pflegegeld und
+        Entlastungsbetrag haben unterschiedliche Zwecke.
+      </p>
 
-                <h2>Wofür kann der Entlastungsbetrag genutzt werden?</h2>
-                <p>
-                  Der Entlastungsbetrag kann für praktische Unterstützung im Alltag eingesetzt werden. Dazu gehören vor allem Leistungen, die den Alltag leichter, sicherer und übersichtlicher machen.
-                </p>
-              </div>
+      <h2>Kann man ungenutzte Beträge ansparen?</h2>
+      <p>
+        Ja. Nicht genutzte Beträge werden in die folgenden Monate übertragen. Was am Ende eines
+        Kalenderjahres übrig ist, kann bis zum 30. Juni des Folgejahres genutzt werden. Danach
+        verfällt der Rest.
+      </p>
 
-              <section className="my-10 grid md:grid-cols-3 gap-4" aria-label="Beispiele für Alltagshilfe">
-                {serviceExamples.map((item) => {
-                  const Icon = item.icon
-                  return (
-                    <div key={item.title} className="rounded-xl border border-[#144E41]/10 bg-[#F7F6F3] p-5">
-                      <Icon className="w-8 h-8 text-[#134E4A] mb-4" aria-hidden="true" />
-                      <h3 className="font-heading text-lg font-bold text-[#134E4A] mb-2">{item.title}</h3>
-                      <p className="text-base text-[#455A64] leading-relaxed">{item.text}</p>
-                    </div>
-                  )
-                })}
-              </section>
+      <h2>Was, wenn 131 € im Monat nicht reichen?</h2>
+      <p>
+        Ab Pflegegrad 2 können unter bestimmten Voraussetzungen zusätzlich bis zu 40 % der nicht
+        genutzten ambulanten Pflegesachleistungen für Angebote zur Unterstützung im Alltag
+        eingesetzt werden (Umwandlungsanspruch). Das kann ein anteiliges Pflegegeld verringern und
+        sollte vorher mit der Pflegekasse geklärt werden.
+      </p>
 
-              <div className={articleTextClass}>
-                <h2>Alltagsorganisation und soziale Teilhabe</h2>
-                <p>
-                  Unterstützung beim Sortieren von Post, beim Überblick über Termine, beim Ausfüllen einfacher Formulare oder bei wichtigen Telefonaten kann ebenfalls helfen, den Alltag stabiler zu gestalten.
-                </p>
-                <p>
-                  Auch Gespräche, Spaziergänge, Vorlesen, gemeinsames Zeitungslesen, Begleitung zu Seniorentreffs, Nachbarschaftscafés oder kulturellen Angeboten können unter Alltagshilfe fallen. Gerade bei Einsamkeit im Alter ist diese Unterstützung oft genauso wichtig wie Hilfe im Haushalt.
-                </p>
+      <h2>Warum Alltagshilfe oft zu spät genutzt wird</h2>
+      <p>
+        Viele Familien organisieren Unterstützung erst, wenn die Belastung schon sehr hoch ist.
+        Früh eingesetzt kann Alltagshilfe Überforderung vermeiden, zum Beispiel wenn:
+      </p>
+      <ul>
+        <li>Angehörige arbeiten und nicht jede Woche beim Haushalt helfen können,</li>
+        <li>Arzttermine, Briefe und Anträge unübersichtlich werden,</li>
+        <li>Einkäufe körperlich zu anstrengend sind,</li>
+        <li>die pflegebedürftige Person kaum noch rausgeht oder</li>
+        <li>nach einem Krankenhausaufenthalt vorübergehend Unterstützung fehlt.</li>
+      </ul>
+      <p>
+        Wer noch keinen Pflegegrad hat, sollte den{' '}
+        <Link href="/blog/pflegegrad-beantragen-schritt-fuer-schritt">Pflegegrad beantragen</Link> und
+        die <Link href="/pflegegrad-guide">Begutachtung gut vorbereiten</Link>.
+      </p>
 
-                <h2>Was kann nicht über den Entlastungsbetrag bezahlt werden?</h2>
-                <p>
-                  Der Entlastungsbetrag darf nicht einfach als zusätzliches Pflegegeld verwendet werden. Auch medizinische Behandlungspflege gehört nicht zur normalen Alltagshilfe.
-                </p>
-                <ul>
-                  <li>medizinische Behandlungspflege, etwa Spritzen, Verbandswechsel oder Medikamentengabe durch Fachpflege</li>
-                  <li>größere Renovierungen, Reparaturen oder Sonderreinigungen</li>
-                  <li>Leistungen ohne anerkannte Zulassung</li>
-                  <li>frei ausgezahlte Geldleistungen ohne Rechnung</li>
-                </ul>
-                <p>
-                  Bei Pflegegrad 2 bis 5 ist außerdem wichtig: Körperbezogene Pflege, also zum Beispiel Waschen, Duschen oder Anziehen, wird grundsätzlich über Pflegesachleistungen und nicht über den Entlastungsbetrag finanziert. Eine Ausnahme besteht bei Pflegegrad 1.
-                </p>
-
-                <h2>Wie funktioniert die Abrechnung mit der Pflegekasse?</h2>
-                <p>
-                  Häufig läuft der Entlastungsbetrag nach dem Kostenerstattungsprinzip: Die Leistung wird erbracht, es gibt eine Rechnung, und diese Rechnung wird bei der Pflegekasse eingereicht.
-                </p>
-                <p>
-                  Viele Familien möchten aber keine Rechnungen sammeln und kein Geld vorstrecken. Deshalb bieten manche anerkannte Anbieter eine <Link href="/kosten">direkte Abrechnung mit der Pflegekasse</Link> an. Dafür wird in der Regel eine Abtretungserklärung unterschrieben.
-                </p>
-
-                <h2>Wird das Pflegegeld gekürzt?</h2>
-                <p>
-                  Nein. Der Entlastungsbetrag kommt zusätzlich zum Pflegegeld. Wer Pflegegeld erhält, verliert dieses Geld nicht automatisch, nur weil Alltagshilfe genutzt wird. Pflegegeld und Entlastungsbetrag haben unterschiedliche Zwecke.
-                </p>
-
-                <h2>Kann man ungenutzte Beträge ansparen?</h2>
-                <p>
-                  Ja. Wenn der monatliche Entlastungsbetrag nicht vollständig genutzt wird, wird der Rest in die nächsten Monate übertragen. Nicht verbrauchte Beträge aus einem Kalenderjahr können bis zum 30. Juni des Folgejahres genutzt werden. Danach verfallen sie.
-                </p>
-
-                <h2>Was passiert, wenn 131 € im Monat nicht reichen?</h2>
-                <p>
-                  Für manche Haushalte reicht der Entlastungsbetrag nicht aus, vor allem wenn regelmäßig Haushaltshilfe, Einkaufshilfe oder Begleitung gebraucht wird. Menschen mit Pflegegrad 2 bis 5 können unter bestimmten Voraussetzungen zusätzlich bis zu 40 Prozent der Pflegesachleistungen für Angebote zur Unterstützung im Alltag umwandeln.
-                </p>
-
-                <h2>Warum Alltagshilfe oft zu spät genutzt wird</h2>
-                <p>
-                  Viele Familien organisieren Unterstützung erst dann, wenn die Belastung schon sehr hoch ist. Dabei ist Alltagshilfe gerade früh sinnvoll. Wenn regelmäßig jemand beim Haushalt, Einkauf oder bei Terminen unterstützt, kann das Überforderung verhindern.
-                </p>
-                <p>
-                  Wer noch keinen Pflegegrad hat, sollte den <Link href="/blog/pflegegrad-beantragen-schritt-fuer-schritt">Pflegegrad beantragen</Link> und den Hilfebedarf gut vorbereiten.
-                </p>
-                <ul>
-                  <li>Angehörige arbeiten und können nicht jede Woche beim Haushalt helfen.</li>
-                  <li>Arzttermine, Briefe und Anträge werden unübersichtlich.</li>
-                  <li>Einkäufe werden körperlich zu anstrengend.</li>
-                  <li>Die pflegebedürftige Person geht kaum noch raus.</li>
-                  <li>Nach einem Krankenhausaufenthalt fehlt vorübergehend Unterstützung.</li>
-                </ul>
-
-                <h2>Alltagshilfe in Berlin: Was Morgenlicht übernimmt</h2>
-                <p>
-                  Morgenlicht unterstützt pflegebedürftige Menschen und Angehörige in Berlin bei Haushalt, Einkauf, Apothekengängen, Begleitung zu Arzt, Behörde, Bank oder Freizeitangeboten, Hilfe bei Post und Terminen sowie bei Spaziergängen, Gesprächen und sozialer Teilhabe.
-                </p>
-              </div>
-
-              <section className="my-12 rounded-2xl bg-[#F7F6F3] p-6 md:p-8" aria-labelledby="faq-heading">
-                <div className="flex items-center gap-3 mb-6">
-                  <HelpCircle className="w-7 h-7 text-[#134E4A]" aria-hidden="true" />
-                  <h2 id="faq-heading" className="text-2xl md:text-3xl font-bold font-heading text-[#134E4A]">
-                    Häufige Fragen zum Entlastungsbetrag
-                  </h2>
-                </div>
-                <div className="space-y-4">
-                  {faqItems.map((item) => (
-                    <div key={item.question} className="bg-white rounded-xl border border-[#144E41]/10 p-5">
-                      <h3 className="font-heading text-lg font-bold text-[#134E4A] mb-2">{item.question}</h3>
-                      <p className="text-[#455A64] leading-relaxed">{item.answer}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              <div className={articleTextClass}>
-                <h2>Fazit</h2>
-                <p>
-                  Der Entlastungsbetrag ist eine wichtige, aber oft übersehene Leistung der Pflegeversicherung. Ab Pflegegrad 1 stehen monatlich bis zu 131 € für Unterstützung im Alltag zur Verfügung. Damit können Haushaltshilfe, Einkauf, Begleitung, Alltagsorganisation und soziale Teilhabe finanziert werden, sofern der Anbieter anerkannt ist.
-                </p>
-                <p>
-                  Für viele Familien bedeutet das: weniger Belastung, mehr Sicherheit und mehr Lebensqualität im Alltag. Wer bereits einen Pflegegrad hat, sollte den Entlastungsbetrag nicht ungenutzt lassen.
-                </p>
-              </div>
-
-              <section className="mt-12 rounded-2xl bg-[#134E4A] text-white p-6 md:p-8">
-                <h2 className="text-2xl md:text-3xl font-bold font-heading mb-4 text-white">
-                  Entlastungsbetrag in Berlin nutzen
-                </h2>
-                <p className="text-white/90 mb-6 leading-relaxed">
-                  Wir prüfen mit Ihnen, welche Unterstützung passt und wie die Abrechnung mit der Pflegekasse funktioniert.
-                </p>
-                <Link
-                  href="/kontakt"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-[#134E4A] px-6 py-3 rounded-xl font-bold hover:bg-[#FFFBEB] transition-colors focus:outline-none focus:ring-4 focus:ring-[#FFD54F]"
-                >
-                  Kostenfrei beraten lassen
-                  <ArrowRight className="w-5 h-5" aria-hidden="true" />
-                </Link>
-              </section>
-            </div>
-
-            <aside className="lg:sticky lg:top-28 h-fit space-y-5">
-              <div className="rounded-xl border border-[#144E41]/10 bg-[#F7F6F3] p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <Info className="w-5 h-5 text-[#134E4A]" aria-hidden="true" />
-                  <h2 className="font-heading text-lg font-bold text-[#134E4A]">Kurz erklärt</h2>
-                </div>
-                <ul className="space-y-3 text-sm text-[#455A64]">
-                  <li className="flex gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    Bis zu 131 € monatlich ab Pflegegrad 1
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    Zusätzlich zu Pflegegeld und anderen Leistungen
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#134E4A] flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    Für anerkannte Unterstützung im Alltag
-                  </li>
-                </ul>
-              </div>
-
-              <div className="rounded-xl border border-[#144E41]/10 bg-white p-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <FileText className="w-5 h-5 text-[#134E4A]" aria-hidden="true" />
-                  <h2 className="font-heading text-lg font-bold text-[#134E4A]">Quellen</h2>
-                </div>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://gesund.bund.de/entlastungsbetrag">
-                      gesund.bund.de: Entlastungsbetrag
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://www.verbraucherzentrale-berlin.de/wissen/gesundheit-pflege/so-nutzen-pflegebeduerftige-den-entlastungsbetrag-richtig-113767">
-                      Verbraucherzentrale Berlin
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-[#0D6E64] font-semibold hover:underline" href="https://www.berlin.de/sen/pflege/pflege-und-rehabilitation/pflege-zu-hause/angebote-zur-unterstuetzung-im-alltag/">
-                      Berlin.de: Angebote zur Unterstützung im Alltag
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </article>
-    </>
+      <h2>Fazit</h2>
+      <p>
+        Der Entlastungsbetrag ist eine wichtige, aber oft übersehene Leistung der
+        Pflegeversicherung. Ab Pflegegrad 1 stehen monatlich bis zu 131 € für Unterstützung im
+        Alltag zur Verfügung – für Haushalt, Einkauf, Begleitung, Alltagsorganisation und soziale
+        Teilhabe, sofern der Anbieter anerkannt ist.
+      </p>
+    </SeoBlogArticle>
   )
 }

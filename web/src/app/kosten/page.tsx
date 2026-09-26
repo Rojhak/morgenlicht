@@ -1,245 +1,244 @@
-'use client'
-
-import { ArrowRight, CheckCircle, Euro, Calculator, FileCheck, HeartHandshake } from 'lucide-react'
-import { GlassCard, GlassButton } from '../components/glass'
 import Link from 'next/link'
+import { ArrowRight, Check } from 'lucide-react'
+import { FAQList } from '../components/sections/FAQSection'
+import { ContactBand } from '../components/site/ContactBand'
+import { JsonLd } from '../components/site/JsonLd'
+import { PageHero } from '../components/site/PageHero'
+import { OFFICIAL_SOURCES, SITE, SITE_URL } from '@/config/site'
+import { BUSINESS_ID, faqSchema, graph, type QA } from '@/lib/schema'
+import { createPageMetadata } from '@/lib/seo'
 
+export const metadata = createPageMetadata({
+  title: 'Alltagshilfe Kosten & 131 € Entlastungsbetrag | Morgenlicht',
+  description:
+    '35,50 € pro Stunde, ab Pflegegrad 1 bis zu 131 € im Monat über die Pflegekasse und Direktabrechnung ohne Vorkasse: So wird Alltagshilfe in Berlin bezahlt.',
+  path: '/kosten',
+})
 
-const pricingCards = [
+const options = [
   {
-    id: 'pg1',
-    title: 'Ab Pflegegrad 1',
-    subtitle: 'Der Entlastungsbetrag',
-    amount: '131 €',
-    period: '/Monat',
-    description: 'Pflegebedürftige mit Pflegegrad 1 bis 5 in häuslicher Pflege haben Anspruch auf den Entlastungsbetrag von bis zu 131 € monatlich.',
-    features: [
-      'Direktabrechnung ist bei vorliegenden Voraussetzungen möglich',
-      'Im verfügbaren Budget kann die Hilfe ohne Eigenanteil genutzt werden',
-      'Ihr Pflegegeld wird dadurch nicht gekürzt',
+    label: 'Pflegegrad 1 bis 5',
+    title: 'Entlastungsbetrag',
+    amount: 'bis 131 €',
+    unit: 'pro Monat',
+    text: 'Für Pflegebedürftige, die zu Hause leben. Zweckgebunden für anerkannte Angebote wie Morgenlicht.',
+    points: [
+      'Im verfügbaren Budget ohne Eigenanteil möglich',
+      'Direktabrechnung bei erfüllten Voraussetzungen',
+      'Pflegegeld wird dadurch nicht gekürzt',
     ],
-    color: 'from-[#E8F5E9]/50 to-[#C8E6C9]/20',
-    iconBg: 'bg-[#E8F5E9]',
-    iconColor: 'text-[#0D6E64]',
   },
   {
-    id: 'pg2',
-    title: 'Ab Pflegegrad 2',
-    subtitle: 'Umwandlung & Vertretung',
-    amount: 'individuell',
-    period: 'je nach Anspruch',
-    description: 'Umwandlungsanspruch und Verhinderungspflege sind unterschiedliche Leistungen mit jeweils eigenen Voraussetzungen.',
-    features: [
-      'Umwandlungsanspruch nach § 45a SGB XI: Bei Pflegegrad 2 bis 5 können bis zu 40 % der nicht genutzten Pflegesachleistungen nach § 36 SGB XI eingesetzt werden',
-      'Die Pflegekasse rechnet zuerst die tatsächlich genutzten Pflegesachleistungen ab',
-      'Der Umwandlungsanspruch kann die Höhe des anteiligen Pflegegeldes beeinflussen',
-      'Verhinderungspflege kommt nur in Betracht, wenn die private Pflegeperson an der Pflege gehindert ist',
+    label: 'Pflegegrad 2 bis 5',
+    title: 'Umwandlungsanspruch',
+    amount: 'bis 40 %',
+    unit: 'der nicht genutzten Sachleistungen',
+    text: 'Nicht genutzte ambulante Pflegesachleistungen können teilweise für Alltagshilfe eingesetzt werden.',
+    points: [
+      'Die Pflegekasse rechnet zuerst die genutzten Sachleistungen ab',
+      'Ein anteiliges Pflegegeld kann sich verringern',
+      'Höhe bitte vorab mit der Pflegekasse klären',
     ],
-    color: 'from-[#E0F2F1]/60 to-[#B2DFDB]/20',
-    iconBg: 'bg-[#E0F2F1]',
-    iconColor: 'text-[#0D6E64]',
   },
   {
-    id: 'private',
-    title: 'Privatzahler',
-    subtitle: 'Ohne Pflegegrad',
-    amount: '35,50 €',
-    period: '/Stunde',
-    description: 'Wenn Sie keinen Pflegegrad haben oder einfach mehr Stunden wünschen.',
-    features: [
-      'Steuerliche Berücksichtigung kann möglich sein',
-      'Kein Pflegegrad erforderlich',
-      'Flexible Buchung',
-      'Individuelle Voraussetzungen bitte steuerlich klären',
+    label: 'Ohne Pflegegrad',
+    title: 'Privat bezahlen',
+    amount: SITE.hourlyRate,
+    unit: 'pro Stunde',
+    text: 'Wenn noch kein Pflegegrad vorliegt oder Sie mehr Stunden wünschen, als das Budget abdeckt.',
+    points: [
+      'Gleicher Stundensatz, Anfahrt inklusive',
+      'Umfang und Häufigkeit nach Absprache',
+      'Steuerliche Absetzbarkeit bitte mit Steuerberatung klären',
     ],
-    color: 'from-[#FFF8E1]/60 to-[#FFECB3]/20',
-    iconBg: 'bg-[#FFF8E1]',
-    iconColor: 'text-[#B8472A]',
   },
 ]
+
+const faqs: QA[] = [
+  {
+    question: 'Was kostet eine Stunde Alltagshilfe bei Morgenlicht?',
+    answer: `Der Stundensatz beträgt ${SITE.hourlyRate}. Anfahrt und Verwaltung sind darin enthalten. Mit Pflegegrad kann die Pflegekasse die Kosten im Rahmen des verfügbaren Budgets übernehmen.`,
+  },
+  {
+    question: 'Wie viele Stunden bezahlt die Pflegekasse mit 131 €?',
+    answer: `131 € geteilt durch ${SITE.hourlyRate} ergeben rechnerisch etwa 3 Stunden und 41 Minuten im Monat. Wer den Betrag einige Monate anspart, kann ihn auch für einen größeren Einsatz nutzen.`,
+  },
+  {
+    question: 'Verfällt der Entlastungsbetrag, wenn ich ihn nicht nutze?',
+    answer:
+      'Nicht sofort. Nicht genutzte Beträge werden in die folgenden Monate übertragen. Was am Jahresende übrig ist, kann bis zum 30. Juni des Folgejahres genutzt werden. Danach verfällt der Rest.',
+  },
+  {
+    question: 'Muss ich in Vorkasse gehen?',
+    answer:
+      'Nicht, wenn eine Direktabrechnung vereinbart wird. Dafür unterschreiben Sie in der Regel eine Abtretungserklärung, und wir rechnen die anerkannten Leistungen im verfügbaren Budget direkt mit Ihrer Pflegekasse ab. Ohne Direktabrechnung reichen Sie unsere Rechnung selbst bei der Pflegekasse ein.',
+  },
+  {
+    question: 'Was passiert, wenn das Budget aufgebraucht ist?',
+    answer:
+      'Dann entstehen Kosten zum Stundensatz, die Sie selbst tragen. Stunden außerhalb des Budgets planen wir nur nach Ihrer ausdrücklichen Zustimmung.',
+  },
+]
+
+const schema = graph(
+  {
+    '@type': 'WebPage',
+    '@id': `${SITE_URL}/kosten#webpage`,
+    name: 'Kosten der Alltagshilfe und Finanzierung über die Pflegekasse',
+    url: `${SITE_URL}/kosten`,
+    inLanguage: 'de-DE',
+    about: { '@id': BUSINESS_ID },
+    citation: [OFFICIAL_SOURCES.bmgEntlastung.href, OFFICIAL_SOURCES.gesundBund.href],
+  },
+  faqSchema(faqs),
+)
 
 export default function KostenPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-20 md:pt-32 pb-12 md:pb-24 px-4 bg-white">
-        <div className="relative max-w-4xl mx-auto text-center px-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
-            <Euro className="w-4 h-4 text-[#144E41]" />
-            <span>Transparente Preise</span>
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
-            Kosten & Pflegekasse
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-6 italic">
-            "Transparenz ist uns wichtig. Wir erklären Ihnen alles."
-          </p>
-          <p className="text-base sm:text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
-            Gute Hilfe muss nicht teuer sein. Wir zeigen Ihnen, welche Möglichkeiten Ihr Budget bei der Pflegekasse bietet.
-          </p>
-        </div>
-      </section>
+      <JsonLd data={schema} />
 
-      {/* Hourly Rate Banner & Pricing Cards - Grouped as one thematic unit */}
-      <section className="pt-16 pb-20 md:pt-24 md:pb-24 px-4 bg-[#F7F6F3]">
-        <div className="max-w-4xl mx-auto mb-12 md:mb-16">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 relative overflow-hidden">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Euro className="w-8 h-8 text-[#0D6E64]" />
-                <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#144E41]">
-                  Unser Stundensatz: <span className="font-heading font-semibold">35,50 €</span>
-                </h2>
+      <PageHero
+        crumbs={[{ name: 'Kosten', href: '/kosten' }]}
+        kicker="Kosten und Pflegekasse"
+        title="Was kostet Alltagshilfe – und was zahlt die Pflegekasse?"
+        lead={
+          <p>
+            Unser Stundensatz beträgt {SITE.hourlyRate}, Anfahrt und Verwaltung sind enthalten.
+            Mit Pflegegrad übernimmt die Pflegekasse bis zu 131 € im Monat. Welche Kosten für Sie
+            entstehen, klären wir vor dem ersten Einsatz.
+          </p>
+        }
+        aside={
+          <div className="rounded-2xl border-t-4 border-sun bg-white p-6 shadow-[0_10px_40px_rgba(19,78,74,0.08)] md:p-8">
+            <h2 className="font-heading text-xl font-bold text-forest">Rechenbeispiel Pflegegrad 1</h2>
+            <dl className="mt-5 space-y-3 text-lg">
+              <div className="flex justify-between gap-4 border-b border-line pb-3">
+                <dt className="text-muted">Entlastungsbetrag</dt>
+                <dd className="whitespace-nowrap font-semibold text-ink">131 € / Monat</dd>
               </div>
-              <p className="text-lg font-body text-[#455A64] max-w-2xl mx-auto leading-relaxed">
-                Anfahrt und Administration sind im Stundensatz enthalten.
-                <strong className="text-[#37474F]"> Die Abrechnungsform und mögliche Kosten außerhalb eines Pflegekassenbudgets klären wir vor Beginn.</strong>
-              </p>
-            </div>
+              <div className="flex justify-between gap-4 border-b border-line pb-3">
+                <dt className="text-muted">Stundensatz</dt>
+                <dd className="whitespace-nowrap font-semibold text-ink">{SITE.hourlyRate}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt className="font-semibold text-forest">Hilfe pro Monat</dt>
+                <dd className="whitespace-nowrap font-heading text-xl font-bold text-forest">ca. 3 Std. 41 Min.</dd>
+              </div>
+            </dl>
+            <p className="mt-5 text-base leading-relaxed text-muted">
+              Bei Direktabrechnung im verfügbaren Budget ohne Eigenanteil. Maßgeblich ist das
+              Budget, das bei Ihrer Pflegekasse tatsächlich noch frei ist.
+            </p>
           </div>
-        </div>
+        }
+      />
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricingCards.map((plan) => (
-              <div
-                key={plan.id}
-                className="bg-white rounded-xl shadow-sm border border-[#144E41]/5 p-8 flex flex-col transition-all hover:shadow-md h-full"
-              >
-                <div className="text-center mb-8">
-                  <div className="inline-block px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs font-semibold tracking-wider text-[#144E41] mb-4">
-                    {plan.title}
-                  </div>
-                  <div className="h-14 flex items-center justify-center mb-1">
-                    <h3 className="text-xl font-bold font-heading text-[#134E4A] leading-tight">{plan.subtitle}</h3>
-                  </div>
-                  <div className="flex items-baseline justify-center gap-1 mt-4">
-                    <span className={`${plan.amount.length > 8 ? 'text-2xl sm:text-3xl' : 'text-3xl sm:text-4xl'} font-bold font-heading text-[#144E41] whitespace-nowrap`}>{plan.amount}</span>
-                    <span className="text-base sm:text-lg font-body text-[#455A64]">{plan.period}</span>
-                  </div>
-                </div>
-
-                <p className="text-sm font-body text-gray-600 text-center mb-8 leading-relaxed">
-                  {plan.description}
+      <section aria-labelledby="optionen-title" className="bg-white px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="optionen-title" className="font-heading text-3xl font-bold text-forest md:text-4xl">
+            Drei Wege der Finanzierung
+          </h2>
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {options.map((option) => (
+              <article key={option.title} className="flex flex-col rounded-2xl border border-line bg-cream p-6 md:p-8">
+                <p className="text-base font-bold text-muted">{option.label}</p>
+                <h3 className="mt-2 font-heading text-2xl font-bold text-forest">{option.title}</h3>
+                <p className="mt-4">
+                  <span className="font-heading text-3xl font-bold text-ink">{option.amount}</span>{' '}
+                  <span className="text-lg text-muted">{option.unit}</span>
                 </p>
-
-                <ul className="space-y-5 mb-8 flex-grow">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#144E41] flex-shrink-0 mt-0.5" />
-                      <span className="text-base font-body text-[#37474F] leading-relaxed">
-                        {feature}
-                      </span>
+                <p className="mt-4 text-lg leading-relaxed text-muted">{option.text}</p>
+                <ul className="mt-5 space-y-3 border-t border-line pt-5">
+                  {option.points.map((point) => (
+                    <li key={point} className="flex gap-3 text-lg leading-snug text-ink">
+                      <Check className="mt-0.5 h-5 w-5 flex-none text-forest" aria-hidden="true" />
+                      {point}
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-auto pt-6 border-t border-gray-100">
-                  <Link
-                    href="/kontakt"
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-[#134E4A] text-white rounded-lg font-bold hover:bg-[#0F3F3C] transition-colors"
-                  >
-                    Details anfragen
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Example Calculation - White (Rhythm Alignment) */}
-      <section className="pb-24 px-4 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#144E41] text-white rounded-xl p-8 md:p-12 shadow-lg">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center !text-white">
-              Ihr Entlastungsbetrag in der Praxis
-            </h2>
-            <div className="bg-white/10 rounded-xl p-6 mb-6 text-center">
-              <p className="text-lg text-white leading-relaxed">
-                Über Ihren gesetzlichen Entlastungsbetrag von bis zu 131 € monatlich organisieren wir für Sie regelmäßige, verlässliche Hilfe im Alltag – ganz nach Ihren Wünschen. Wir kommen zum Beispiel für die gründliche Wohnungsreinigung zu Ihnen, übernehmen den gemeinsamen Wocheneinkauf oder begleiten Sie sicher zu Arztterminen.
-                <span className="block mt-4 text-[#FFD54F] font-bold">Wenn Budget und Unterlagen vorliegen, ist eine Direktabrechnung möglich. Im verfügbaren Budget kann die Hilfe ohne Eigenanteil genutzt werden.</span>
-              </p>
-            </div>
-            <p className="text-sm text-white/80 text-center max-w-2xl mx-auto">
-              Gut zu wissen: Bei vorübergehendem Hilfebedarf kann unter bestimmten Voraussetzungen eine andere Leistung, etwa Haushaltshilfe der Krankenkasse, in Betracht kommen. Ob ein Anspruch besteht, entscheidet der zuständige Kostenträger im Einzelfall.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Banner - Beige (Rhythm Alignment) */}
-      <section className="pb-24 px-4 bg-[#F7F6F3]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <HeartHandshake className="w-12 h-12 mx-auto mb-4 text-[#144E41]" />
-            <h2 className="text-2xl md:text-3xl font-bold text-[#134E4A]">
-              Unser Rundum-Sorglos-Service für Sie
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
-              <div className="w-12 h-12 bg-[#144E41]/5 rounded-full flex items-center justify-center mb-6">
-                <FileCheck className="w-6 h-6 text-[#144E41]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#134E4A] mb-3">Unterstützung bei der Abrechnung</h3>
-              <p className="text-sm font-body text-[#455A64] leading-relaxed">Wenn die Voraussetzungen vorliegen, vereinbaren wir eine Direktabrechnung. Dann müssen Sie für die anerkannten Leistungen im verfügbaren Budget nicht in Vorkasse gehen.</p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
-              <div className="w-12 h-12 bg-[#144E41]/5 rounded-full flex items-center justify-center mb-6">
-                <Calculator className="w-6 h-6 text-[#144E41]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#134E4A] mb-3">Budget-Beratung</h3>
-              <p className="text-sm font-body text-[#455A64] leading-relaxed">Wir schauen gemeinsam, welches Budget vorhanden ist und welche Unterstützung damit realistisch möglich ist.</p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-10 flex flex-col items-center text-center transition-all hover:shadow-md h-full">
-              <div className="w-12 h-12 bg-[#144E41]/5 rounded-full flex items-center justify-center mb-6">
-                <CheckCircle className="w-6 h-6 text-[#144E41]" />
-              </div>
-              <h3 className="text-lg font-bold text-[#134E4A] mb-3">Hilfe beim Antrag</h3>
-              <p className="text-sm font-body text-[#455A64] leading-relaxed">Sie haben noch keinen Pflegegrad? Wir unterstützen Sie beim Antrag.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA - White (Rhythm Alignment) */}
-      <section className="py-24 px-4 bg-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#134E4A] mb-6 tracking-tight">
-            Fragen zur Kostenübernahme?
-          </h2>
-          <p className="text-xl font-body text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder schreiben Sie uns eine Nachricht.
+          <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted">
+            Bei vorübergehendem Hilfebedarf, etwa nach einem Krankenhausaufenthalt, kann auch eine
+            Haushaltshilfe der Krankenkasse in Betracht kommen. Ob ein Anspruch besteht, entscheidet
+            der zuständige Kostenträger im Einzelfall.
           </p>
+        </div>
+      </section>
 
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <Link
-              href="/kontakt"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-[#134E4A] hover:bg-[#0F3F3C] text-white text-lg font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              Jetzt anfragen
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-
-            <a
-              href="tel:03023593028"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 bg-white text-[#134E4A] text-lg font-bold rounded-xl border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
-            >
-              030 235 930 28
-            </a>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-12 text-gray-500 font-body">
-            <div className="flex items-center gap-2 text-sm font-medium">
-              Mo–Fr: 09:00 – 16:00 Uhr
+      <section aria-labelledby="ablauf-kosten-title" className="bg-mint px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <h2 id="ablauf-kosten-title" className="font-heading text-3xl font-bold text-forest">
+              So läuft die Abrechnung
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-ink">
+              Wir helfen Ihnen, das vorhandene Budget zu klären und die nötigen Unterlagen
+              zusammenzustellen. Noch kein Pflegegrad? Dann erklären wir Ihnen den Antrag.
+            </p>
+            <div className="mt-6 flex flex-col items-start">
+              <Link href="/blog/direktabrechnung-pflegekasse-ohne-vorkasse" className="inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4">
+                Direktabrechnung ausführlich erklärt
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </Link>
+              <Link href="/blog/pflegegrad-beantragen-schritt-fuer-schritt" className="inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4">
+                Pflegegrad beantragen: Schritt für Schritt
+                <ArrowRight className="h-5 w-5" aria-hidden="true" />
+              </Link>
             </div>
+          </div>
+          <ol className="border-b border-line">
+            {[
+              ['Budget klären', 'Wir besprechen Pflegegrad, Pflegekasse und ob vom Entlastungsbetrag noch etwas verfügbar ist.'],
+              ['Direktabrechnung vereinbaren', 'In der Regel mit einer Abtretungserklärung. Dann rechnen wir die anerkannten Leistungen direkt mit der Pflegekasse ab.'],
+              ['Abrechnen', 'Die geleisteten Stunden werden mit der Pflegekasse abgerechnet. Kosten außerhalb des Budgets entstehen nur nach Ihrer Zustimmung.'],
+            ].map(([title, text], index) => (
+              <li key={title} className="flex gap-4 border-t border-line py-5">
+                <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-forest font-bold text-white" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className="font-heading text-lg font-bold text-forest">{title}</h3>
+                  <p className="mt-1 text-lg leading-relaxed text-muted">{text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section aria-labelledby="kosten-faq-title" className="bg-white px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-4xl">
+          <h2 id="kosten-faq-title" className="font-heading text-3xl font-bold text-forest">
+            Häufige Fragen zu Kosten und Abrechnung
+          </h2>
+          <div className="mt-8">
+            <FAQList items={faqs} />
+          </div>
+          <div className="mt-10 border-l-4 border-sun bg-cream p-5">
+            <h3 className="font-heading text-lg font-bold text-forest">Quellen und Stand</h3>
+            <p className="mt-2 text-base leading-relaxed text-muted">
+              Beträge und Regeln nach § 45a und § 45b SGB XI, geprüft am 26. September 2026:
+            </p>
+            <ul className="mt-2 space-y-1 text-base">
+              {[OFFICIAL_SOURCES.bmgEntlastung, OFFICIAL_SOURCES.gesundBund, OFFICIAL_SOURCES.berlinAuA].map((source) => (
+                <li key={source.href}>
+                  <a href={source.href} className="inline-flex min-h-11 items-center font-semibold text-forest underline underline-offset-4" rel="noopener noreferrer">
+                    {source.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
+
+      <ContactBand
+        title="Fragen zur Kostenübernahme?"
+        text="Wir prüfen mit Ihnen, welches Budget vorhanden ist und wie viele Stunden damit realistisch möglich sind – kostenfrei und unverbindlich."
+      />
     </>
   )
 }

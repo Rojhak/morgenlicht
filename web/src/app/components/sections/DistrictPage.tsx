@@ -1,6 +1,12 @@
 import Link from 'next/link'
-import { ArrowRight, Phone, Check, MapPin, Heart, Home, ShoppingBag, Footprints, FileText, Handshake } from 'lucide-react'
-import { serializeJsonLd } from '@/lib/security'
+import { ArrowRight, Check, MapPin } from 'lucide-react'
+import { SITE, SITE_URL } from '@/config/site'
+import { BUSINESS_ID, faqSchema, graph } from '@/lib/schema'
+import { ContactActions } from '../site/ContactActions'
+import { ContactBand } from '../site/ContactBand'
+import { JsonLd } from '../site/JsonLd'
+import { Kicker } from '../site/Kicker'
+import { PageHero } from '../site/PageHero'
 
 export interface DistrictContent {
   slug: string
@@ -15,260 +21,216 @@ export interface DistrictContent {
 }
 
 const services = [
-  { icon: Home, title: 'Haushaltshilfe & Reinigung', desc: 'Putzen, Wäsche, Küche – damit Sie sich zuhause wieder wohlfühlen.' },
-  { icon: ShoppingBag, title: 'Einkauf & Erledigungen', desc: 'Wocheneinkauf, Apotheke, Post – wir erledigen es für Sie.' },
-  { icon: Footprints, title: 'Begleitung & Mobilität', desc: 'Sicher zum Arzt, zur Behörde oder zum Café um die Ecke.' },
-  { icon: FileText, title: 'Alltag & Struktur', desc: 'Briefe, Termine und Telefonate – wir behalten den Überblick.' },
-  { icon: Handshake, title: 'Soziale Teilhabe', desc: 'Spaziergänge, Gespräche, Kulturbegleitung – gegen Einsamkeit.' },
+  { title: 'Haushaltshilfe', desc: 'Reinigung, Wäsche, Küche und Bad – im vereinbarten Umfang.', href: '/haushaltshilfe-pflegegrad-berlin' },
+  { title: 'Einkauf und Erledigungen', desc: 'Wocheneinkauf, Apotheke und Post – erledigt oder gemeinsam unterwegs.', href: '/leistungen#einkauf' },
+  { title: 'Begleitung zu Terminen', desc: 'Zur Arztpraxis, zur Behörde oder zum Café um die Ecke.', href: '/arztbegleitung-senioren-berlin' },
+  { title: 'Alltag und Organisation', desc: 'Briefe, Termine und Telefonate gemeinsam im Blick behalten.', href: '/leistungen#alltag' },
+  { title: 'Soziale Begleitung', desc: 'Spaziergänge, Gespräche und Kultur – gegen Einsamkeit.', href: '/soziale-begleitung-senioren-berlin' },
 ]
 
+function districtSlug(name: string) {
+  return `/berlin-${name.toLowerCase().replace('ö', 'oe').replace('ü', 'ue').replace('ä', 'ae')}`
+}
+
 export function DistrictPage({ content }: { content: DistrictContent }) {
-  const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
+  const pageUrl = `${SITE_URL}/${content.slug}`
   const faqItems = [
     {
       question: `Zahlt die Pflegekasse eine Haushaltshilfe in ${content.district}?`,
-      answer: `Menschen mit Pflegegrad 1 bis 5 können den Entlastungsbetrag für anerkannte Unterstützung im Alltag nutzen. In Berlin können dazu je nach Angebot auch Hilfen bei der Haushaltsführung gehören.`,
+      answer: `Menschen mit Pflegegrad 1 bis 5, die zu Hause leben, können den Entlastungsbetrag von bis zu 131 € im Monat für anerkannte Angebote zur Unterstützung im Alltag nutzen. Dazu gehören auch Hilfen im Haushalt. Morgenlicht ist als solches Angebot nach § 45a SGB XI anerkannt.`,
     },
     {
       question: `Welche Aufgaben übernimmt eine Haushaltshilfe in ${content.district}?`,
-      answer: 'Typische Aufgaben sind Reinigung, Wäschepflege, Bettwäsche wechseln, einfache Mahlzeiten, Einkauf und Apothekengänge. Der genaue Umfang wird persönlich vereinbart.',
+      answer:
+        'Typisch sind Reinigung, Wäschepflege, Betten beziehen, einfache Mahlzeiten, Einkauf und Apothekengänge. Der genaue Umfang wird persönlich vereinbart.',
     },
     {
       question: 'Muss ich bei Morgenlicht in Vorkasse gehen?',
-      answer: 'Wenn ein Pflegegrad, verfügbares Budget und die nötigen Unterlagen vorliegen, kann eine Direktabrechnung mit der Pflegekasse vereinbart werden. Die Voraussetzungen klären wir vor Beginn transparent.',
+      answer:
+        'Wenn Pflegegrad, verfügbares Budget und die nötigen Unterlagen vorliegen, kann eine Direktabrechnung mit der Pflegekasse vereinbart werden. Die Voraussetzungen klären wir vor Beginn.',
     },
     {
-      question: `Bietet Morgenlicht auch türkischsprachige Seniorenhilfe in ${content.district} an?`,
-      answer: 'Ja. Morgenlicht berät und unterstützt auf Deutsch, Türkisch und Englisch. Sprache und persönliche Gewohnheiten werden bei der Planung berücksichtigt.',
+      question: `Gibt es türkischsprachige Seniorenhilfe in ${content.district}?`,
+      answer:
+        'Ja. Morgenlicht berät und unterstützt auf Deutsch, Türkisch und Englisch. Welche Sprache bei den Einsätzen möglich ist, prüfen wir bei der Anfrage.',
     },
   ]
 
-  const schema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Service',
-        '@id': `${SITE_URL}/${content.slug}#service`,
-        name: `Haushaltshilfe und Alltagshilfe in Berlin-${content.district}`,
-        description: content.intro,
-        url: `${SITE_URL}/${content.slug}`,
-        serviceType: ['Haushaltshilfe', 'Alltagshilfe', 'Seniorenhilfe', 'Unterstützung im Alltag'],
-        provider: { '@id': `${SITE_URL}/#business` },
-        areaServed: { '@type': 'AdministrativeArea', name: `Berlin-${content.district}` },
+  const schema = graph(
+    {
+      '@type': 'Service',
+      '@id': `${pageUrl}#service`,
+      name: `Haushaltshilfe und Alltagshilfe in Berlin-${content.district}`,
+      description: content.intro,
+      url: pageUrl,
+      serviceType: ['Haushaltshilfe', 'Alltagshilfe', 'Seniorenhilfe', 'Angebot zur Unterstützung im Alltag'],
+      provider: { '@id': BUSINESS_ID },
+      areaServed: {
+        '@type': 'AdministrativeArea',
+        name: `Berlin-${content.district}`,
+        containedInPlace: { '@type': 'City', name: 'Berlin' },
       },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Startseite', item: `${SITE_URL}/` },
-          { '@type': 'ListItem', position: 2, name: `Berlin-${content.district}`, item: `${SITE_URL}/${content.slug}` },
-        ],
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: faqItems.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: { '@type': 'Answer', text: item.answer },
-        })),
-      },
-    ],
-  }
+      availableLanguage: ['de', 'tr', 'en'],
+    },
+    faqSchema(faqItems),
+  )
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
+      <JsonLd data={schema} />
 
-      {/* Hero */}
-      <section className="relative pt-20 md:pt-28 pb-12 md:pb-20 px-4 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm">
-            <MapPin className="w-4 h-4 text-[#144E41]" />
-            <span>{content.kicker}</span>
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-6 tracking-tighter">
-            {content.h1}
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-[#4B5563] max-w-2xl mx-auto leading-relaxed">
-            {content.intro}
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center justify-center bg-[#144E41] text-white hover:bg-[#0F3F3C] transition-all font-semibold text-lg px-8 py-4 rounded-xl shadow-lg"
-            >
-              Jetzt in {content.district} anfragen
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-            <a
-              href="tel:03023593028"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20"
-            >
-              <Phone className="w-5 h-5 mr-3 text-[#144E41]" />
-              030 235 930 28
-            </a>
+      <PageHero
+        crumbs={[{ name: `Berlin-${content.district}`, href: `/${content.slug}` }]}
+        kicker={content.kicker}
+        title={content.h1}
+        lead={<p>{content.intro}</p>}
+        aside={
+          <div className="rounded-2xl border-t-4 border-sun bg-white p-6 shadow-[0_10px_40px_rgba(19,78,74,0.08)]">
+            <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-forest">
+              <MapPin className="h-5 w-5" aria-hidden="true" />
+              Auf einen Blick
+            </h2>
+            <ul className="mt-4 space-y-3 text-lg leading-snug text-ink">
+              {[
+                `Einsätze bei Ihnen zu Hause in ${content.district}`,
+                'Ab Pflegegrad 1 über die Pflegekasse finanzierbar',
+                `${SITE.hourlyRate} pro Stunde, Anfahrt inklusive`,
+                'Deutsch, Türkisch, Englisch',
+              ].map((fact) => (
+                <li key={fact} className="flex gap-3">
+                  <Check className="mt-0.5 h-5 w-5 flex-none text-forest" aria-hidden="true" />
+                  {fact}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      </section>
+        }
+      >
+        <ContactActions />
+      </PageHero>
 
-      {/* Kiez paragraph */}
-      <section className="py-16 md:py-20 px-6 bg-[#F7F6F3]">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-            Wir sind in Ihrem Kiez zuhause
-          </h2>
-          <p className="font-body text-lg text-[#4B5563] leading-relaxed mb-6">
-            {content.kiezParagraph}
-          </p>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+      <section aria-labelledby={`${content.slug}-kiez`} className="bg-white px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <Kicker>{content.district}</Kicker>
+            <h2 id={`${content.slug}-kiez`} className="mt-4 font-heading text-3xl font-bold text-forest md:text-4xl">
+              Unterwegs in Ihrem Kiez
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink">{content.kiezParagraph}</p>
+            <p className="mt-4 text-lg leading-relaxed text-muted">
+              Ob Ihre Adresse und der gewünschte Termin passen, klären wir im Erstgespräch.
+            </p>
+          </div>
+          <ul className="border-t border-line">
             {content.landmarks.map((landmark) => (
-              <li key={landmark} className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-[#144E41] mt-1 flex-shrink-0" />
-                <span className="font-body text-[#4B5563]">{landmark}</span>
+              <li key={landmark} className="flex gap-3 border-b border-line py-4 text-lg leading-snug text-ink">
+                <Check className="mt-0.5 h-5 w-5 flex-none text-forest" aria-hidden="true" />
+                {landmark}
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-white py-16 md:py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-10 text-center">
+      <section aria-labelledby={`${content.slug}-services`} className="bg-cream px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 id={`${content.slug}-services`} className="font-heading text-3xl font-bold text-forest md:text-4xl">
             Haushaltshilfe und Seniorenhilfe in {content.district}
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s) => (
-              <div key={s.title} className="bg-white rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-transparent hover:border-[#134E4A]/10">
-                <div className="w-10 h-10 rounded-full bg-[#134E4A] flex items-center justify-center mb-4">
-                  <s.icon className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="font-heading text-lg font-bold text-[#134E4A] mb-2">{s.title}</h3>
-                <p className="font-body text-sm text-[#6B7280] leading-relaxed">{s.desc}</p>
-              </div>
+          <ul className="mt-8 grid gap-x-10 border-t border-line md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <li key={service.title} className="border-b border-line py-6">
+                <h3 className="font-heading text-xl font-bold text-forest">{service.title}</h3>
+                <p className="mt-2 text-lg leading-relaxed text-muted">{service.desc}</p>
+                <Link href={service.href} className="mt-2 inline-flex min-h-11 items-center gap-2 font-semibold text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest">
+                  Mehr zu {service.title}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </li>
             ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/leistungen" className="inline-flex items-center text-[#144E41] font-semibold hover:underline">
-              Alle Leistungen im Detail ansehen <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* Kostenlos Banner */}
-      <section className="bg-[#F7F6F3] py-16 md:py-20 px-6">
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl p-8 md:p-12 text-center shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
-          <Heart className="w-10 h-10 text-[#144E41] mx-auto mb-4" />
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-4">
+      <section aria-labelledby={`${content.slug}-finance`} className="bg-mint px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-4xl">
+          <h2 id={`${content.slug}-finance`} className="font-heading text-3xl font-bold text-forest">
             Über die Pflegekasse finanzierbar ab Pflegegrad 1
           </h2>
-          <p className="font-body text-[#4B5563] text-lg leading-relaxed mb-6">
-            Nutzen Sie Ihren monatlichen Entlastungsbetrag von bis zu 131 € nach § 45b SGB XI für anerkannte Alltagshilfe in {content.district}.
-            Im Rahmen des verfügbaren Budgets ist eine Direktabrechnung mit der Pflegekasse möglich.
+          <p className="mt-5 text-lg leading-relaxed text-ink">
+            Nutzen Sie den Entlastungsbetrag von bis zu 131 € im Monat nach § 45b SGB XI für
+            anerkannte Alltagshilfe in {content.district}. Bei erfüllten Voraussetzungen rechnen
+            wir direkt mit Ihrer Pflegekasse ab.
           </p>
-          <Link
-            href="/kosten"
-            className="inline-flex items-center text-[#144E41] font-semibold hover:underline"
-          >
-            Alles zu Kosten & Pflegekasse <ArrowRight className="w-4 h-4 ml-2" />
+          <Link href="/kosten" className="mt-6 inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4">
+            Kosten und Abrechnung erklärt
+            <ArrowRight className="h-5 w-5" aria-hidden="true" />
           </Link>
         </div>
       </section>
 
-      {/* Local FAQ */}
-      <section className="bg-white px-6 py-16 md:py-20" aria-labelledby={`${content.slug}-faq-heading`}>
-        <div className="mx-auto max-w-3xl">
-          <h2 id={`${content.slug}-faq-heading`} className="mb-8 text-center font-heading text-2xl font-bold text-[#134E4A] md:text-3xl">
+      <section aria-labelledby={`${content.slug}-faq-heading`} className="bg-white px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-4xl">
+          <h2 id={`${content.slug}-faq-heading`} className="font-heading text-3xl font-bold text-forest">
             Häufige Fragen zur Haushaltshilfe in {content.district}
           </h2>
-          <div className="divide-y divide-[#144E41]/15 border-y border-[#144E41]/15">
+          <div className="mt-8 divide-y divide-line border-y border-line">
             {faqItems.map((item) => (
               <div key={item.question} className="py-6">
-                <h3 className="font-heading text-lg font-bold text-[#134E4A]">{item.question}</h3>
-                <p className="mt-3 leading-relaxed text-[#4B5563]">{item.answer}</p>
+                <h3 className="font-heading text-xl font-bold text-forest">{item.question}</h3>
+                <p className="mt-3 text-lg leading-relaxed text-muted">{item.answer}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Related guide */}
-      <section className="bg-[#F7F6F3] px-6 py-14">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-2xl font-bold text-[#134E4A]">Ratgeber zu Haushaltshilfe und Pflegekasse</h2>
-          <p className="mt-3 leading-relaxed text-[#4B5563]">
-            Lesen Sie, welche Unterstützung möglich ist, wie die Pflegekasse beteiligt werden kann und worauf Familien bei der Auswahl achten sollten.
-          </p>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <Link
-              href="/blog/haushaltshilfe-kreuzberg-neukoelln"
-              className="inline-flex min-h-12 items-center justify-between gap-3 border border-[#144E41]/15 bg-white px-4 py-3 font-semibold text-[#134E4A] hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
-            >
-              Haushaltshilfe in Kreuzberg & Neukölln
-              <ArrowRight className="h-4 w-4 flex-none" aria-hidden="true" />
+      <section aria-labelledby={`${content.slug}-more`} className="border-t border-line bg-cream px-5 py-12 sm:px-6">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
+          <div>
+            <h2 id={`${content.slug}-more`} className="font-heading text-2xl font-bold text-forest">
+              Beratung in Ihrer Sprache
+            </h2>
+            <p className="mt-3 text-lg leading-relaxed text-muted">
+              Wir beraten auf Deutsch, Türkisch und Englisch.
+            </p>
+            <p lang="tr" className="mt-3 text-lg leading-relaxed text-ink">
+              {content.localPhrase}
+            </p>
+            <Link href="/tr/berlin-yasli-gunluk-yasam-destegi" lang="tr" className="mt-3 inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4">
+              Türkçe bilgi
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </Link>
-            <Link
-              href="/blog/alltagshilfe-oder-haushaltshilfe-unterschied"
-              className="inline-flex min-h-12 items-center justify-between gap-3 border border-[#144E41]/15 bg-white px-4 py-3 font-semibold text-[#134E4A] hover:bg-[#FFFBEB] focus:outline-none focus:ring-4 focus:ring-[#FFD54F] focus:ring-offset-2"
-            >
-              Alltagshilfe oder Haushaltshilfe?
-              <ArrowRight className="h-4 w-4 flex-none" aria-hidden="true" />
-            </Link>
+          </div>
+          <div>
+            <h2 className="font-heading text-2xl font-bold text-forest">Weiterlesen</h2>
+            <ul className="mt-3">
+              {content.neighboringDistricts.map((district) => (
+                <li key={district}>
+                  <Link href={districtSlug(district)} className="inline-flex min-h-12 items-center gap-2 text-lg font-semibold text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest">
+                    Alltagshilfe in {district}
+                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/blog/haushaltshilfe-kreuzberg-neukoelln" className="inline-flex min-h-12 items-center gap-2 text-lg font-semibold text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest">
+                  Ratgeber: Haushaltshilfe in Kreuzberg und Neukölln
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/alltagshilfe-oder-haushaltshilfe-unterschied" className="inline-flex min-h-12 items-center gap-2 text-lg font-semibold text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest">
+                  Alltagshilfe oder Haushaltshilfe?
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Multilingual */}
-      <section className="bg-white py-16 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-2xl md:text-3xl font-bold text-[#134E4A] mb-6">
-            Beratung in Ihrer Sprache
-          </h2>
-          <p className="font-body text-[#4B5563] mb-6 leading-relaxed">
-            {content.district} ist vielfältig – und wir sind es auch. Wir beraten Sie persönlich in <strong>Deutsch</strong>, <strong>Türkisch (Türkçe)</strong> und <strong>Englisch (English)</strong>.
-          </p>
-          <p lang="tr" className="font-body italic text-[#6B7280] mb-2">
-            {content.localPhrase}
-          </p>
-        </div>
-      </section>
-
-      {/* Neighboring districts link */}
-      <section className="bg-[#F7F6F3] py-12 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="font-body text-[#6B7280] mb-4">Wir sind auch in angrenzenden Bezirken für Sie da:</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {content.neighboringDistricts.map((d) => (
-              <Link
-                key={d.toLowerCase()}
-                href={`/berlin-${d.toLowerCase().replace('ö', 'oe').replace('ü', 'ue').replace('ä', 'ae')}`}
-                className="px-4 py-2 bg-white border border-[#144E41]/20 rounded-full text-sm font-semibold text-[#144E41] hover:bg-[#144E41] hover:text-white transition-colors"
-              >
-                Haushaltshilfe & Alltagshilfe {d}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="bg-white py-16 md:py-24 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#134E4A] mb-6">
-            Jetzt unverbindlich beraten lassen
-          </h2>
-          <p className="font-body text-lg text-[#4B5563] mb-8">
-            Wir nehmen uns Zeit für Ihre Situation – kostenlos, auf Augenhöhe und in {content.district}.
-          </p>
-          <Link
-            href="/kontakt"
-            className="inline-flex items-center justify-center bg-[#144E41] text-white hover:bg-[#0F3F3C] font-semibold text-lg px-10 py-4 rounded-xl shadow-lg"
-          >
-            Kontakt aufnehmen
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
-        </div>
-      </section>
+      <ContactBand title={`Alltagshilfe in ${content.district} anfragen`} headingId={`${content.slug}-cta`} />
     </>
   )
 }

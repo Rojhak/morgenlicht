@@ -1,71 +1,55 @@
-'use client'
+import { Plus } from 'lucide-react'
+import type { QA } from '@/lib/schema'
 
-import { useState, useId } from 'react'
-import { Plus, Minus } from 'lucide-react'
-import { homeFaqs } from '@/content/homeFaqs'
+interface FAQSectionProps {
+  items: QA[]
+  title?: string
+  intro?: string
+  headingId?: string
+  headingLevel?: 'h2' | 'h3'
+}
 
-export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
-  const baseId = useId()
+/**
+ * Accessible FAQ built on native <details>: answers are always part of the HTML,
+ * work without JavaScript and are announced correctly by screen readers.
+ */
+export function FAQList({ items, headingLevel = 'h3' }: { items: QA[]; headingLevel?: 'h2' | 'h3' }) {
+  const Heading = headingLevel
 
   return (
-    <section className="bg-[#F7F6F3] px-6 py-16 md:py-20">
+    <div className="border-y border-line">
+      {items.map((faq, index) => (
+        <details key={faq.question} className="group border-b border-line last:border-b-0" open={index === 0}>
+          <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-4 rounded-lg px-1 py-5 text-left">
+            <Heading className="font-heading text-lg font-semibold leading-snug text-forest md:text-xl">
+              {faq.question}
+            </Heading>
+            <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full border border-forest/25 text-forest transition group-open:rotate-45 group-open:bg-forest group-open:text-white">
+              <Plus className="h-6 w-6" aria-hidden="true" />
+            </span>
+          </summary>
+          <p className="max-w-3xl pb-6 pr-2 text-lg leading-relaxed text-muted md:pr-14">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  )
+}
+
+export function FAQSection({
+  items,
+  title = 'Häufige Fragen',
+  intro = 'Klare Antworten zu Leistungen, Pflegekasse und persönlicher Unterstützung.',
+  headingId = 'faq-title',
+}: FAQSectionProps) {
+  return (
+    <section aria-labelledby={headingId} className="bg-sand px-5 py-16 sm:px-6 md:py-20">
       <div className="mx-auto max-w-4xl">
-        <div className="max-w-2xl">
-          <h2 className="font-heading text-3xl font-bold text-[#134E4A] md:text-4xl">
-            Häufige Fragen
-          </h2>
-          <p className="mb-0 mt-4 text-lg leading-relaxed text-[#4B5563]">
-            Klare Antworten zu Leistungen, Pflegekasse und persönlicher Unterstützung.
-          </p>
-        </div>
-
-        <div className="mt-10 border-y border-[#134E4A]/25">
-          {homeFaqs.map((faq, index) => {
-            const triggerId = `faq-trigger-${baseId}-${index}`
-            const contentId = `faq-content-${baseId}-${index}`
-            const isOpen = openIndex === index
-
-            return (
-              <article
-                key={faq.question}
-                className="border-b border-[#134E4A]/20 last:border-b-0"
-              >
-                <h3>
-                  <button
-                    id={triggerId}
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="group flex min-h-16 w-full items-center justify-between rounded-lg px-1 py-5 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FFD54F] focus-visible:ring-inset"
-                    aria-expanded={isOpen}
-                    aria-controls={contentId}
-                  >
-                    <span className="pr-5 font-heading text-lg font-semibold leading-snug text-[#134E4A] md:text-xl">
-                      {faq.question}
-                    </span>
-                    <span className="flex h-11 w-11 flex-none items-center justify-center text-[#134E4A] transition-colors group-hover:text-[#0F3F3C]">
-                      {isOpen ? (
-                        <Minus className="h-6 w-6" aria-hidden="true" />
-                      ) : (
-                        <Plus className="h-6 w-6" aria-hidden="true" />
-                      )}
-                    </span>
-                  </button>
-                </h3>
-
-                <div
-                  id={contentId}
-                  role="region"
-                  aria-labelledby={triggerId}
-                  hidden={!isOpen}
-                >
-                  <p className="mb-0 max-w-3xl pb-6 pr-12 text-lg leading-relaxed text-[#4B5563]">
-                    {faq.answer}
-                  </p>
-                </div>
-              </article>
-            )
-          })}
+        <h2 id={headingId} className="font-heading text-3xl font-bold text-forest md:text-4xl">
+          {title}
+        </h2>
+        {intro && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{intro}</p>}
+        <div className="mt-10">
+          <FAQList items={items} />
         </div>
       </div>
     </section>

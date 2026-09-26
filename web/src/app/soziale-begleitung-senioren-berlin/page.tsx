@@ -15,7 +15,7 @@ export default function SozialeBegleitungSeniorenBerlinPage() {
         slug: 'soziale-begleitung-senioren-berlin',
         serviceName: 'Soziale Begleitung für Senioren in Berlin',
         kicker: 'Zeit für Gespräche und gemeinsame Aktivitäten',
-        h1: 'Soziale Begleitung für Senioren in Berlin – damit Alltag gemeinsam leichter wird',
+        h1: 'Soziale Begleitung für Senioren in Berlin',
         intro:
           'Morgenlicht begleitet ältere Menschen in Kreuzberg und Neukölln bei Spaziergängen, kleinen Unternehmungen und alltäglichen Wegen. Im Mittelpunkt stehen persönliche Wünsche, vertraute Abläufe und Begegnung auf Augenhöhe.',
         trustPoints: [

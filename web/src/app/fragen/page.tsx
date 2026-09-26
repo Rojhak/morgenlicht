@@ -1,218 +1,200 @@
-'use client'
-
-import { useState, useId } from 'react'
-import { ArrowRight, ChevronDown, Phone, HelpCircle, Sparkles } from 'lucide-react'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { FAQList } from '../components/sections/FAQSection'
+import { ContactBand } from '../components/site/ContactBand'
+import { JsonLd } from '../components/site/JsonLd'
+import { PageHero } from '../components/site/PageHero'
+import { SITE, SITE_URL } from '@/config/site'
+import { faqSchema, graph, type QA } from '@/lib/schema'
+import { createPageMetadata } from '@/lib/seo'
 
-const faqCategories = [
+export const metadata = createPageMetadata({
+  title: 'Fragen zu Alltagshilfe & Pflegekasse | Morgenlicht',
+  description:
+    'Antworten zu Pflegegrad, 131 € Entlastungsbetrag, Kosten, Direktabrechnung und Ablauf der Alltagshilfe in Berlin-Kreuzberg und Neukölln.',
+  path: '/fragen',
+})
+
+interface FaqCategory {
+  id: string
+  title: string
+  items: QA[]
+  more?: { href: string; label: string }
+}
+
+const categories: FaqCategory[] = [
   {
     id: 'allgemein',
     title: 'Allgemeine Fragen',
-    questions: [
+    items: [
       {
-        q: 'Was ist Morgenlicht Alltagshilfe?',
-        a: 'Morgenlicht ist Ihre herzliche und zuverlässige Alltagshilfe in Berlin. Wir helfen Senioren und Pflegebedürftigen dabei, so lange und selbstbestimmt wie möglich im eigenen Zuhause zu leben. Ob verlässliche Haushaltshilfe, Begleitung zu Terminen oder einfach ein offenes Ohr im Alltag – wir entlasten Sie und Ihre Angehörigen. Wenn Pflegegrad, Budget und Unterlagen vorliegen, kann eine Direktabrechnung mit der Pflegekasse vereinbart werden.',
+        question: 'Was ist Morgenlicht Alltagshilfe?',
+        answer:
+          'Morgenlicht ist ein nach Berliner Landesrecht anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI. Wir helfen älteren und pflegebedürftigen Menschen in Kreuzberg und Neukölln bei Haushalt, Einkauf, Terminen, Alltagsorganisation und sozialer Teilhabe, damit sie möglichst selbstständig zu Hause leben können.',
       },
       {
-        q: 'Wie schnell kann ich einen Termin bekommen?',
-        a: 'Wir bemühen uns, Ihnen schnell einen Termin zu bieten. In vielen Fällen können wir bereits innerhalb weniger Tage mit der Unterstützung beginnen. Rufen Sie uns einfach an – wir finden eine Lösung.',
+        question: 'Wie schnell kann die Unterstützung beginnen?',
+        answer:
+          'Das hängt von Ihrer Adresse, der gewünschten Zeit und unserer aktuellen Kapazität ab. Im Erstgespräch sagen wir Ihnen offen, ab wann ein Start möglich ist.',
       },
       {
-        q: 'In welchen Gebieten bietet Morgenlicht Leistungen an?',
-        a: 'Wir sind in Berlin tätig, mit einem besonderen Schwerpunkt auf Kreuzberg und Neukölln. Dort unterstützen wir Sie gerne direkt in Ihrem Kiez. Aber auch wenn Sie in einem angrenzenden Bezirk wohnen: Kontaktieren Sie uns einfach – wir besprechen gemeinsam, ob und wie wir Sie an Ihrem Wohnort betreuen können.',
+        question: 'In welchen Bezirken ist Morgenlicht tätig?',
+        answer:
+          'Unser Schwerpunkt liegt auf Kreuzberg und Neukölln. Wenn Sie in einem angrenzenden Bezirk wohnen, fragen Sie gern nach – wir prüfen dann, ob ein Einsatz an Ihrer Adresse möglich ist.',
       },
       {
-        q: 'In welchen Sprachen bieten Sie die Beratung und Unterstützung an?',
-        a: 'Wir bieten unsere Hilfe und die gesamte Beratung neben Deutsch auch auf Türkisch und Englisch an.',
+        question: 'In welchen Sprachen beraten und unterstützen Sie?',
+        answer:
+          'Auf Deutsch, Türkisch und Englisch. Welche Sprache bei den Einsätzen möglich ist, hängt von der Terminkapazität ab und wird vorher geklärt.',
       },
     ],
   },
   {
     id: 'kosten',
-    title: 'Kosten & Pflegekasse',
-    questions: [
+    title: 'Kosten und Pflegekasse',
+    more: { href: '/kosten', label: 'Kosten und Abrechnung im Detail' },
+    items: [
       {
-        q: 'Was kostet die Alltagshilfe?',
-        a: 'Unser transparenter Stundensatz für die Alltagshilfe beträgt 35,50 €. Mit Pflegegrad 1 bis 5 können anerkannte Leistungen im Rahmen des verfügbaren Entlastungsbetrags ohne Eigenanteil möglich sein. Die Voraussetzungen und mögliche Kosten außerhalb des Budgets klären wir vor Beginn. Im Stundensatz sind Anfahrt und Administration enthalten. Auch Privatzahler ohne Pflegegrad können Leistungen zum selben Stundensatz vereinbaren.',
+        question: 'Was kostet die Alltagshilfe?',
+        answer: `Der Stundensatz beträgt ${SITE.hourlyRate}, Anfahrt und Verwaltung sind enthalten. Mit Pflegegrad 1 bis 5 kann die Hilfe im Rahmen des verfügbaren Entlastungsbetrags ohne Eigenanteil möglich sein. Ohne Pflegegrad gilt derselbe Stundensatz als Privatleistung.`,
       },
       {
-        q: 'Was ist der Entlastungsbetrag (131 €)?',
-        a: 'Pflegebedürftige mit Pflegegrad 1 bis 5 haben Anspruch auf einen Entlastungsbetrag von bis zu 131 € monatlich. Dieser kann für anerkannte Leistungen wie Haushaltshilfe und Alltagsbegleitung eingesetzt werden. Wenn Budget und Unterlagen vorliegen, kann eine Direktabrechnung vereinbart werden. Im verfügbaren Budget kann die Hilfe ohne Eigenanteil genutzt werden. Ihr reguläres Pflegegeld wird durch den Entlastungsbetrag nicht gekürzt.',
+        question: 'Was ist der Entlastungsbetrag von 131 €?',
+        answer:
+          'Eine Leistung der Pflegeversicherung für Pflegebedürftige mit Pflegegrad 1 bis 5, die zu Hause leben. Sie beträgt bis zu 131 € im Monat und ist zweckgebunden, zum Beispiel für nach Landesrecht anerkannte Angebote zur Unterstützung im Alltag. Das Geld wird nicht ausgezahlt, sondern über Rechnung oder Direktabrechnung verwendet. Das Pflegegeld wird dadurch nicht gekürzt.',
       },
       {
-        q: 'Was ist, wenn ich mehr Hilfe benötige, als die 131 € abdecken?',
-        a: 'Beim Umwandlungsanspruch nach § 45a SGB XI können Pflegebedürftige mit Pflegegrad 2 bis 5 bis zu 40 % des nicht genutzten Anspruchs auf ambulante Pflegesachleistungen nach § 36 SGB XI für nach Landesrecht anerkannte Angebote zur Unterstützung im Alltag einsetzen. Die Pflegekasse rechnet zunächst die tatsächlich genutzten Pflegesachleistungen ab. Die Nutzung des Umwandlungsanspruchs kann sich auf die Höhe des anteiligen Pflegegeldes auswirken. Ob und in welcher Höhe ein Betrag verfügbar ist, muss individuell mit der Pflegekasse geklärt werden.',
+        question: 'Was ist, wenn 131 € im Monat nicht reichen?',
+        answer:
+          'Ab Pflegegrad 2 können bis zu 40 % der nicht genutzten ambulanten Pflegesachleistungen für anerkannte Angebote eingesetzt werden (Umwandlungsanspruch nach § 45a Abs. 4 SGB XI). Die Pflegekasse rechnet zuerst die genutzten Sachleistungen ab, und ein anteiliges Pflegegeld kann sich verringern. Ob und wie viel verfügbar ist, klären Sie am besten mit Ihrer Pflegekasse. Zusätzliche Stunden können Sie außerdem privat bezahlen.',
       },
       {
-        q: 'Gibt es Hilfe, wenn meine pflegenden Angehörigen krank oder im Urlaub sind?',
-        a: 'Bei Pflegegrad 2 bis 5 kann Verhinderungspflege in Betracht kommen, wenn die private Pflegeperson wegen Urlaub, Krankheit oder aus einem anderen Grund an der Pflege gehindert ist. Sie ist kein frei verfügbares monatliches Zusatzbudget. Ob die Voraussetzungen erfüllt sind, welcher Betrag verfügbar ist und wie abgerechnet werden kann, ist individuell mit der Pflegekasse zu klären.',
+        question: 'Gibt es Hilfe, wenn pflegende Angehörige krank oder im Urlaub sind?',
+        answer:
+          'Ab Pflegegrad 2 kann Verhinderungspflege in Betracht kommen, wenn die private Pflegeperson verhindert ist. Sie ist kein frei verfügbares Zusatzbudget. Ob die Voraussetzungen erfüllt sind und wie abgerechnet wird, ist individuell mit der Pflegekasse zu klären.',
       },
       {
-        q: 'Kann ich die Kosten von der Steuer absetzen?',
-        a: 'Eine steuerliche Berücksichtigung als haushaltsnahe Dienstleistung kann möglich sein. Ob und in welcher Höhe das für Sie gilt, klären Sie bitte mit Ihrer Steuerberatung oder dem Finanzamt.',
-      },
-      {
-        q: 'Was ist, wenn ich keinen Pflegegrad habe?',
-        a: 'Auch ohne Pflegegrad können Sie unsere Leistungen in Anspruch nehmen – als Privatzahler zum Stundensatz von 35,50 €. Zusätzlich unterstützen wir Sie gerne beim Antrag auf einen Pflegegrad.',
-      },
-    ],
-  },
-  {
-    id: 'antrag',
-    title: 'Antrag & Pflegegrad',
-    questions: [
-      {
-        q: 'Wie bekomme ich einen Pflegegrad?',
-        a: 'Der Antrag wird bei der Pflegekasse gestellt – telefonisch oder schriftlich. Die Kasse beauftragt dann den Medizinischen Dienst (MD) mit einem Begutachtungstermin. Wir unterstützen Sie gerne beim gesamten Ablauf.',
-      },
-      {
-        q: 'Können Sie mir beim Antrag helfen?',
-        a: 'Wir stehen Ihnen bei allgemeinen Fragen zum Ablauf gerne zur Seite und geben Ihnen hilfreiche Tipps aus unserer Praxis, damit Sie wissen, welche Schritte auf Sie zukommen.',
-      },
-      {
-        q: 'Wann lohnt sich ein Antrag?',
-        a: 'Ein Antrag kann sinnvoll sein, wenn Sie dauerhaft Unterstützung im Alltag benötigen. Bei Pflegegrad 1 bis 5 besteht in häuslicher Pflege Anspruch auf den Entlastungsbetrag von bis zu 131 € monatlich. Welche weiteren Leistungen ab Pflegegrad 2 möglich sind, hängt von Ihrer persönlichen Pflegesituation und den jeweiligen Voraussetzungen ab.',
-      },
-      {
-        q: 'Wie lange dauert es, bis ich den Bescheid bekomme?',
-        a: 'Für die Bearbeitung gilt grundsätzlich eine Frist von 25 Arbeitstagen ab Eingang des Antrags bei der Pflegekasse. Die Frist betrifft die Entscheidung über den Antrag; der Begutachtungstermin wird individuell vereinbart. In bestimmten Fällen gelten kürzere Fristen.',
+        question: 'Kann ich die Kosten von der Steuer absetzen?',
+        answer:
+          'Selbst bezahlte Kosten können als haushaltsnahe Dienstleistung steuerlich berücksichtigt werden. Ob und in welcher Höhe das für Sie gilt, klären Sie bitte mit Ihrer Steuerberatung oder dem Finanzamt.',
       },
     ],
   },
   {
-    id: 'leistungen',
-    title: 'Unsere Leistungen',
-    questions: [
+    id: 'pflegegrad',
+    title: 'Pflegegrad und Antrag',
+    more: { href: '/pflegegrad-guide', label: 'Pflegegrad-Begutachtung vorbereiten' },
+    items: [
       {
-        q: 'Welche Leistungen bieten Sie genau an?',
-        a: 'Wir bieten fünf Hauptbereiche: 1) Haushalt & Wohlbefinden, 2) Einkauf & Erledigungen, 3) Begleitung & Mobilität, 4) Alltag & Organisation, 5) Soziale Teilhabe & Freizeit. Details finden Sie auf unserer Leistungen-Seite.',
+        question: 'Wie bekomme ich einen Pflegegrad?',
+        answer:
+          'Sie stellen einen Antrag bei Ihrer Pflegekasse, die bei der Krankenkasse angesiedelt ist – telefonisch oder schriftlich. Danach begutachtet der Medizinische Dienst Ihre Selbstständigkeit, meist bei Ihnen zu Hause.',
       },
       {
-        q: 'Wie oft kann ich die Hilfe in Anspruch nehmen?',
-        a: 'So oft Sie möchten – im Rahmen Ihres Budgets. Die meisten Kunden nutzen unsere Leistungen 1-3 Mal pro Woche für einige Stunden.',
+        question: 'Können Sie beim Antrag helfen?',
+        answer:
+          'Wir erklären Ihnen den Ablauf und können beim Ausfüllen von Formularen unterstützen. Eine ausführliche Pflegeberatung erhalten Sie kostenfrei bei Ihrer Pflegekasse und bei den Pflegestützpunkten Berlin.',
       },
       {
-        q: 'Muss ich bei der Anwesenheit einer Betreuungsperson zu Hause sein?',
-        a: 'Nein, Sie müssen nicht immer zu Hause sein. Für bestimmte Aufgaben wie Einkäufe oder Behördengänge kann die Betreuungsperson auch selbstständig tätig werden. Dies besprechen wir individuell mit Ihnen.',
+        question: 'Wie lange dauert es bis zum Bescheid?',
+        answer:
+          'Die Pflegekasse muss grundsätzlich innerhalb von 25 Arbeitstagen nach Eingang des Antrags entscheiden. In bestimmten Fällen, etwa bei einem Krankenhausaufenthalt, gelten kürzere Fristen.',
+      },
+      {
+        question: 'Wann lohnt sich ein Antrag?',
+        answer:
+          'Wenn Sie im Alltag dauerhaft, also voraussichtlich mindestens sechs Monate, auf Unterstützung angewiesen sind. Schon ab Pflegegrad 1 gibt es den Entlastungsbetrag von bis zu 131 € im Monat.',
+      },
+    ],
+  },
+  {
+    id: 'ablauf',
+    title: 'Leistungen und Ablauf',
+    more: { href: '/leistungen', label: 'Alle Leistungen ansehen' },
+    items: [
+      {
+        question: 'Welche Leistungen bieten Sie an?',
+        answer:
+          'Fünf Bereiche: Haushalt, Einkauf und Erledigungen, Begleitung und Mobilität, Alltag und Organisation sowie soziale Teilhabe. Medizinische Behandlungspflege gehört nicht dazu.',
+      },
+      {
+        question: 'Wie oft kann die Hilfe kommen?',
+        answer: `Das richtet sich nach Ihrem Bedarf und Budget. Mit dem Entlastungsbetrag von 131 € sind bei ${SITE.hourlyRate} pro Stunde etwa 3 Stunden und 41 Minuten im Monat möglich, zum Beispiel ein längerer Einsatz oder mehrere kurze. Mit angespartem Budget, Umwandlungsanspruch oder privat bezahlten Stunden ist mehr möglich.`,
+      },
+      {
+        question: 'Muss ich während des Einsatzes zu Hause sein?',
+        answer:
+          'Nicht immer. Einkäufe oder Botengänge kann die Alltagshilfe auch allein erledigen. Was ohne Ihre Anwesenheit passieren darf, vereinbaren wir vorher mit Ihnen.',
+      },
+      {
+        question: 'Kommt immer dieselbe Person?',
+        answer:
+          'Wir planen möglichst mit einer festen Bezugsperson. Bei Krankheit oder Urlaub kann eine Vertretung nötig sein; Änderungen besprechen wir möglichst früh.',
       },
     ],
   },
 ]
 
-function FAQItem({ question, answer }: { question: string, answer: string }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const id = useId()
-  const contentId = `faq-content-${id}`
-
-  return (
-    <div
-      className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md"
-    >
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-6 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#144E41] rounded-lg"
-        aria-expanded={isOpen}
-        aria-controls={contentId}
-      >
-        <span className="font-heading font-bold text-[#144E41] text-lg pr-8">
-          {question}
-        </span>
-        <div className={`shrink-0 w-8 h-8 rounded-full bg-[#F0FDF4] flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180 bg-[#144E41] text-white' : 'text-[#144E41]'}`}>
-          <ChevronDown className="w-5 h-5" aria-hidden="true" />
-        </div>
-      </button>
-
-      <div
-        id={contentId}
-        className={`grid transition-all duration-300 ease-in-out ${
-          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-        }`}
-      >
-        <div className="overflow-hidden">
-          <div className="p-6 pt-0 text-gray-700 leading-relaxed font-body border-t border-gray-50">
-            {answer}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+const allItems = categories.flatMap((category) => category.items)
 
 export default function FragenPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="pt-20 md:pt-32 pb-12 md:pb-24 px-4 text-center bg-white">
-        <div className="relative max-w-4xl mx-auto text-center px-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
-            <Sparkles className="w-4 h-4 text-[#144E41]" />
-            <span>Hilfe & Ratgeber</span>
-          </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
-            Fragen & Antworten
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-[#6B7280] max-w-2xl mx-auto leading-relaxed">
-            Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren Leistungen, Kosten und der Abrechnung mit der Pflegekasse.
-          </p>
-        </div>
-      </section>
+    <>
+      <JsonLd data={graph(faqSchema(allItems, `${SITE_URL}/fragen#faq`))} />
 
-      {/* FAQ Content Section - Soft Hellbeige */}
-      <section className="bg-[#F7F6F3] py-16 md:py-24 px-6 md:px-16">
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-20">
-            {faqCategories.map((category) => (
-              <div key={category.id}>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#144E41] mb-10 font-heading">
+      <PageHero
+        crumbs={[{ name: 'Fragen', href: '/fragen' }]}
+        kicker="Fragen und Antworten"
+        title="Häufige Fragen zu Alltagshilfe und Pflegekasse"
+        lead={
+          <p>
+            Kurze, verständliche Antworten zu Kosten, Pflegegrad und Ablauf. Ihre Frage ist nicht
+            dabei? Rufen Sie uns an: <a href={SITE.phone.href} className="font-semibold text-forest underline underline-offset-4">{SITE.phone.label}</a>.
+          </p>
+        }
+      >
+        <nav aria-labelledby="fragen-themen">
+          <h2 id="fragen-themen" className="text-base font-bold text-forest">Fragen nach Thema</h2>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <li key={category.id}>
+                <a
+                  href={`#${category.id}`}
+                  className="inline-flex min-h-12 items-center rounded-full border border-forest/30 bg-white px-5 text-base font-semibold text-forest transition hover:border-forest hover:bg-sun-soft"
+                >
                   {category.title}
-                </h2>
-                <div className="flex flex-col gap-4">
-                  {category.questions.map((faq, idx) => (
-                    <FAQItem
-                      key={`${category.id}-${idx}`}
-                      question={faq.q}
-                      answer={faq.a}
-                    />
-                  ))}
-                </div>
-              </div>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
+        </nav>
+      </PageHero>
+
+      <div className="bg-white px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto max-w-4xl space-y-16">
+          {categories.map((category) => (
+            <section key={category.id} id={category.id} aria-labelledby={`${category.id}-title`} className="scroll-mt-24">
+              <h2 id={`${category.id}-title`} className="font-heading text-2xl font-bold text-forest md:text-3xl">
+                {category.title}
+              </h2>
+              <div className="mt-6">
+                <FAQList items={category.items} />
+              </div>
+              {category.more && (
+                <Link
+                  href={category.more.href}
+                  className="mt-5 inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4"
+                >
+                  {category.more.label}
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              )}
+            </section>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Bottom CTA - White (Rhythm Alignment) */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading tracking-tighter">
-            Lernen Sie uns kennen
-          </h2>
-          <p className="text-xl font-body text-[#6B7280] mb-10 max-w-2xl mx-auto leading-relaxed tracking-tight">
-            Wir beraten Sie kostenlos und unverbindlich – rufen Sie uns an oder senden Sie eine Anfrage.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <Link
-              href="/kontakt"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all hover:-translate-y-0.5"
-            >
-              Jetzt anfragen
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-            <a
-              href="tel:03023593028"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
-            >
-              <Phone className="w-5 h-5 mr-3 text-[#144E41]" />
-              030 235 930 28
-            </a>
-          </div>
-
-          <p className="font-body text-[#6B7280] text-sm mt-8">
-            Mo–Fr: 09:00 – 16:00 Uhr
-          </p>
-        </div>
-      </section>
-    </div>
+      <ContactBand title="Ihre Frage war nicht dabei?" text="Rufen Sie uns an oder schreiben Sie per WhatsApp. Wir beantworten Ihre Frage persönlich und verständlich." />
+    </>
   )
 }

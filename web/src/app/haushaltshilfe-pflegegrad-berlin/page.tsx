@@ -4,7 +4,7 @@ import { createPageMetadata } from '@/lib/seo'
 export const metadata = createPageMetadata({
   title: 'Haushaltshilfe mit Pflegegrad in Berlin | Morgenlicht',
   description:
-    'Anerkannte Haushaltshilfe mit Pflegegrad in Berlin-Kreuzberg und Neukölln. Bis zu 131 € Entlastungsbetrag, 35,50 €/Std. und mögliche Direktabrechnung verständlich erklärt.',
+    'Anerkannte Haushaltshilfe mit Pflegegrad in Kreuzberg und Neukölln: bis zu 131 € Entlastungsbetrag, 35,50 € pro Stunde, Direktabrechnung möglich.',
   path: '/haushaltshilfe-pflegegrad-berlin',
 })
 
@@ -15,7 +15,7 @@ export default function HaushaltshilfePflegegradBerlinPage() {
         slug: 'haushaltshilfe-pflegegrad-berlin',
         serviceName: 'Haushaltshilfe mit Pflegegrad in Berlin',
         kicker: 'Anerkannte Hilfe in Kreuzberg und Neukölln',
-        h1: 'Haushaltshilfe mit Pflegegrad in Berlin – persönlich und transparent',
+        h1: 'Haushaltshilfe mit Pflegegrad in Berlin',
         intro:
           'Morgenlicht unterstützt ältere und pflegebedürftige Menschen bei Haushalt, Einkauf und alltäglichen Aufgaben. Wir klären vor Beginn, welche Hilfe gewünscht ist, welches Pflegekassen-Budget verfügbar ist und ob eine Direktabrechnung vereinbart werden kann.',
         trustPoints: [
