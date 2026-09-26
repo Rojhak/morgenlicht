@@ -8,15 +8,16 @@ import { JsonLd } from './components/site/JsonLd'
 import { SITE, SITE_URL } from '@/config/site'
 import { areaServedSchema, BUSINESS_ID, graph } from '@/lib/schema'
 
-// Variable fonts: one file per family covers all weights, so bold text is never synthesised.
+// Variable fonts cover all weights (700 renders as real bold). Only the latin subset is
+// preloaded; latin-ext (Turkish characters) is still declared and loads on demand.
 const montserrat = Montserrat({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   display: 'swap',
   variable: '--font-montserrat',
 })
 
 const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
 })
