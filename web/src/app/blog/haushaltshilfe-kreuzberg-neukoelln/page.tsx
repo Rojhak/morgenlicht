@@ -1,26 +1,17 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SeoBlogArticle } from '../../components/sections/SeoBlogArticle'
+import { createPageMetadata } from '@/lib/seo'
 
 const title = 'Haushaltshilfe in Kreuzberg und Neukölln: Kosten, Pflegekasse und Leistungen'
 const description =
   'Haushaltshilfe in Kreuzberg und Neukölln: Erfahren Sie, welche Leistungen möglich sind, was die Pflegekasse übernimmt und wie Morgenlicht unterstützt.'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Haushaltshilfe Kreuzberg & Neukölln | Pflegekasse' },
+export const metadata = createPageMetadata({
+  title: 'Haushaltshilfe Kreuzberg & Neukölln: Ratgeber Pflegekasse',
   description,
-  alternates: { canonical: '/blog/haushaltshilfe-kreuzberg-neukoelln' },
-  openGraph: {
-    title,
-    description,
-    type: 'article',
-    locale: 'de_DE',
-    publishedTime: '2026-07-11',
-    modifiedTime: '2026-07-11',
-    url: '/blog/haushaltshilfe-kreuzberg-neukoelln',
-    images: [{ url: '/images/hero_daily_moments.jpg', alt: 'Haushaltshilfe für eine Seniorin in Berlin' }],
-  },
-}
+  path: '/blog/haushaltshilfe-kreuzberg-neukoelln',
+  article: { publishedTime: '2026-07-11', modifiedTime: '2026-07-11' },
+})
 
 const faqItems = [
   {
@@ -54,10 +45,7 @@ export default function HaushaltshilfeKreuzbergNeukoellnPage() {
       eyebrow="Lokaler Ratgeber für Berlin"
       datePublished="2026-07-11"
       dateModified="2026-07-11"
-      dateLabel="11. Juli 2026"
       readingTime="Lesedauer: ca. 7 Minuten"
-      imageSrc="/images/hero_daily_moments.jpg"
-      imageAlt="Seniorin erhält Haushaltshilfe in Kreuzberg und Neukölln"
       quickFacts={[
         'Entlastungsbetrag ab Pflegegrad 1',
         'Anerkannter Anbieter in Berlin erforderlich',

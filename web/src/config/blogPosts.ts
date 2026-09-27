@@ -9,6 +9,15 @@ export interface BlogPostSummary {
 
 export const blogPosts: BlogPostSummary[] = [
   {
+    slug: 'pflegesachleistung-haushaltshilfe-umwandlungsanspruch',
+    title: 'Pflegesachleistung: doppelt so viel Haushaltshilfe aus Ihrem Budget',
+    excerpt:
+      'Ab Pflegegrad 2: Mit einer anerkannten Alltagshilfe statt eines Pflegedienstes bekommen Sie aus demselben Teil der Pflegesachleistung etwa doppelt so viele Stunden Hilfe im Haushalt.',
+    date: '2026-09-26',
+    modified: '2026-09-27',
+    tags: ['pflegesachleistung', 'umwandlungsanspruch', 'haushaltshilfe'],
+  },
+  {
     slug: 'haushaltshilfe-kreuzberg-neukoelln',
     title: 'Haushaltshilfe in Kreuzberg und Neukölln: Kosten, Pflegekasse und Leistungen',
     excerpt:
@@ -39,54 +48,54 @@ export const blogPosts: BlogPostSummary[] = [
     slug: 'haushaltshilfe-pflegegrad-pflegekasse',
     title: 'Haushaltshilfe bei Pflegegrad: Was zahlt die Pflegekasse?',
     excerpt:
-      'Viele Familien wissen nicht, welche Hilfe im Haushalt über Pflegeleistungen möglich ist. Der Beitrag erklärt Entlastungsbetrag, anerkannte Anbieter und direkte Abrechnung.',
+      'Wann die Pflegekasse eine Haushaltshilfe bezahlt, welche Aufgaben dazugehören und warum der Anbieter anerkannt sein muss.',
     date: '2026-05-08',
-    modified: '2026-05-08',
+    modified: '2026-09-26',
     tags: ['haushaltshilfe', 'pflegekasse', 'pflegegrad'],
   },
   {
     slug: 'pflegegrad-1-hilfe-leistungen',
     title: 'Pflegegrad 1: Welche Hilfe steht Ihnen zu?',
     excerpt:
-      'Auch mit Pflegegrad 1 gibt es bereits Unterstützung. Einfach erklärt: Entlastungsbetrag, Beratung, Alltagshilfe und wichtige nächste Schritte.',
+      'Auch mit Pflegegrad 1 gibt es Unterstützung: vor allem den Entlastungsbetrag von bis zu 131 € im Monat. Einfach erklärt mit den nächsten Schritten.',
     date: '2026-05-08',
-    modified: '2026-05-08',
+    modified: '2026-09-26',
     tags: ['pflegegrad-1', 'entlastungsbetrag', 'alltagshilfe'],
   },
   {
     slug: 'direktabrechnung-pflegekasse-ohne-vorkasse',
     title: 'Direktabrechnung mit der Pflegekasse: Alltagshilfe ohne Vorkasse',
     excerpt:
-      'So funktioniert die Abrechnung direkt mit der Pflegekasse: weniger Papierkram, keine Vorkasse und klare Schritte für Angehörige.',
+      'Wie die Direktabrechnung funktioniert, welche Voraussetzungen gelten und wann trotzdem Kosten entstehen.',
     date: '2026-05-08',
-    modified: '2026-05-08',
+    modified: '2026-09-26',
     tags: ['direktabrechnung', 'pflegekasse', 'alltagshilfe'],
   },
   {
     slug: 'alltagshilfe-pflegegrad-entlastungsbetrag',
     title: 'Alltagshilfe bei Pflegegrad: 131 € Entlastungsbetrag richtig nutzen',
     excerpt:
-      'Viele Menschen mit Pflegegrad nutzen den Entlastungsbetrag nicht, obwohl ihnen monatlich 131 € für Alltagshilfe zustehen. Einfach erklärt: Anspruch, Leistungen und Abrechnung mit der Pflegekasse.',
+      'Viele Menschen mit Pflegegrad nutzen den Entlastungsbetrag nicht, obwohl ihnen monatlich bis zu 131 € für Alltagshilfe zustehen. Anspruch, Leistungen und Abrechnung einfach erklärt.',
     date: '2026-05-06',
-    modified: '2026-05-06',
+    modified: '2026-09-26',
     tags: ['entlastungsbetrag', 'alltagshilfe', 'pflegekasse'],
   },
   {
     slug: 'pflegegrad-beantragen-schritt-fuer-schritt',
-    title: 'Pflegegrad beantragen: Schritt für Schritt zum Erfolg',
+    title: 'Pflegegrad beantragen: Schritt für Schritt erklärt',
     excerpt:
-      'Der Weg zum Pflegegrad kann kompliziert erscheinen. Mit unserer Anleitung meistern Sie den Antrag problemlos.',
+      'Antrag bei der Pflegekasse, Hilfebedarf sammeln, Begutachtung vorbereiten, Bescheid prüfen – mit Fristen und Tipps für Angehörige.',
     date: '2026-01-05',
-    modified: '2026-05-06',
+    modified: '2026-09-26',
     tags: ['rechtliches', 'pflege-tipps'],
   },
   {
     slug: 'sturzpraevention-im-alltag',
-    title: 'Sturzprävention im Alltag: 7 einfache Tipps für mehr Sicherheit',
+    title: 'Sturzprävention im Alltag: 7 einfache Tipps für mehr Sicherheit zu Hause',
     excerpt:
-      'Stürze sind eine der häufigsten Unfallursachen im Alter. Mit diesen Tipps machen Sie Ihr Zuhause sicherer.',
+      'Stolperfallen, Licht, Haltegriffe, Schuhe, Bewegung, Medikamente und Sehen: eine Checkliste für eine sicherere Wohnung.',
     date: '2025-12-28',
-    modified: '2026-05-08',
+    modified: '2026-09-26',
     tags: ['pflege-tipps', 'alltagshilfe'],
   },
 ]

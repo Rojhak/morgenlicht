@@ -1,22 +1,12 @@
-import type { Metadata } from 'next'
 import { DistrictPage } from '../components/sections/DistrictPage'
+import { createPageMetadata } from '@/lib/seo'
 
-const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
-
-export const metadata: Metadata = {
-  title: {
-    absolute: 'Haushaltshilfe Kreuzberg | Pflegekasse & Seniorenhilfe',
-  },
+export const metadata = createPageMetadata({
+  title: 'Haushaltshilfe Kreuzberg | Pflegekasse & Seniorenhilfe',
   description:
-    'Haushaltshilfe in Berlin-Kreuzberg für Senioren und Menschen mit Pflegegrad. Anerkannte Alltagshilfe, Einkauf und Begleitung über die Pflegekasse.',
-  alternates: { canonical: '/berlin-kreuzberg' },
-  openGraph: {
-    title: 'Haushaltshilfe und Alltagshilfe in Berlin-Kreuzberg',
-    description:
-      'Anerkannte Haushaltshilfe, Einkaufshilfe und Begleitung in Kreuzberg. Finanzierung über den Entlastungsbetrag ab Pflegegrad 1 möglich.',
-    url: `${SITE_URL}/berlin-kreuzberg`,
-  },
-}
+    'Haushaltshilfe und Alltagshilfe in Berlin-Kreuzberg für Senioren mit Pflegegrad: Reinigung, Einkauf, Begleitung. Abrechnung mit der Pflegekasse möglich.',
+  path: '/berlin-kreuzberg',
+})
 
 export default function KreuzbergPage() {
   return (

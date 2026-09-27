@@ -24,6 +24,7 @@ export default function BerlinTurkceGunlukYasamDestegiPage() {
         slug: 'tr/berlin-yasli-gunluk-yasam-destegi',
         lang: 'tr',
         serviceName: 'Berlin Türkçe günlük yaşam desteği',
+        breadcrumbName: 'Türkçe günlük yaşam desteği',
         kicker: 'Kreuzberg ve Neukölln’de kişisel destek',
         h1: 'Berlin’de yaşlılar için Türkçe günlük yaşam ve ev desteği',
         intro:

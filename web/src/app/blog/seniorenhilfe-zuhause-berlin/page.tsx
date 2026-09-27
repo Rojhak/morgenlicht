@@ -1,26 +1,17 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SeoBlogArticle } from '../../components/sections/SeoBlogArticle'
+import { createPageMetadata } from '@/lib/seo'
 
 const title = 'Seniorenhilfe zu Hause in Berlin: Welche Unterstützung passt?'
 const description =
   'Seniorenhilfe zu Hause in Berlin: praktische Unterstützung bei Haushalt, Einkauf, Begleitung und Alltagsorganisation für ältere Menschen und Angehörige.'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Seniorenhilfe zu Hause in Berlin | Alltag & Haushalt' },
+export const metadata = createPageMetadata({
+  title: 'Seniorenhilfe zu Hause in Berlin | Alltag & Haushalt',
   description,
-  alternates: { canonical: '/blog/seniorenhilfe-zuhause-berlin' },
-  openGraph: {
-    title,
-    description,
-    type: 'article',
-    locale: 'de_DE',
-    publishedTime: '2026-07-11',
-    modifiedTime: '2026-07-11',
-    url: '/blog/seniorenhilfe-zuhause-berlin',
-    images: [{ url: '/images/hero_active_senior.jpg', alt: 'Seniorin lebt mit Unterstützung selbstständig zu Hause' }],
-  },
-}
+  path: '/blog/seniorenhilfe-zuhause-berlin',
+  article: { publishedTime: '2026-07-11', modifiedTime: '2026-07-11' },
+})
 
 const faqItems = [
   {
@@ -54,10 +45,7 @@ export default function SeniorenhilfeZuhauseBerlinPage() {
       eyebrow="Ratgeber für ältere Menschen und Angehörige"
       datePublished="2026-07-11"
       dateModified="2026-07-11"
-      dateLabel="11. Juli 2026"
       readingTime="Lesedauer: ca. 6 Minuten"
-      imageSrc="/images/hero_active_senior.jpg"
-      imageAlt="Ältere Frau lebt mit Seniorenhilfe selbstständig zu Hause in Berlin"
       quickFacts={[
         'Hilfe ist auch ohne Pflegegrad privat möglich',
         'Pflegegrad eröffnet Finanzierungsmöglichkeiten',

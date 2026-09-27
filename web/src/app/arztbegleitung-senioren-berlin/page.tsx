@@ -105,7 +105,7 @@ export default function ArztbegleitungSeniorenBerlinPage() {
           { href: '/tuerkischsprachige-alltagshilfe-berlin', label: 'Türkischsprachige Alltagshilfe' },
           { href: '/leistungen', label: 'Alle Leistungen im Überblick' },
           { href: '/kosten', label: 'Kosten und Pflegekasse' },
-          { href: '/kontakt', label: 'Begleitung unverbindlich anfragen' },
+          { href: '/blog/seniorenhilfe-zuhause-berlin', label: 'Seniorenhilfe zu Hause in Berlin' },
         ],
         ctaTitle: 'Sie wünschen Begleitung zu einem Termin?',
         ctaText:

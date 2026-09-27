@@ -4,7 +4,7 @@ import { createPageMetadata } from '@/lib/seo'
 export const metadata = createPageMetadata({
   title: 'Haushaltshilfe mit Pflegegrad in Berlin | Morgenlicht',
   description:
-    'Anerkannte Haushaltshilfe mit Pflegegrad in Berlin-Kreuzberg und Neukölln. Bis zu 131 € Entlastungsbetrag, 35,50 €/Std. und mögliche Direktabrechnung verständlich erklärt.',
+    'Anerkannte Haushaltshilfe mit Pflegegrad in Kreuzberg und Neukölln: bis zu 131 € Entlastungsbetrag, 35,50 € pro Stunde, Direktabrechnung möglich.',
   path: '/haushaltshilfe-pflegegrad-berlin',
 })
 
@@ -15,7 +15,7 @@ export default function HaushaltshilfePflegegradBerlinPage() {
         slug: 'haushaltshilfe-pflegegrad-berlin',
         serviceName: 'Haushaltshilfe mit Pflegegrad in Berlin',
         kicker: 'Anerkannte Hilfe in Kreuzberg und Neukölln',
-        h1: 'Haushaltshilfe mit Pflegegrad in Berlin – persönlich und transparent',
+        h1: 'Haushaltshilfe mit Pflegegrad in Berlin',
         intro:
           'Morgenlicht unterstützt ältere und pflegebedürftige Menschen bei Haushalt, Einkauf und alltäglichen Aufgaben. Wir klären vor Beginn, welche Hilfe gewünscht ist, welches Pflegekassen-Budget verfügbar ist und ob eine Direktabrechnung vereinbart werden kann.',
         trustPoints: [
@@ -78,6 +78,11 @@ export default function HaushaltshilfePflegegradBerlinPage() {
         faqTitle: 'Häufige Fragen zur Haushaltshilfe mit Pflegegrad',
         faqs: [
           {
+            question: 'Ist das dasselbe wie eine Putzhilfe?',
+            answer:
+              'Die Aufgaben ähneln sich. Der Unterschied liegt in der Bezahlung: Die Pflegekasse erstattet nur Hilfe von nach Landesrecht anerkannten Angeboten zur Unterstützung im Alltag. Eine private Putzhilfe oder Reinigungsfirma ohne diese Anerkennung wird in der Regel nicht über den Entlastungsbetrag bezahlt. Morgenlicht ist nach § 45a SGB XI anerkannt.',
+          },
+          {
             question: 'Reicht Pflegegrad 1 für Haushaltshilfe über den Entlastungsbetrag?',
             answer:
               'Ja. Der Entlastungsbetrag steht Menschen mit Pflegegrad 1 bis 5 in häuslicher Pflege zur Verfügung. Er kann für nach Landesrecht anerkannte Angebote zur Unterstützung im Alltag genutzt werden.',
@@ -103,9 +108,9 @@ export default function HaushaltshilfePflegegradBerlinPage() {
           { href: '/berlin-kreuzberg', label: 'Haushaltshilfe in Kreuzberg' },
           { href: '/berlin-neukoelln', label: 'Haushaltshilfe in Neukölln' },
           { href: '/blog/alltagshilfe-pflegegrad-entlastungsbetrag', label: '131 € Entlastungsbetrag verstehen' },
+          { href: '/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch', label: 'Doppelt so viel Haushaltshilfe ab Pflegegrad 2' },
           { href: '/tuerkischsprachige-alltagshilfe-berlin', label: 'Türkischsprachige Alltagshilfe' },
           { href: '/leistungen', label: 'Alle Leistungen von Morgenlicht' },
-          { href: '/kontakt', label: 'Kostenfrei beraten lassen' },
         ],
         ctaTitle: 'Passt die Haushaltshilfe zu Ihrer Situation?',
         ctaText:

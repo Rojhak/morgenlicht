@@ -1,291 +1,332 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { ScrollRevealSection } from '../components/animations/ScrollReveal'
-import { ArrowRight, Phone, Home, ShoppingBag, Footprints, FileText, Handshake, Sparkles, Bath, UtensilsCrossed, Shirt, Wind, Trash2, ShoppingCart, Building2, Pill, Package, Users, Stethoscope, Scissors, Landmark, CalendarCheck, Smartphone, MapPin, Mail, ClipboardList, Clock, Monitor, PhoneCall, Compass, BookOpen, TreePine, Ticket, Coffee, Search } from 'lucide-react'
+import { ArrowRight, Check, X } from 'lucide-react'
+import { ContactBand } from '../components/site/ContactBand'
+import { JsonLd } from '../components/site/JsonLd'
+import { PageHero } from '../components/site/PageHero'
+import { SITE, SITE_URL } from '@/config/site'
+import { areaServedSchema, BUSINESS_ID, graph } from '@/lib/schema'
+import { createPageMetadata } from '@/lib/seo'
 
+export const metadata = createPageMetadata({
+  title: 'Leistungen der Alltagshilfe in Berlin | Morgenlicht',
+  description:
+    'Haushaltshilfe, Einkauf, Begleitung zu Terminen, Alltagsorganisation und soziale Begleitung für Senioren in Kreuzberg und Neukölln. Anerkannt nach § 45a SGB XI.',
+  path: '/leistungen',
+})
 
+interface ServiceItem {
+  title: string
+  desc: string
+}
 
-const services = [
+interface ServiceArea {
+  id: string
+  title: string
+  summary: string
+  imageSrc?: string
+  imageAlt?: string
+  items: ServiceItem[]
+  detailLink?: { href: string; label: string }
+}
+
+const serviceAreas: ServiceArea[] = [
   {
     id: 'haushalt',
-    icon: Home,
-    title: '1. Haushalt & Wohlbefinden',
-    subtitle: 'Ein sauberes Zuhause zum Wohlfühlen',
-    description: 'Wir sorgen für ein gepflegtes Zuhause, in dem Sie sich rundum wohlfühlen. Von der gründlichen Reinigung bis zur Wäschepflege – wir kümmern uns um alles.',
-    ctaLabel: 'Haushaltshilfe',
+    title: 'Haushalt',
+    summary:
+      'Hilfe bei Aufgaben, die im Haushalt schwerfallen – im vereinbarten Umfang und so, wie Sie es gewohnt sind.',
     imageSrc: '/images/hero_active_senior.jpg',
     imageAlt: 'Eine Alltagshilfe und eine ältere Frau bereiten gemeinsam eine Mahlzeit zu',
     items: [
-      { title: 'Wohnungsreinigung', desc: 'Staubsaugen und Wischen aller Wohnräume sowie Staubwischen auf allen Oberflächen.', icon: Sparkles },
-      { title: 'Küche & Bad', desc: 'Gründliche Reinigung der Arbeitsflächen und Sanitäranlagen für optimale Hygiene.', icon: Bath },
-      { title: 'Mahlzeiten', desc: 'Zubereitung einfacher Mahlzeiten, Geschirrspülen sowie ein regelmäßiger Kühlschrank-Check.', icon: UtensilsCrossed },
-      { title: 'Wäsche & Betten', desc: 'Waschen, Bügeln und Zusammenlegen der Wäsche sowie das frische Beziehen der Betten.', icon: Shirt },
-      { title: 'Fenster & Gardinen', desc: 'Fenster putzen sowie das Waschen und Aufhängen der Gardinen.', icon: Wind },
-      { title: 'Rund ums Haus', desc: 'Allgemeine Ordnung, Müllentsorgung, Pflanzenpflege sowie Aufräumen von Balkon oder Terrasse.', icon: Trash2 },
+      { title: 'Wohnungsreinigung', desc: 'Staubsaugen, Wischen und Staubwischen in den Wohnräumen.' },
+      { title: 'Küche und Bad', desc: 'Arbeitsflächen, Spüle und Sanitärbereich reinigen.' },
+      { title: 'Einfache Mahlzeiten', desc: 'Gemeinsam kochen, Geschirr spülen, Kühlschrank im Blick behalten.' },
+      { title: 'Wäsche und Betten', desc: 'Waschen, Bügeln, Zusammenlegen und Betten frisch beziehen.' },
+      { title: 'Fenster und Gardinen', desc: 'Fenster putzen, Gardinen abnehmen, waschen und aufhängen.' },
+      { title: 'Ordnung', desc: 'Aufräumen, Müll entsorgen, Pflanzen gießen, Balkon in Ordnung halten.' },
     ],
+    detailLink: { href: '/haushaltshilfe-pflegegrad-berlin', label: 'Haushaltshilfe mit Pflegegrad: Ablauf und Finanzierung' },
   },
   {
     id: 'einkauf',
-    icon: ShoppingBag,
-    title: '2. Einkauf & Erledigungen',
-    subtitle: 'Wir nehmen Ihnen die schweren Wege ab',
-    description: 'Ob Wocheneinkauf, Apothekengang oder Behördenbesuch – wir erledigen das für Sie oder begleiten Sie gerne dabei.',
-    ctaLabel: 'Einkaufshilfe',
+    title: 'Einkauf und Erledigungen',
+    summary:
+      'Wir übernehmen Wege, die zu anstrengend geworden sind – oder begleiten Sie, wenn Sie selbst einkaufen möchten.',
     imageSrc: '/images/hero_helping_hand.jpg',
     imageAlt: 'Eine Begleitperson unterstützt eine ältere Person beim Einkauf auf dem Markt',
     items: [
-      { title: 'Wocheneinkauf', desc: 'Planung, Einkauf der Lebensmittel und Einräumen der Vorräte.', icon: ShoppingCart },
-      { title: 'Botengänge', desc: 'Erledigungen bei der Post, Behörde, Bank oder bei anderen Dienstleistern in Ihrem Kiez.', icon: Building2 },
-      { title: 'Apotheken', desc: 'Abholen von Rezepten und Besorgung Ihrer Medikamente.', icon: Pill },
-      { title: 'Besorgungen', desc: 'Kauf von Drogeriewaren und Haushaltsartikeln.', icon: Package },
-      { title: 'Begleitung beim Einkauf', desc: 'Wir begleiten Sie gerne zum Supermarkt oder zum Wochenmarkt und unterstützen beim Tragen.', icon: Users },
+      { title: 'Wocheneinkauf', desc: 'Einkaufsliste planen, einkaufen und Vorräte einräumen.' },
+      { title: 'Apotheke', desc: 'Rezepte einlösen und Medikamente abholen.' },
+      { title: 'Botengänge', desc: 'Post, Bank, Behörde oder andere Dienstleister im Kiez.' },
+      { title: 'Besorgungen', desc: 'Drogerie- und Haushaltsartikel kaufen.' },
+      { title: 'Einkaufsbegleitung', desc: 'Gemeinsam zum Supermarkt oder Wochenmarkt, mit Hilfe beim Tragen.' },
     ],
   },
   {
     id: 'begleitung',
-    icon: Footprints,
-    title: '3. Begleitung & Mobilität',
-    subtitle: 'Sicherheit und Unterstützung außer Haus',
-    description: 'Wir begleiten Sie sicher und zuverlässig zu allen wichtigen Terminen – ob Arzt, Behörde oder Freizeit.',
-    ctaLabel: 'Begleitung',
+    title: 'Begleitung und Mobilität',
+    summary:
+      'Sicher unterwegs zu Terminen, Behörden oder Verabredungen – mit jemandem an Ihrer Seite.',
     imageSrc: '/images/hero_daily_moments.jpg',
     imageAlt: 'Eine Begleitperson betrachtet gemeinsam mit einem älteren Mann ein Fotoalbum',
     items: [
-      { title: 'Begleitung zum Arzt', desc: 'Wir begleiten Sie zu Ihren Terminen beim Arzt, zur Physiotherapie oder zu anderen Behandlungen.', icon: Stethoscope },
-      { title: 'Begleitung zu Dienstleistern', desc: 'Wir begleiten Sie zur Bank, zum Friseur, zur Fußpflege oder zu anderen Dienstleistern.', icon: Scissors },
-      { title: 'Behördengänge', desc: 'Ob Bürgeramt oder Krankenkasse – wir begleiten Sie zu Ihren Terminen und unterstützen vor Ort.', icon: Landmark },
-      { title: 'Termin-Vorbereitung', desc: 'Gemeinsames Heraussuchen wichtiger Unterlagen und Vorbereiten der passenden Kleidung.', icon: CalendarCheck },
-      { title: 'Soziale Kontakte & Freizeit', desc: 'Begleitung zu Freizeitangeboten, kulturellen Räumen oder privaten Besuchen bei Familie und Freunden.', icon: Users },
-      { title: 'Mobilitäts-Hilfe', desc: 'Unterstützung bei der Orientierung im Straßenverkehr und sichere Begleitung im ÖPNV.', icon: MapPin },
+      { title: 'Arzt und Therapie', desc: 'Begleitung zu Arztpraxis, Physiotherapie oder anderen Behandlungen.' },
+      { title: 'Behördengänge', desc: 'Begleitung zum Bürgeramt, zur Kranken- oder Pflegekasse.' },
+      { title: 'Dienstleister', desc: 'Zur Bank, zum Friseur oder zur Fußpflege.' },
+      { title: 'Termine vorbereiten', desc: 'Unterlagen heraussuchen und den Weg gemeinsam planen.' },
+      { title: 'Besuche und Freizeit', desc: 'Zu Familie, Freunden oder Freizeitangeboten.' },
+      { title: 'Unterwegs mit Bus und Bahn', desc: 'Orientierung und sichere Begleitung im Straßenverkehr und ÖPNV.' },
     ],
+    detailLink: { href: '/arztbegleitung-senioren-berlin', label: 'Arztbegleitung für Senioren: was dazugehört' },
   },
   {
     id: 'alltag',
-    icon: FileText,
-    title: '4. Alltag, Überblick & Struktur',
-    subtitle: 'Kein Stress mehr mit der Alltags-Organisation',
-    description: 'Wir behalten für Sie den Überblick – von der Post über Anträge bis hin zur digitalen Teilhabe.',
-    ctaLabel: 'Alltagshilfe',
-    imageSrc: null,
-    imageAlt: '',
+    title: 'Alltag und Organisation',
+    summary:
+      'Den Überblick behalten: Post, Formulare und Termine gemeinsam ordnen – ohne Ihnen Entscheidungen abzunehmen.',
     items: [
-      { title: 'Post & Dokumente', desc: 'Gemeinsames Öffnen, Sichten und Sortieren der täglichen Post sowie Organisation wichtiger Dokumente.', icon: Mail },
-      { title: 'Schriftverkehr', desc: 'Unterstützung beim Verfassen einfacher Briefe oder E-Mails sowie Hilfe beim Haushaltsbuch.', icon: ClipboardList },
-      { title: 'Antragshilfe', desc: 'Unterstützung beim Ausfüllen von Formularen und Anträgen für Pflegekassen oder Behörden.', icon: FileText },
-      { title: 'Fristen & Termine', desc: 'Überwachung wichtiger Fristen und Planung von Arzt-, Handwerker- oder Beratungsterminen.', icon: Clock },
-      { title: 'Digitale Teilhabe', desc: 'Hilfe bei der Nutzung von Smartphone, Tablet oder PC – von Messengern bis Videoanrufen.', icon: Monitor },
-      { title: 'Telefon & Organisation', desc: 'Unterstützung bei wichtigen Telefonaten und Organisation von Feierlichkeiten oder Reisen.', icon: PhoneCall },
-      { title: 'Tagesstruktur', desc: 'Wir helfen, den Tag zu planen, erinnern an Wichtiges und geben Sicherheit im Alltag.', icon: Compass },
-      { title: 'Vorbereitung', desc: 'Unterstützung und Vorbereitung für Besuche des Pflegedienstes oder des Medizinischen Dienstes.', icon: CalendarCheck },
-      { title: 'Wohnungs-Check', desc: 'Wir schauen nach Ihrer Wohnung während Ihrer Abwesenheit (Blumen gießen, Post leeren).', icon: Home },
+      { title: 'Post und Dokumente', desc: 'Briefe gemeinsam öffnen, sichten und sortieren.' },
+      { title: 'Schriftverkehr', desc: 'Einfache Briefe oder E-Mails zusammen verfassen.' },
+      { title: 'Formulare', desc: 'Hilfe beim Ausfüllen von Formularen, etwa für Pflegekasse oder Behörden.' },
+      { title: 'Fristen und Termine', desc: 'Wichtige Termine notieren und rechtzeitig daran erinnern.' },
+      { title: 'Smartphone und Tablet', desc: 'Hilfe bei Messengern, Videoanrufen und anderen Apps.' },
+      { title: 'Telefonate', desc: 'Unterstützung bei wichtigen Anrufen und bei der Planung von Terminen.' },
+      { title: 'Tagesstruktur', desc: 'Den Tag gemeinsam planen und an Wichtiges erinnern.' },
+      { title: 'Besuche vorbereiten', desc: 'Vorbereitung auf Pflegedienst oder Begutachtung durch den Medizinischen Dienst.' },
+      { title: 'Wohnung in Abwesenheit', desc: 'Blumen gießen und Briefkasten leeren, wenn Sie nicht zu Hause sind.' },
     ],
   },
   {
-    id: 'soziale',
-    icon: Handshake,
-    title: '5. Soziale Teilhabe & Freizeit',
-    subtitle: 'Gesellschaft & Aktivierung',
-    description: 'Gemeinsam gegen Einsamkeit – wir bringen Freude und Abwechslung in Ihren Alltag.',
-    ctaLabel: 'Freizeitbegleitung',
+    id: 'soziales',
+    title: 'Soziale Teilhabe',
+    summary:
+      'Gesellschaft, Bewegung und Kontakte: gemeinsame Zeit, die den Alltag lebendiger macht.',
     imageSrc: '/images/seniors_hero.jpg',
     imageAlt: 'Ältere Menschen verbringen gemeinsam Zeit im Wohnzimmer',
     items: [
-      { title: 'Gesellschaft', desc: 'Gemeinsames Zeitungslesen, Vorlesen von Büchern oder unterhaltsame Gesellschaftsspiele.', icon: BookOpen },
-      { title: 'Raus an die Luft', desc: 'Gemütliche Spaziergänge oder Wanderungen in Ihrem Kiez für Mobilität und Wohlbefinden.', icon: TreePine },
-      { title: 'Kultur & Genuss', desc: 'Begleitung zu Theater, Konzerten oder Ausflügen.', icon: Ticket },
-      { title: 'Soziale Kontakte', desc: 'Begleitung zu Senioren-Treffs, Nachbarschafts-Cafés oder zu Besuchen bei Freunden und Familie.', icon: Coffee },
-      { title: 'Freizeit-Vermittlung', desc: 'Wir helfen, passende Angebote in Ihrem Kiez zu finden und begleiten Sie auf Wunsch dorthin.', icon: Search },
+      { title: 'Gesellschaft', desc: 'Gespräche, Vorlesen, Zeitung lesen oder Gesellschaftsspiele.' },
+      { title: 'Spaziergänge', desc: 'An die frische Luft, im eigenen Tempo und in Ihrem Kiez.' },
+      { title: 'Kultur', desc: 'Begleitung zu Theater, Konzert oder Ausflug.' },
+      { title: 'Kontakte pflegen', desc: 'Begleitung zu Seniorentreffs, Nachbarschaftscafés oder Besuchen.' },
+      { title: 'Angebote finden', desc: 'Passende Angebote im Kiez suchen und auf Wunsch gemeinsam hingehen.' },
     ],
+    detailLink: { href: '/soziale-begleitung-senioren-berlin', label: 'Soziale Begleitung für Senioren im Detail' },
   },
 ]
 
-// Navigation icons for the top anchor cards
-const navIcons = [Home, ShoppingBag, Footprints, FileText, Handshake]
-const navLabels = ['Haushalt', 'Einkauf', 'Begleitung', 'Alltag', 'Soziales']
+const notIncluded = [
+  'Medizinische Behandlungspflege, zum Beispiel Spritzen, Verbandswechsel oder Medikamentengabe durch Fachpflege',
+  'Diagnosen, medizinische oder rechtliche Beratung',
+  'Beeidigte Übersetzungen, etwa bei Arztgesprächen oder Behörden',
+  'Entscheidungen ohne die Zustimmung der unterstützten Person',
+]
+
+const schema = graph({
+  '@type': 'Service',
+  '@id': `${SITE_URL}/leistungen#service`,
+  name: 'Alltagshilfe und Haushaltshilfe für Senioren in Berlin',
+  serviceType: 'Angebot zur Unterstützung im Alltag nach § 45a SGB XI',
+  url: `${SITE_URL}/leistungen`,
+  provider: { '@id': BUSINESS_ID },
+  areaServed: areaServedSchema,
+  availableLanguage: ['de', 'tr', 'en'],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Leistungsbereiche',
+    itemListElement: serviceAreas.map((area) => ({
+      '@type': 'OfferCatalog',
+      name: area.title,
+      url: `${SITE_URL}/leistungen#${area.id}`,
+      itemListElement: area.items.map((item) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: item.title, description: item.desc },
+      })),
+    })),
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '35.50',
+    priceCurrency: 'EUR',
+    description: 'Stundensatz. Finanzierung über den Entlastungsbetrag der Pflegekasse ab Pflegegrad 1 möglich.',
+  },
+})
 
 export default function LeistungenPage() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
-
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-24 md:pt-32 pb-8 md:pb-12 px-4 bg-white">
-        <div className="relative max-w-4xl mx-auto text-center px-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#144E41]/10 rounded-full text-xs sm:text-sm font-semibold tracking-wider text-[#144E41] mb-6 shadow-sm h-[34px]">
-            <Sparkles className="w-4 h-4 text-[#144E41]" />
-            <span>Alle Leistungen im Überblick</span>
-          </span>
-          <h1 className="text-3xl sm:text-5xl md:text-5xl font-bold font-heading text-[#144E41] mb-8 tracking-tighter">
-            Unsere 5 Leistungen
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Individuelle Unterstützung für Ihren Alltag – im verfügbaren 131-€-Budget kann die Hilfe <span className="font-semibold text-[#134E4A]">ohne Eigenanteil</span> möglich sein.
+      <JsonLd data={schema} />
+
+      <PageHero
+        crumbs={[{ name: 'Leistungen', href: '/leistungen' }]}
+        kicker="Anerkannte Unterstützung im Alltag nach § 45a SGB XI"
+        title="Leistungen der Alltagshilfe: Haushalt, Einkauf, Begleitung"
+        lead={
+          <p>
+            Morgenlicht unterstützt ältere und pflegebedürftige Menschen in Kreuzberg und Neukölln
+            in fünf Bereichen. Was genau übernommen wird, vereinbaren wir vor dem ersten Einsatz
+            gemeinsam mit Ihnen.
           </p>
-        </div>
-      </section>
-
-      {/* Navigation - 5 Anchor Cards */}
-      <section className="py-4 px-4 bg-white/95 backdrop-blur-md border-b border-gray-300/50 sticky top-[80px] md:top-[112px] z-30 shadow-sm">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-5">
-            {services.map((service, index) => {
-              const NavIcon = navIcons[index]
-              return (
-                <button
-                  key={service.id}
-                  onClick={() => scrollToSection(service.id)}
-                  className="flex flex-col items-center justify-center gap-2 min-w-[70px] sm:min-w-[80px] group cursor-pointer transition-transform active:scale-95"
-                >
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#134E4A] flex items-center justify-center shadow-md group-hover:bg-[#FBBF24] group-hover:shadow-lg transition-all duration-300">
-                    <NavIcon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
-                  </div>
-                  <span className="text-[10px] font-body font-bold text-[#134E4A] text-center whitespace-nowrap uppercase tracking-widest group-hover:text-[#FBBF24] transition-colors">
-                    {navLabels[index]}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Service Sections - Zig-Zag Layout with Alternating Backgrounds */}
-      {services.map((service, sectionIndex) => {
-        const isEven = sectionIndex % 2 === 0
-        const SectionIcon = service.icon
-        // Sections 1, 3, 5 (index 0, 2, 4) = beige; Sections 2, 4 (index 1, 3) = white
-        const sectionBg = isEven ? 'bg-[#F7F6F3]' : 'bg-white'
-
-        return (
-          <ScrollRevealSection
-            key={service.id}
-            id={service.id}
-            className={`py-16 md:py-24 px-4 scroll-mt-24 md:scroll-mt-40 ${sectionBg}`}
-            delay={sectionIndex * 100}
-          >
-            <div className="max-w-6xl mx-auto">
-              {/* Zig-Zag Header: Photo or editorial number + text */}
-              <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} md:gap-16 items-center mb-4 md:mb-14`}>
-                <div className="mb-8 w-full flex-shrink-0 md:mb-0 md:w-2/5">
-                  {service.imageSrc ? (
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-[#F0F7F3]">
-                      <Image
-                        src={service.imageSrc}
-                        alt={service.imageAlt}
-                        fill
-                        sizes="(max-width: 767px) calc(100vw - 2rem), 40vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex min-h-40 items-center gap-6 border-y border-[#134E4A]/20 py-8 text-[#134E4A] md:min-h-64">
-                      <span className="font-heading text-6xl font-bold leading-none md:text-8xl" aria-hidden="true">
-                        04
-                      </span>
-                      <span className="h-px flex-1 bg-[#134E4A]/25" aria-hidden="true" />
-                    </div>
-                  )}
-                </div>
-
-                <div className="w-full md:w-3/5">
-                  <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                    <div className="w-9 h-9 md:w-14 md:h-14 rounded-full bg-[#134E4A] flex items-center justify-center flex-shrink-0 shadow-md">
-                      <SectionIcon className="w-4.5 h-4.5 md:w-7 md:h-7 text-white" />
-                    </div>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-heading text-[#134E4A] leading-tight">
-                      {service.title}
-                    </h2>
-                  </div>
-                  <p className="text-base md:text-lg font-body text-gray-600 mb-2 md:mb-3 font-medium leading-relaxed">
-                    {service.subtitle}
-                  </p>
-                  <p className="text-sm md:text-base font-body text-[#374151] leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+        }
+        aside={
+          <dl className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line">
+            {[
+              ['Stundensatz', `${SITE.hourlyRate}, Anfahrt inklusive`],
+              ['Finanzierung', 'Ab Pflegegrad 1 bis zu 131 € im Monat über die Pflegekasse'],
+              ['Einsatzgebiet', 'Berlin-Kreuzberg und Neukölln'],
+              ['Sprachen', 'Deutsch, Türkisch, Englisch'],
+            ].map(([term, value]) => (
+              <div key={term} className="bg-white px-5 py-4">
+                <dt className="text-base text-muted">{term}</dt>
+                <dd className="mt-0.5 text-lg font-semibold text-ink">{value}</dd>
               </div>
-
-              {/* Sub-Service Cards - 3-Column Grid (always white) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-8 md:mb-10">
-                {service.items.map((item, index) => {
-                  const ItemIcon = item.icon
-                  return (
-                    <div
-                      key={index}
-                      className="bg-white rounded-[12px] p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-gray-100"
-                    >
-                      <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 rounded-lg bg-[#FFFBEB] flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <ItemIcon className="w-4.5 h-4.5 text-[#FBBF24]" />
-                        </div>
-                        <div>
-                          <h3 className="font-heading font-semibold text-[#134E4A] mb-1 text-base">
-                            {item.title}
-                          </h3>
-                          <p className="text-sm font-body text-gray-600 leading-relaxed">
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-
-              {/* Per-Section CTA */}
-              <div className="text-center md:text-left">
-                <Link
-                  href="/kontakt"
-                  className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-6 py-3.5 md:py-3 bg-[#134E4A] text-white font-heading font-semibold text-sm rounded-xl hover:bg-[#0F3F3C] transition-colors shadow-sm hover:shadow-md"
-                >
-                  Jetzt für {service.ctaLabel} anfragen
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </ScrollRevealSection>
-        )
-      })}
-
-      {/* Bottom CTA */}
-      <section className="py-24 px-4 bg-[#F7F6F3]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#134E4A] mb-6 font-heading">
-            Fragen zu unseren Leistungen?
+            ))}
+          </dl>
+        }
+      >
+        <nav aria-labelledby="leistungen-sprungmarken">
+          <h2 id="leistungen-sprungmarken" className="text-base font-bold text-forest">
+            Auf dieser Seite
           </h2>
-          <p className="text-xl font-body text-[#6B7280] mb-10 max-w-2xl mx-auto leading-relaxed">
-            Im kostenfreien Erstkontakt klären wir unverbindlich, welche Unterstützung und Finanzierung zu Ihrer Situation passen könnten.
-          </p>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {serviceAreas.map((area) => (
+              <li key={area.id}>
+                <a
+                  href={`#${area.id}`}
+                  className="inline-flex min-h-12 items-center rounded-full border border-forest/30 bg-white px-5 text-base font-semibold text-forest transition hover:border-forest hover:bg-sun-soft"
+                >
+                  {area.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </PageHero>
 
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-[#134E4A] text-white hover:bg-[#0F3F3C] shadow-xl transition-all"
-            >
-              Kostenfrei beraten lassen
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-            <a
-              href="tel:03023593028"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-heading font-bold rounded-xl bg-white text-[#134E4A] border-2 border-[#134E4A]/20 hover:border-[#134E4A]/40 transition-all shadow-sm"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              030 235 930 28
-            </a>
+      {serviceAreas.map((area, index) => (
+        <section
+          key={area.id}
+          id={area.id}
+          aria-labelledby={`${area.id}-title`}
+          className={`scroll-mt-24 px-5 py-14 sm:px-6 md:py-20 ${index % 2 === 0 ? 'bg-white' : 'bg-cream'}`}
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className={`grid gap-8 ${area.imageSrc ? 'md:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] md:items-center md:gap-12' : ''}`}>
+              <div>
+                <p className="font-heading text-base font-bold text-muted" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')} / {String(serviceAreas.length).padStart(2, '0')}
+                </p>
+                <h2 id={`${area.id}-title`} className="mt-2 font-heading text-3xl font-bold text-forest md:text-4xl">
+                  {area.title}
+                </h2>
+                <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">{area.summary}</p>
+              </div>
+              {area.imageSrc && (
+                <div className="relative mx-auto aspect-[4/3] w-full max-w-sm overflow-hidden rounded-2xl bg-sand md:max-w-none">
+                  <Image
+                    src={area.imageSrc}
+                    alt={area.imageAlt ?? ''}
+                    fill
+                    sizes="(max-width: 767px) 90vw, 30vw"
+                    className="object-cover"
+                  />
+                </div>
+              )}
+            </div>
+
+            <ul className="mt-10 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+              {area.items.map((item) => (
+                <li key={item.title} className="flex gap-3 border-b border-line py-5 pr-6">
+                  <Check className="mt-1 h-5 w-5 flex-none text-forest" aria-hidden="true" />
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-forest">{item.title}</h3>
+                    <p className="mt-1 text-base leading-relaxed text-muted md:text-lg">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-8">
+              {area.detailLink && (
+                <Link
+                  href={area.detailLink.href}
+                  className="inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-sun decoration-2 underline-offset-4 hover:decoration-forest"
+                >
+                  {area.detailLink.label}
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              )}
+              <a
+                href={SITE.phone.href}
+                className="plausible-event-name=Telefonklick inline-flex min-h-12 items-center gap-2 text-lg font-semibold text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest"
+              >
+                Zu „{area.title}“ beraten lassen: {SITE.phone.label}
+              </a>
+            </div>
           </div>
+        </section>
+      ))}
 
-          <p className="font-body text-[#6B7280] text-sm mt-8">
-            Mo–Fr: 09:00 – 16:00 Uhr
-          </p>
+      <section aria-labelledby="leistungen-ratgeber" className="border-t border-line bg-white px-5 py-12 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <h2 id="leistungen-ratgeber" className="font-heading text-2xl font-bold text-forest">
+            Ratgeber zu Finanzierung und Alltag
+          </h2>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { href: '/blog/haushaltshilfe-pflegegrad-pflegekasse', label: 'Haushaltshilfe bei Pflegegrad: Was zahlt die Pflegekasse?' },
+              { href: '/blog/pflegesachleistung-haushaltshilfe-umwandlungsanspruch', label: 'Ab Pflegegrad 2: doppelt so viel Haushaltshilfe' },
+              { href: '/blog/seniorenhilfe-zuhause-berlin', label: 'Seniorenhilfe zu Hause: Welche Unterstützung passt?' },
+              { href: '/blog/sturzpraevention-im-alltag', label: 'Sturzprävention: 7 Tipps für mehr Sicherheit' },
+            ].map((guide) => (
+              <li key={guide.href}>
+                <Link
+                  href={guide.href}
+                  className="flex h-full min-h-14 items-center justify-between gap-3 rounded-xl border border-line px-4 py-3 text-lg font-semibold leading-snug text-forest transition hover:border-forest hover:bg-cream"
+                >
+                  {guide.label}
+                  <ArrowRight className="h-5 w-5 flex-none" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
+
+      <section aria-labelledby="grenzen-title" className="bg-sun-soft px-5 py-14 sm:px-6 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div>
+            <h2 id="grenzen-title" className="font-heading text-3xl font-bold text-forest">
+              Was nicht dazugehört
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-ink">
+              Morgenlicht ist kein Pflegedienst. Für medizinische Pflege sind ambulante
+              Pflegedienste zuständig. Wenn Sie beides brauchen, lassen sich Pflegedienst und
+              Alltagshilfe gut kombinieren.
+            </p>
+            <Link
+              href="/blog/alltagshilfe-oder-haushaltshilfe-unterschied"
+              className="mt-5 inline-flex min-h-12 items-center gap-2 text-lg font-bold text-forest underline decoration-forest/40 decoration-2 underline-offset-4 hover:decoration-forest"
+            >
+              Alltagshilfe, Haushaltshilfe, Pflegedienst: der Unterschied
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
+            </Link>
+          </div>
+          <ul className="border-t border-forest/20">
+            {notIncluded.map((item) => (
+              <li key={item} className="flex gap-3 border-b border-forest/20 py-4 text-lg text-ink">
+                <X className="mt-1 h-5 w-5 flex-none text-forest" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <ContactBand
+        title="Welche Unterstützung passt zu Ihnen?"
+        text="Erzählen Sie uns kurz, wobei Sie Hilfe wünschen. Wir sagen Ihnen offen, was möglich ist, wie oft wir kommen können und was es kostet."
+      />
     </>
   )
 }

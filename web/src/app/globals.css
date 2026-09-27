@@ -1,151 +1,170 @@
 @import "tailwindcss";
 
-/* Morgenlicht: ruhig, redaktionell und gut lesbar */
+/* Morgenlicht: ruhig, redaktionell und gut lesbar.
+   Signatur: die aufgehende Sonne aus dem Logo (Goldbogen) über Waldgrün und warmem Creme. */
 
 :root {
-  /* ========================================
-     COLOR PALETTE - Strict Definitions
-     ======================================== */
+  --ml-forest: #134E4A;
+  --ml-forest-deep: #0F3F3C;
+  --ml-ink: #1F2937;
+  --ml-muted: #4B5563;
+  --ml-cream: #FAF9F6;
+  --ml-sand: #F4F0E8;
+  --ml-sun: #FBBF24;
+  --ml-sun-soft: #FEF3C7;
+  --ml-mint: #EEF5F1;
+  --ml-line: rgba(19, 78, 74, 0.18);
 
-  /* Primary Action (Forest Green) */
-  --color-primary: #134E4A;
-  --color-primary-hover: #0F3F3C;
-
-  /* Accent Highlights (Gold Yellow) */
-  --color-accent: #FBBF24;
-
-  /* Text Colors */
-  --color-text-main: #1F2937; /* Dark Anthrazit */
-  --color-text-muted: #4B5563;
-  --color-text-inverted: #FFFFFF;
-
-  /* Backgrounds */
-  --bg-main: #FAF9F6;    /* Warm Cream (Default) */
-  --bg-white: #FFFFFF;   /* Pure White (Cards/Header) */
-  --bg-sun: #FFFBEB;     /* Pale Sun (Budget) */
-  --bg-mint: #F0F7F3;    /* Soft Mint */
-  --bg-footer: #134E4A;  /* Deep Forest Green */
-
-  /* UI Elements */
-  --radius-button: 12px;
-  --radius-card: 16px;
+  /* Legacy names kept for existing components */
+  --color-primary: var(--ml-forest);
+  --color-primary-hover: var(--ml-forest-deep);
+  --color-accent: var(--ml-sun);
+  --color-text-main: var(--ml-ink);
+  --color-text-muted: var(--ml-muted);
+  --bg-main: var(--ml-cream);
 }
 
-/* ========================================
-   TAILWIND THEME CONFIGURATION
-   ======================================== */
 @theme inline {
-  /* Colors */
-  --color-primary: var(--color-primary);
-  --color-accent: var(--color-accent);
+  --color-forest: var(--ml-forest);
+  --color-forest-deep: var(--ml-forest-deep);
+  --color-ink: var(--ml-ink);
+  --color-muted: var(--ml-muted);
+  --color-cream: var(--ml-cream);
+  --color-sand: var(--ml-sand);
+  --color-sun: var(--ml-sun);
+  --color-sun-soft: var(--ml-sun-soft);
+  --color-mint: var(--ml-mint);
+  --color-line: var(--ml-line);
 
-  --color-text-main: var(--color-text-main);
-  --color-bg-main: var(--bg-main);
-  --color-bg-sun: var(--bg-sun);
-  --color-bg-mint: var(--bg-mint);
-  --color-bg-footer: var(--bg-footer);
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  /* Fonts (mapped from layout.tsx variables) */
-  --font-heading: Montserrat, sans-serif;
-  --font-body: Inter, sans-serif;
-
-  /* Radii */
-  --radius-xl: var(--radius-card);
-  --radius-lg: var(--radius-button);
-}
-
-/* Glassmorphism Utility */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  --radius-xl: 16px;
+  --radius-lg: 12px;
 }
 
 /* ========================================
-   BASE STYLES
+   BASE (in @layer base, damit Tailwind-Utilities wie mt-5 greifen)
    ======================================== */
-html {
-  font-family: var(--font-body);
-  color: var(--color-text-main);
-  background-color: var(--bg-main);
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    color: var(--ml-ink);
+    background-color: var(--ml-cream);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    color: var(--ml-forest);
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  p {
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+/* Sichtbarer Tastaturfokus auf hellem und dunklem Grund (WCAG 2.4.7 / 1.4.11).
+   In @layer base, damit einzelne Elemente ihn per Utility anpassen können. */
+@layer base {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid var(--ml-forest);
+    outline-offset: 3px;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--color-primary); /* Default headings to Primary Green */
-  line-height: 1.2;
-}
-
-p {
-  line-height: 1.65;
-  margin: 0;
+  .on-dark :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline-color: var(--ml-sun);
+  }
 }
 
 /* ========================================
-   COMPONENT UTILITIES
+   SIGNATUR: Morgensonne
    ======================================== */
 
-/* Buttons */
-.btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverted);
-  border-radius: var(--radius-button);
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* Weicher Sonnenaufgang am unteren Rand einer Hero-Fläche */
+.sunrise {
+  position: relative;
+  isolation: isolate;
 }
 
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+.sunrise::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -12rem;
+  bottom: -18rem;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle at center, rgba(251, 191, 36, 0.28) 0%, rgba(251, 191, 36, 0.12) 38%, rgba(251, 191, 36, 0) 68%);
+  pointer-events: none;
 }
 
-/* Cards */
-.card-base {
-  background-color: var(--bg-white);
-  border-radius: var(--radius-card);
-  border: 1px solid #F3F4F6; /* Very light gray */
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
-  padding: 2rem; /* p-8 */
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+@media (max-width: 767px) {
+  .sunrise::before {
+    right: -16rem;
+    bottom: -22rem;
+  }
 }
 
-.card-base:hover {
-  border-color: var(--color-primary);
-  /* Optional: Add subtle green shadow on hover as requested */
-  box-shadow: 0 4px 6px -1px rgba(19, 78, 74, 0.1);
+/* Goldener Sonnenbogen: obere Hälfte eines Rings, konzentrisch um ein rundes Foto.
+   Das Element mit .sun-arc muss exakt so groß sein wie das Foto (kein Innenabstand). */
+.sun-arc {
+  position: relative;
+  isolation: isolate;
 }
 
-/* Form Inputs */
-input, select, textarea {
-  border: 1px solid #D1D5DB;
-  border-radius: 8px;
-  padding: 0.75rem;
-  outline: none;
-  transition: border-color 0.2s;
+.sun-arc::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -14px;
+  border-radius: 9999px;
+  border: 3px solid var(--ml-sun);
+  clip-path: inset(0 0 50% 0);
+  pointer-events: none;
 }
 
-input:focus, select:focus, textarea:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.45);
+/* ========================================
+   FORMULARE
+   ======================================== */
+@layer base {
+  input, select, textarea {
+    border: 1px solid #9CA3AF;
+    border-radius: 12px;
+    padding: 0.75rem;
+    transition: border-color 0.2s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--ml-forest);
+  }
 }
 
 ::selection {
   background: #FDE68A;
-  color: #1F2937;
+  color: var(--ml-ink);
+}
+
+/* Native Aufklappelemente: Marker ausblenden, eigenes Symbol wird genutzt */
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -160,5 +179,11 @@ input:focus, select:focus, textarea:focus {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  header, footer, nav[aria-label='Schneller Kontakt'] {
+    display: none !important;
   }
 }

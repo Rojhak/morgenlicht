@@ -1,37 +1,49 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import './globals.css'
 import { Navbar, Footer } from './components/layout'
 import { MobileContactBar } from './components/layout/MobileContactBar'
 import { PlausibleAnalytics } from './components/analytics/PlausibleAnalytics'
-import { serializeJsonLd } from '@/lib/security'
+import { JsonLd } from './components/site/JsonLd'
+import { SITE, SITE_URL } from '@/config/site'
+import { areaServedSchema, BUSINESS_ID, graph } from '@/lib/schema'
 
+// Variable fonts cover all weights (700 renders as real bold). Only the latin subset is
+// preloaded; latin-ext (Turkish characters) is still declared and loads on demand.
 const montserrat = Montserrat({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-heading',
-  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat',
 })
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-body',
-  weight: ['400', '500', '600'],
+  variable: '--font-inter',
 })
 
-const SITE_URL = 'https://www.morgenlicht-alltagshilfe.de'
 const GOOGLE_SITE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
+const DEFAULT_TITLE = 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht'
+const DEFAULT_DESCRIPTION =
+  'Anerkannte Alltagshilfe und Haushaltshilfe mit Pflegegrad in Berlin-Kreuzberg und Neukölln. Persönlich auf Deutsch, Türkisch und Englisch.'
+
+export const viewport: Viewport = {
+  themeColor: '#134E4A',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht',
+    default: DEFAULT_TITLE,
     template: '%s | Morgenlicht',
   },
-  description:
-    'Anerkannte Alltagshilfe und Haushaltshilfe mit Pflegegrad in Berlin-Kreuzberg und Neukölln. Persönlich auf Deutsch, Türkisch und Englisch.',
-  authors: [{ name: 'Morgenlicht Alltagshilfe' }],
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE.name,
+  authors: [{ name: SITE.name, url: SITE_URL }],
+  creator: SITE.legalName,
+  publisher: SITE.legalName,
+  formatDetection: { telephone: false, address: false, email: false },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32' },
@@ -40,36 +52,25 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-icon.png', type: 'image/png', sizes: '180x180' }],
     shortcut: ['/favicon.ico'],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
   openGraph: {
-    title: 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht',
+    title: DEFAULT_TITLE,
     description:
       'Persönliche Unterstützung bei Haushalt, Einkauf und Begleitung in Kreuzberg und Neukölln.',
     type: 'website',
     locale: 'de_DE',
-    siteName: 'Morgenlicht Alltagshilfe',
+    siteName: SITE.name,
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Morgenlicht Alltagshilfe Berlin',
+        alt: SITE.name,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alltagshilfe Berlin mit Pflegegrad | Morgenlicht',
+    title: DEFAULT_TITLE,
     description:
       'Persönliche Unterstützung bei Haushalt, Einkauf und Begleitung in Kreuzberg und Neukölln.',
     images: ['/opengraph-image'],
@@ -79,72 +80,95 @@ export const metadata: Metadata = {
     : undefined,
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'LocalBusiness',
-      '@id': `${SITE_URL}/#business`,
-      name: 'Morgenlicht Alltagshilfe Berlin',
-      legalName: 'Morgenlicht Alltagshilfe Berlin UG (haftungsbeschränkt)',
-      description:
-        'Nach Berliner Landesrecht anerkanntes Angebot zur Unterstützung im Alltag. Mobiler Service in Berlin-Kreuzberg und Neukölln auf Deutsch, Türkisch und Englisch; kein Kundenempfang an der Geschäftsanschrift.',
-      url: SITE_URL,
-      telephone: '+493023593028',
-      faxNumber: '+493053059389',
-      email: 'info@morgenlicht-alltagshilfe.de',
-      image: `${SITE_URL}/images/hero_helping_hand.jpg`,
-      logo: `${SITE_URL}/morgen.png`,
-      priceRange: '35,50 €/Std.',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: 'Urbanstraße 71',
-        postalCode: '10967',
-        addressLocality: 'Berlin',
-        addressRegion: 'Berlin',
-        addressCountry: 'DE',
-      },
-      areaServed: [
-        { '@type': 'AdministrativeArea', name: 'Berlin-Kreuzberg' },
-        { '@type': 'AdministrativeArea', name: 'Berlin-Neukölln' },
-      ],
-      knowsLanguage: ['de', 'tr', 'en'],
-      sameAs: [
-        'https://www.hilfelotse-berlin.de/detail/morgenlicht-alltagshilfe-berlin',
-      ],
-      openingHoursSpecification: [
-        {
+// Provider entity. Mobile service without customer reception: the address is the legal
+// business address, the hours describe telephone availability (ContactPoint), not a visitable office.
+const structuredData = graph(
+  {
+    '@type': 'LocalBusiness',
+    '@id': BUSINESS_ID,
+    name: SITE.name,
+    alternateName: 'Morgenlicht Alltagshilfe',
+    legalName: SITE.legalName,
+    description:
+      'Nach Berliner Landesrecht anerkanntes Angebot zur Unterstützung im Alltag nach § 45a SGB XI: Hilfe im Haushalt, Einkauf, Begleitung zu Terminen, Alltagsorganisation und soziale Begleitung für ältere und pflegebedürftige Menschen. Mobiler Service in Berlin-Kreuzberg und Neukölln auf Deutsch, Türkisch und Englisch; kein Kundenempfang an der Geschäftsanschrift.',
+    url: `${SITE_URL}/`,
+    telephone: SITE.phone.e164,
+    faxNumber: SITE.fax.e164,
+    email: SITE.email,
+    image: `${SITE_URL}/images/asiye-duman.jpeg`,
+    logo: `${SITE_URL}/morgen.png`,
+    priceRange: `${SITE.hourlyRate} pro Stunde`,
+    currenciesAccepted: 'EUR',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.address.street,
+      postalCode: SITE.address.postalCode,
+      addressLocality: SITE.address.city,
+      addressRegion: 'Berlin',
+      addressCountry: 'DE',
+    },
+    areaServed: areaServedSchema,
+    knowsLanguage: SITE.languages.map((language) => language.code),
+    knowsAbout: [
+      'Angebote zur Unterstützung im Alltag nach § 45a SGB XI',
+      'Entlastungsbetrag nach § 45b SGB XI',
+      'Umwandlungsanspruch der Pflegesachleistung',
+      'Haushaltshilfe für Senioren',
+      'Begleitung zu Arztterminen',
+      'Pflegegrad',
+    ],
+    founder: {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/ueber-uns#asiye-duman`,
+      name: SITE.founder,
+      jobTitle: SITE.founderRole,
+      worksFor: { '@id': BUSINESS_ID },
+    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: SITE.phone.e164,
+        email: SITE.email,
+        availableLanguage: ['German', 'Turkish', 'English'],
+        areaServed: 'DE-BE',
+        hoursAvailable: {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '09:00',
-          closes: '16:00',
+          dayOfWeek: SITE.hours.days,
+          opens: SITE.hours.opens,
+          closes: SITE.hours.closes,
         },
-      ],
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Angebote zur Unterstützung im Alltag',
-        itemListElement: [
-          'Haushaltshilfe',
-          'Einkaufshilfe',
-          'Begleitung zu Terminen',
-          'Alltagsorganisation',
-          'Soziale Begleitung',
-        ].map((name) => ({
-          '@type': 'Offer',
-          itemOffered: { '@type': 'Service', name },
-        })),
       },
+    ],
+    identifier: [
+      { '@type': 'PropertyValue', propertyID: 'Handelsregister', value: `${SITE.register.court}, ${SITE.register.number}` },
+      { '@type': 'PropertyValue', propertyID: 'Institutionskennzeichen (IK)', value: SITE.ik },
+    ],
+    sameAs: [SITE.hilfelotseUrl],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Angebote zur Unterstützung im Alltag',
+      itemListElement: [
+        { name: 'Haushaltshilfe', url: `${SITE_URL}/haushaltshilfe-pflegegrad-berlin` },
+        { name: 'Einkauf und Erledigungen', url: `${SITE_URL}/leistungen#einkauf` },
+        { name: 'Begleitung zu Arztterminen', url: `${SITE_URL}/arztbegleitung-senioren-berlin` },
+        { name: 'Alltagsorganisation', url: `${SITE_URL}/leistungen#alltag` },
+        { name: 'Soziale Begleitung', url: `${SITE_URL}/soziale-begleitung-senioren-berlin` },
+      ].map((service) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: service.name, url: service.url },
+      })),
     },
-    {
-      '@type': 'WebSite',
-      '@id': `${SITE_URL}/#website`,
-      url: SITE_URL,
-      name: 'Morgenlicht Alltagshilfe Berlin',
-      inLanguage: ['de-DE', 'tr-TR'],
-      publisher: { '@id': `${SITE_URL}/#business` },
-    },
-  ],
-}
+  },
+  {
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: `${SITE_URL}/`,
+    name: SITE.name,
+    inLanguage: 'de-DE',
+    publisher: { '@id': BUSINESS_ID },
+  },
+)
 
 export default function RootLayout({
   children,
@@ -153,17 +177,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${montserrat.variable} ${inter.variable}`}>
-      <body className="flex min-h-screen flex-col bg-[#FAF9F6] pb-[calc(3.5rem+env(safe-area-inset-bottom))] font-body text-lg leading-relaxed text-[#1F2937] antialiased md:pb-0">
+      <body className="flex min-h-screen flex-col bg-cream pb-[calc(3.5rem+env(safe-area-inset-bottom))] font-body text-lg leading-relaxed text-ink antialiased md:pb-0">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-[#134E4A] focus:px-5 focus:py-3 focus:text-white focus:ring-4 focus:ring-[#FFD54F]"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[100] focus:rounded-lg focus:bg-forest focus:px-5 focus:py-3 focus:text-white"
         >
           Zum Hauptinhalt springen
         </a>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
-        />
+        <JsonLd data={structuredData} />
         <PlausibleAnalytics />
         <Navbar />
         <main id="main-content" className="flex-grow" tabIndex={-1}>

@@ -1,26 +1,17 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SeoBlogArticle } from '../../components/sections/SeoBlogArticle'
+import { createPageMetadata } from '@/lib/seo'
 
 const title = 'Alltagshilfe oder Haushaltshilfe: Was ist der Unterschied?'
 const description =
   'Alltagshilfe, Haushaltshilfe oder Pflegedienst? Wir erklären die Unterschiede, typische Aufgaben und die Abrechnung über die Pflegekasse.'
 
-export const metadata: Metadata = {
-  title: { absolute: 'Alltagshilfe oder Haushaltshilfe? Unterschiede erklärt' },
+export const metadata = createPageMetadata({
+  title: 'Alltagshilfe oder Haushaltshilfe? Unterschiede erklärt',
   description,
-  alternates: { canonical: '/blog/alltagshilfe-oder-haushaltshilfe-unterschied' },
-  openGraph: {
-    title,
-    description,
-    type: 'article',
-    locale: 'de_DE',
-    publishedTime: '2026-07-11',
-    modifiedTime: '2026-07-11',
-    url: '/blog/alltagshilfe-oder-haushaltshilfe-unterschied',
-    images: [{ url: '/images/hero_helping_hand.jpg', alt: 'Alltagshilfe unterstützt eine ältere Person zu Hause' }],
-  },
-}
+  path: '/blog/alltagshilfe-oder-haushaltshilfe-unterschied',
+  article: { publishedTime: '2026-07-11', modifiedTime: '2026-07-11' },
+})
 
 const faqItems = [
   {
@@ -54,10 +45,7 @@ export default function AlltagshilfeOderHaushaltshilfePage() {
       eyebrow="Begriffe einfach erklärt"
       datePublished="2026-07-11"
       dateModified="2026-07-11"
-      dateLabel="11. Juli 2026"
       readingTime="Lesedauer: ca. 6 Minuten"
-      imageSrc="/images/hero_helping_hand.jpg"
-      imageAlt="Alltagshilfe unterstützt eine Seniorin zu Hause"
       quickFacts={[
         'Haushaltshilfe: Schwerpunkt Wohnung und Wäsche',
         'Alltagshilfe: zusätzlich Begleitung und Organisation',

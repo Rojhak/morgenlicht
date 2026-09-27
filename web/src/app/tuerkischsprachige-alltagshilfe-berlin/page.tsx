@@ -108,7 +108,7 @@ export default function TuerkischsprachigeAlltagshilfeBerlinPage() {
         ],
         relatedTitle: 'Weitere hilfreiche Seiten',
         relatedLinks: [
-          { href: '/tr/berlin-yasli-gunluk-yasam-destegi', label: 'Diese Seite auf Türkisch lesen' },
+          { href: '/tr/berlin-yasli-gunluk-yasam-destegi', label: 'Bu sayfayı Türkçe okuyun', lang: 'tr' },
           { href: '/haushaltshilfe-pflegegrad-berlin', label: 'Haushaltshilfe mit Pflegegrad' },
           { href: '/arztbegleitung-senioren-berlin', label: 'Begleitung zu Arztterminen' },
           { href: '/berlin-kreuzberg', label: 'Alltagshilfe in Kreuzberg' },
